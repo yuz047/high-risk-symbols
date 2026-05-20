@@ -166,12 +166,21 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
     out: dict[str, dict] = {}
     for n, sym in enumerate(symbols[:MAX_DETAIL_FETCH]):
         try:
-            info = yf.Ticker(sym, session=sess).info or {}
+            ticker = yf.Ticker(sym, session=sess)
+            info = ticker.info or {}
+            try:
+                fast = dict(ticker.fast_info or {})
+            except Exception:
+                fast = {}
             out[sym] = {
                 "name": info.get("shortName") or info.get("longName") or sym,
                 "country": info.get("country"),
-                "shares_out": info.get("sharesOutstanding"),
-                "market_cap": info.get("marketCap"),
+                "shares_out": (
+                    info.get("sharesOutstanding")
+                    or info.get("impliedSharesOutstanding")
+                    or info.get("floatShares")
+                ),
+                "market_cap": info.get("marketCap") or fast.get("market_cap"),
                 "num_employees": info.get("fullTimeEmployees"),
             }
         except Exception:
