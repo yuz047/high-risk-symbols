@@ -21,14 +21,17 @@ import hashlib
 import json
 import sys
 import time
-from pathlib import Path
+from datetime import datetime, timedelta, timezone
 
 import numpy as np
 import pandas as pd
 
 from config import (
-    DATA_DIR, UNIVERSE_MAX_PRICE, LOOKBACK_DAYS,
-    NASDAQ_LISTED_URL, OTHER_LISTED_URL, MAX_DETAIL_FETCH, US_COUNTRY_NAMES,
+    CACHE_DIR, DATA_DIR, LOOKBACK_DAYS, MAX_DETAIL_FETCH, NASDAQ_LISTED_URL,
+    OTHER_LISTED_URL, UNIVERSE_MAX_PRICE, US_COUNTRY_NAMES,
+    YF_DETAIL_CACHE_FLUSH_EVERY, YF_DETAIL_CACHE_TTL_DAYS, YF_DETAIL_SLEEP_SEC,
+    YF_MIN_LIVE_ROWS, YF_PRICE_CHUNK_SIZE, YF_PRICE_EMPTY_CHUNK_LIMIT,
+    YF_PRICE_SLEEP_SEC,
 )
 
 
@@ -38,6 +41,21 @@ def _log(msg: str) -> None:
 
 def is_us(country: str | None) -> bool:
     return (country or "").strip() in US_COUNTRY_NAMES
+
+
+def _is_rate_limit_error(exc: BaseException) -> bool:
+    text = f"{type(exc).__name__}: {exc}"
+    markers = ("YFRateLimitError", "Too Many Requests", "Rate limited", "429")
+    return any(m in text for m in markers)
+
+
+def _utc_now() -> datetime:
+    return datetime.now(timezone.utc)
+
+
+def _sleep(sec: float) -> None:
+    if sec > 0:
+        time.sleep(sec)
 
 
 # --------------------------------------------------------------------- #
@@ -116,21 +134,35 @@ def screen_prices(symbols: list[str]) -> dict[str, dict] | None:
 
     sess = _session()
     out: dict[str, dict] = {}
-    CHUNK = 200
-    for i in range(0, len(symbols), CHUNK):
-        chunk = symbols[i:i + CHUNK]
+    empty_streak = 0
+    chunk_size = YF_PRICE_CHUNK_SIZE
+    for i in range(0, len(symbols), chunk_size):
+        chunk = symbols[i:i + chunk_size]
         before = len(out)
         try:
             df = yf.download(chunk, period="2mo", interval="1d", group_by="ticker",
-                             auto_adjust=True, threads=True, progress=False,
+                             auto_adjust=True, threads=False, progress=False,
                              session=sess)
         except Exception as e:
-            _log(f"yf.download chunk {i//CHUNK} raised: {e}")
+            if _is_rate_limit_error(e):
+                _log(f"yf.download chunk {i//chunk_size}: rate limited; stopping live price screen")
+                break
+            _log(f"yf.download chunk {i//chunk_size} raised: {e}")
+            empty_streak += 1
+            if empty_streak >= YF_PRICE_EMPTY_CHUNK_LIMIT:
+                _log("too many failed price chunks; stopping live price screen")
+                break
+            _sleep(YF_PRICE_SLEEP_SEC)
             continue
         if df is None or len(df) == 0:
-            _log(f"chunk {i//CHUNK}: empty download (Yahoo throttling?) — skipped")
-            time.sleep(2.0)
+            empty_streak += 1
+            _log(f"chunk {i//chunk_size}: empty download ({empty_streak}/{YF_PRICE_EMPTY_CHUNK_LIMIT}) — pausing")
+            if empty_streak >= YF_PRICE_EMPTY_CHUNK_LIMIT:
+                _log("empty price chunks suggest Yahoo throttling; stopping live price screen")
+                break
+            _sleep(YF_PRICE_SLEEP_SEC * 2)
             continue
+        empty_streak = 0
         for sym in chunk:
             try:
                 sub = df[sym] if isinstance(df.columns, pd.MultiIndex) else df
@@ -148,12 +180,45 @@ def screen_prices(symbols: list[str]) -> dict[str, dict] | None:
             except Exception:
                 continue
         kept = len(out) - before
-        msg = f"screened {min(i+CHUNK, len(symbols))}/{len(symbols)}; +{kept} this chunk, {len(out)} total under ${UNIVERSE_MAX_PRICE}"
+        msg = f"screened {min(i+chunk_size, len(symbols))}/{len(symbols)}; +{kept} this chunk, {len(out)} total under ${UNIVERSE_MAX_PRICE}"
         if kept == 0:
             msg += " (0 kept — throttling or all above gate)"
         _log(msg)
-        time.sleep(0.5)
+        _sleep(YF_PRICE_SLEEP_SEC)
     return out or None
+
+
+def _details_cache_path():
+    return CACHE_DIR / "yf_details.json"
+
+
+def _load_details_cache() -> dict[str, dict]:
+    p = _details_cache_path()
+    if not p.exists():
+        return {}
+    try:
+        raw = json.loads(p.read_text())
+    except Exception as e:
+        _log(f"details cache unreadable ({e}); ignoring")
+        return {}
+    cutoff = _utc_now() - timedelta(days=YF_DETAIL_CACHE_TTL_DAYS)
+    out: dict[str, dict] = {}
+    for sym, item in raw.items():
+        try:
+            fetched_at = datetime.fromisoformat(item["fetched_at"])
+        except Exception:
+            continue
+        if fetched_at.tzinfo is None:
+            fetched_at = fetched_at.replace(tzinfo=timezone.utc)
+        if fetched_at >= cutoff and isinstance(item.get("data"), dict):
+            out[sym] = item
+    return out
+
+
+def _save_details_cache(cache: dict[str, dict]) -> None:
+    p = _details_cache_path()
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(cache, indent=2, sort_keys=True))
 
 
 def fetch_details(symbols: list[str]) -> dict[str, dict]:
@@ -164,7 +229,16 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
         return {}
     sess = _session()
     out: dict[str, dict] = {}
+    cache = _load_details_cache()
+    max_n = min(len(symbols), MAX_DETAIL_FETCH)
+    fetched = 0
+    cache_hits = 0
     for n, sym in enumerate(symbols[:MAX_DETAIL_FETCH]):
+        cached = cache.get(sym)
+        if cached:
+            out[sym] = cached["data"]
+            cache_hits += 1
+            continue
         try:
             ticker = yf.Ticker(sym, session=sess)
             info = ticker.info or {}
@@ -172,7 +246,7 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
                 fast = dict(ticker.fast_info or {})
             except Exception:
                 fast = {}
-            out[sym] = {
+            data = {
                 "name": info.get("shortName") or info.get("longName") or sym,
                 "country": info.get("country"),
                 "shares_out": (
@@ -183,11 +257,23 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
                 "market_cap": info.get("marketCap") or fast.get("market_cap"),
                 "num_employees": info.get("fullTimeEmployees"),
             }
-        except Exception:
+            out[sym] = data
+            cache[sym] = {"fetched_at": _utc_now().isoformat(timespec="seconds"), "data": data}
+            fetched += 1
+        except Exception as e:
+            if _is_rate_limit_error(e):
+                _log(f"details {n}/{max_n}: Yahoo rate limited; stopping detail fetch")
+                break
             out[sym] = {}
+            cache[sym] = {"fetched_at": _utc_now().isoformat(timespec="seconds"), "data": {}}
+            fetched += 1
         if n % 50 == 0:
-            _log(f"details {n}/{min(len(symbols), MAX_DETAIL_FETCH)}")
-        time.sleep(0.2)
+            _log(f"details {n}/{max_n} (cache hits={cache_hits}, fetched={fetched})")
+        if fetched and fetched % YF_DETAIL_CACHE_FLUSH_EVERY == 0:
+            _save_details_cache(cache)
+        _sleep(YF_DETAIL_SLEEP_SEC)
+    _save_details_cache(cache)
+    _log(f"details done: {len(out)}/{max_n} usable responses, cache hits={cache_hits}, fetched={fetched}")
     return out
 
 
@@ -232,7 +318,8 @@ def _get_live_frame() -> pd.DataFrame | None:
     # is commonly missing for micro-caps, so impute it rather than drop the row.
     need = ["market_cap", "shares_out", "avg_volume", "close_price"]
     df = df.dropna(subset=need)
-    if df.empty:
+    if len(df) < YF_MIN_LIVE_ROWS:
+        _log(f"live frame too thin after details: {len(df)} rows (<{YF_MIN_LIVE_ROWS})")
         return None
     emp_median = df["num_employees"].median()
     if pd.isna(emp_median):
@@ -329,7 +416,7 @@ def get_market_frame(prefer_live: bool = True) -> pd.DataFrame:
     if prefer_live:
         try:
             live = _get_live_frame()
-            if live is not None and len(live) >= 20:
+            if live is not None and len(live) >= YF_MIN_LIVE_ROWS:
                 return live
             _log("live path unavailable or too thin; using synthetic seed")
         except Exception as e:

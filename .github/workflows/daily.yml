@@ -32,6 +32,14 @@ jobs:
           cache: pip
           cache-dependency-path: python/requirements.txt
 
+      - name: Restore Yahoo details cache
+        uses: actions/cache@v4
+        with:
+          path: data/cache
+          key: yf-details-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            yf-details-${{ runner.os }}-
+
       - name: Install deps
         run: pip install -r python/requirements.txt
 

@@ -139,6 +139,21 @@ PCA_REFERENCE_SYMBOLS = [
 NASDAQ_LISTED_URL = "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt"
 OTHER_LISTED_URL = "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt"
 
-# Cap on how many price-screened candidates we pull full fundamentals for in
-# a single daily run (keeps the GitHub Action inside its time budget).
-MAX_DETAIL_FETCH = 600
+# --- Yahoo request budget ----------------------------------------------
+# yfinance/Yahoo can return YFRateLimitError when a runner makes too many
+# requests. Keep the daily job intentionally slow and bounded; if Yahoo starts
+# throttling, the engine stops live fetching and falls back to the committed
+# deterministic seed instead of continuing to hammer the endpoint.
+YF_PRICE_CHUNK_SIZE = 100
+YF_PRICE_SLEEP_SEC = 4.0
+YF_PRICE_EMPTY_CHUNK_LIMIT = 3
+
+# Cap on how many price-screened candidates we pull full fundamentals for in a
+# single daily run. Details are the expensive part because Ticker.info is per
+# symbol, so keep this small and rely on data/cache/yf_details.json between
+# Action runs.
+MAX_DETAIL_FETCH = 120
+YF_DETAIL_SLEEP_SEC = 2.0
+YF_DETAIL_CACHE_TTL_DAYS = 14
+YF_DETAIL_CACHE_FLUSH_EVERY = 10
+YF_MIN_LIVE_ROWS = 40
