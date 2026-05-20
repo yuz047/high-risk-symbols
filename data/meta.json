@@ -1,0 +1,213 @@
+{
+  "as_of": "2026-05-20",
+  "generated_at": "2026-05-20T20:22:54+00:00",
+  "source": "synthetic",
+  "synthetic": true,
+  "universe_size": 230,
+  "scanned_count": 230,
+  "counts": {
+    "rule_high_risk": 41,
+    "pca_high_risk": 35,
+    "both": 13,
+    "rule_only": 28,
+    "pca_only": 22,
+    "combined_total": 63,
+    "watch": 42
+  },
+  "thresholds": {
+    "universe_max_price": 15.0,
+    "lookback_days": 20,
+    "mcap_max_usd": 300000000.0,
+    "shares_out_max": 40000000.0,
+    "avg_vol_max": 1000000.0,
+    "price_max_usd": 5.0
+  },
+  "underwriters": [
+    "US Tiger Securities",
+    "WestPark Capital",
+    "R.F. Lafferty",
+    "Cathay Securities",
+    "Prime Number Capital",
+    "Benjamin Securities",
+    "Revere Securities",
+    "D. Boral Capital",
+    "Dominari Securities"
+  ],
+  "underwriter_seed_count": 49,
+  "pca": {
+    "features": [
+      "market_cap",
+      "avg_volume",
+      "close_price",
+      "num_employees"
+    ],
+    "n_components": 3,
+    "explained_variance_ratio": [
+      0.8326,
+      0.0956,
+      0.0502
+    ],
+    "risk_component_index": 0,
+    "risk_component_label": "PC1",
+    "orientation_sign": 1.0,
+    "separation_cohens_d": [
+      1.419,
+      0.103,
+      0.266
+    ],
+    "risk_separation": 1.419,
+    "risk_percentile": 85.0,
+    "risk_threshold": 2.1628,
+    "risk_loadings": {
+      "market_cap": -0.5266,
+      "avg_volume": -0.4887,
+      "close_price": -0.4809,
+      "num_employees": -0.5025
+    },
+    "anchors": [
+      "BDMD",
+      "TLIH"
+    ],
+    "anchor_count": 41,
+    "reference_symbols": [
+      {
+        "symbol": "AAPL",
+        "name": "Apple",
+        "group": "MAG7",
+        "pc1": -7.1572,
+        "pc2": 3.3299,
+        "pc3": 0.323,
+        "risk_score": -7.1572,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "MSFT",
+        "name": "Microsoft",
+        "group": "MAG7",
+        "pc1": -7.5376,
+        "pc2": 4.5223,
+        "pc3": 0.0474,
+        "risk_score": -7.5376,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "NVDA",
+        "name": "NVIDIA",
+        "group": "MAG7",
+        "pc1": -6.8257,
+        "pc2": 2.6138,
+        "pc3": 1.2048,
+        "risk_score": -6.8257,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "AMZN",
+        "name": "Amazon",
+        "group": "MAG7",
+        "pc1": -7.3435,
+        "pc2": 2.9745,
+        "pc3": -0.4466,
+        "risk_score": -7.3435,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "GOOGL",
+        "name": "Alphabet",
+        "group": "MAG7",
+        "pc1": -6.7575,
+        "pc2": 3.2921,
+        "pc3": 0.0085,
+        "risk_score": -6.7575,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "META",
+        "name": "Meta",
+        "group": "MAG7",
+        "pc1": -7.0962,
+        "pc2": 4.8903,
+        "pc3": 0.3948,
+        "risk_score": -7.0962,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "TSLA",
+        "name": "Tesla",
+        "group": "MAG7",
+        "pc1": -6.7217,
+        "pc2": 2.8868,
+        "pc3": 0.6678,
+        "risk_score": -6.7217,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "JPM",
+        "name": "JPMorgan Chase",
+        "group": "Blue chip",
+        "pc1": -6.3644,
+        "pc2": 3.6086,
+        "pc3": -0.4085,
+        "risk_score": -6.3644,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "BRK.B",
+        "name": "Berkshire Hathaway",
+        "group": "Blue chip",
+        "pc1": -6.8651,
+        "pc2": 4.7743,
+        "pc3": -0.6284,
+        "risk_score": -6.8651,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "JNJ",
+        "name": "Johnson & Johnson",
+        "group": "Blue chip",
+        "pc1": -5.7529,
+        "pc2": 3.3912,
+        "pc3": -0.3126,
+        "risk_score": -5.7529,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "XOM",
+        "name": "Exxon Mobil",
+        "group": "Blue chip",
+        "pc1": -5.68,
+        "pc2": 3.0798,
+        "pc3": 0.0374,
+        "risk_score": -5.68,
+        "risk_rank": 0.0
+      },
+      {
+        "symbol": "PG",
+        "name": "Procter & Gamble",
+        "group": "Blue chip",
+        "pc1": -5.8093,
+        "pc2": 3.6278,
+        "pc3": -0.2778,
+        "risk_score": -5.8093,
+        "risk_rank": 0.0
+      }
+    ],
+    "reference_note": "MAG7 and blue-chip points are projected into the fitted PCA space as visual rulers only; they are not scanned, counted, or flagged.",
+    "feature_log_mean": {
+      "market_cap": 19.5267,
+      "avg_volume": 14.4773,
+      "close_price": 1.7066,
+      "num_employees": 7.1191
+    },
+    "feature_log_std": {
+      "market_cap": 2.0358,
+      "avg_volume": 1.7803,
+      "close_price": 0.6152,
+      "num_employees": 2.4017
+    }
+  },
+  "data_health": {
+    "ok": true,
+    "synthetic": true,
+    "note": "SEED DATA \u2014 sandbox feeds are firewalled; the GitHub Action replaces this with live Yahoo data on its first run."
+  }
+}

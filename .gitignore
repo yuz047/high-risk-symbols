@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+
+# Data cache (intraday CSV scratch) — keep the JSON outputs the dashboard reads
+data/cache/
+
+# Scratch / backups
+*.bak
+*.swp
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+
+# Env
+.env
+.env.local
+.env.*.local
