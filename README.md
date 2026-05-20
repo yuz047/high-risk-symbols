@@ -70,7 +70,8 @@ GitHub Actions (weeknight, after the US close)
         │
         ▼
 Python engine ── NASDAQ Trader symbol directory (universe)
-                 yfinance / curl_cffi (price, volume, fundamentals)
+                 Massive/Polygon grouped daily bars (price, volume)
+                 Massive/Polygon ticker overview (fundamentals)
                  underwriters.json (curated boutique → symbol map)
    data → rules (6-criteria gate) → PCA(3) risk axis → combined verdict
                           │
@@ -90,7 +91,7 @@ snapshots over HTTPS, with an embedded seed as an offline fallback.
 high-risk-symbols/
 ├── python/
 │   ├── config.py          # thresholds, universe gate, underwriters, anchors
-│   ├── data.py            # universe + yfinance screen/details + synthetic seed
+│   ├── data.py            # universe + Massive/Polygon screen/details + synthetic seed
 │   ├── rules.py           # the six-criteria rule gate
 │   ├── pca.py             # PCA(3) via SVD + risk-axis selection + cut
 │   ├── run_daily.py       # orchestrator → data/*.json (entry point for cron)
@@ -117,8 +118,8 @@ high-risk-symbols/
 | Field | Source |
 |---|---|
 | Universe (all US-listed) | NASDAQ Trader symbol directory (`nasdaqlisted` + `otherlisted`) |
-| Price, 20-day high, avg volume | yfinance batched `download` (curl_cffi Chrome impersonation) |
-| Country, shares out, market cap, employees | yfinance `Ticker.info` |
+| Price, 20-day high, avg volume | Massive/Polygon grouped daily bars, one request per market date |
+| Country, shares out, market cap, employees | Massive/Polygon ticker overview, cached and capped per run |
 | **IPO underwriter** | `data/underwriters.json` — the one field no price feed carries |
 
 The underwriter map is a **curated seed**. The nine boutiques specialise in
@@ -136,11 +137,14 @@ overwrites it.
 
 ## Run it yourself
 
-Requires Python 3.11+. yfinance needs an outbound connection; GitHub Actions
-runners work out of the box.
+Requires Python 3.11+. Live runs need an outbound connection and a
+`MASSIVE_API_KEY` (or `POLYGON_API_KEY`) environment variable. The workflow
+paces requests through one central throttle so it stays below common free-tier
+rate limits; without a key, the deterministic seed path is used.
 
 ```bash
 pip install -r python/requirements.txt
+export MASSIVE_API_KEY="..."   # optional; omit for deterministic seed output
 cd python
 python seed_universe.py     # (re)build the seed universe + underwriter map
 python run_daily.py         # scan → ../data/*.json

@@ -135,25 +135,23 @@ PCA_REFERENCE_SYMBOLS = [
 ]
 
 # --- Data source env ----------------------------------------------------
-# All optional. The engine runs (on a seed) without any of them.
+# MASSIVE_API_KEY or POLYGON_API_KEY enables the live Massive/Polygon path.
+# Without a key, the engine runs on the deterministic seed.
 NASDAQ_LISTED_URL = "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt"
 OTHER_LISTED_URL = "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt"
+MASSIVE_API_BASE = "https://api.massive.com"
 
-# --- Yahoo request budget ----------------------------------------------
-# yfinance/Yahoo can return YFRateLimitError when a runner makes too many
-# requests. Keep the daily job intentionally slow and bounded; if Yahoo starts
-# throttling, the engine stops live fetching and falls back to the committed
-# deterministic seed instead of continuing to hammer the endpoint.
-YF_PRICE_CHUNK_SIZE = 100
-YF_PRICE_SLEEP_SEC = 4.0
-YF_PRICE_EMPTY_CHUNK_LIMIT = 3
+# --- Massive/Polygon request budget ------------------------------------
+# The grouped daily endpoint gives all-stock OHLCV in one request per date.
+# Ticker overview is per symbol, so it is cached and bounded. Keep request
+# pacing conservative: 15 seconds stays below a 5-request/minute ceiling.
+MASSIVE_REQUEST_SLEEP_SEC = 15.0
+MASSIVE_LOOKBACK_CALENDAR_DAYS = 45
+MASSIVE_DETAIL_CACHE_TTL_DAYS = 14
+MASSIVE_DETAIL_CACHE_FLUSH_EVERY = 10
 
-# Cap on how many price-screened candidates we pull full fundamentals for in a
-# single daily run. Details are the expensive part because Ticker.info is per
-# symbol, so keep this small and rely on data/cache/yf_details.json between
-# Action runs.
-MAX_DETAIL_FETCH = 120
-YF_DETAIL_SLEEP_SEC = 2.0
-YF_DETAIL_CACHE_TTL_DAYS = 14
-YF_DETAIL_CACHE_FLUSH_EVERY = 10
-YF_MIN_LIVE_ROWS = 40
+# Cap on how many price-screened candidates we pull ticker overview for in a
+# single run. This keeps first-run request count below the workflow timeout; the
+# cache fills in more names over subsequent runs.
+MAX_DETAIL_FETCH = 80
+MASSIVE_MIN_LIVE_ROWS = 35

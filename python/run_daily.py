@@ -119,8 +119,8 @@ def main() -> None:
             "ok": True,
             "synthetic": synthetic,
             "note": ("SEED DATA — sandbox feeds are firewalled; the GitHub Action "
-                     "replaces this with live Yahoo data on its first run."
-                     if synthetic else "live Yahoo data via yfinance/curl_cffi"),
+                     "replaces this with live Massive/Polygon data when the API key is available."
+                     if synthetic else "live Massive/Polygon data"),
         },
     }
 

@@ -3,11 +3,9 @@
 Source priority (highest to lowest):
 
   1. LIVE — the real US-listed symbol directory from NASDAQ Trader, screened
-     for price < UNIVERSE_MAX_PRICE via batched yfinance downloads, with full
-     fundamentals (country, shares out, market cap, employees) pulled from
-     ``Ticker.info``. yfinance runs through a curl_cffi Chrome-impersonation
-     session so Yahoo's TLS bot filter doesn't block data-center IPs
-     (GitHub Actions). This is the path that runs in CI every weekday.
+     for price < UNIVERSE_MAX_PRICE via Massive/Polygon grouped daily bars.
+     Company size fields are pulled from Massive ticker overview with a small
+     persistent cache so the daily job does not repeat per-symbol calls.
 
   2. SEED/SYNTHETIC — deterministic fundamentals generated from
      ``data/universe_seed.json``. Used when the feeds are unreachable (e.g. a
@@ -19,6 +17,7 @@ Everything logs to stderr so the CI log shows exactly what happened.
 from __future__ import annotations
 import hashlib
 import json
+import os
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -27,11 +26,11 @@ import numpy as np
 import pandas as pd
 
 from config import (
-    CACHE_DIR, DATA_DIR, LOOKBACK_DAYS, MAX_DETAIL_FETCH, NASDAQ_LISTED_URL,
+    CACHE_DIR, DATA_DIR, LOOKBACK_DAYS, MASSIVE_API_BASE,
+    MASSIVE_DETAIL_CACHE_FLUSH_EVERY, MASSIVE_DETAIL_CACHE_TTL_DAYS,
+    MASSIVE_LOOKBACK_CALENDAR_DAYS, MASSIVE_MIN_LIVE_ROWS,
+    MASSIVE_REQUEST_SLEEP_SEC, MAX_DETAIL_FETCH, NASDAQ_LISTED_URL,
     OTHER_LISTED_URL, UNIVERSE_MAX_PRICE, US_COUNTRY_NAMES,
-    YF_DETAIL_CACHE_FLUSH_EVERY, YF_DETAIL_CACHE_TTL_DAYS, YF_DETAIL_SLEEP_SEC,
-    YF_MIN_LIVE_ROWS, YF_PRICE_CHUNK_SIZE, YF_PRICE_EMPTY_CHUNK_LIMIT,
-    YF_PRICE_SLEEP_SEC,
 )
 
 
@@ -45,7 +44,7 @@ def is_us(country: str | None) -> bool:
 
 def _is_rate_limit_error(exc: BaseException) -> bool:
     text = f"{type(exc).__name__}: {exc}"
-    markers = ("YFRateLimitError", "Too Many Requests", "Rate limited", "429")
+    markers = ("Too Many Requests", "Rate limited", "rate limit", "429")
     return any(m in text for m in markers)
 
 
@@ -76,14 +75,38 @@ def load_underwriter_map() -> dict[str, str]:
 # --------------------------------------------------------------------- #
 # Live path
 # --------------------------------------------------------------------- #
-def _session():
-    """curl_cffi Chrome-impersonation session (or None)."""
-    try:
-        from curl_cffi import requests as creq  # type: ignore
-        return creq.Session(impersonate="chrome120")
-    except Exception as e:  # pragma: no cover
-        _log(f"curl_cffi unavailable ({e}); yfinance will use its default session")
+def _massive_api_key() -> str | None:
+    return os.getenv("MASSIVE_API_KEY") or os.getenv("POLYGON_API_KEY")
+
+
+def _massive_get(path: str, params: dict | None = None) -> dict | None:
+    """GET a Massive/Polygon endpoint with one central throttle point."""
+    key = _massive_api_key()
+    if not key:
+        _log("MASSIVE_API_KEY/POLYGON_API_KEY missing; live path disabled")
         return None
+
+    import requests
+
+    q = dict(params or {})
+    q["apiKey"] = key
+    url = f"{MASSIVE_API_BASE.rstrip('/')}/{path.lstrip('/')}"
+    try:
+        r = requests.get(url, params=q, timeout=30)
+        if r.status_code == 429:
+            raise RuntimeError("429 Too Many Requests")
+        if r.status_code >= 400:
+            _log(f"Massive {path}: HTTP {r.status_code}")
+            return None
+        return r.json()
+    except Exception as e:
+        if _is_rate_limit_error(e):
+            _log(f"Massive {path}: rate limited; stopping live path")
+            raise
+        _log(f"Massive {path} raised: {e}")
+        return None
+    finally:
+        _sleep(MASSIVE_REQUEST_SLEEP_SEC)
 
 
 def build_live_universe() -> list[str] | None:
@@ -124,72 +147,74 @@ def build_live_universe() -> list[str] | None:
 
 
 def screen_prices(symbols: list[str]) -> dict[str, dict] | None:
-    """Batched price/volume screen via yfinance. Returns per-symbol dict with
-    close_price, price_max_20d, avg_volume; only names under the price gate."""
-    try:
-        import yfinance as yf  # type: ignore
-    except Exception as e:
-        _log(f"yfinance unavailable ({e}); cannot screen live")
+    """Screen prices using Massive grouped daily bars.
+
+    This is intentionally request-light: one request per date returns OHLCV for
+    the whole U.S. stock market. We walk backward until we have LOOKBACK_DAYS
+    trading sessions, then compute 20-day price high and average volume.
+    """
+    if not _massive_api_key():
+        _log("MASSIVE_API_KEY/POLYGON_API_KEY missing; live price screen disabled")
         return None
 
-    sess = _session()
-    out: dict[str, dict] = {}
-    empty_streak = 0
-    chunk_size = YF_PRICE_CHUNK_SIZE
-    for i in range(0, len(symbols), chunk_size):
-        chunk = symbols[i:i + chunk_size]
-        before = len(out)
+    universe = set(symbols)
+    hist: dict[str, list[dict]] = {}
+    trading_days = 0
+    end_day = _utc_now().date() - timedelta(days=1)
+
+    for offset in range(MASSIVE_LOOKBACK_CALENDAR_DAYS):
+        day = end_day - timedelta(days=offset)
         try:
-            df = yf.download(chunk, period="2mo", interval="1d", group_by="ticker",
-                             auto_adjust=True, threads=False, progress=False,
-                             session=sess)
-        except Exception as e:
-            if _is_rate_limit_error(e):
-                _log(f"yf.download chunk {i//chunk_size}: rate limited; stopping live price screen")
-                break
-            _log(f"yf.download chunk {i//chunk_size} raised: {e}")
-            empty_streak += 1
-            if empty_streak >= YF_PRICE_EMPTY_CHUNK_LIMIT:
-                _log("too many failed price chunks; stopping live price screen")
-                break
-            _sleep(YF_PRICE_SLEEP_SEC)
+            payload = _massive_get(
+                f"/v2/aggs/grouped/locale/us/market/stocks/{day.isoformat()}",
+                {"adjusted": "true", "include_otc": "false"},
+            )
+        except Exception:
+            return None
+        rows = (payload or {}).get("results") or []
+        if not rows:
             continue
-        if df is None or len(df) == 0:
-            empty_streak += 1
-            _log(f"chunk {i//chunk_size}: empty download ({empty_streak}/{YF_PRICE_EMPTY_CHUNK_LIMIT}) — pausing")
-            if empty_streak >= YF_PRICE_EMPTY_CHUNK_LIMIT:
-                _log("empty price chunks suggest Yahoo throttling; stopping live price screen")
-                break
-            _sleep(YF_PRICE_SLEEP_SEC * 2)
-            continue
-        empty_streak = 0
-        for sym in chunk:
+        trading_days += 1
+        for bar in rows:
+            sym = str(bar.get("T") or "").strip()
+            if sym not in universe:
+                continue
             try:
-                sub = df[sym] if isinstance(df.columns, pd.MultiIndex) else df
-                sub = sub.dropna(subset=["Close"]).tail(LOOKBACK_DAYS)
-                if sub.empty:
-                    continue
-                close = float(sub["Close"].iloc[-1])
-                if not (0 < close < UNIVERSE_MAX_PRICE):
-                    continue
-                out[sym] = {
-                    "close_price": close,
-                    "price_max_20d": float(sub["Close"].max()),
-                    "avg_volume": float(sub["Volume"].tail(LOOKBACK_DAYS).mean()),
-                }
+                hist.setdefault(sym, []).append({
+                    "date": day.isoformat(),
+                    "close": float(bar["c"]),
+                    "high": float(bar["h"]),
+                    "volume": float(bar.get("v") or 0.0),
+                })
             except Exception:
                 continue
-        kept = len(out) - before
-        msg = f"screened {min(i+chunk_size, len(symbols))}/{len(symbols)}; +{kept} this chunk, {len(out)} total under ${UNIVERSE_MAX_PRICE}"
-        if kept == 0:
-            msg += " (0 kept — throttling or all above gate)"
-        _log(msg)
-        _sleep(YF_PRICE_SLEEP_SEC)
+        _log(f"Massive grouped {day}: {len(rows)} bars, {trading_days}/{LOOKBACK_DAYS} trading days")
+        if trading_days >= LOOKBACK_DAYS:
+            break
+
+    if trading_days < max(5, LOOKBACK_DAYS // 2):
+        _log(f"too few Massive trading days ({trading_days}); live price screen unavailable")
+        return None
+
+    out: dict[str, dict] = {}
+    for sym, bars in hist.items():
+        bars = sorted(bars, key=lambda x: x["date"])[-LOOKBACK_DAYS:]
+        if not bars:
+            continue
+        close = bars[-1]["close"]
+        if not (0 < close < UNIVERSE_MAX_PRICE):
+            continue
+        out[sym] = {
+            "close_price": close,
+            "price_max_20d": max(b["high"] for b in bars),
+            "avg_volume": sum(b["volume"] for b in bars) / len(bars),
+        }
+    _log(f"Massive price screen: {len(out)} symbols under ${UNIVERSE_MAX_PRICE}")
     return out or None
 
 
 def _details_cache_path():
-    return CACHE_DIR / "yf_details.json"
+    return CACHE_DIR / "massive_details.json"
 
 
 def _load_details_cache() -> dict[str, dict]:
@@ -201,7 +226,7 @@ def _load_details_cache() -> dict[str, dict]:
     except Exception as e:
         _log(f"details cache unreadable ({e}); ignoring")
         return {}
-    cutoff = _utc_now() - timedelta(days=YF_DETAIL_CACHE_TTL_DAYS)
+    cutoff = _utc_now() - timedelta(days=MASSIVE_DETAIL_CACHE_TTL_DAYS)
     out: dict[str, dict] = {}
     for sym, item in raw.items():
         try:
@@ -222,14 +247,10 @@ def _save_details_cache(cache: dict[str, dict]) -> None:
 
 
 def fetch_details(symbols: list[str]) -> dict[str, dict]:
-    """Per-symbol fundamentals from Ticker.info (country, shares, mcap, employees)."""
-    try:
-        import yfinance as yf  # type: ignore
-    except Exception:
-        return {}
-    sess = _session()
+    """Per-symbol fundamentals from Massive ticker overview."""
     out: dict[str, dict] = {}
     cache = _load_details_cache()
+    seed_by_symbol = {r["symbol"]: r for r in load_universe_seed()}
     max_n = min(len(symbols), MAX_DETAIL_FETCH)
     fetched = 0
     cache_hits = 0
@@ -240,38 +261,38 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
             cache_hits += 1
             continue
         try:
-            ticker = yf.Ticker(sym, session=sess)
-            info = ticker.info or {}
-            try:
-                fast = dict(ticker.fast_info or {})
-            except Exception:
-                fast = {}
+            payload = _massive_get(f"/v3/reference/tickers/{sym}")
+            info = (payload or {}).get("results") or {}
+            address = info.get("address") or {}
+            country = (
+                address.get("country")
+                or seed_by_symbol.get(sym, {}).get("country")
+                or ("United States" if info.get("locale") == "us" else None)
+            )
             data = {
-                "name": info.get("shortName") or info.get("longName") or sym,
-                "country": info.get("country"),
+                "name": info.get("name") or seed_by_symbol.get(sym, {}).get("name") or sym,
+                "country": country,
                 "shares_out": (
-                    info.get("sharesOutstanding")
-                    or info.get("impliedSharesOutstanding")
-                    or info.get("floatShares")
+                    info.get("weighted_shares_outstanding")
+                    or info.get("share_class_shares_outstanding")
                 ),
-                "market_cap": info.get("marketCap") or fast.get("market_cap"),
-                "num_employees": info.get("fullTimeEmployees"),
+                "market_cap": info.get("market_cap") or info.get("marketcap"),
+                "num_employees": info.get("total_employees"),
             }
             out[sym] = data
             cache[sym] = {"fetched_at": _utc_now().isoformat(timespec="seconds"), "data": data}
             fetched += 1
         except Exception as e:
             if _is_rate_limit_error(e):
-                _log(f"details {n}/{max_n}: Yahoo rate limited; stopping detail fetch")
+                _log(f"details {n}/{max_n}: Massive rate limited; stopping detail fetch")
                 break
             out[sym] = {}
             cache[sym] = {"fetched_at": _utc_now().isoformat(timespec="seconds"), "data": {}}
             fetched += 1
         if n % 50 == 0:
             _log(f"details {n}/{max_n} (cache hits={cache_hits}, fetched={fetched})")
-        if fetched and fetched % YF_DETAIL_CACHE_FLUSH_EVERY == 0:
+        if fetched and fetched % MASSIVE_DETAIL_CACHE_FLUSH_EVERY == 0:
             _save_details_cache(cache)
-        _sleep(YF_DETAIL_SLEEP_SEC)
     _save_details_cache(cache)
     _log(f"details done: {len(out)}/{max_n} usable responses, cache hits={cache_hits}, fetched={fetched}")
     return out
@@ -318,14 +339,14 @@ def _get_live_frame() -> pd.DataFrame | None:
     # is commonly missing for micro-caps, so impute it rather than drop the row.
     need = ["market_cap", "shares_out", "avg_volume", "close_price"]
     df = df.dropna(subset=need)
-    if len(df) < YF_MIN_LIVE_ROWS:
-        _log(f"live frame too thin after details: {len(df)} rows (<{YF_MIN_LIVE_ROWS})")
+    if len(df) < MASSIVE_MIN_LIVE_ROWS:
+        _log(f"live frame too thin after Massive details: {len(df)} rows (<{MASSIVE_MIN_LIVE_ROWS})")
         return None
     emp_median = df["num_employees"].median()
     if pd.isna(emp_median):
         emp_median = 50.0  # small-cap default when the field is universally absent
     df["num_employees"] = df["num_employees"].fillna(emp_median).round().astype(int)
-    df["source"] = "yfinance"
+    df["source"] = "massive"
     df["synthetic"] = False
     _log(f"live frame: {len(df)} symbols (employees imputed for "
          f"{int(df['num_employees'].eq(round(emp_median)).sum())} missing)")
@@ -337,7 +358,7 @@ def _get_live_frame() -> pd.DataFrame | None:
 # --------------------------------------------------------------------- #
 # Pinned seed fundamentals for the two reported anchor names so they are
 # unambiguously high-risk on every criterion (they orient the PCA axis and
-# must appear in the combined list). Live runs overwrite these with Yahoo data.
+# must appear in the combined list). Live runs overwrite these with Massive data.
 _ANCHOR_FUNDAMENTALS = {
     # symbol: (close, price_max_20d, shares_m, vol_shares, employees)
     "BDMD": (2.60, 2.90, 23.0, 120_000, 210),
@@ -416,7 +437,7 @@ def get_market_frame(prefer_live: bool = True) -> pd.DataFrame:
     if prefer_live:
         try:
             live = _get_live_frame()
-            if live is not None and len(live) >= YF_MIN_LIVE_ROWS:
+            if live is not None and len(live) >= MASSIVE_MIN_LIVE_ROWS:
                 return live
             _log("live path unavailable or too thin; using synthetic seed")
         except Exception as e:

@@ -6,9 +6,10 @@ This produces two committed JSON seeds:
   data/underwriters.json    {_disclaimer, _source, map: {symbol: firm}}
 
 The live daily job replaces the *universe* with the real US-listed directory
-from NASDAQ Trader and the *fundamentals* with Yahoo data. These seeds exist
-so the dashboard renders offline and so the scanner has a deterministic
-fallback when the data feeds are unreachable (e.g. a locked-down CI sandbox).
+from NASDAQ Trader, prices with Massive/Polygon grouped daily bars, and
+fundamentals with Massive/Polygon ticker overview. These seeds exist so the
+dashboard renders offline and so the scanner has a deterministic fallback
+when the data feeds are unreachable (e.g. a locked-down CI sandbox).
 
 The underwriter map is a CURATED SEED. The nine boutiques here specialise in
 small foreign micro-cap Nasdaq listings; the specific symbol assignments are

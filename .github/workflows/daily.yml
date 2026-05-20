@@ -18,6 +18,7 @@ permissions:
 env:
   # GitHub is forcing JS actions to Node 24 on 2026-06-02; opt in now.
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+  MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
 
 jobs:
   scan:
@@ -32,13 +33,13 @@ jobs:
           cache: pip
           cache-dependency-path: python/requirements.txt
 
-      - name: Restore Yahoo details cache
+      - name: Restore Massive details cache
         uses: actions/cache@v4
         with:
           path: data/cache
-          key: yf-details-${{ runner.os }}-${{ github.run_id }}
+          key: massive-details-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
-            yf-details-${{ runner.os }}-
+            massive-details-${{ runner.os }}-
 
       - name: Install deps
         run: pip install -r python/requirements.txt

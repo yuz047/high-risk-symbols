@@ -2,7 +2,8 @@
 
 Same shape as GreenLight Trader: a **public engine repo** that runs the scan on
 a GitHub Actions cron and commits `data/*.json`, plus a **static dashboard**
-that reads those JSON files. No Supabase, no Vercel, no paid APIs. Cost: **$0**.
+that reads those JSON files. No Supabase and no Vercel; live data uses a
+Massive/Polygon API key stored as a GitHub Actions secret.
 
 The dashboard is a single self-contained `web/index.html` (Chart.js, no build
 step), so you have two equally simple hosting options.
@@ -47,20 +48,30 @@ reorder them if you want GitHub-raw to take priority.
 Either way, if both fetches fail the page renders the **embedded seed** so it is
 never blank.
 
-## Step 3 — Enable the daily cron
+## Step 3 — Add the Massive/Polygon secret
+
+In the `high-risk-symbols` repo, add the API key as a repository secret:
+
+Settings → Secrets and variables → Actions → New repository secret
+
+Name it `MASSIVE_API_KEY`. The workflow also accepts `POLYGON_API_KEY` locally,
+but the checked-in GitHub Action reads `MASSIVE_API_KEY`.
+
+## Step 4 — Enable the daily cron
 
 In the `high-risk-symbols` repo:
 
 1. **Actions** tab → enable workflows if prompted.
-2. **High-Risk Symbols daily → Run workflow** to fire it once manually. ~5–15
+2. **High-Risk Symbols daily → Run workflow** to fire it once manually. ~20–35
    min later you should see a commit by `high-risk-bot` updating `data/*.json`
-   with **live** Yahoo data (the dashboard's status banner flips from amber
-   "Seed data" to green "Live data").
+   with **live** Massive/Polygon data (the dashboard's status banner flips
+   from amber "Seed data" to green "Live data").
 
 The cron is `30 0 * * 2-6` (00:30 UTC Tue–Sat ≈ 20:30 ET Mon–Fri, just after
-the US close). No secrets are required — the engine uses only free public data.
+the US close). Requests are deliberately paced through a central 15-second
+throttle and ticker overview responses are cached between runs.
 
-## Step 4 — Smoke test
+## Step 5 — Smoke test
 
 Open the dashboard and hard-refresh (⌘-Shift-R). Check:
 
