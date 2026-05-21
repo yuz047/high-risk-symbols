@@ -202,6 +202,18 @@ python run_daily.py         # scan → ../data/*.json
 python embed_seed.py        # refresh the dashboard's offline fallback
 ```
 
+To hydrate static fundamentals locally instead of inside GitHub Actions:
+
+```bash
+export MASSIVE_API_KEY="..."   # do not commit this
+python python/backfill_fundamentals.py --limit 250 --sleep-sec 15
+```
+
+The backfill is resumable. It writes `data/security_master.json` and uses the
+ignored `data/cache/massive_details.json` cache, so later chunks continue where
+the previous one stopped. Increase `--limit` or lower `--sleep-sec` only if the
+Massive plan can support the request rate.
+
 Open `web/index.html` in a browser. The percentile slider re-cuts the PCA
 region live; the table drills into each symbol's five-criterion breakdown and
 PCA placement.

@@ -109,6 +109,9 @@ suffix forms, ETFs, tests, OTC and non-major exchange rows excluded.
 Live runs ignore synthetic or suspiciously small security-master caches and
 rebuild from NASDAQ Trader, then hydrate static fundamentals in bounded batches
 to avoid rate-limit hits.
+For a local backfill, export `MASSIVE_API_KEY` and run
+`python python/backfill_fundamentals.py --limit 250 --sleep-sec 15`; repeat the
+command until `detail_coverage` reaches the desired level.
 
 ## What runs where (cheat sheet)
 
