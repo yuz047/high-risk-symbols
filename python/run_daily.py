@@ -10,6 +10,7 @@ Outputs (the dashboard reads these; the GitHub Action commits them):
 """
 from __future__ import annotations
 import json
+import math
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -39,6 +40,19 @@ def _category(rule: bool, pca: bool, hit: int) -> str:
     if hit >= 3:  # 3-4 of 5 criteria — near-miss watch band
         return "watch"
     return "clear"
+
+
+def _json_value(v):
+    """Return browser-strict JSON values; never emit NaN/Infinity."""
+    if isinstance(v, np.generic):
+        v = v.item()
+    if isinstance(v, float):
+        return v if math.isfinite(v) else None
+    if isinstance(v, dict):
+        return {k: _json_value(x) for k, x in v.items()}
+    if isinstance(v, list):
+        return [_json_value(x) for x in v]
+    return v
 
 
 def _security_master_stats() -> dict:
@@ -72,12 +86,15 @@ def main() -> None:
 
     records = []
     for _, r in df.iterrows():
+        underwriter = r.get("underwriter")
+        if underwriter is None or (isinstance(underwriter, float) and math.isnan(underwriter)):
+            underwriter = None
         records.append({
             "symbol": r["symbol"],
             "name": r["name"],
             "country": r["country"],
             "is_us": bool(is_us(r["country"])),
-            "underwriter": r["underwriter"] if r["underwriter"] else None,
+            "underwriter": underwriter,
             "close_price": round(float(r["close_price"]), 2),
             "price_max_20d": round(float(r["price_max_20d"]), 2),
             "mcap_musd": round(float(r["market_cap"]) / 1e6, 1),
@@ -154,8 +171,8 @@ def main() -> None:
         },
     }
 
-    (DATA_DIR / "symbols.json").write_text(json.dumps(records, indent=2))
-    (DATA_DIR / "meta.json").write_text(json.dumps(meta, indent=2))
+    (DATA_DIR / "symbols.json").write_text(json.dumps(_json_value(records), indent=2, allow_nan=False))
+    (DATA_DIR / "meta.json").write_text(json.dumps(_json_value(meta), indent=2, allow_nan=False))
 
     # history (one row per run-day; replace same-day)
     hist_p = DATA_DIR / "history.json"
@@ -171,7 +188,7 @@ def main() -> None:
         "source": source,
     })
     hist.sort(key=lambda h: h["date"])
-    hist_p.write_text(json.dumps(hist[-400:], indent=2))
+    hist_p.write_text(json.dumps(_json_value(hist[-400:]), indent=2, allow_nan=False))
 
     _log(f"source={source} synthetic={synthetic} scanned={len(df)} "
          f"rule={counts['rule_high_risk']} pca={counts['pca_high_risk']} "

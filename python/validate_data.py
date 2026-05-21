@@ -74,7 +74,27 @@ def _check_security_master() -> None:
     print(f"[validate] security_master rows={len(rows)} detail_coverage={coverage}")
 
 
+def _reject_json_constant(value: str) -> None:
+    raise ValueError(f"non-standard JSON constant {value}")
+
+
+def _check_strict_json_files() -> None:
+    for rel in (
+        "data/symbols.json",
+        "data/meta.json",
+        "data/history.json",
+        "data/market_stats.json",
+        "data/security_master.json",
+    ):
+        path = ROOT / rel
+        try:
+            json.loads(path.read_text(), parse_constant=_reject_json_constant)
+        except Exception as e:
+            _fail(f"{rel} is not browser-strict JSON: {e}")
+
+
 def main() -> None:
+    _check_strict_json_files()
     _check_security_master()
     _check_no_api_key_in_tracked_files()
     print("[validate] ok")
