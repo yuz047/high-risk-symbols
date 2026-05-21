@@ -36,8 +36,10 @@ from config import (
 )
 
 SECURITY_NAME_EXCLUDE_RE = re.compile(
-    r"\b(warrant|right|rights|unit|units|preferred|depositary share|"
-    r"depositary shares|note due|notes due|senior note|subordinated note)\b",
+    r"(\b(warrant|right|rights|unit|units|preferred|depositary share|"
+    r"depositary shares|note due|notes due|senior note|subordinated note|"
+    r"blank check|spac|special purpose acquisition)\b|"
+    r"acquisitions?\b.{0,80}\b(corp|corporation|inc|company|co|ltd|limited)\.?)",
     re.IGNORECASE,
 )
 ALLOWED_TICKER_TYPES = {"CS", "ADRC", "ADRP", "ADRR"}

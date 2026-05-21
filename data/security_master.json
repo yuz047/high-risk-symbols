@@ -1,9 +1,9 @@
 {
-  "backfilled_at": "2026-05-21T16:54:17+00:00",
-  "count": 5602,
-  "detail_coverage": 109,
-  "dropped_non_stock": 3,
-  "generated_at": "2026-05-21T16:54:17+00:00",
+  "backfilled_at": "2026-05-21T17:22:29+00:00",
+  "count": 5397,
+  "detail_coverage": 105,
+  "dropped_non_stock": 0,
+  "generated_at": "2026-05-21T17:22:29+00:00",
   "refresh_policy": "monthly/static",
   "rows": [
     {
@@ -28,40 +28,6 @@
       "primary_exchange": "XNYS",
       "shares_out": 263889875,
       "symbol": "AA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 288927000.0,
-      "name": "Artius II Acquisition Inc. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "shares_out": 27675000,
-      "symbol": "AACB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 338596848.29999995,
-      "name": "Armada Acquisition Corp. III - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "shares_out": 34029834,
-      "symbol": "AACI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": null,
-      "name": "Abony Acquisition Corp. I Class A Ordinary Share",
-      "num_employees": null,
-      "primary_exchange": "XNAS",
-      "shares_out": 31361667,
-      "symbol": "AACO",
       "ticker_type": "CS"
     },
     {
@@ -439,17 +405,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 355040974.5,
-      "name": "Averin Capital Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "shares_out": 35682510,
-      "symbol": "ACAA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 3587391476.5,
       "name": "ACADIA Pharmaceuticals Inc. - Common Stock",
       "num_employees": 798,
@@ -760,6 +715,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "abrdn Income Credit Strategies Fund Common Shares",
+      "primary_exchange": "XNYS",
+      "symbol": "ACP",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 142194153.94,
@@ -856,6 +819,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "Virtus Diversified Income & Convertible Fund Common Shares of Beneficial Interest",
+      "primary_exchange": "XNYS",
+      "symbol": "ACV",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 1040525968.24,
@@ -892,13 +863,10 @@
     },
     {
       "active": true,
-      "country": "United States",
       "delisted_utc": null,
-      "market_cap": 285775000.0,
-      "name": "American Drive Acquisition Company - Class A Ordinary Shares",
+      "name": "Adagene Inc. - ADS, each representing 1.25 ordinary shares",
       "primary_exchange": "XNAS",
-      "shares_out": 28750000,
-      "symbol": "ADAC",
+      "symbol": "ADAG",
       "ticker_type": "CS"
     },
     {
@@ -930,7 +898,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 9072569968.86,
-      "name": "Agree Realty Corporation",
+      "name": "Agree Realty Corporation Common Stock",
       "num_employees": 90,
       "primary_exchange": "XNYS",
       "shares_out": 120102859,
@@ -942,7 +910,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 412099351.92,
-      "name": "ADC Therapeutics SA",
+      "name": "ADC Therapeutics SA Common Shares",
       "num_employees": 193,
       "primary_exchange": "XNYS",
       "shares_out": 127191158,
@@ -954,7 +922,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 2912857911.09,
-      "name": "Adeia Inc. Common Stock",
+      "name": "Adeia Inc.  - Common Stock",
       "num_employees": 150,
       "primary_exchange": "XNAS",
       "shares_out": 110293749,
@@ -966,7 +934,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 18741185.3042,
-      "name": "Adagio Medical Holdings, Inc Common Stock",
+      "name": "Adagio Medical Holdings, Inc - Common Stock",
       "num_employees": 41,
       "primary_exchange": "XNAS",
       "shares_out": 22210459,
@@ -1124,15 +1092,6 @@
       "name": "Adams Diversified Equity Fund Inc.",
       "primary_exchange": "XNYS",
       "symbol": "ADX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Activate Energy Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "AEAQ",
       "ticker_type": "CS"
     },
     {
@@ -1313,15 +1272,6 @@
       "name": "Aeva Technologies, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "AEVA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "American Exceptionalism Acquisition Corp. A Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "AEXA",
       "ticker_type": "CS"
     },
     {
@@ -1787,15 +1737,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "AI Infrastructure Acquisition Corp. Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "AIIA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Robo.ai Inc. - Class B Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "AIIO",
@@ -2129,15 +2070,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Centurion Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "ALF",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Alamo Group, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "ALG",
@@ -2195,15 +2127,6 @@
       "name": "Alignment Healthcare, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "ALHC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Calisa Acquisition Corp - Ordinary shares",
-      "primary_exchange": "XNAS",
-      "symbol": "ALIS",
       "ticker_type": "CS"
     },
     {
@@ -2462,15 +2385,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Alussa Energy Acquisition Corp. II Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "ALUB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Autoliv, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "ALV",
@@ -2528,15 +2442,6 @@
       "name": "Amalgamated Financial Corp. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "AMAL",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Amanat Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "AMAN",
       "ticker_type": "CS"
     },
     {
@@ -3086,15 +2991,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Agriculture & Natural Solutions Acquisition Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "ANSC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Antalpha Platform Holding Company - Class A Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "ANTA",
@@ -3206,15 +3102,6 @@
       "name": "APA Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "APA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "StoneBridge Acquisition II Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "APAC",
       "ticker_type": "CS"
     },
     {
@@ -3563,15 +3450,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Archimedes Tech SPAC Partners III Co. - Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "ARCI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Arcos Dorados Holdings Inc. Class A Shares",
       "primary_exchange": "XNYS",
       "symbol": "ARCO",
@@ -3791,15 +3669,6 @@
       "name": "Array Technologies, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "ARRY",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Art Technology Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "ARTC",
       "ticker_type": "CS"
     },
     {
@@ -4034,15 +3903,6 @@
       "name": "Academy Sports and Outdoors, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "ASO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "A SPAC III Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "ASPC",
       "ticker_type": "CS"
     },
     {
@@ -4286,15 +4146,6 @@
       "name": "ATI Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "ATI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Archimedes Tech SPAC Partners II Co. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "ATII",
       "ticker_type": "CS"
     },
     {
@@ -4931,15 +4782,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Axiom Intelligence Acquisition Corp 1 - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "AXIN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Axon Enterprise, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "AXON",
@@ -5117,15 +4959,6 @@
       "name": "Bank of America Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "BAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Blue Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BACC",
       "ticker_type": "CS"
     },
     {
@@ -5321,15 +5154,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Bayview Acquisition Corp - Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "BAYA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "BlackBerry Limited Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "BB",
@@ -5369,15 +5193,6 @@
       "name": "Concrete Pumping Holdings, Inc.  - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "BBCP",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Bleichroeder Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BBCQ",
       "ticker_type": "CS"
     },
     {
@@ -5531,15 +5346,6 @@
       "name": "California BanCorp - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "BCAL",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "D. Boral ARC Acquisition I Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BCAR",
       "ticker_type": "CS"
     },
     {
@@ -5828,15 +5634,6 @@
       "name": "Bloom Energy Corporation Class A Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "BE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Bold Eagle Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BEAG",
       "ticker_type": "CS"
     },
     {
@@ -6230,15 +6027,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "BHAV Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BHAV",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Bar Harbor Bankshares, Inc. Common Stock",
       "primary_exchange": "XASE",
       "symbol": "BHB",
@@ -6365,15 +6153,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Black Spade Acquisition III Co Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "BIII",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "BILL Holdings, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "BILL",
@@ -6464,15 +6243,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Bitcoin Infrastructure Acquisition Corp Ltd. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BIXI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Baiya International Group Inc.  - Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "BIYA",
@@ -6530,15 +6300,6 @@
       "name": "Black Hills Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "BKH",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Black Hawk Acquisition Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BKHA",
       "ticker_type": "CS"
     },
     {
@@ -6761,27 +6522,9 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Bluerock Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BLRK",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Bullish Ordinary Shares",
       "primary_exchange": "XNYS",
       "symbol": "BLSH",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Blue Water Acquisition Corp. III - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BLUW",
       "ticker_type": "CS"
     },
     {
@@ -6809,15 +6552,6 @@
       "name": "Backblaze, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "BLZE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Trailblazer Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BLZR",
       "ticker_type": "CS"
     },
     {
@@ -7300,15 +7034,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Blueport Acquisition Ltd - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BPAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Popular, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "BPOP",
@@ -7585,15 +7310,6 @@
       "name": "Braze, Inc. - Class A Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "BRZE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "BEST SPAC I Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "BSAA",
       "ticker_type": "CS"
     },
     {
@@ -8080,15 +7796,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Blue Water Acquisition Corp. IV Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "BWIV",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "BW LPG Limited Common Shares",
       "primary_exchange": "XNYS",
       "symbol": "BWLP",
@@ -8494,15 +8201,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Cayson Acquisition Corp - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "CAPN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Capricor Therapeutics, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "CAPR",
@@ -8515,15 +8213,6 @@
       "name": "Capstone Holding Corp. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "CAPS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Cambridge Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "CAQ",
       "ticker_type": "CS"
     },
     {
@@ -8974,15 +8663,6 @@
       "name": "Carlyle Credit Income Fund Shares of Beneficial Interest",
       "primary_exchange": "XNYS",
       "symbol": "CCIF",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Cohen Circle Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "CCII",
       "ticker_type": "CS"
     },
     {
@@ -9664,15 +9344,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Charlton Aria Acquisition Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "CHAR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Comstock Holding Companies, Inc. - Class A Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "CHCI",
@@ -9721,15 +9392,6 @@
       "name": "Chemed Corp",
       "primary_exchange": "XNYS",
       "symbol": "CHE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Chenghe Acquisition III Co. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "CHEC",
       "ticker_type": "CS"
     },
     {
@@ -9811,15 +9473,6 @@
       "name": "ChowChow Cloud International Holdings Limited Ordinary Shares",
       "primary_exchange": "XASE",
       "symbol": "CHOW",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "ChampionsGate Acquisition Corporation - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "CHPG",
       "ticker_type": "CS"
     },
     {
@@ -10162,15 +9815,6 @@
       "name": "Columbia Financial, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "CLBK",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Colombier Acquisition Corp. III Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "CLBR",
       "ticker_type": "CS"
     },
     {
@@ -11061,15 +10705,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Columbus Acquisition Corp - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "COLA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Columbia Banking System, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "COLB",
@@ -11154,15 +10789,6 @@
       "name": "ConocoPhillips Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "COP",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Copley Acquisition Corp Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "COPL",
       "ticker_type": "CS"
     },
     {
@@ -11448,36 +11074,9 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Crown Reserve Acquisition Corp. I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "CRAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "CRA International,Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "CRAI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Crane Harbor Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "CRAN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Cal Redwood Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "CRAQ",
       "ticker_type": "CS"
     },
     {
@@ -12000,15 +11599,6 @@
       "name": "CSX Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "CSX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "ClearThink 1 Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "CTAA",
       "ticker_type": "CS"
     },
     {
@@ -12792,15 +12382,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Digital Asset Acquisition Corp. - Class A Ordinary shares",
-      "primary_exchange": "XNAS",
-      "symbol": "DAAQ",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Danaos Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "DAC",
@@ -12897,15 +12478,6 @@
       "name": "Deutsche Bank AG Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "DB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "D. Boral Acquisition I Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "DBCA",
       "ticker_type": "CS"
     },
     {
@@ -13651,15 +13223,6 @@
     },
     {
       "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Drugs Made In America Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "DMAA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
       "country": "Hong Kong",
       "delisted_utc": null,
       "name": "DiaMedica Therapeutics Inc. - Common Stock",
@@ -13674,15 +13237,6 @@
       "name": "BNY Mellon Municipal Bond Infrastructure Fund, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "DMB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Drugs Made In America Acquisition II Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "DMII",
       "ticker_type": "CS"
     },
     {
@@ -13950,15 +13504,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Roman DBDR Acquisition Corp. II - Ordinary shares",
-      "primary_exchange": "XNAS",
-      "symbol": "DRDB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Diamondrock Hospitality Company - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "DRH",
@@ -14025,15 +13570,6 @@
       "name": "Driven Brands Holdings Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "DRVN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Daedalus Special Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "DSAC",
       "ticker_type": "CS"
     },
     {
@@ -14223,15 +13759,6 @@
       "name": "DT Midstream, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "DTM",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "DT Cloud Star Acquisition Corporation - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "DTSQ",
       "ticker_type": "CS"
     },
     {
@@ -14985,15 +14512,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "EGH Acquisition Corp. - Class A ordinary shares",
-      "primary_exchange": "XNAS",
-      "symbol": "EGHA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "8x8 Inc - Common stock",
       "primary_exchange": "XNAS",
       "symbol": "EGHT",
@@ -15420,15 +14938,6 @@
       "name": "Templeton Emerging Markets Fund Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "EMF",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Emmis Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "EMIS",
       "ticker_type": "CS"
     },
     {
@@ -16326,24 +15835,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Eureka Acquisition Corp - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "EURK",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "EQV Ventures Acquisition Corp. II Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "EVAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Entravision Communications Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "EVC",
@@ -16455,15 +15946,6 @@
       "name": "Eaton Vance Municipal Income Trust Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "EVN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Evolution Global Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "EVOX",
       "ticker_type": "CS"
     },
     {
@@ -16776,15 +16258,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "FACT II Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "FACT",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "First American Corporation (New) Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "FAF",
@@ -17055,15 +16528,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "FutureCrest Acquisition Corp. Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "FCRS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "First Trust Senior Floating Rate Income Fund II Common Shares of Beneficial Interest",
       "primary_exchange": "XNYS",
       "symbol": "FCT",
@@ -17235,15 +16699,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Fifth Era Acquisition Corp I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "FERA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Ferguson Enterprises Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "FERG",
@@ -17346,15 +16801,6 @@
       "name": "FGI Industries Ltd. - Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "FGI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "FG Imperii Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "FGII",
       "ticker_type": "CS"
     },
     {
@@ -17472,15 +16918,6 @@
       "name": "FIGS, Inc. Class A Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "FIGS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "FIGX Capital Acquisition Corp. - Class A ordinary share",
-      "primary_exchange": "XNAS",
-      "symbol": "FIGX",
       "ticker_type": "CS"
     },
     {
@@ -17796,15 +17233,6 @@
       "name": "flyExclusive, Inc. Class A Common Stock",
       "primary_exchange": "XASE",
       "symbol": "FLYX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Future Money Acquisition Corporation - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "FMAC",
       "ticker_type": "CS"
     },
     {
@@ -18360,15 +17788,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Flag Ship Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "FSHP",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Flexible Solutions International Inc. Common Stock (CDA)",
       "primary_exchange": "XASE",
       "symbol": "FSI",
@@ -18729,27 +18148,9 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Fortress Value Acquisition Corp. V - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "FVAV",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "FVCBankcorp, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "FVCB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Future Vision II Acquisition Corporation - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "FVN",
       "ticker_type": "CS"
     },
     {
@@ -19803,15 +19204,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "GalaxyEdge Acquisition Corporation Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "GLED",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "GCI Liberty, Inc. - Series A GCI Group Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "GLIBA",
@@ -20289,24 +19681,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "General Purpose Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "GPAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "GP-Act III Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "GPAT",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Genuine Parts Company Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "GPC",
@@ -20688,15 +20062,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Gesher Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "GSHR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "GSI Technology, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "GSIT",
@@ -20727,15 +20092,6 @@
       "name": "Ferroglobe PLC - Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "GSM",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "GSR IV Acquisition Corp. - Class A ordinary share",
-      "primary_exchange": "XNAS",
-      "symbol": "GSRF",
       "ticker_type": "CS"
     },
     {
@@ -20790,15 +20146,6 @@
       "name": "Gores Holdings X, Inc. - Class A ordinary shares",
       "primary_exchange": "XNAS",
       "symbol": "GTEN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Globa Terra Acquisition Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "GTERA",
       "ticker_type": "CS"
     },
     {
@@ -21030,15 +20377,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "HCM IV Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "HACQ",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Haemonetics Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "HAE",
@@ -21117,15 +20455,6 @@
       "name": "HA Sustainable Infrastructure Capital, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "HASI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Harvard Ave Acquisition Corporation - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "HAVA",
       "ticker_type": "CS"
     },
     {
@@ -21231,15 +20560,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Hall Chadwick Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "HCAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Huachen AI Parking Management Technology Holding Co., Ltd. - Class A Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "HCAI",
@@ -21297,15 +20617,6 @@
       "name": "The Hackett Group, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "HCKT",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "HCM III Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "HCMA",
       "ticker_type": "CS"
     },
     {
@@ -21771,15 +21082,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Helix Acquisition Corp. III - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "HLXC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Honda Motor Company, Ltd. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "HMC",
@@ -22224,15 +21526,6 @@
       "name": "Highlander Silver Corp. Common Shares",
       "primary_exchange": "XASE",
       "symbol": "HSLV",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Horizon Space Acquisition II Corp. - Ordinary share",
-      "primary_exchange": "XNAS",
-      "symbol": "HSPT",
       "ticker_type": "CS"
     },
     {
@@ -22692,15 +21985,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Idea Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "IACO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Voya Asia Pacific High Dividend Equity Income Fund ING Asia Pacific High Dividend Equity Income Fund Common Shares of Beneficial Interest",
       "primary_exchange": "XNYS",
       "symbol": "IAE",
@@ -22740,15 +22024,6 @@
       "name": "i-80 Gold Corp. Common Shares",
       "primary_exchange": "XASE",
       "symbol": "IAUX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "IB Acquisition Corp. - Common Stock",
-      "primary_exchange": "XNAS",
-      "symbol": "IBAC",
       "ticker_type": "CS"
     },
     {
@@ -23052,15 +22327,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Infinite Eagle Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "IEAG",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "IES Holdings, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "IESC",
@@ -23127,15 +22393,6 @@
       "name": "Voya Global Advantage and Premium Opportunity Fund Common Shares of Beneficial Interest",
       "primary_exchange": "XNYS",
       "symbol": "IGA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Invest Green Acquisition Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "IGAC",
       "ticker_type": "CS"
     },
     {
@@ -23298,15 +22555,6 @@
       "name": "Triller Group Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "ILLR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Illumination Acquisition Corp I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "ILLU",
       "ticker_type": "CS"
     },
     {
@@ -23496,15 +22744,6 @@
       "name": "IN8bio, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "INAB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Indigo Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "INAC",
       "ticker_type": "CS"
     },
     {
@@ -24040,38 +23279,11 @@
     },
     {
       "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Inflection Point Acquisition Corp. III - Class A ordinary shares",
-      "primary_exchange": "XNAS",
-      "symbol": "IPCX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
       "country": "Canada",
       "delisted_utc": null,
       "name": "Professional Diversity Network, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "IPDN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Inflection Point Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "IPEX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Inflection Point Acquisition Corp. VI - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "IPFX",
       "ticker_type": "CS"
     },
     {
@@ -24099,15 +23311,6 @@
       "name": "Intelligent Protection Management Corp.  - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "IPM",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Dune Acquisition Corporation II - Class A ordinary shares",
-      "primary_exchange": "XNAS",
-      "symbol": "IPOD",
       "ticker_type": "CS"
     },
     {
@@ -24186,15 +23389,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Iris Acquisition Corp II Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "IRAB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Opus Genetics, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "IRD",
@@ -24216,15 +23410,6 @@
       "name": "IREN Limited - Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "IREN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Iron Horse Acquisitions II Corp. - Common Stock",
-      "primary_exchange": "XNAS",
-      "symbol": "IRHO",
       "ticker_type": "CS"
     },
     {
@@ -24378,15 +23563,6 @@
       "name": "Integer Holdings Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "ITGR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "ITHAX Acquisition Corp III - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "ITHA",
       "ticker_type": "CS"
     },
     {
@@ -24576,15 +23752,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Jackson Acquisition Company II Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "JACS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Jaguar Uranium Corp. Class A Common Shares",
       "primary_exchange": "XASE",
       "symbol": "JAGU",
@@ -24624,15 +23791,6 @@
       "name": "Janux Therapeutics, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "JANX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "JATT II Acquisition Corp - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "JATT",
       "ticker_type": "CS"
     },
     {
@@ -24822,15 +23980,6 @@
       "name": "707 Cayman Holdings Limited - Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "JEM",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Jena Acquisition Corporation II Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "JENA",
       "ticker_type": "CS"
     },
     {
@@ -25296,15 +24445,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Kochav Defense Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "KCHV",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Kyndryl Holdings, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "KD",
@@ -25434,15 +24574,6 @@
       "name": "Kentucky First Federal Bancorp - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "KFFB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "K&F Growth Acquisition Corp. II - Class A Ordinary shares",
-      "primary_exchange": "XNAS",
-      "symbol": "KFII",
       "ticker_type": "CS"
     },
     {
@@ -25872,15 +25003,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "CSLM Digital Asset Acquisition Corp III - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "KOYN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "KPET Ultra Paceline Corporation Class A Ordinary Shares",
       "primary_exchange": "XNYS",
       "symbol": "KPET",
@@ -25920,15 +25042,6 @@
       "name": "Kroger Company (The) Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "KR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "KRAKacquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "KRAQ",
       "ticker_type": "CS"
     },
     {
@@ -26019,15 +25132,6 @@
       "name": "Korro Bio, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "KRRO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Rice Acquisition Corporation 3 Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "KRSP",
       "ticker_type": "CS"
     },
     {
@@ -26151,15 +25255,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "K2 Capital Acquisition Corporation - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "KTWO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "KULR Technology Group, Inc. Common Stock",
       "primary_exchange": "XASE",
       "symbol": "KULR",
@@ -26181,15 +25276,6 @@
       "name": "Kustom Entertainment, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "KUST",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Keen Vision Acquisition Corporation - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "KVAC",
       "ticker_type": "CS"
     },
     {
@@ -26376,15 +25462,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "LaFayette Acquisition Corp. - Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "LAFA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Lakeland Industries, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "LAKE",
@@ -26451,15 +25528,6 @@
       "name": "nLIGHT, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "LASR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Galata Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "LATA",
       "ticker_type": "CS"
     },
     {
@@ -26586,15 +25654,6 @@
       "name": "LendingClub Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "LC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Lakeshore Acquisition III Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "LCCC",
       "ticker_type": "CS"
     },
     {
@@ -26820,15 +25879,6 @@
       "name": "Lexaria Bioscience Corp. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "LEXX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Leapfrog Acquisition Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "LFAC",
       "ticker_type": "CS"
     },
     {
@@ -27234,15 +26284,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Lake Superior Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "LKSP",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Eli Lilly and Company Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "LLY",
@@ -27495,15 +26536,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Live Oak Acquisition Corp. V - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "LOKV",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Loma Negra Compania Industrial Argentina Sociedad Anonima ADS",
       "primary_exchange": "XNYS",
       "symbol": "LOMA",
@@ -27565,38 +26597,11 @@
     },
     {
       "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Launch One Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "LPAA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Launch Two Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "LPBB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
       "country": "Israel",
       "delisted_utc": null,
       "name": "Lipocine Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "LPCN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Launchpad Cadenza Acquisition Corp I - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "LPCV",
       "ticker_type": "CS"
     },
     {
@@ -27972,15 +26977,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "LightWave Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "LWAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Lifeway Foods, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "LWAY",
@@ -28167,15 +27163,6 @@
       "name": "Macerich Company (The) Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "MAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Melar Acquisition Corp. I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MACI",
       "ticker_type": "CS"
     },
     {
@@ -28443,15 +27430,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "M3-Brigade Acquisition V Corp. - Class A Ordinary shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MBAV",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Marathon Bancorp, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "MBBC",
@@ -28533,15 +27511,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "M3-Brigade Acquisition VI Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MBVI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Mercantile Bank Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "MBWM",
@@ -28599,15 +27568,6 @@
       "name": "MasterCraft Boat Holdings, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "MCFT",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Yorkville Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "MCGA",
       "ticker_type": "CS"
     },
     {
@@ -28994,15 +27954,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Meshflow Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MESH",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "MetLife, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "MET",
@@ -29033,15 +27984,6 @@
       "name": "Ramaco Resources, Inc. - Class B Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "METCB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "M Evo Global Acquisition Corp II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MEVO",
       "ticker_type": "CS"
     },
     {
@@ -29500,15 +28442,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "McKinley Acquisition Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MKLY",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "MKS Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "MKSI",
@@ -29545,27 +28478,9 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Mountain Lake Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MLAA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Mesa Laboratories, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "MLAB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Mountain Lake Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MLAC",
       "ticker_type": "CS"
     },
     {
@@ -29746,15 +28661,6 @@
       "name": "MFS Multimarket Income Trust Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "MMT",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Miluna Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MMTX",
       "ticker_type": "CS"
     },
     {
@@ -30472,15 +29378,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Metals Acquisition Corp. II Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "MTAL",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "M&T Bank Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "MTB",
@@ -30742,15 +29639,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Muzero Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "MUZE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "MVB Financial Corp. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "MVBF",
@@ -30958,27 +29846,9 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Maywood Acquisition Corp. 2 - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "MYX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "The Marzetti Company - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "MZTI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "MOZAYYX Acquisition Corp. Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "MZYX",
       "ticker_type": "CS"
     },
     {
@@ -31234,15 +30104,6 @@
       "name": "Nabors Industries Ltd.",
       "primary_exchange": "XNYS",
       "symbol": "NBR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Newbridge Acquisition Limited - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "NBRG",
       "ticker_type": "CS"
     },
     {
@@ -32080,15 +30941,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "NMP Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "NMP",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Neumora Therapeutics, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "NMRA",
@@ -32326,15 +31178,6 @@
       "name": "Neptune Insurance Holdings Inc. Class A Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "NP",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "New Providence Acquisition Corp. III - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "NPAC",
       "ticker_type": "CS"
     },
     {
@@ -32800,15 +31643,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Newbury Street II Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "NTWO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Natuzzi, S.p.A.",
       "primary_exchange": "XNYS",
       "symbol": "NTZ",
@@ -33091,15 +31925,6 @@
       "name": "NOVONIX Limited - American Depository Shares",
       "primary_exchange": "XNAS",
       "symbol": "NVX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "New America Acquisition I Corp. Class A Common Stock",
-      "primary_exchange": "XNYS",
-      "symbol": "NWAX",
       "ticker_type": "CS"
     },
     {
@@ -33397,24 +32222,6 @@
       "name": "OmniAb, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "OABI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Oaktree Acquisition Corp. III Life Sciences - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "OACC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Oxley Bridge Acquisition Limited - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "OBA",
       "ticker_type": "CS"
     },
     {
@@ -33780,15 +32587,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "OneIM Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "OIM",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "OIO Group - Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "OIO",
@@ -34017,15 +32815,6 @@
       "name": "Old National Bancorp - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "ONB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "1RT Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "ONCH",
       "ticker_type": "CS"
     },
     {
@@ -34611,15 +33400,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "OTG Acquisition Corp. I - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "OTGA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Off The Hook YS Inc. Common Stock",
       "primary_exchange": "XASE",
       "symbol": "OTH",
@@ -34782,15 +33562,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Oyster Enterprises II Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "OYSE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Bank OZK - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "OZK",
@@ -34803,15 +33574,6 @@
       "name": "Everpure, Inc. Class A common stock",
       "primary_exchange": "XNYS",
       "symbol": "P",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Proem Acquisition Corp I - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "PAAC",
       "ticker_type": "CS"
     },
     {
@@ -34839,15 +33601,6 @@
       "name": "Pacific Biosciences of California, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "PACB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Pioneer Acquisition I Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "PACH",
       "ticker_type": "CS"
     },
     {
@@ -34917,15 +33670,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Pyrophyte Acquisition Corp. II Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "PAII",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Proficient Auto Logistics, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "PAL",
@@ -34938,15 +33682,6 @@
       "name": "Palisade Bio, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "PALI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Paloma Acquisition Corp I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "PALO",
       "ticker_type": "CS"
     },
     {
@@ -35256,15 +33991,6 @@
       "name": "Premium Catering (Holdings) Limited - Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "PC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "ProCap Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "PCAP",
       "ticker_type": "CS"
     },
     {
@@ -35811,15 +34537,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Pantages Capital Acquisition Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "PGAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Peapack-Gladstone Financial Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "PGC",
@@ -36234,15 +34951,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Plum Acquisition Corp. IV - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "PLMK",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Palomar Holdings, Inc. - Common stock",
       "primary_exchange": "XNAS",
       "symbol": "PLMR",
@@ -36507,15 +35215,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Perimeter Acquisition Corp. I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "PMTR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "CPI Card Group Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "PMTS",
@@ -36672,15 +35371,6 @@
       "name": "Polar Power, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "POLA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Andretti Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "POLE",
       "ticker_type": "CS"
     },
     {
@@ -37425,15 +36115,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Praetorian Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "PTOR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Pattern Group Inc. - Series A Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "PTRN",
@@ -37641,15 +36322,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "QDRO Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "QADR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "D-Wave Quantum Inc. Common Shares",
       "primary_exchange": "XNYS",
       "symbol": "QBTS",
@@ -37689,15 +36361,6 @@
       "name": "QuidelOrtho Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "QDEL",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Quetta Acquisition Corporation - Common Stock",
-      "primary_exchange": "XNAS",
-      "symbol": "QETA",
       "ticker_type": "CS"
     },
     {
@@ -37785,15 +36448,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "QuasarEdge Acquisition Corporation Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "QRED",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Quest Resource Holding Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "QRHC",
@@ -37815,15 +36469,6 @@
       "name": "QuantumScape Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "QS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Quartzsea Acquisition Corporation - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "QSEA",
       "ticker_type": "CS"
     },
     {
@@ -37929,15 +36574,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Quantumsphere Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "QUMS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "uniQure N.V. - Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "QURE",
@@ -37977,24 +36613,6 @@
       "name": "Brookfield Real Assets Income Fund Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "RA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Real Asset Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "RAAQ",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Rithm Acquisition Corp. Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "RAC",
       "ticker_type": "CS"
     },
     {
@@ -38058,15 +36676,6 @@
       "name": "Rand Capital Corporation - Closed End Fund",
       "primary_exchange": "XNAS",
       "symbol": "RAND",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Range Capital Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "RANG",
       "ticker_type": "CS"
     },
     {
@@ -38319,24 +36928,6 @@
       "name": "Arcus Biosciences, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "RCUS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Rising Dragon Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "RDAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Republic Digital Acquisition Company - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "RDAG",
       "ticker_type": "CS"
     },
     {
@@ -38703,24 +37294,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "RF Acquisition Corp II - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "RFAI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "RF Acquisition Corp III - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "RFAM",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Cohen & Steers Total Return Realty Fund, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "RFI",
@@ -38904,15 +37477,6 @@
       "name": "Ryman Hospitality Properties, Inc. (REIT)",
       "primary_exchange": "XNYS",
       "symbol": "RHP",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Ribbon Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "RIBB",
       "ticker_type": "CS"
     },
     {
@@ -39324,15 +37888,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Range Capital Acquisition Corp II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "RNGT",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "RenaissanceRe Holdings Ltd. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "RNR",
@@ -39603,15 +38158,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "RRE Ventures Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "RREV",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Red Robin Gourmet Burgers, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "RRGB",
@@ -39696,15 +38242,6 @@
       "name": "Reservoir Media, Inc.. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "RSVR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Renatus Tactical Acquisition Corp I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "RTAC",
       "ticker_type": "CS"
     },
     {
@@ -40044,15 +38581,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Space Asset Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SAAQ",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Saba Capital Income & Opportunities Fund II Shares of Beneficial Interest",
       "primary_exchange": "XNYS",
       "symbol": "SABA",
@@ -40074,15 +38602,6 @@
       "name": "SAB Biotherapeutics, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "SABS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Safeguard Acquisition Corp. Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "SAC",
       "ticker_type": "CS"
     },
     {
@@ -40503,15 +39022,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "SC II Acquisition Corp. - Class A ordinary share",
-      "primary_exchange": "XNAS",
-      "symbol": "SCII",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Socket Mobile, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "SCKT",
@@ -40659,15 +39169,6 @@
       "name": "Smith Douglas Homes Corp. Class A Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "SDHC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Siddhi Acquisition Corp - Class A Common stock",
-      "primary_exchange": "XNAS",
-      "symbol": "SDHI",
       "ticker_type": "CS"
     },
     {
@@ -41399,15 +39900,6 @@
       "name": "Silo Pharma, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "SILO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "SIM Acquisition Corp. I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SIMA",
       "ticker_type": "CS"
     },
     {
@@ -42362,15 +40854,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Solarius Capital Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "SOCA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "SoFi Technologies, Inc.  - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "SOFI",
@@ -42452,15 +40935,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Soren Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SORN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "SOS Limited Class A Ordinary Shares",
       "primary_exchange": "XNYS",
       "symbol": "SOS",
@@ -42473,15 +40947,6 @@
       "name": "Sono-Tek Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "SOTK",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Soulpower Acquisition Corporation Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "SOUL",
       "ticker_type": "CS"
     },
     {
@@ -42551,15 +41016,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Silver Pegasus Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SPEG",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "South Plains Financial, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "SPFI",
@@ -42617,15 +41073,6 @@
       "name": "Spire Global, Inc. Class A Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "SPIR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Spark I Acquisition Corp. - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "SPKL",
       "ticker_type": "CS"
     },
     {
@@ -42950,15 +41397,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "SPACSphere Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SSAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "SouthState Bank Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "SSB",
@@ -42980,15 +41418,6 @@
       "name": "Simpson Manufacturing Company, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "SSD",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Starry Sea Acquisition Corp - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SSEA",
       "ticker_type": "CS"
     },
     {
@@ -43526,15 +41955,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "SUMA Acquisition Corporation - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SUMA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Sunbelt Rentals Holdings, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "SUNB",
@@ -43607,24 +42027,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Spring Valley Acquisition Corp. III - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SVAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Silicon Valley Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SVAQ",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Service Properties Trust - Shares of Beneficial Interest",
       "primary_exchange": "XNAS",
       "symbol": "SVC",
@@ -43646,15 +42048,6 @@
       "name": "Silvaco Group, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "SVCO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Spring Valley Acquisition Corp. IV - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SVIV",
       "ticker_type": "CS"
     },
     {
@@ -43922,15 +42315,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Sizzle Acquisition Corp. II - Class A ordinary shares",
-      "primary_exchange": "XNAS",
-      "symbol": "SZZL",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "AT&T Inc.",
       "primary_exchange": "XNYS",
       "symbol": "T",
@@ -43943,24 +42327,6 @@
       "name": "TransAlta Corporation Ordinary Shares",
       "primary_exchange": "XNYS",
       "symbol": "TAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Titan Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "TACH",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Berto Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "TACO",
       "ticker_type": "CS"
     },
     {
@@ -44060,15 +42426,6 @@
       "name": "TAT Technologies Ltd. - Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "TATT",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Tavia Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "TAVI",
       "ticker_type": "CS"
     },
     {
@@ -44282,15 +42639,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Translational Development Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "TDAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "USA TODAY Co., Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "TDAY",
@@ -44375,15 +42723,6 @@
       "name": "Tidewater Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "TDW",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Tailwind 2.0 Acquisition Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "TDWD",
       "ticker_type": "CS"
     },
     {
@@ -45137,15 +43476,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Spartacus Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "TMTS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "T-Mobile US, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "TMUS",
@@ -45452,15 +43782,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "APEX Tech Acquisition Inc. Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "TRAD",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "ReposiTrak, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "TRAK",
@@ -45527,15 +43848,6 @@
       "name": "Targa Resources, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "TRGP",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "TRG Latin America Acquisitions Corp. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "TRGS",
       "ticker_type": "CS"
     },
     {
@@ -46037,24 +44349,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Texas Ventures Acquisition III Corp - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "TVA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Thayer Ventures Acquisition Corporation II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "TVAI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Tennessee Valley Authority Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "TVC",
@@ -46328,15 +44622,6 @@
       "name": "Under Armour, Inc. Class A Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "UAA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "United Acquisition Corp. I Class A Ordinary Shares",
-      "primary_exchange": "XASE",
-      "symbol": "UAC",
       "ticker_type": "CS"
     },
     {
@@ -47192,15 +45477,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "UY Scuti Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "UYSC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Linkage Global Inc - Class A Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "UZX",
@@ -47231,24 +45507,6 @@
       "name": "Marriott Vacations Worldwide Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "VAC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Voyager Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "VACH",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Viking Acquisition Corp. I Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "VACI",
       "ticker_type": "CS"
     },
     {
@@ -47375,15 +45633,6 @@
       "name": "Veracyte, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "VCYT",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Vernal Capital Acquisition Corp. Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "VECA",
       "ticker_type": "CS"
     },
     {
@@ -47906,15 +46155,6 @@
       "name": "Vanda Pharmaceuticals Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "VNDA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Vendome Acquisition Corporation I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "VNME",
       "ticker_type": "CS"
     },
     {
@@ -48770,15 +47010,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Wen Acquisition Corp - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "WENN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Werner Enterprises, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "WERN",
@@ -49105,15 +47336,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Willow Lane Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "WLII",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "Westlake Corporation Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "WLK",
@@ -49264,15 +47486,6 @@
       "name": "Worthington Enterprises, Inc. Common Shares",
       "primary_exchange": "XNYS",
       "symbol": "WOR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "White Pearl Acquisition Corp. Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "WPAC",
       "ticker_type": "CS"
     },
     {
@@ -49459,15 +47672,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Westin Acquisition Corp - Class A Ordinary Share",
-      "primary_exchange": "XNAS",
-      "symbol": "WSTN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "WisdomTree, Inc. Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "WT",
@@ -49498,15 +47702,6 @@
       "name": "Wintrust Financial Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "WTFC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Wintergreen Acquisition Corp. - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "WTG",
       "ticker_type": "CS"
     },
     {
@@ -49723,15 +47918,6 @@
       "name": "XBP Global Holdings, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "XBP",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "X3 Acquisition Corp. Ltd. - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "XCBE",
       "ticker_type": "CS"
     },
     {
@@ -50026,15 +48212,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Armada Acquisition Corp. II - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "XRPN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "XORTX Therapeutics Inc. - Common Shares",
       "primary_exchange": "XNAS",
       "symbol": "XRTX",
@@ -50047,15 +48224,6 @@
       "name": "Xerox Holdings Corporation - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "XRX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Xsolla SPAC 1 - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "XSLL",
       "ticker_type": "CS"
     },
     {
@@ -50152,15 +48320,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "AA Mission Acquisition Corp. II Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "symbol": "YCY",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "name": "One and One Green Technologies. INC - Class A Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "YDDL",
@@ -50227,15 +48386,6 @@
       "name": "Yunhong Green CTI Ltd. - Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "YHGJ",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "YHN Acquisition I Limited - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "YHNA",
       "ticker_type": "CS"
     },
     {
@@ -50560,15 +48710,6 @@
       "name": "ZK International Group Co., Ltd - Ordinary Share",
       "primary_exchange": "XNAS",
       "symbol": "ZKIN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "name": "Lafayette Digital Acquisition Corp. I - Class A Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "symbol": "ZKP",
       "ticker_type": "CS"
     },
     {
