@@ -107,6 +107,7 @@ def main() -> None:
             "flags": {c: bool(r[c]) for c in FLAG_COLS},
             "hit_count": int(r["hit_count"]),
             "rule_high_risk": bool(r["rule_high_risk"]),
+            "pca_eligible": bool(r.get("pca_eligible", True)),
             "pca_candidate": bool(r.get("pca_candidate", False)),
             "pc1": round(float(r["pc1"]), 4),
             "pc2": round(float(r["pc2"]), 4),

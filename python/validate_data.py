@@ -93,9 +93,24 @@ def _check_strict_json_files() -> None:
             _fail(f"{rel} is not browser-strict JSON: {e}")
 
 
+def _check_scan_outputs() -> None:
+    path = ROOT / "data/symbols.json"
+    if not path.exists():
+        return
+    rows = json.loads(path.read_text(), parse_constant=_reject_json_constant)
+    bad = [
+        r.get("symbol")
+        for r in rows
+        if r.get("pca_high_risk") and r.get("pca_eligible") is False
+    ]
+    if bad:
+        _fail(f"PCA flagged rows without real static fundamentals: {', '.join(bad[:20])}")
+
+
 def main() -> None:
     _check_strict_json_files()
     _check_security_master()
+    _check_scan_outputs()
     _check_no_api_key_in_tracked_files()
     print("[validate] ok")
 

@@ -4,7 +4,9 @@ Pipeline
 --------
 1. Features: market_cap, avg_volume, close_price, num_employees.
    All four are strongly right-skewed, so we log1p them, then z-score.
-2. PCA(3) via numpy SVD on the standardized matrix.
+2. PCA(3) via numpy SVD on rows with real static fundamentals. Rows whose
+   market cap/shares were conservatively imputed remain in the database, but
+   they are not used to fit or flag PCA.
 3. Mark PCA candidates as every documented anchor plus every symbol with at
    least three of the five editable rule criteria. Nothing is price-pre-filtered
    out before PCA; candidates are simply labelled in the full PCA space.
@@ -49,15 +51,28 @@ def _percentile_rank(values: np.ndarray, x: float) -> float:
 def run_pca(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     df = df.copy().reset_index(drop=True)
 
-    # 1) standardize log features
-    X = np.log1p(df[PCA_FEATURES].astype(float).to_numpy())
-    mu = X.mean(axis=0)
-    sd = X.std(axis=0, ddof=0)
+    raw_features = df[PCA_FEATURES].astype(float)
+    finite_mask = np.isfinite(raw_features.to_numpy()).all(axis=1)
+    if "fundamentals_imputed" in df.columns:
+        fit_mask = (~df["fundamentals_imputed"].astype(bool).to_numpy()) & finite_mask
+    else:
+        fit_mask = finite_mask
+    min_fit = max(PCA_N_COMPONENTS + 1, 20)
+    if fit_mask.sum() < min_fit:
+        fit_mask = finite_mask
+    df["pca_eligible"] = fit_mask
+
+    # 1) standardize log features using only PCA-eligible rows.
+    X_all = np.log1p(raw_features.to_numpy())
+    X_fit = X_all[fit_mask]
+    mu = X_fit.mean(axis=0)
+    sd = X_fit.std(axis=0, ddof=0)
     sd[sd == 0] = 1.0
-    Z = (X - mu) / sd
+    Z = (X_all - mu) / sd
+    Z_fit = Z[fit_mask]
 
     # 2) PCA via SVD on the centered (already mean-0) matrix
-    U, S, Vt = np.linalg.svd(Z, full_matrices=False)
+    U, S, Vt = np.linalg.svd(Z_fit, full_matrices=False)
     k = min(PCA_N_COMPONENTS, Vt.shape[0])
     comps = Vt[:k]                      # (k, n_features)
     scores = Z @ comps.T               # (n, k)
@@ -73,29 +88,30 @@ def run_pca(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     if "hit_count" in df.columns:
         candidate_mask = candidate_mask | (df["hit_count"].to_numpy() >= 3)
     df["pca_candidate"] = candidate_mask
+    fit_candidate_mask = candidate_mask & fit_mask
 
     seps = []
     for j in range(k):
         s = scores[:, j]
-        if candidate_mask.sum() >= 1 and (~candidate_mask).sum() >= 1:
-            seps.append(_cohens_d(s[candidate_mask], s[~candidate_mask]))
+        fit_non_candidate_mask = fit_mask & ~candidate_mask
+        if fit_candidate_mask.sum() >= 1 and fit_non_candidate_mask.sum() >= 1:
+            seps.append(_cohens_d(s[fit_candidate_mask], s[fit_non_candidate_mask]))
         else:
             # no anchors: fall back to "smallness" — correlate component with
             # standardized market cap; risk = the opposite of size.
-            mcap_z = Z[:, PCA_FEATURES.index("market_cap")]
-            seps.append(-float(np.corrcoef(s, mcap_z)[0, 1]))
+            mcap_z = Z[fit_mask, PCA_FEATURES.index("market_cap")]
+            seps.append(-float(np.corrcoef(s[fit_mask], mcap_z)[0, 1]))
 
     risk_idx = int(np.argmax(np.abs(seps)))
     orient = 1.0 if seps[risk_idx] >= 0 else -1.0
     risk_score = scores[:, risk_idx] * orient
     df["risk_score"] = risk_score
 
-    # 4) percentile threshold on the high-risk side
-    threshold = float(np.percentile(risk_score, PCA_RISK_PERCENTILE))
-    df["pca_high_risk"] = df["risk_score"] >= threshold
-    # 0-100 rank for display
-    order = risk_score.argsort().argsort()
-    df["risk_rank"] = (order / max(len(order) - 1, 1) * 100).round(1)
+    # 4) percentile threshold on the high-risk side, eligible rows only.
+    fit_risk = risk_score[fit_mask]
+    threshold = float(np.percentile(fit_risk, PCA_RISK_PERCENTILE))
+    df["pca_high_risk"] = fit_mask & (df["risk_score"] >= threshold)
+    df["risk_rank"] = [_percentile_rank(fit_risk, float(x)) for x in risk_score]
 
     # oriented loadings of the risk component (feature -> contribution)
     loadings = {f: float(comps[risk_idx][i] * orient) for i, f in enumerate(PCA_FEATURES)}
@@ -114,7 +130,7 @@ def run_pca(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
             "pc2": round(float(ref_scores[1]) if k > 1 else 0.0, 4),
             "pc3": round(float(ref_scores[2]) if k > 2 else 0.0, 4),
             "risk_score": round(ref_risk, 4),
-            "risk_rank": round(_percentile_rank(risk_score, ref_risk), 1),
+            "risk_rank": round(_percentile_rank(fit_risk, ref_risk), 1),
         })
 
     meta = {
@@ -131,6 +147,9 @@ def run_pca(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         "risk_loadings": {kk: round(vv, 4) for kk, vv in loadings.items()},
         "anchors": PCA_ANCHORS,
         "anchor_count": int(anchor_only_mask.sum()),
+        "fit_count": int(fit_mask.sum()),
+        "imputed_static_count": int((~fit_mask).sum()),
+        "fit_candidate_count": int(fit_candidate_mask.sum()),
         "candidate_rule_min": 3,
         "candidate_count": int(candidate_mask.sum()),
         "reference_symbols": references,
@@ -140,5 +159,10 @@ def run_pca(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         ),
         "feature_log_mean": {f: round(float(mu[i]), 4) for i, f in enumerate(PCA_FEATURES)},
         "feature_log_std": {f: round(float(sd[i]), 4) for i, f in enumerate(PCA_FEATURES)},
+        "fit_note": (
+            "PCA is fitted and flagged only on rows with real static fundamentals; "
+            "rows with conservative market-cap/share imputations stay in the database "
+            "but are excluded from the PCA cut until static backfill fills them."
+        ),
     }
     return df, meta

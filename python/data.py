@@ -337,11 +337,26 @@ def load_market_stats(symbols: list[str]) -> dict[str, dict] | None:
     the whole U.S. stock market. We walk backward until we have LOOKBACK_DAYS
     trading sessions, then compute last close, 20-day high, and average volume.
     """
+    universe = set(symbols)
     if not _massive_api_key():
+        snap = _read_snapshot(MARKET_STATS_PATH)
+        rows = (snap or {}).get("rows") or []
+        out = {
+            r["symbol"]: {
+                "close_price": r["close_price"],
+                "price_max_20d": r["price_max_20d"],
+                "avg_volume": r["avg_volume"],
+                "stats_days": r.get("stats_days"),
+            }
+            for r in rows
+            if r.get("symbol") in universe and str((snap or {}).get("source") or "").lower() != "synthetic"
+        }
+        if out:
+            _log(f"MASSIVE_API_KEY/POLYGON_API_KEY missing; using cached market stats for {len(out)} symbols")
+            return out
         _log("MASSIVE_API_KEY/POLYGON_API_KEY missing; live market stats disabled")
         return None
 
-    universe = set(symbols)
     hist: dict[str, list[dict]] = {}
     trading_days = 0
     end_day = _utc_now().date() - timedelta(days=1)
@@ -504,10 +519,6 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
 
 
 def _get_live_frame() -> pd.DataFrame | None:
-    if not _massive_api_key():
-        _log("MASSIVE_API_KEY/POLYGON_API_KEY missing; live path disabled")
-        return None
-
     master = load_security_master()
     if not master:
         return None

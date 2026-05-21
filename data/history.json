@@ -12,9 +12,9 @@
     "date": "2026-05-21",
     "scanned": 5580,
     "rule": 1,
-    "pca": 1116,
-    "both": 1,
-    "combined": 1116,
+    "pca": 21,
+    "both": 0,
+    "combined": 22,
     "source": "massive"
   }
 ]
