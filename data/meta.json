@@ -1,10 +1,10 @@
 {
   "as_of": "2026-05-21",
-  "generated_at": "2026-05-21T01:45:32+00:00",
+  "generated_at": "2026-05-21T05:02:17+00:00",
   "source": "massive",
   "synthetic": false,
-  "universe_size": 42,
-  "scanned_count": 42,
+  "universe_size": 41,
+  "scanned_count": 41,
   "counts": {
     "rule_high_risk": 0,
     "pca_high_risk": 9,
@@ -12,7 +12,7 @@
     "rule_only": 0,
     "pca_only": 9,
     "combined_total": 9,
-    "watch": 23
+    "watch": 22
   },
   "thresholds": {
     "universe_max_price": 20.0,
@@ -41,26 +41,26 @@
     ],
     "n_components": 3,
     "explained_variance_ratio": [
-      0.6324,
-      0.2316,
-      0.0774
+      0.6241,
+      0.2456,
+      0.0715
     ],
     "risk_component_index": 0,
     "risk_component_label": "PC1",
     "orientation_sign": -1.0,
     "separation_cohens_d": [
-      -0.91,
-      0.133,
-      -0.023
+      -0.898,
+      -0.031,
+      0.439
     ],
-    "risk_separation": -0.91,
+    "risk_separation": -0.898,
     "risk_percentile": 80.0,
-    "risk_threshold": 2.0486,
+    "risk_threshold": 2.0771,
     "risk_loadings": {
-      "market_cap": -0.5725,
-      "avg_volume": -0.5509,
-      "close_price": -0.5632,
-      "num_employees": 0.2273
+      "market_cap": -0.5681,
+      "avg_volume": -0.5701,
+      "close_price": -0.5753,
+      "num_employees": 0.1458
     },
     "anchors": [
       "CLEU",
@@ -75,135 +75,135 @@
         "symbol": "AAPL",
         "name": "Apple",
         "group": "MAG7",
-        "pc1": 49.4591,
-        "pc2": -11.3856,
-        "pc3": 58.1552,
-        "risk_score": -49.4591,
+        "pc1": 52.6473,
+        "pc2": -16.2948,
+        "pc3": 25.5238,
+        "risk_score": -52.6473,
         "risk_rank": 0.0
       },
       {
         "symbol": "MSFT",
         "name": "Microsoft",
         "group": "MAG7",
-        "pc1": 56.0907,
-        "pc2": -12.0792,
-        "pc3": 66.9062,
-        "risk_score": -56.0907,
+        "pc1": 59.6743,
+        "pc2": -17.9257,
+        "pc3": 29.8774,
+        "risk_score": -59.6743,
         "risk_rank": 0.0
       },
       {
         "symbol": "NVDA",
         "name": "NVIDIA",
         "group": "MAG7",
-        "pc1": 45.8192,
-        "pc2": -9.79,
-        "pc3": 52.4872,
-        "risk_score": -45.8192,
+        "pc1": 48.6611,
+        "pc2": -14.1275,
+        "pc3": 23.1094,
+        "risk_score": -48.6611,
         "risk_rank": 0.0
       },
       {
         "symbol": "AMZN",
         "name": "Amazon",
         "group": "MAG7",
-        "pc1": 48.1733,
-        "pc2": -13.075,
-        "pc3": 57.5942,
-        "risk_score": -48.1733,
+        "pc1": 51.4811,
+        "pc2": -17.9024,
+        "pc3": 24.9027,
+        "risk_score": -51.4811,
         "risk_rank": 0.0
       },
       {
         "symbol": "GOOGL",
         "name": "Alphabet",
         "group": "MAG7",
-        "pc1": 47.7716,
-        "pc2": -11.297,
-        "pc3": 56.5048,
-        "risk_score": -47.7716,
+        "pc1": 50.886,
+        "pc2": -16.0477,
+        "pc3": 24.6062,
+        "risk_score": -50.886,
         "risk_rank": 0.0
       },
       {
         "symbol": "META",
         "name": "Meta",
         "group": "MAG7",
-        "pc1": 57.3959,
-        "pc2": -11.1492,
-        "pc3": 68.5046,
-        "risk_score": -57.3959,
+        "pc1": 60.973,
+        "pc2": -17.262,
+        "pc3": 31.1935,
+        "risk_score": -60.973,
         "risk_rank": 0.0
       },
       {
         "symbol": "TSLA",
         "name": "Tesla",
         "group": "MAG7",
-        "pc1": 47.9541,
-        "pc2": -11.1021,
-        "pc3": 56.5239,
-        "risk_score": -47.9541,
+        "pc1": 51.0764,
+        "pc2": -15.9691,
+        "pc3": 25.4139,
+        "risk_score": -51.0764,
         "risk_rank": 0.0
       },
       {
         "symbol": "JPM",
         "name": "JPMorgan Chase",
         "group": "Blue chip",
-        "pc1": 48.617,
-        "pc2": -11.7027,
-        "pc3": 58.5658,
-        "risk_score": -48.617,
+        "pc1": 51.8521,
+        "pc2": -16.7555,
+        "pc3": 25.8293,
+        "risk_score": -51.8521,
         "risk_rank": 0.0
       },
       {
         "symbol": "BRK.B",
         "name": "Berkshire Hathaway",
         "group": "Blue chip",
-        "pc1": 55.1945,
-        "pc2": -12.333,
-        "pc3": 67.0145,
-        "risk_score": -55.1945,
+        "pc1": 58.8046,
+        "pc2": -18.2614,
+        "pc3": 29.9258,
+        "risk_score": -58.8046,
         "risk_rank": 0.0
       },
       {
         "symbol": "JNJ",
         "name": "Johnson & Johnson",
         "group": "Blue chip",
-        "pc1": 45.7603,
-        "pc2": -10.7458,
-        "pc3": 54.9584,
-        "risk_score": -45.7603,
+        "pc1": 48.7758,
+        "pc2": -15.4544,
+        "pc3": 24.1554,
+        "risk_score": -48.7758,
         "risk_rank": 0.0
       },
       {
         "symbol": "XOM",
         "name": "Exxon Mobil",
         "group": "Blue chip",
-        "pc1": 44.0279,
-        "pc2": -10.0481,
-        "pc3": 52.1977,
-        "risk_score": -44.0279,
+        "pc1": 46.877,
+        "pc2": -14.4489,
+        "pc3": 22.8206,
+        "risk_score": -46.877,
         "risk_rank": 0.0
       },
       {
         "symbol": "PG",
         "name": "Procter & Gamble",
         "group": "Blue chip",
-        "pc1": 46.9641,
-        "pc2": -10.6667,
-        "pc3": 56.3967,
-        "risk_score": -46.9641,
+        "pc1": 50.0276,
+        "pc2": -15.5259,
+        "pc3": 24.88,
+        "risk_score": -50.0276,
         "risk_rank": 0.0
       }
     ],
     "reference_note": "MAG7 and blue-chip points are projected into the fitted PCA space as visual rulers only; they are not scanned, counted, or flagged.",
     "feature_log_mean": {
-      "market_cap": 14.3762,
-      "avg_volume": 13.67,
-      "close_price": 0.0977,
-      "num_employees": 3.4883
+      "market_cap": 14.3125,
+      "avg_volume": 13.6427,
+      "close_price": 0.0976,
+      "num_employees": 3.7778
     },
     "feature_log_std": {
-      "market_cap": 2.2884,
-      "avg_volume": 3.3762,
-      "close_price": 0.0626,
-      "num_employees": 1.195
+      "market_cap": 2.3177,
+      "avg_volume": 3.393,
+      "close_price": 0.0607,
+      "num_employees": 1.2263
     }
   },
   "data_health": {
