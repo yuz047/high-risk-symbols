@@ -68,9 +68,9 @@ def _load_params() -> dict:
 _P = _load_params()
 
 # --- Universe filter ----------------------------------------------------
-# The pool we even bother to scan: major-exchange (no-OTC) names whose last
-# close is under this price. Wider than the rule's price test so near-miss
-# names stay visible in the PCA view.
+# The dashboard database keeps every major-exchange common/ADR symbol with
+# daily market stats. This price is a UI/tuning scope only, not a database
+# pre-filter.
 UNIVERSE_MAX_PRICE = float(_P["universe_max_price"])
 LOOKBACK_DAYS = int(_P["lookback_days"])  # "in the last 20 business days"
 
@@ -175,11 +175,12 @@ MASSIVE_API_BASE = "https://api.massive.com"
 # pacing conservative: 15 seconds stays below a 5-request/minute ceiling.
 MASSIVE_REQUEST_SLEEP_SEC = 15.0
 MASSIVE_LOOKBACK_CALENDAR_DAYS = 45
-MASSIVE_DETAIL_CACHE_TTL_DAYS = 14
+MASSIVE_SECURITY_MASTER_TTL_DAYS = 31
+MASSIVE_DETAIL_CACHE_TTL_DAYS = MASSIVE_SECURITY_MASTER_TTL_DAYS
 MASSIVE_DETAIL_CACHE_FLUSH_EVERY = 10
 
-# Cap on how many price-screened candidates we pull ticker overview for in a
-# single run. This keeps first-run request count below the workflow timeout; the
-# cache fills in more names over subsequent runs.
+# Cap on how many missing security-master detail rows we hydrate in a single
+# run. This keeps first-run request count below the workflow timeout; the cache
+# fills in more names over subsequent monthly/static refreshes.
 MAX_DETAIL_FETCH = 80
 MASSIVE_MIN_LIVE_ROWS = 35

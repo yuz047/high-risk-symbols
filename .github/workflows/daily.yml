@@ -57,7 +57,7 @@ jobs:
         run: |
           git config user.name "high-risk-bot"
           git config user.email "high-risk-bot@users.noreply.github.com"
-          git add data/symbols.json data/meta.json data/history.json
+          git add data/symbols.json data/meta.json data/history.json data/security_master.json data/market_stats.json
           if git diff --cached --quiet; then
             echo "No data changes."
           else

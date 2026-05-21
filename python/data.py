@@ -30,6 +30,7 @@ from config import (
     CACHE_DIR, DATA_DIR, LOOKBACK_DAYS, MASSIVE_API_BASE,
     MASSIVE_DETAIL_CACHE_FLUSH_EVERY, MASSIVE_DETAIL_CACHE_TTL_DAYS,
     MASSIVE_LOOKBACK_CALENDAR_DAYS, MASSIVE_MIN_LIVE_ROWS,
+    MASSIVE_SECURITY_MASTER_TTL_DAYS,
     MASSIVE_REQUEST_SLEEP_SEC, MAX_DETAIL_FETCH, NASDAQ_LISTED_URL,
     OTHER_LISTED_URL, UNIVERSE_MAX_PRICE, US_COUNTRY_NAMES,
 )
@@ -40,6 +41,16 @@ SECURITY_NAME_EXCLUDE_RE = re.compile(
     re.IGNORECASE,
 )
 ALLOWED_TICKER_TYPES = {"CS", "ADRC", "ADRP", "ADRR"}
+MAJOR_EXCHANGES = {"XNAS", "XNYS", "XASE", "ARCX", "BATS", "IEXG"}
+OTHER_LISTED_EXCHANGE_MAP = {
+    "A": "XASE",  # NYSE American
+    "N": "XNYS",  # New York Stock Exchange
+    "P": "ARCX",  # NYSE Arca
+    "Z": "BATS",  # Cboe BZX
+    "V": "IEXG",  # IEX
+}
+SECURITY_MASTER_PATH = DATA_DIR / "security_master.json"
+MARKET_STATS_PATH = DATA_DIR / "market_stats.json"
 
 
 def _log(msg: str) -> None:
@@ -63,6 +74,20 @@ def _utc_now() -> datetime:
 def _sleep(sec: float) -> None:
     if sec > 0:
         time.sleep(sec)
+
+
+def _is_excluded_symbol(sym: str) -> bool:
+    """Drop suffix-style warrants/rights/units/OTC foreign ordinary tickers."""
+    if not sym or not sym.isalpha():
+        return True
+    # Major-exchange common stock can be 1-4 letters. Five-letter suffixes are
+    # frequently warrant/right/unit/foreign-ordinary forms: ABCDW, ABCDR, ABCDU,
+    # ABCDF. Keep legitimate one-letter names such as W.
+    return len(sym) >= 5 and sym[-1] in {"W", "R", "U", "F"}
+
+
+def _is_excluded_security_name(name: str | None) -> bool:
+    return bool(name and SECURITY_NAME_EXCLUDE_RE.search(name))
 
 
 # --------------------------------------------------------------------- #
@@ -117,10 +142,10 @@ def _massive_get(path: str, params: dict | None = None) -> dict | None:
         _sleep(MASSIVE_REQUEST_SLEEP_SEC)
 
 
-def build_live_universe() -> list[str] | None:
-    """Pull the full US-listed symbol directory from NASDAQ Trader."""
+def build_security_master_from_directory() -> list[dict] | None:
+    """Pull major-exchange common/ADR symbols from NASDAQ Trader."""
     import requests
-    syms: list[str] = []
+    rows: dict[str, dict] = {}
     for url, sep_col in ((NASDAQ_LISTED_URL, "Symbol"), (OTHER_LISTED_URL, "ACT Symbol")):
         try:
             r = requests.get(url, timeout=20,
@@ -132,43 +157,151 @@ def build_live_universe() -> list[str] | None:
             header = lines[0].split("|")
             sidx = header.index(sep_col)
             nidx = header.index("Security Name") if "Security Name" in header else None
+            eidx = header.index("Exchange") if "Exchange" in header else None
             tidx = header.index("Test Issue") if "Test Issue" in header else None
             etfidx = header.index("ETF") if "ETF" in header else None
             for ln in lines[1:]:
                 parts = ln.split("|")
                 if len(parts) <= sidx:
                     continue
-                sym = parts[sidx].strip()
-                # Drop warrants/units/rights/classes and other suffix forms
-                # such as ABC-W, ABC.W, ABC/U, ABC^A, or symbols with digits.
-                if not sym or not sym.isalpha():
+                sym = parts[sidx].strip().upper()
+                # Drop warrants/units/rights/classes and other suffix forms.
+                if _is_excluded_symbol(sym):
                     continue
                 name = parts[nidx].strip() if nidx is not None and len(parts) > nidx else ""
-                if SECURITY_NAME_EXCLUDE_RE.search(name):
+                if _is_excluded_security_name(name):
                     continue
                 if tidx is not None and parts[tidx].strip() == "Y":
                     continue
                 if etfidx is not None and parts[etfidx].strip() == "Y":
                     continue
-                syms.append(sym)
+                exch = "XNAS"
+                if eidx is not None and len(parts) > eidx:
+                    exch = OTHER_LISTED_EXCHANGE_MAP.get(parts[eidx].strip(), "")
+                if exch not in MAJOR_EXCHANGES:
+                    continue
+                rows[sym] = {
+                    "symbol": sym,
+                    "name": name or sym,
+                    "primary_exchange": exch,
+                    "ticker_type": "CS",
+                }
         except Exception as e:
             _log(f"universe {url} raised: {e}")
-    syms = sorted(set(syms))
-    if not syms:
+    out = sorted(rows.values(), key=lambda x: x["symbol"])
+    if not out:
         return None
-    _log(f"live universe: {len(syms)} US-listed symbols")
-    return syms
+    _log(f"security directory: {len(out)} major-exchange symbols")
+    return out
 
 
-def screen_prices(symbols: list[str]) -> dict[str, dict] | None:
-    """Screen prices using Massive grouped daily bars.
+def build_live_universe() -> list[str] | None:
+    """Compatibility wrapper: return symbols from the static master source."""
+    rows = build_security_master_from_directory()
+    return [r["symbol"] for r in rows] if rows else None
+
+
+def _read_snapshot(path: Path) -> dict | None:
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text())
+    except Exception as e:
+        _log(f"{path.name} unreadable ({e}); ignoring")
+        return None
+
+
+def _snapshot_fresh(path: Path, ttl_days: int) -> bool:
+    snap = _read_snapshot(path)
+    if not snap:
+        return False
+    try:
+        generated_at = datetime.fromisoformat(snap["generated_at"])
+    except Exception:
+        return False
+    if generated_at.tzinfo is None:
+        generated_at = generated_at.replace(tzinfo=timezone.utc)
+    return generated_at >= _utc_now() - timedelta(days=ttl_days)
+
+
+def _write_snapshot(path: Path, rows: list[dict], source: str, extra: dict | None = None) -> None:
+    payload = {
+        "generated_at": _utc_now().isoformat(timespec="seconds"),
+        "source": source,
+        "count": len(rows),
+        "rows": rows,
+    }
+    if extra:
+        payload.update(extra)
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True))
+
+
+def load_security_master(force_refresh: bool = False) -> list[dict] | None:
+    """Monthly/static security master: major exchanges only, no warrants/rights."""
+    if not force_refresh and _snapshot_fresh(SECURITY_MASTER_PATH, MASSIVE_SECURITY_MASTER_TTL_DAYS):
+        snap = _read_snapshot(SECURITY_MASTER_PATH)
+        rows = (snap or {}).get("rows") or []
+        if rows:
+            _log(f"security master cache: {len(rows)} symbols")
+            return rows
+
+    rows = build_security_master_from_directory()
+    if not rows:
+        snap = _read_snapshot(SECURITY_MASTER_PATH)
+        rows = (snap or {}).get("rows") if snap else None
+        if rows:
+            _log(f"using stale security master: {len(rows)} symbols")
+        return rows
+
+    # Hydrate a bounded slice with Massive overview data; the directory remains
+    # the complete master, and the cache fills in across monthly refreshes.
+    details = fetch_details([r["symbol"] for r in rows])
+    out = []
+    dropped = 0
+    seed_by_symbol = {r["symbol"]: r for r in load_universe_seed()}
+    for r in rows:
+        sym = r["symbol"]
+        d = details.get(sym, {})
+        exch = d.get("primary_exchange") or r.get("primary_exchange")
+        typ = str(d.get("ticker_type") or r.get("ticker_type") or "").upper()
+        name = d.get("name") or r.get("name") or sym
+        if exch and exch not in MAJOR_EXCHANGES:
+            dropped += 1
+            continue
+        if typ and typ not in ALLOWED_TICKER_TYPES:
+            dropped += 1
+            continue
+        if _is_excluded_symbol(sym) or _is_excluded_security_name(name):
+            dropped += 1
+            continue
+        seed = seed_by_symbol.get(sym, {})
+        out.append({
+            "symbol": sym,
+            "name": name,
+            "country": d.get("country") or seed.get("country") or "United States",
+            "primary_exchange": exch,
+            "ticker_type": typ or "CS",
+            "shares_out": d.get("shares_out") or seed.get("shares_out"),
+            "market_cap": d.get("market_cap") or seed.get("market_cap"),
+            "num_employees": d.get("num_employees") or seed.get("num_employees"),
+        })
+    _write_snapshot(
+        SECURITY_MASTER_PATH, out, "nasdaq_trader",
+        {"refresh_policy": "monthly/static", "dropped_non_stock": dropped},
+    )
+    _log(f"security master refreshed: {len(out)} symbols ({dropped} dropped)")
+    return out
+
+
+def load_market_stats(symbols: list[str]) -> dict[str, dict] | None:
+    """Load daily-changing price/volume stats using Massive grouped bars.
 
     This is intentionally request-light: one request per date returns OHLCV for
     the whole U.S. stock market. We walk backward until we have LOOKBACK_DAYS
-    trading sessions, then compute 20-day price high and average volume.
+    trading sessions, then compute last close, 20-day high, and average volume.
     """
     if not _massive_api_key():
-        _log("MASSIVE_API_KEY/POLYGON_API_KEY missing; live price screen disabled")
+        _log("MASSIVE_API_KEY/POLYGON_API_KEY missing; live market stats disabled")
         return None
 
     universe = set(symbols)
@@ -216,15 +349,27 @@ def screen_prices(symbols: list[str]) -> dict[str, dict] | None:
         if not bars:
             continue
         close = bars[-1]["close"]
-        if not (0 < close < UNIVERSE_MAX_PRICE):
+        if close <= 0:
             continue
         out[sym] = {
             "close_price": close,
             "price_max_20d": max(b["high"] for b in bars),
             "avg_volume": sum(b["volume"] for b in bars) / len(bars),
+            "stats_days": len(bars),
         }
-    _log(f"Massive price screen: {len(out)} symbols under ${UNIVERSE_MAX_PRICE}")
+    _write_snapshot(
+        MARKET_STATS_PATH,
+        [{"symbol": k, **v} for k, v in sorted(out.items())],
+        "massive",
+        {"refresh_policy": "daily/market", "trading_days": trading_days},
+    )
+    _log(f"Massive market stats: {len(out)} symbols with daily price/volume")
     return out or None
+
+
+def screen_prices(symbols: list[str]) -> dict[str, dict] | None:
+    """Compatibility wrapper for older callers."""
+    return load_market_stats(symbols)
 
 
 def _details_cache_path():
@@ -262,6 +407,12 @@ def _save_details_cache(cache: dict[str, dict]) -> None:
 
 def fetch_details(symbols: list[str]) -> dict[str, dict]:
     """Per-symbol fundamentals from Massive ticker overview."""
+    if not _massive_api_key():
+        cache = _load_details_cache()
+        cached = {sym: cache[sym]["data"] for sym in symbols if sym in cache}
+        _log(f"MASSIVE_API_KEY/POLYGON_API_KEY missing; using {len(cached)} cached detail rows")
+        return cached
+
     out: dict[str, dict] = {}
     cache = _load_details_cache()
     seed_by_symbol = {r["symbol"]: r for r in load_universe_seed()}
@@ -315,33 +466,39 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
 
 
 def _get_live_frame() -> pd.DataFrame | None:
-    universe = build_live_universe()
-    if not universe:
+    if not _massive_api_key():
+        _log("MASSIVE_API_KEY/POLYGON_API_KEY missing; live path disabled")
         return None
-    priced = screen_prices(universe)
+
+    master = load_security_master()
+    if not master:
+        return None
+    symbols = [r["symbol"] for r in master]
+    priced = load_market_stats(symbols)
     if not priced:
         return None
-    # Prioritise the cheapest names (closest to the rule profile) for the
-    # bounded detail fetch, then only build rows for the symbols we detailed.
-    cands = sorted(priced.keys(), key=lambda s: priced[s]["close_price"])[:MAX_DETAIL_FETCH]
-    details = fetch_details(cands)
     uw_map = load_underwriter_map()
-    # Major-exchange common/ADR equity only — drop OTC, warrants, rights,
-    # units, preferreds, notes, and other non-stock security types.
-    major = {"XNAS", "XNYS", "XASE", "ARCX", "BATS", "IEXG"}
     rows = []
     dropped_non_stock = 0
-    for sym in cands:
-        p = priced[sym]
-        d = details.get(sym, {})
+    missing_stats = 0
+    imputed_static = 0
+    for d in master:
+        sym = d["symbol"]
+        if sym not in priced:
+            missing_stats += 1
+            continue
+        if _is_excluded_symbol(sym) or _is_excluded_security_name(d.get("name")):
+            dropped_non_stock += 1
+            continue
         exch = d.get("primary_exchange")
         typ = str(d.get("ticker_type") or "").upper()
-        if exch and exch not in major:
+        if exch and exch not in MAJOR_EXCHANGES:
             dropped_non_stock += 1
             continue
         if typ and typ not in ALLOWED_TICKER_TYPES:
             dropped_non_stock += 1
             continue
+        p = priced[sym]
         close = p["close_price"]
         mcap = d.get("market_cap")
         shares = d.get("shares_out")
@@ -350,6 +507,15 @@ def _get_live_frame() -> pd.DataFrame | None:
             mcap = shares * close
         if shares is None and mcap:
             shares = mcap / close
+        fundamentals_imputed = False
+        if mcap is None and shares is None:
+            # Keep the symbol in the database, but make missing static
+            # fundamentals conservative so it cannot accidentally satisfy the
+            # small-cap / thin-float rules.
+            mcap = 10_000_000_000.0
+            shares = mcap / close
+            fundamentals_imputed = True
+            imputed_static += 1
         rows.append({
             "symbol": sym,
             "name": d.get("name") or sym,
@@ -358,17 +524,15 @@ def _get_live_frame() -> pd.DataFrame | None:
             "close_price": close,
             "price_max_20d": p["price_max_20d"],
             "avg_volume": p["avg_volume"],
+            "stats_days": p.get("stats_days"),
             "shares_out": shares,
             "market_cap": mcap,
             "num_employees": d.get("num_employees"),  # often None for micro-caps
+            "fundamentals_imputed": fundamentals_imputed,
         })
     df = pd.DataFrame(rows)
-    # Require the size/liquidity fields the rules and PCA truly need. Employees
-    # is commonly missing for micro-caps, so impute it rather than drop the row.
-    need = ["market_cap", "shares_out", "avg_volume", "close_price"]
-    df = df.dropna(subset=need)
     if len(df) < MASSIVE_MIN_LIVE_ROWS:
-        _log(f"live frame too thin after Massive details: {len(df)} rows (<{MASSIVE_MIN_LIVE_ROWS})")
+        _log(f"live frame too thin after Massive market stats: {len(df)} rows (<{MASSIVE_MIN_LIVE_ROWS})")
         return None
     emp_median = df["num_employees"].median()
     if pd.isna(emp_median):
@@ -376,8 +540,8 @@ def _get_live_frame() -> pd.DataFrame | None:
     df["num_employees"] = df["num_employees"].fillna(emp_median).round().astype(int)
     df["source"] = "massive"
     df["synthetic"] = False
-    _log(f"live frame: {len(df)} symbols ({dropped_non_stock} non-stock/OTC rows dropped; employees imputed for "
-         f"{int(df['num_employees'].eq(round(emp_median)).sum())} missing)")
+    _log(f"live frame: {len(df)} symbols ({missing_stats} without daily stats; "
+         f"{dropped_non_stock} non-stock/OTC rows dropped; {imputed_static} static rows imputed)")
     return df
 
 
@@ -404,7 +568,9 @@ def _synth_frame() -> pd.DataFrame:
     uw_map = load_underwriter_map()
     out = []
     for r in rows_in:
-        sym = r["symbol"]
+        sym = str(r["symbol"]).upper()
+        if _is_excluded_symbol(sym) or _is_excluded_security_name(r.get("name")):
+            continue
         country = r.get("country", "United States")
         uw = r.get("underwriter") or uw_map.get(sym)
 
@@ -417,6 +583,8 @@ def _synth_frame() -> pd.DataFrame:
                 "price_max_20d": round(price_max, 2), "avg_volume": round(vol, 0),
                 "shares_out": round(shares, 0), "market_cap": round(shares * close, 0),
                 "num_employees": int(employees),
+                "stats_days": LOOKBACK_DAYS,
+                "fundamentals_imputed": False,
             })
             continue
 
@@ -452,10 +620,39 @@ def _synth_frame() -> pd.DataFrame:
             "shares_out": round(shares, 0),
             "market_cap": round(mcap_now, 0),
             "num_employees": employees,
+            "stats_days": LOOKBACK_DAYS,
+            "fundamentals_imputed": False,
         })
     df = pd.DataFrame(out)
     df["source"] = "synthetic"
     df["synthetic"] = True
+    _write_snapshot(
+        SECURITY_MASTER_PATH,
+        [{
+            "symbol": r["symbol"],
+            "name": r["name"],
+            "country": r["country"],
+            "primary_exchange": "XNAS",
+            "ticker_type": "CS",
+            "shares_out": r["shares_out"],
+            "market_cap": r["market_cap"],
+            "num_employees": r["num_employees"],
+        } for r in out],
+        "synthetic",
+        {"refresh_policy": "monthly/static"},
+    )
+    _write_snapshot(
+        MARKET_STATS_PATH,
+        [{
+            "symbol": r["symbol"],
+            "close_price": r["close_price"],
+            "price_max_20d": r["price_max_20d"],
+            "avg_volume": r["avg_volume"],
+            "stats_days": r["stats_days"],
+        } for r in out],
+        "synthetic",
+        {"refresh_policy": "daily/market", "trading_days": LOOKBACK_DAYS},
+    )
     _log(f"synthetic seed frame: {len(df)} symbols")
     return df
 

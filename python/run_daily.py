@@ -67,9 +67,12 @@ def main() -> None:
             "shares_m": round(float(r["shares_out"]) / 1e6, 2),
             "vol_m": round(float(r["avg_volume"]) / 1e6, 3),
             "num_employees": int(r["num_employees"]),
+            "stats_days": int(r.get("stats_days", LOOKBACK_DAYS) or LOOKBACK_DAYS),
+            "fundamentals_imputed": bool(r.get("fundamentals_imputed", False)),
             "flags": {c: bool(r[c]) for c in FLAG_COLS},
             "hit_count": int(r["hit_count"]),
             "rule_high_risk": bool(r["rule_high_risk"]),
+            "pca_candidate": bool(r.get("pca_candidate", False)),
             "pc1": round(float(r["pc1"]), 4),
             "pc2": round(float(r["pc2"]), 4),
             "pc3": round(float(r.get("pc3", 0.0)), 4),
@@ -89,6 +92,7 @@ def main() -> None:
         "pca_only": int((~df["rule_high_risk"] & df["pca_high_risk"]).sum()),
         "combined_total": int(df["combined_high_risk"].sum()),
         "watch": int((df["category"] == "watch").sum()),
+        "pca_candidate": int(df["pca_candidate"].sum()) if "pca_candidate" in df.columns else 0,
     }
 
     source = str(df["source"].iloc[0])
@@ -115,6 +119,13 @@ def main() -> None:
         "underwriters": HIGH_RISK_UNDERWRITERS,
         "underwriter_seed_count": len(load_underwriter_map()),
         "pca": pca_meta,
+        "database": {
+            "scope": "all major-exchange non-OTC common/ADR symbols with daily market stats",
+            "static_security_master": "data/security_master.json",
+            "daily_market_stats": "data/market_stats.json",
+            "static_refresh_policy": "monthly",
+            "market_stats_refresh_policy": "daily",
+        },
         "data_health": {
             "ok": True,
             "synthetic": synthetic,

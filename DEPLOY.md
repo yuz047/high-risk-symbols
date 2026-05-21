@@ -98,7 +98,14 @@ Two editable JSON files drive the scan:
   data).
 
 The dashboard also exposes the thresholds, the cut, and the watchlist as live
-controls. The engine picks up `params.json`/`underwriters.json` on the next run.
+click-to-edit cards. The engine picks up `params.json`/`underwriters.json` on
+the next run.
+
+`data/security_master.json` is static/monthly: major-exchange common/ADR names
+only, with warrants, rights, units, five-letter `...W`/`...R`/`...U`/`...F`
+suffix forms, ETFs, tests, OTC and non-major exchange rows excluded.
+`data/market_stats.json` is daily: Massive/Polygon grouped bars with
+`include_otc=false`.
 
 ## What runs where (cheat sheet)
 
@@ -110,5 +117,6 @@ python/  ── runs in GH Actions          web/index.html
    │  commits data/*.json                  │            (same repo, or raw.github)
    ▼                                        ▼
 data/symbols.json  data/meta.json       GitHub Pages (free, https)
-data/history.json   (refreshed nightly)
+data/history.json   data/market_stats.json
+data/security_master.json
 ```

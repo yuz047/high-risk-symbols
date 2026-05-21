@@ -1,0 +1,2108 @@
+{
+  "count": 210,
+  "generated_at": "2026-05-21T12:16:29+00:00",
+  "refresh_policy": "monthly/static",
+  "rows": [
+    {
+      "country": "United States",
+      "market_cap": 28621416.0,
+      "name": "Nova Therapeutics",
+      "num_employees": 105,
+      "primary_exchange": "XNAS",
+      "shares_out": 7602173.0,
+      "symbol": "ABEB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 30800000.0,
+      "name": "ABVC BioPharma",
+      "num_employees": 70,
+      "primary_exchange": "XNAS",
+      "shares_out": 22000000.0,
+      "symbol": "ABVC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 5409595659.0,
+      "name": "AERT Corp",
+      "num_employees": 21155,
+      "primary_exchange": "XNAS",
+      "shares_out": 396483450.0,
+      "symbol": "AERT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1113273250.0,
+      "name": "Cascade Therapeutics",
+      "num_employees": 6254,
+      "primary_exchange": "XNAS",
+      "shares_out": 82645742.0,
+      "symbol": "AJJA",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 11987812.0,
+      "name": "Vanguard Energy",
+      "num_employees": 140,
+      "primary_exchange": "XNAS",
+      "shares_out": 11063783.0,
+      "symbol": "AKDT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Israel",
+      "market_cap": 34433668.0,
+      "name": "Phoenix Resources",
+      "num_employees": 168,
+      "primary_exchange": "XNAS",
+      "shares_out": 8592746.0,
+      "symbol": "ALYA",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 13200000.0,
+      "name": "Alzamend Neuro",
+      "num_employees": 25,
+      "primary_exchange": "XNAS",
+      "shares_out": 12000000.0,
+      "symbol": "ALZN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 124632068.0,
+      "name": "Cascade Systems",
+      "num_employees": 164,
+      "primary_exchange": "XNAS",
+      "shares_out": 30258416.0,
+      "symbol": "AMND",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 236704766.0,
+      "name": "Cascade Capital",
+      "num_employees": 2712,
+      "primary_exchange": "XNAS",
+      "shares_out": 51682958.0,
+      "symbol": "AMVF",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3828264537.0,
+      "name": "ANPA Corp",
+      "num_employees": 19727,
+      "primary_exchange": "XNAS",
+      "shares_out": 500773429.0,
+      "symbol": "ANPA",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 4842235655.0,
+      "name": "Apex Technology",
+      "num_employees": 19437,
+      "primary_exchange": "XNAS",
+      "shares_out": 441087214.0,
+      "symbol": "APD",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2235346727.0,
+      "name": "ARBB Corp",
+      "num_employees": 16364,
+      "primary_exchange": "XNAS",
+      "shares_out": 359134784.0,
+      "symbol": "ARBB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1834696972.0,
+      "name": "American Resources Corp.",
+      "num_employees": 3965,
+      "primary_exchange": "XNAS",
+      "shares_out": 474367438.0,
+      "symbol": "AREC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United Kingdom",
+      "market_cap": 146224604.0,
+      "name": "Nova Energy",
+      "num_employees": 143,
+      "primary_exchange": "XNAS",
+      "shares_out": 36114205.0,
+      "symbol": "BFPP",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Cayman Islands",
+      "market_cap": 1998914434.0,
+      "name": "Apex Therapeutics",
+      "num_employees": 21090,
+      "primary_exchange": "XNAS",
+      "shares_out": 490943342.0,
+      "symbol": "BFR",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Singapore",
+      "market_cap": 6783396.0,
+      "name": "Quantum Resources",
+      "num_employees": 111,
+      "primary_exchange": "XNAS",
+      "shares_out": 9374539.0,
+      "symbol": "BHNE",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 5423903408.0,
+      "name": "BIIO Corp",
+      "num_employees": 143,
+      "primary_exchange": "XNAS",
+      "shares_out": 442578671.0,
+      "symbol": "BIIO",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3587127037.0,
+      "name": "BIOX Corp",
+      "num_employees": 7108,
+      "primary_exchange": "XNAS",
+      "shares_out": 280954296.0,
+      "symbol": "BIOX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 740122511.0,
+      "name": "NeoTech Therapeutics",
+      "num_employees": 11770,
+      "primary_exchange": "XNAS",
+      "shares_out": 97964443.0,
+      "symbol": "BLFT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United Kingdom",
+      "market_cap": 43387963.0,
+      "name": "NeoTech Technology",
+      "num_employees": 197,
+      "primary_exchange": "XNAS",
+      "shares_out": 14561441.0,
+      "symbol": "BMWC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 4915132774.0,
+      "name": "BON Corp",
+      "num_employees": 15045,
+      "primary_exchange": "XNAS",
+      "shares_out": 364147394.0,
+      "symbol": "BON",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Singapore",
+      "market_cap": 19154299.0,
+      "name": "Cascade Therapeutics",
+      "num_employees": 260,
+      "primary_exchange": "XNAS",
+      "shares_out": 23458263.0,
+      "symbol": "BQAP",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 37415680.0,
+      "name": "Apex Materials",
+      "num_employees": 176,
+      "primary_exchange": "XNAS",
+      "shares_out": 9601251.0,
+      "symbol": "BQP",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1334931403.0,
+      "name": "Nova Digital",
+      "num_employees": 21485,
+      "primary_exchange": "XNAS",
+      "shares_out": 422190843.0,
+      "symbol": "CBGL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 954655229.0,
+      "name": "Apex Robotics",
+      "num_employees": 20064,
+      "primary_exchange": "XNAS",
+      "shares_out": 89182263.0,
+      "symbol": "CCDS",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "China",
+      "market_cap": 88849607.0,
+      "name": "CCM Corp",
+      "num_employees": 187,
+      "primary_exchange": "XNAS",
+      "shares_out": 20869163.0,
+      "symbol": "CCM",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 541630851.0,
+      "name": "Camber Energy",
+      "num_employees": 12957,
+      "primary_exchange": "XNAS",
+      "shares_out": 193209239.0,
+      "symbol": "CEI",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3235101.0,
+      "name": "BlueSky Pharma",
+      "num_employees": 10,
+      "primary_exchange": "XNAS",
+      "shares_out": 5394553.0,
+      "symbol": "CGC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 122105578.0,
+      "name": "Beacon Energy",
+      "num_employees": 191,
+      "primary_exchange": "XNAS",
+      "shares_out": 34987700.0,
+      "symbol": "CGEX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "China",
+      "market_cap": 74580000.0,
+      "name": "China Liberal Education Holdings",
+      "num_employees": 180,
+      "primary_exchange": "XNAS",
+      "shares_out": 33900000.0,
+      "symbol": "CLEU",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 129917200.0,
+      "name": "CPHI Corp",
+      "num_employees": 178,
+      "primary_exchange": "XNAS",
+      "shares_out": 29942441.0,
+      "symbol": "CPHI",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 110157322.0,
+      "name": "CREG Corp",
+      "num_employees": 110,
+      "primary_exchange": "XNAS",
+      "shares_out": 24837896.0,
+      "symbol": "CREG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 6821399543.0,
+      "name": "CUEN Corp",
+      "num_employees": 12614,
+      "primary_exchange": "XNAS",
+      "shares_out": 482314697.0,
+      "symbol": "CUEN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Israel",
+      "market_cap": 154989986.0,
+      "name": "DBVT Corp",
+      "num_employees": 20492,
+      "primary_exchange": "XNAS",
+      "shares_out": 59509279.0,
+      "symbol": "DBVT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 63684621.0,
+      "name": "Sterling Digital",
+      "num_employees": 117,
+      "primary_exchange": "XNAS",
+      "shares_out": 23067163.0,
+      "symbol": "DFJU",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 9386633.0,
+      "name": "Vision Pharma",
+      "num_employees": 126,
+      "primary_exchange": "XNAS",
+      "shares_out": 7156215.0,
+      "symbol": "DGAP",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 825256635.0,
+      "name": "Vector Energy",
+      "num_employees": 5705,
+      "primary_exchange": "XNAS",
+      "shares_out": 196942355.0,
+      "symbol": "DKBF",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 78729042.0,
+      "name": "DLPN Corp",
+      "num_employees": 261,
+      "primary_exchange": "XNAS",
+      "shares_out": 37175529.0,
+      "symbol": "DLPN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Hong Kong",
+      "market_cap": 7285853061.0,
+      "name": "DMAC Corp",
+      "num_employees": 18720,
+      "primary_exchange": "XNAS",
+      "shares_out": 503225893.0,
+      "symbol": "DMAC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 728218171.0,
+      "name": "Apex Biosciences",
+      "num_employees": 6833,
+      "primary_exchange": "XNAS",
+      "shares_out": 140491453.0,
+      "symbol": "DRJV",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 57488043.0,
+      "name": "DRTS Corp",
+      "num_employees": 268,
+      "primary_exchange": "XNAS",
+      "shares_out": 21397894.0,
+      "symbol": "DRTS",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 9495588.0,
+      "name": "Meridian Networks",
+      "num_employees": 118,
+      "primary_exchange": "XNAS",
+      "shares_out": 5274776.0,
+      "symbol": "DSR",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 80909408.0,
+      "name": "Sterling Group",
+      "num_employees": 251,
+      "primary_exchange": "XNAS",
+      "shares_out": 31355028.0,
+      "symbol": "DSYX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Canada",
+      "market_cap": 433334434.0,
+      "name": "Pioneer Digital",
+      "num_employees": 11644,
+      "primary_exchange": "XNAS",
+      "shares_out": 165556402.0,
+      "symbol": "DUX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 64080582.0,
+      "name": "Frontier Digital",
+      "num_employees": 35,
+      "primary_exchange": "XNAS",
+      "shares_out": 20782632.0,
+      "symbol": "EBEX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 4476541786.0,
+      "name": "EDTK Corp",
+      "num_employees": 12349,
+      "primary_exchange": "XNAS",
+      "shares_out": 456915245.0,
+      "symbol": "EDTK",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Hong Kong",
+      "market_cap": 980663304.0,
+      "name": "EFSH Corp",
+      "num_employees": 16767,
+      "primary_exchange": "XNAS",
+      "shares_out": 341774814.0,
+      "symbol": "EFSH",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 16187607.0,
+      "name": "Pioneer Technology",
+      "num_employees": 270,
+      "primary_exchange": "XNAS",
+      "shares_out": 28573162.0,
+      "symbol": "EGJ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1336582728.0,
+      "name": "Frontier Logistics",
+      "num_employees": 18356,
+      "primary_exchange": "XNAS",
+      "shares_out": 153018873.0,
+      "symbol": "EKDG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United Kingdom",
+      "market_cap": 20489117.0,
+      "name": "ELMD Corp",
+      "num_employees": 82,
+      "primary_exchange": "XNAS",
+      "shares_out": 6133425.0,
+      "symbol": "ELMD",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 23073154.0,
+      "name": "ENSC Corp",
+      "num_employees": 275,
+      "primary_exchange": "XNAS",
+      "shares_out": 9292895.0,
+      "symbol": "ENSC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3164094972.0,
+      "name": "EOSE Corp",
+      "num_employees": 1468,
+      "primary_exchange": "XNAS",
+      "shares_out": 224825461.0,
+      "symbol": "EOSE",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 33189752.0,
+      "name": "Phoenix Energy",
+      "num_employees": 81,
+      "primary_exchange": "XNAS",
+      "shares_out": 27532744.0,
+      "symbol": "EQY",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2412679086.0,
+      "name": "Vision Capital",
+      "num_employees": 2026,
+      "primary_exchange": "XNAS",
+      "shares_out": 423629436.0,
+      "symbol": "ETKT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 48867623.0,
+      "name": "EVTL Corp",
+      "num_employees": 10,
+      "primary_exchange": "XNAS",
+      "shares_out": 11226978.0,
+      "symbol": "EVTL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 4208407988.0,
+      "name": "Crown Energy",
+      "num_employees": 8913,
+      "primary_exchange": "XNAS",
+      "shares_out": 318667161.0,
+      "symbol": "EWRZ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 102239314.0,
+      "name": "Summit Materials",
+      "num_employees": 210,
+      "primary_exchange": "XNAS",
+      "shares_out": 27478187.0,
+      "symbol": "EXLH",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3599610841.0,
+      "name": "Pioneer Networks",
+      "num_employees": 22216,
+      "primary_exchange": "XNAS",
+      "shares_out": 441287170.0,
+      "symbol": "EYX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Hong Kong",
+      "market_cap": 40233894.0,
+      "name": "FAMI Corp",
+      "num_employees": 164,
+      "primary_exchange": "XNAS",
+      "shares_out": 26902791.0,
+      "symbol": "FAMI",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 6402252738.0,
+      "name": "FCEL Corp",
+      "num_employees": 6232,
+      "primary_exchange": "XNAS",
+      "shares_out": 485086396.0,
+      "symbol": "FCEL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Cayman Islands",
+      "market_cap": 73507211.0,
+      "name": "Sterling Therapeutics",
+      "num_employees": 115,
+      "primary_exchange": "XNAS",
+      "shares_out": 35666093.0,
+      "symbol": "FDLB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3162118966.0,
+      "name": "FFIE Corp",
+      "num_employees": 2294,
+      "primary_exchange": "XNAS",
+      "shares_out": 225966590.0,
+      "symbol": "FFIE",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 889255099.0,
+      "name": "Vision Logistics",
+      "num_employees": 21413,
+      "primary_exchange": "XNAS",
+      "shares_out": 280272183.0,
+      "symbol": "FGAY",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 64572118.0,
+      "name": "FLXS Corp",
+      "num_employees": 26,
+      "primary_exchange": "XNAS",
+      "shares_out": 21887705.0,
+      "symbol": "FLXS",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3106647996.0,
+      "name": "Cascade Biosciences",
+      "num_employees": 14164,
+      "primary_exchange": "XNAS",
+      "shares_out": 280767010.0,
+      "symbol": "FME",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 14404519.0,
+      "name": "Vector Group",
+      "num_employees": 51,
+      "primary_exchange": "XNAS",
+      "shares_out": 30600201.0,
+      "symbol": "FRFY",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 791827322.0,
+      "name": "Sterling Biosciences",
+      "num_employees": 7562,
+      "primary_exchange": "XNAS",
+      "shares_out": 197432695.0,
+      "symbol": "FRN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Israel",
+      "market_cap": 42616313.0,
+      "name": "FSEA Corp",
+      "num_employees": 58,
+      "primary_exchange": "XNAS",
+      "shares_out": 21837479.0,
+      "symbol": "FSEA",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1469950054.0,
+      "name": "GBOX Corp",
+      "num_employees": 7760,
+      "primary_exchange": "XNAS",
+      "shares_out": 376720196.0,
+      "symbol": "GBOX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 26604381.0,
+      "name": "Pinnacle Robotics",
+      "num_employees": 104,
+      "primary_exchange": "XNAS",
+      "shares_out": 12326084.0,
+      "symbol": "GBV",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 41657770.0,
+      "name": "Apex Energy",
+      "num_employees": 258,
+      "primary_exchange": "XNAS",
+      "shares_out": 9083439.0,
+      "symbol": "GFV",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 5137001777.0,
+      "name": "Summit Energy",
+      "num_employees": 13462,
+      "primary_exchange": "XNAS",
+      "shares_out": 393797660.0,
+      "symbol": "GGAH",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 27346635.0,
+      "name": "NeoTech Energy",
+      "num_employees": 166,
+      "primary_exchange": "XNAS",
+      "shares_out": 6422248.0,
+      "symbol": "GKMB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 15727118.0,
+      "name": "GLBS Corp",
+      "num_employees": 188,
+      "primary_exchange": "XNAS",
+      "shares_out": 31827957.0,
+      "symbol": "GLBS",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Hong Kong",
+      "market_cap": 17050734.0,
+      "name": "GMGI Corp",
+      "num_employees": 132,
+      "primary_exchange": "XNAS",
+      "shares_out": 4295091.0,
+      "symbol": "GMGI",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1949130825.0,
+      "name": "GNPX Corp",
+      "num_employees": 833,
+      "primary_exchange": "XNAS",
+      "shares_out": 219025348.0,
+      "symbol": "GNPX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2218404452.0,
+      "name": "GRCL Corp",
+      "num_employees": 23699,
+      "primary_exchange": "XNAS",
+      "shares_out": 308730488.0,
+      "symbol": "GRCL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 13725953.0,
+      "name": "GRIL Corp",
+      "num_employees": 12,
+      "primary_exchange": "XNAS",
+      "shares_out": 4845355.0,
+      "symbol": "GRIL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 73596665.0,
+      "name": "GSUN Corp",
+      "num_employees": 29,
+      "primary_exchange": "XNAS",
+      "shares_out": 22198959.0,
+      "symbol": "GSUN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 15377037.0,
+      "name": "GTT Communications",
+      "num_employees": 23,
+      "primary_exchange": "XNAS",
+      "shares_out": 25049531.0,
+      "symbol": "GTT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 29063443.0,
+      "name": "HCDI Corp",
+      "num_employees": 215,
+      "primary_exchange": "XNAS",
+      "shares_out": 36600463.0,
+      "symbol": "HCDI",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3238028497.0,
+      "name": "Quantum Logistics",
+      "num_employees": 20099,
+      "primary_exchange": "XNAS",
+      "shares_out": 417555567.0,
+      "symbol": "HDEV",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1176256177.0,
+      "name": "Atlas Biosciences",
+      "num_employees": 13663,
+      "primary_exchange": "XNAS",
+      "shares_out": 205613634.0,
+      "symbol": "HGUY",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3620649810.0,
+      "name": "Vanguard Holdings",
+      "num_employees": 22798,
+      "primary_exchange": "XNAS",
+      "shares_out": 294297282.0,
+      "symbol": "HHPD",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2496925861.0,
+      "name": "Pioneer Biosciences",
+      "num_employees": 23340,
+      "primary_exchange": "XNAS",
+      "shares_out": 190064604.0,
+      "symbol": "HKFZ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 6617858285.0,
+      "name": "BlueSky Group",
+      "num_employees": 14934,
+      "primary_exchange": "XNAS",
+      "shares_out": 452242517.0,
+      "symbol": "HNTB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 5969316980.0,
+      "name": "HOLO Corp",
+      "num_employees": 4554,
+      "primary_exchange": "XNAS",
+      "shares_out": 419096697.0,
+      "symbol": "HOLO",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Canada",
+      "market_cap": 1733507767.0,
+      "name": "FSD Pharma",
+      "num_employees": 3117,
+      "primary_exchange": "XNAS",
+      "shares_out": 317588254.0,
+      "symbol": "HUGE",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 28239045.0,
+      "name": "Nova Holdings",
+      "num_employees": 196,
+      "primary_exchange": "XNAS",
+      "shares_out": 6397948.0,
+      "symbol": "HVEN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1923914342.0,
+      "name": "Vector Energy",
+      "num_employees": 23228,
+      "primary_exchange": "XNAS",
+      "shares_out": 500725345.0,
+      "symbol": "HWAP",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2951695896.0,
+      "name": "HYMC Corp",
+      "num_employees": 5384,
+      "primary_exchange": "XNAS",
+      "shares_out": 208575737.0,
+      "symbol": "HYMC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 4656292738.0,
+      "name": "IDAI Corp",
+      "num_employees": 21916,
+      "primary_exchange": "XNAS",
+      "shares_out": 395839135.0,
+      "symbol": "IDAI",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1143961296.0,
+      "name": "IMPP Corp",
+      "num_employees": 19607,
+      "primary_exchange": "XNAS",
+      "shares_out": 108188602.0,
+      "symbol": "IMPP",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Israel",
+      "market_cap": 5255058623.0,
+      "name": "INBS Corp",
+      "num_employees": 9582,
+      "primary_exchange": "XNAS",
+      "shares_out": 506922446.0,
+      "symbol": "INBS",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Canada",
+      "market_cap": 41032395.0,
+      "name": "INEO Corp",
+      "num_employees": 127,
+      "primary_exchange": "XNAS",
+      "shares_out": 23265377.0,
+      "symbol": "INEO",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Canada",
+      "market_cap": 28518372.0,
+      "name": "IPDN Corp",
+      "num_employees": 24,
+      "primary_exchange": "XNAS",
+      "shares_out": 28322297.0,
+      "symbol": "IPDN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 13586161.0,
+      "name": "Quantum Materials",
+      "num_employees": 158,
+      "primary_exchange": "XNAS",
+      "shares_out": 6620696.0,
+      "symbol": "JDTK",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Hong Kong",
+      "market_cap": 28927310.0,
+      "name": "JFBR Corp",
+      "num_employees": 54,
+      "primary_exchange": "XNAS",
+      "shares_out": 8801534.0,
+      "symbol": "JFBR",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 142122670.0,
+      "name": "Quantum Resources",
+      "num_employees": 222,
+      "primary_exchange": "XNAS",
+      "shares_out": 35215651.0,
+      "symbol": "JHG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 6071648.0,
+      "name": "Crown Robotics",
+      "num_employees": 141,
+      "primary_exchange": "XNAS",
+      "shares_out": 7639160.0,
+      "symbol": "JKBJ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 479878811.0,
+      "name": "Cascade Energy",
+      "num_employees": 18048,
+      "primary_exchange": "XNAS",
+      "shares_out": 39645714.0,
+      "symbol": "JTM",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1700927705.0,
+      "name": "Summit Systems",
+      "num_employees": 10144,
+      "primary_exchange": "XNAS",
+      "shares_out": 301938516.0,
+      "symbol": "JURU",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 4870060814.0,
+      "name": "JWEL Corp",
+      "num_employees": 13506,
+      "primary_exchange": "XNAS",
+      "shares_out": 395829739.0,
+      "symbol": "JWEL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 11920897.0,
+      "name": "Pinnacle Materials",
+      "num_employees": 10,
+      "primary_exchange": "XNAS",
+      "shares_out": 4001378.0,
+      "symbol": "JYG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Cayman Islands",
+      "market_cap": 65938529.0,
+      "name": "KAVL Corp",
+      "num_employees": 189,
+      "primary_exchange": "XNAS",
+      "shares_out": 18160914.0,
+      "symbol": "KAVL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United Kingdom",
+      "market_cap": 21870826.0,
+      "name": "KBAL Corp",
+      "num_employees": 46,
+      "primary_exchange": "XNAS",
+      "shares_out": 6294466.0,
+      "symbol": "KBAL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 32745139.0,
+      "name": "Vanguard Resources",
+      "num_employees": 249,
+      "primary_exchange": "XNAS",
+      "shares_out": 10449815.0,
+      "symbol": "KFR",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Canada",
+      "market_cap": 156774939.0,
+      "name": "KNDI Corp",
+      "num_employees": 197,
+      "primary_exchange": "XNAS",
+      "shares_out": 34666081.0,
+      "symbol": "KNDI",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 5680322759.0,
+      "name": "KPRX Corp",
+      "num_employees": 12677,
+      "primary_exchange": "XNAS",
+      "shares_out": 400110483.0,
+      "symbol": "KPRX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Cayman Islands",
+      "market_cap": 2151380424.0,
+      "name": "KRKR Corp",
+      "num_employees": 8988,
+      "primary_exchange": "XNAS",
+      "shares_out": 247808305.0,
+      "symbol": "KRKR",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 6507221395.0,
+      "name": "Vector Materials",
+      "num_employees": 14356,
+      "primary_exchange": "XNAS",
+      "shares_out": 517504906.0,
+      "symbol": "KSBS",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 92501257.0,
+      "name": "Phoenix Pharma",
+      "num_employees": 37,
+      "primary_exchange": "XNAS",
+      "shares_out": 24290776.0,
+      "symbol": "KYMX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2565720350.0,
+      "name": "Pinnacle Energy",
+      "num_employees": 10087,
+      "primary_exchange": "XNAS",
+      "shares_out": 200996260.0,
+      "symbol": "LAKB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2971404134.0,
+      "name": "Phoenix Holdings",
+      "num_employees": 20676,
+      "primary_exchange": "XNAS",
+      "shares_out": 259889865.0,
+      "symbol": "LBJ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 11609040.0,
+      "name": "BlueSky Energy",
+      "num_employees": 136,
+      "primary_exchange": "XNAS",
+      "shares_out": 7896048.0,
+      "symbol": "LDHV",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 17842448.0,
+      "name": "LGMK Corp",
+      "num_employees": 48,
+      "primary_exchange": "XNAS",
+      "shares_out": 7061796.0,
+      "symbol": "LGMK",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 13821186.0,
+      "name": "Atlas Resources",
+      "num_employees": 132,
+      "primary_exchange": "XNAS",
+      "shares_out": 11611042.0,
+      "symbol": "LGVB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1068655319.0,
+      "name": "LIQT Corp",
+      "num_employees": 23907,
+      "primary_exchange": "XNAS",
+      "shares_out": 88386583.0,
+      "symbol": "LIQT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 48778524.0,
+      "name": "LITM Corp",
+      "num_employees": 99,
+      "primary_exchange": "XNAS",
+      "shares_out": 27940208.0,
+      "symbol": "LITM",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 52490986.0,
+      "name": "LNSR Corp",
+      "num_employees": 135,
+      "primary_exchange": "XNAS",
+      "shares_out": 19667388.0,
+      "symbol": "LNSR",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Israel",
+      "market_cap": 44947573.0,
+      "name": "LPCN Corp",
+      "num_employees": 16,
+      "primary_exchange": "XNAS",
+      "shares_out": 10845044.0,
+      "symbol": "LPCN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Singapore",
+      "market_cap": 3518555496.0,
+      "name": "Sterling Pharma",
+      "num_employees": 4746,
+      "primary_exchange": "XNAS",
+      "shares_out": 326684167.0,
+      "symbol": "LZY",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2329242961.0,
+      "name": "MACE Corp",
+      "num_employees": 17786,
+      "primary_exchange": "XNAS",
+      "shares_out": 506695241.0,
+      "symbol": "MACE",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2707415930.0,
+      "name": "Nova Systems",
+      "num_employees": 8012,
+      "primary_exchange": "XNAS",
+      "shares_out": 383875321.0,
+      "symbol": "MCYM",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "China",
+      "market_cap": 3033475930.0,
+      "name": "MDJH Corp",
+      "num_employees": 880,
+      "primary_exchange": "XNAS",
+      "shares_out": 250481297.0,
+      "symbol": "MDJH",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 22791541.0,
+      "name": "MGOL Corp",
+      "num_employees": 82,
+      "primary_exchange": "XNAS",
+      "shares_out": 26045309.0,
+      "symbol": "MGOL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 100919909.0,
+      "name": "MINM Corp",
+      "num_employees": 198,
+      "primary_exchange": "XNAS",
+      "shares_out": 32663040.0,
+      "symbol": "MINM",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 907026433.0,
+      "name": "Summit Systems",
+      "num_employees": 22556,
+      "primary_exchange": "XNAS",
+      "shares_out": 121561921.0,
+      "symbol": "MJCX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Hong Kong",
+      "market_cap": 1131922776.0,
+      "name": "BlueSky Biosciences",
+      "num_employees": 23508,
+      "primary_exchange": "XNAS",
+      "shares_out": 161853142.0,
+      "symbol": "MKET",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "China",
+      "market_cap": 167213939.0,
+      "name": "MKFG Corp",
+      "num_employees": 8342,
+      "primary_exchange": "XNAS",
+      "shares_out": 42289098.0,
+      "symbol": "MKFG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1644744909.0,
+      "name": "Meta Materials",
+      "num_employees": 14547,
+      "primary_exchange": "XNAS",
+      "shares_out": 467337443.0,
+      "symbol": "MMAT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United Kingdom",
+      "market_cap": 14304209.0,
+      "name": "Vision Group",
+      "num_employees": 31,
+      "primary_exchange": "XNAS",
+      "shares_out": 4173115.0,
+      "symbol": "MMKU",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1370226733.0,
+      "name": "MOMO Corp",
+      "num_employees": 19403,
+      "primary_exchange": "XNAS",
+      "shares_out": 143357056.0,
+      "symbol": "MOMO",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Israel",
+      "market_cap": 75655711.0,
+      "name": "MOXC Corp",
+      "num_employees": 214,
+      "primary_exchange": "XNAS",
+      "shares_out": 19325801.0,
+      "symbol": "MOXC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 5075776863.0,
+      "name": "MRIN Corp",
+      "num_employees": 22641,
+      "primary_exchange": "XNAS",
+      "shares_out": 407700543.0,
+      "symbol": "MRIN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 71024420.0,
+      "name": "MURA Corp",
+      "num_employees": 48,
+      "primary_exchange": "XNAS",
+      "shares_out": 18035567.0,
+      "symbol": "MURA",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Canada",
+      "market_cap": 13611462.0,
+      "name": "Vector Biosciences",
+      "num_employees": 170,
+      "primary_exchange": "XNAS",
+      "shares_out": 9069382.0,
+      "symbol": "MVB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 475528409.0,
+      "name": "MVST Corp",
+      "num_employees": 8604,
+      "primary_exchange": "XNAS",
+      "shares_out": 180652093.0,
+      "symbol": "MVST",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2225119243.0,
+      "name": "Nova Pharma",
+      "num_employees": 21469,
+      "primary_exchange": "XNAS",
+      "shares_out": 358774532.0,
+      "symbol": "MWVC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 408591478.0,
+      "name": "Vision Energy",
+      "num_employees": 10612,
+      "primary_exchange": "XNAS",
+      "shares_out": 33605309.0,
+      "symbol": "MYPP",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 81080655.0,
+      "name": "NAAS Corp",
+      "num_employees": 18,
+      "primary_exchange": "XNAS",
+      "shares_out": 21906923.0,
+      "symbol": "NAAS",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3567594.0,
+      "name": "NCPL Corp",
+      "num_employees": 83,
+      "primary_exchange": "XNAS",
+      "shares_out": 5537383.0,
+      "symbol": "NCPL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Cayman Islands",
+      "market_cap": 3042947726.0,
+      "name": "Pinnacle Holdings",
+      "num_employees": 333,
+      "primary_exchange": "XNAS",
+      "shares_out": 322962922.0,
+      "symbol": "NEXG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 344890851.0,
+      "name": "Vector Digital",
+      "num_employees": 16558,
+      "primary_exchange": "XNAS",
+      "shares_out": 35164462.0,
+      "symbol": "NGQ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United Kingdom",
+      "market_cap": 929248283.0,
+      "name": "NITO Corp",
+      "num_employees": 9227,
+      "primary_exchange": "XNAS",
+      "shares_out": 100754646.0,
+      "symbol": "NITO",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1645324259.0,
+      "name": "NKLA Corp",
+      "num_employees": 10917,
+      "primary_exchange": "XNAS",
+      "shares_out": 269726376.0,
+      "symbol": "NKLA",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 393631615.0,
+      "name": "Cascade Group",
+      "num_employees": 1628,
+      "primary_exchange": "XNAS",
+      "shares_out": 100610450.0,
+      "symbol": "NNRY",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 4473179408.0,
+      "name": "NNVC Corp",
+      "num_employees": 10983,
+      "primary_exchange": "XNAS",
+      "shares_out": 387812090.0,
+      "symbol": "NNVC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "China",
+      "market_cap": 15000000.0,
+      "name": "Ostin Technology Group",
+      "num_employees": 90,
+      "primary_exchange": "XNAS",
+      "shares_out": 25000000.0,
+      "symbol": "OST",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 71124144.0,
+      "name": "Beacon Materials",
+      "num_employees": 219,
+      "primary_exchange": "XNAS",
+      "shares_out": 21890997.0,
+      "symbol": "PJJ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1615128767.0,
+      "name": "Quantum Technology",
+      "num_employees": 18774,
+      "primary_exchange": "XNAS",
+      "shares_out": 277541266.0,
+      "symbol": "PJMH",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Singapore",
+      "market_cap": 7095176.0,
+      "name": "Atlas Biosciences",
+      "num_employees": 117,
+      "primary_exchange": "XNAS",
+      "shares_out": 8236471.0,
+      "symbol": "PNHM",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 2293522530.0,
+      "name": "Catalyst Materials",
+      "num_employees": 7496,
+      "primary_exchange": "XNAS",
+      "shares_out": 375542613.0,
+      "symbol": "PVUM",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "China",
+      "market_cap": 286088016.0,
+      "name": "Meridian Networks",
+      "num_employees": 867,
+      "primary_exchange": "XNAS",
+      "shares_out": 67519747.0,
+      "symbol": "QAUR",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 61677535.0,
+      "name": "Pinnacle Robotics",
+      "num_employees": 143,
+      "primary_exchange": "XNAS",
+      "shares_out": 13890195.0,
+      "symbol": "QMF",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "China",
+      "market_cap": 25875248.0,
+      "name": "BlueSky Capital",
+      "num_employees": 56,
+      "primary_exchange": "XNAS",
+      "shares_out": 14219890.0,
+      "symbol": "QTQV",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2991338860.0,
+      "name": "Vanguard Technology",
+      "num_employees": 14211,
+      "primary_exchange": "XNAS",
+      "shares_out": 375850826.0,
+      "symbol": "REC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 176018227.0,
+      "name": "Pinnacle Technology",
+      "num_employees": 13568,
+      "primary_exchange": "XNAS",
+      "shares_out": 35079494.0,
+      "symbol": "REKB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Singapore",
+      "market_cap": 74544495.0,
+      "name": "Sterling Therapeutics",
+      "num_employees": 97,
+      "primary_exchange": "XNAS",
+      "shares_out": 22598588.0,
+      "symbol": "RFLZ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Hong Kong",
+      "market_cap": 13036485.0,
+      "name": "Summit Biosciences",
+      "num_employees": 149,
+      "primary_exchange": "XNAS",
+      "shares_out": 23637135.0,
+      "symbol": "RRWP",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 503519723.0,
+      "name": "Frontier Holdings",
+      "num_employees": 19183,
+      "primary_exchange": "XNAS",
+      "shares_out": 152055185.0,
+      "symbol": "RXQD",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "China",
+      "market_cap": 3507312190.0,
+      "name": "Cascade Systems",
+      "num_employees": 9827,
+      "primary_exchange": "XNAS",
+      "shares_out": 288401525.0,
+      "symbol": "SHL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Australia",
+      "market_cap": 2044488795.0,
+      "name": "Vanguard Biosciences",
+      "num_employees": 4061,
+      "primary_exchange": "XNAS",
+      "shares_out": 246277740.0,
+      "symbol": "SJUS",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1393761889.0,
+      "name": "Sterling Group",
+      "num_employees": 14545,
+      "primary_exchange": "XNAS",
+      "shares_out": 244157294.0,
+      "symbol": "SZCU",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 41439869.0,
+      "name": "Sterling Holdings",
+      "num_employees": 202,
+      "primary_exchange": "XNAS",
+      "shares_out": 29191955.0,
+      "symbol": "TCDN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 32519307.0,
+      "name": "Quantum Logistics",
+      "num_employees": 158,
+      "primary_exchange": "XNAS",
+      "shares_out": 33076753.0,
+      "symbol": "TGA",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 5802539133.0,
+      "name": "Vanguard Robotics",
+      "num_employees": 450,
+      "primary_exchange": "XNAS",
+      "shares_out": 405314914.0,
+      "symbol": "TGSW",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Cayman Islands",
+      "market_cap": 1086730427.0,
+      "name": "NeoTech Robotics",
+      "num_employees": 2852,
+      "primary_exchange": "XNAS",
+      "shares_out": 106397894.0,
+      "symbol": "THSV",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 495277474.0,
+      "name": "Pinnacle Holdings",
+      "num_employees": 4014,
+      "primary_exchange": "XNAS",
+      "shares_out": 101916552.0,
+      "symbol": "THW",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 3075694912.0,
+      "name": "Vector Technology",
+      "num_employees": 12251,
+      "primary_exchange": "XNAS",
+      "shares_out": 267337157.0,
+      "symbol": "TQNB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Hong Kong",
+      "market_cap": 11448201.0,
+      "name": "Quantum Capital",
+      "num_employees": 64,
+      "primary_exchange": "XNAS",
+      "shares_out": 12074544.0,
+      "symbol": "TSN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1794755217.0,
+      "name": "Quantum Logistics",
+      "num_employees": 19521,
+      "primary_exchange": "XNAS",
+      "shares_out": 244929592.0,
+      "symbol": "TWB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Cayman Islands",
+      "market_cap": 3640472698.0,
+      "name": "Apex Holdings",
+      "num_employees": 11986,
+      "primary_exchange": "XNAS",
+      "shares_out": 404445756.0,
+      "symbol": "UJGT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Canada",
+      "market_cap": 81760940.0,
+      "name": "Vanguard Resources",
+      "num_employees": 175,
+      "primary_exchange": "XNAS",
+      "shares_out": 37632003.0,
+      "symbol": "UJUB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 2268969975.0,
+      "name": "Meridian Holdings",
+      "num_employees": 9804,
+      "primary_exchange": "XNAS",
+      "shares_out": 231992159.0,
+      "symbol": "UQYR",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Israel",
+      "market_cap": 1475043702.0,
+      "name": "Atlas Robotics",
+      "num_employees": 5880,
+      "primary_exchange": "XNAS",
+      "shares_out": 221667622.0,
+      "symbol": "UZGM",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Singapore",
+      "market_cap": 988335042.0,
+      "name": "NeoTech Therapeutics",
+      "num_employees": 2579,
+      "primary_exchange": "XNAS",
+      "shares_out": 292015131.0,
+      "symbol": "VAR",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Cayman Islands",
+      "market_cap": 72454494.0,
+      "name": "Phoenix Resources",
+      "num_employees": 212,
+      "primary_exchange": "XNAS",
+      "shares_out": 27335480.0,
+      "symbol": "VDXF",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 5673879756.0,
+      "name": "Atlas Group",
+      "num_employees": 12974,
+      "primary_exchange": "XNAS",
+      "shares_out": 405419748.0,
+      "symbol": "VGMG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 17100000.0,
+      "name": "Vislink Technologies",
+      "num_employees": 120,
+      "primary_exchange": "XNAS",
+      "shares_out": 18000000.0,
+      "symbol": "VISL",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 43867013.0,
+      "name": "Vision Group",
+      "num_employees": 166,
+      "primary_exchange": "XNAS",
+      "shares_out": 20829806.0,
+      "symbol": "VNF",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Cayman Islands",
+      "market_cap": 1600968409.0,
+      "name": "Cascade Energy",
+      "num_employees": 7981,
+      "primary_exchange": "XNAS",
+      "shares_out": 195593004.0,
+      "symbol": "VRME",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 553933770.0,
+      "name": "Vector Digital",
+      "num_employees": 19168,
+      "primary_exchange": "XNAS",
+      "shares_out": 53912142.0,
+      "symbol": "VWW",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1329541106.0,
+      "name": "NeoTech Systems",
+      "num_employees": 19311,
+      "primary_exchange": "XNAS",
+      "shares_out": 160677864.0,
+      "symbol": "WFRD",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 560940427.0,
+      "name": "Catalyst Therapeutics",
+      "num_employees": 10296,
+      "primary_exchange": "XNAS",
+      "shares_out": 72519061.0,
+      "symbol": "WJZN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1122954112.0,
+      "name": "Atlas Biosciences",
+      "num_employees": 22265,
+      "primary_exchange": "XNAS",
+      "shares_out": 81830233.0,
+      "symbol": "WKJD",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 65844044.0,
+      "name": "Atlas Energy",
+      "num_employees": 92,
+      "primary_exchange": "XNAS",
+      "shares_out": 28439469.0,
+      "symbol": "WLYB",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 63124637.0,
+      "name": "Phoenix Energy",
+      "num_employees": 277,
+      "primary_exchange": "XNAS",
+      "shares_out": 17510002.0,
+      "symbol": "WPBH",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 83892945.0,
+      "name": "Atlas Therapeutics",
+      "num_employees": 49,
+      "primary_exchange": "XNAS",
+      "shares_out": 21975468.0,
+      "symbol": "WQRG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Canada",
+      "market_cap": 53926311.0,
+      "name": "Cascade Logistics",
+      "num_employees": 221,
+      "primary_exchange": "XNAS",
+      "shares_out": 16155821.0,
+      "symbol": "WVAN",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 16948361.0,
+      "name": "Cascade Capital",
+      "num_employees": 104,
+      "primary_exchange": "XNAS",
+      "shares_out": 31619074.0,
+      "symbol": "WVQ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 59385041.0,
+      "name": "Apex Robotics",
+      "num_employees": 132,
+      "primary_exchange": "XNAS",
+      "shares_out": 17405960.0,
+      "symbol": "WWAG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 106993732.0,
+      "name": "Crown Group",
+      "num_employees": 100,
+      "primary_exchange": "XNAS",
+      "shares_out": 29845385.0,
+      "symbol": "WZHZ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 260369682.0,
+      "name": "Cascade Logistics",
+      "num_employees": 18152,
+      "primary_exchange": "XNAS",
+      "shares_out": 96458935.0,
+      "symbol": "XAZW",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 4200707395.0,
+      "name": "Phoenix Pharma",
+      "num_employees": 3915,
+      "primary_exchange": "XNAS",
+      "shares_out": 480456458.0,
+      "symbol": "XBA",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1671284944.0,
+      "name": "Pioneer Systems",
+      "num_employees": 19316,
+      "primary_exchange": "XNAS",
+      "shares_out": 179341405.0,
+      "symbol": "XFUX",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 517170299.0,
+      "name": "Beacon Materials",
+      "num_employees": 9538,
+      "primary_exchange": "XNAS",
+      "shares_out": 92225844.0,
+      "symbol": "XLVS",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 28605337.0,
+      "name": "Catalyst Networks",
+      "num_employees": 258,
+      "primary_exchange": "XNAS",
+      "shares_out": 31508580.0,
+      "symbol": "YETT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1040978495.0,
+      "name": "Vector Networks",
+      "num_employees": 22994,
+      "primary_exchange": "XNAS",
+      "shares_out": 342510735.0,
+      "symbol": "YGBY",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1696001755.0,
+      "name": "Apex Holdings",
+      "num_employees": 12096,
+      "primary_exchange": "XNAS",
+      "shares_out": 158266846.0,
+      "symbol": "YJRC",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 234863568.0,
+      "name": "Vanguard Group",
+      "num_employees": 12432,
+      "primary_exchange": "XNAS",
+      "shares_out": 61877032.0,
+      "symbol": "YLE",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 5224177149.0,
+      "name": "Crown Networks",
+      "num_employees": 11684,
+      "primary_exchange": "XNAS",
+      "shares_out": 373468523.0,
+      "symbol": "YNK",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "China",
+      "market_cap": 648649789.0,
+      "name": "Sterling Biosciences",
+      "num_employees": 13081,
+      "primary_exchange": "XNAS",
+      "shares_out": 86340965.0,
+      "symbol": "YQD",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1407525654.0,
+      "name": "Nova Capital",
+      "num_employees": 3217,
+      "primary_exchange": "XNAS",
+      "shares_out": 365762355.0,
+      "symbol": "YTDE",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "Israel",
+      "market_cap": 29585582.0,
+      "name": "Vector Systems",
+      "num_employees": 206,
+      "primary_exchange": "XNAS",
+      "shares_out": 7056775.0,
+      "symbol": "ZARG",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 6281345415.0,
+      "name": "Atlas Pharma",
+      "num_employees": 8008,
+      "primary_exchange": "XNAS",
+      "shares_out": 480027568.0,
+      "symbol": "ZCQY",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1540782871.0,
+      "name": "BlueSky Logistics",
+      "num_employees": 2465,
+      "primary_exchange": "XNAS",
+      "shares_out": 159700627.0,
+      "symbol": "ZCZ",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 130715726.0,
+      "name": "Quantum Pharma",
+      "num_employees": 75,
+      "primary_exchange": "XNAS",
+      "shares_out": 36145227.0,
+      "symbol": "ZFGP",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 1829418264.0,
+      "name": "Frontier Holdings",
+      "num_employees": 16373,
+      "primary_exchange": "XNAS",
+      "shares_out": 136530914.0,
+      "symbol": "ZGHT",
+      "ticker_type": "CS"
+    },
+    {
+      "country": "United States",
+      "market_cap": 24566755.0,
+      "name": "Pinnacle Group",
+      "num_employees": 53,
+      "primary_exchange": "XNAS",
+      "shares_out": 32638115.0,
+      "symbol": "ZNBC",
+      "ticker_type": "CS"
+    }
+  ],
+  "source": "synthetic"
+}

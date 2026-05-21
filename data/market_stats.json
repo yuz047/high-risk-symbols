@@ -1,0 +1,1479 @@
+{
+  "count": 210,
+  "generated_at": "2026-05-21T12:16:29+00:00",
+  "refresh_policy": "daily/market",
+  "rows": [
+    {
+      "avg_volume": 328416.0,
+      "close_price": 3.76,
+      "price_max_20d": 3.95,
+      "stats_days": 20,
+      "symbol": "ABEB"
+    },
+    {
+      "avg_volume": 400000,
+      "close_price": 1.4,
+      "price_max_20d": 3.2,
+      "stats_days": 20,
+      "symbol": "ABVC"
+    },
+    {
+      "avg_volume": 13021795.0,
+      "close_price": 13.64,
+      "price_max_20d": 15.7,
+      "stats_days": 20,
+      "symbol": "AERT"
+    },
+    {
+      "avg_volume": 17533956.0,
+      "close_price": 13.47,
+      "price_max_20d": 15.87,
+      "stats_days": 20,
+      "symbol": "AJJA"
+    },
+    {
+      "avg_volume": 711908.0,
+      "close_price": 1.08,
+      "price_max_20d": 1.11,
+      "stats_days": 20,
+      "symbol": "AKDT"
+    },
+    {
+      "avg_volume": 208271.0,
+      "close_price": 4.01,
+      "price_max_20d": 4.6,
+      "stats_days": 20,
+      "symbol": "ALYA"
+    },
+    {
+      "avg_volume": 300000,
+      "close_price": 1.1,
+      "price_max_20d": 2.8,
+      "stats_days": 20,
+      "symbol": "ALZN"
+    },
+    {
+      "avg_volume": 106928.0,
+      "close_price": 4.12,
+      "price_max_20d": 4.54,
+      "stats_days": 20,
+      "symbol": "AMND"
+    },
+    {
+      "avg_volume": 19907346.0,
+      "close_price": 4.58,
+      "price_max_20d": 5.29,
+      "stats_days": 20,
+      "symbol": "AMVF"
+    },
+    {
+      "avg_volume": 8907379.0,
+      "close_price": 7.64,
+      "price_max_20d": 8.08,
+      "stats_days": 20,
+      "symbol": "ANPA"
+    },
+    {
+      "avg_volume": 1869295.0,
+      "close_price": 10.98,
+      "price_max_20d": 12.08,
+      "stats_days": 20,
+      "symbol": "APD"
+    },
+    {
+      "avg_volume": 18072486.0,
+      "close_price": 6.22,
+      "price_max_20d": 7.2,
+      "stats_days": 20,
+      "symbol": "ARBB"
+    },
+    {
+      "avg_volume": 17220927.0,
+      "close_price": 3.87,
+      "price_max_20d": 4.43,
+      "stats_days": 20,
+      "symbol": "AREC"
+    },
+    {
+      "avg_volume": 137489.0,
+      "close_price": 4.05,
+      "price_max_20d": 4.75,
+      "stats_days": 20,
+      "symbol": "BFPP"
+    },
+    {
+      "avg_volume": 18086169.0,
+      "close_price": 4.07,
+      "price_max_20d": 4.64,
+      "stats_days": 20,
+      "symbol": "BFR"
+    },
+    {
+      "avg_volume": 35494.0,
+      "close_price": 0.72,
+      "price_max_20d": 0.77,
+      "stats_days": 20,
+      "symbol": "BHNE"
+    },
+    {
+      "avg_volume": 14825067.0,
+      "close_price": 12.26,
+      "price_max_20d": 13.58,
+      "stats_days": 20,
+      "symbol": "BIIO"
+    },
+    {
+      "avg_volume": 20272644.0,
+      "close_price": 12.77,
+      "price_max_20d": 13.56,
+      "stats_days": 20,
+      "symbol": "BIOX"
+    },
+    {
+      "avg_volume": 9169969.0,
+      "close_price": 7.56,
+      "price_max_20d": 8.29,
+      "stats_days": 20,
+      "symbol": "BLFT"
+    },
+    {
+      "avg_volume": 463853.0,
+      "close_price": 2.98,
+      "price_max_20d": 3.27,
+      "stats_days": 20,
+      "symbol": "BMWC"
+    },
+    {
+      "avg_volume": 5127259.0,
+      "close_price": 13.5,
+      "price_max_20d": 15.0,
+      "stats_days": 20,
+      "symbol": "BON"
+    },
+    {
+      "avg_volume": 889841.0,
+      "close_price": 0.82,
+      "price_max_20d": 0.93,
+      "stats_days": 20,
+      "symbol": "BQAP"
+    },
+    {
+      "avg_volume": 102971.0,
+      "close_price": 3.9,
+      "price_max_20d": 4.06,
+      "stats_days": 20,
+      "symbol": "BQP"
+    },
+    {
+      "avg_volume": 3671209.0,
+      "close_price": 3.16,
+      "price_max_20d": 3.35,
+      "stats_days": 20,
+      "symbol": "CBGL"
+    },
+    {
+      "avg_volume": 11539862.0,
+      "close_price": 10.7,
+      "price_max_20d": 11.81,
+      "stats_days": 20,
+      "symbol": "CCDS"
+    },
+    {
+      "avg_volume": 814201.0,
+      "close_price": 4.26,
+      "price_max_20d": 4.73,
+      "stats_days": 20,
+      "symbol": "CCM"
+    },
+    {
+      "avg_volume": 1687735.0,
+      "close_price": 2.8,
+      "price_max_20d": 3.12,
+      "stats_days": 20,
+      "symbol": "CEI"
+    },
+    {
+      "avg_volume": 582537.0,
+      "close_price": 0.6,
+      "price_max_20d": 0.68,
+      "stats_days": 20,
+      "symbol": "CGC"
+    },
+    {
+      "avg_volume": 750228.0,
+      "close_price": 3.49,
+      "price_max_20d": 3.83,
+      "stats_days": 20,
+      "symbol": "CGEX"
+    },
+    {
+      "avg_volume": 900000,
+      "close_price": 2.2,
+      "price_max_20d": 3.4,
+      "stats_days": 20,
+      "symbol": "CLEU"
+    },
+    {
+      "avg_volume": 405626.0,
+      "close_price": 4.34,
+      "price_max_20d": 4.75,
+      "stats_days": 20,
+      "symbol": "CPHI"
+    },
+    {
+      "avg_volume": 236196.0,
+      "close_price": 4.44,
+      "price_max_20d": 4.74,
+      "stats_days": 20,
+      "symbol": "CREG"
+    },
+    {
+      "avg_volume": 3096499.0,
+      "close_price": 14.14,
+      "price_max_20d": 15.23,
+      "stats_days": 20,
+      "symbol": "CUEN"
+    },
+    {
+      "avg_volume": 11376486.0,
+      "close_price": 2.6,
+      "price_max_20d": 3.06,
+      "stats_days": 20,
+      "symbol": "DBVT"
+    },
+    {
+      "avg_volume": 49717.0,
+      "close_price": 2.76,
+      "price_max_20d": 2.84,
+      "stats_days": 20,
+      "symbol": "DFJU"
+    },
+    {
+      "avg_volume": 405357.0,
+      "close_price": 1.31,
+      "price_max_20d": 1.46,
+      "stats_days": 20,
+      "symbol": "DGAP"
+    },
+    {
+      "avg_volume": 4015316.0,
+      "close_price": 4.19,
+      "price_max_20d": 4.43,
+      "stats_days": 20,
+      "symbol": "DKBF"
+    },
+    {
+      "avg_volume": 461953.0,
+      "close_price": 2.12,
+      "price_max_20d": 2.48,
+      "stats_days": 20,
+      "symbol": "DLPN"
+    },
+    {
+      "avg_volume": 8955173.0,
+      "close_price": 14.48,
+      "price_max_20d": 15.98,
+      "stats_days": 20,
+      "symbol": "DMAC"
+    },
+    {
+      "avg_volume": 15673609.0,
+      "close_price": 5.18,
+      "price_max_20d": 5.47,
+      "stats_days": 20,
+      "symbol": "DRJV"
+    },
+    {
+      "avg_volume": 349889.0,
+      "close_price": 2.69,
+      "price_max_20d": 2.78,
+      "stats_days": 20,
+      "symbol": "DRTS"
+    },
+    {
+      "avg_volume": 168768.0,
+      "close_price": 1.8,
+      "price_max_20d": 2.02,
+      "stats_days": 20,
+      "symbol": "DSR"
+    },
+    {
+      "avg_volume": 299078.0,
+      "close_price": 2.58,
+      "price_max_20d": 2.91,
+      "stats_days": 20,
+      "symbol": "DSYX"
+    },
+    {
+      "avg_volume": 8169133.0,
+      "close_price": 2.62,
+      "price_max_20d": 2.71,
+      "stats_days": 20,
+      "symbol": "DUX"
+    },
+    {
+      "avg_volume": 93782.0,
+      "close_price": 3.08,
+      "price_max_20d": 3.48,
+      "stats_days": 20,
+      "symbol": "EBEX"
+    },
+    {
+      "avg_volume": 3517880.0,
+      "close_price": 9.8,
+      "price_max_20d": 10.33,
+      "stats_days": 20,
+      "symbol": "EDTK"
+    },
+    {
+      "avg_volume": 1537726.0,
+      "close_price": 2.87,
+      "price_max_20d": 3.3,
+      "stats_days": 20,
+      "symbol": "EFSH"
+    },
+    {
+      "avg_volume": 201292.0,
+      "close_price": 0.57,
+      "price_max_20d": 0.66,
+      "stats_days": 20,
+      "symbol": "EGJ"
+    },
+    {
+      "avg_volume": 9968413.0,
+      "close_price": 8.73,
+      "price_max_20d": 9.84,
+      "stats_days": 20,
+      "symbol": "EKDG"
+    },
+    {
+      "avg_volume": 384162.0,
+      "close_price": 3.34,
+      "price_max_20d": 3.64,
+      "stats_days": 20,
+      "symbol": "ELMD"
+    },
+    {
+      "avg_volume": 484255.0,
+      "close_price": 2.48,
+      "price_max_20d": 2.74,
+      "stats_days": 20,
+      "symbol": "ENSC"
+    },
+    {
+      "avg_volume": 21179764.0,
+      "close_price": 14.07,
+      "price_max_20d": 15.68,
+      "stats_days": 20,
+      "symbol": "EOSE"
+    },
+    {
+      "avg_volume": 117192.0,
+      "close_price": 1.21,
+      "price_max_20d": 1.37,
+      "stats_days": 20,
+      "symbol": "EQY"
+    },
+    {
+      "avg_volume": 2187490.0,
+      "close_price": 5.7,
+      "price_max_20d": 6.16,
+      "stats_days": 20,
+      "symbol": "ETKT"
+    },
+    {
+      "avg_volume": 356954.0,
+      "close_price": 4.35,
+      "price_max_20d": 4.92,
+      "stats_days": 20,
+      "symbol": "EVTL"
+    },
+    {
+      "avg_volume": 18131851.0,
+      "close_price": 13.21,
+      "price_max_20d": 15.09,
+      "stats_days": 20,
+      "symbol": "EWRZ"
+    },
+    {
+      "avg_volume": 442014.0,
+      "close_price": 3.72,
+      "price_max_20d": 4.03,
+      "stats_days": 20,
+      "symbol": "EXLH"
+    },
+    {
+      "avg_volume": 5838917.0,
+      "close_price": 8.16,
+      "price_max_20d": 9.45,
+      "stats_days": 20,
+      "symbol": "EYX"
+    },
+    {
+      "avg_volume": 207086.0,
+      "close_price": 1.5,
+      "price_max_20d": 1.58,
+      "stats_days": 20,
+      "symbol": "FAMI"
+    },
+    {
+      "avg_volume": 19985020.0,
+      "close_price": 13.2,
+      "price_max_20d": 13.5,
+      "stats_days": 20,
+      "symbol": "FCEL"
+    },
+    {
+      "avg_volume": 463062.0,
+      "close_price": 2.06,
+      "price_max_20d": 2.18,
+      "stats_days": 20,
+      "symbol": "FDLB"
+    },
+    {
+      "avg_volume": 19830470.0,
+      "close_price": 13.99,
+      "price_max_20d": 14.87,
+      "stats_days": 20,
+      "symbol": "FFIE"
+    },
+    {
+      "avg_volume": 9574009.0,
+      "close_price": 3.17,
+      "price_max_20d": 3.61,
+      "stats_days": 20,
+      "symbol": "FGAY"
+    },
+    {
+      "avg_volume": 169676.0,
+      "close_price": 2.95,
+      "price_max_20d": 3.46,
+      "stats_days": 20,
+      "symbol": "FLXS"
+    },
+    {
+      "avg_volume": 20479121.0,
+      "close_price": 11.06,
+      "price_max_20d": 12.17,
+      "stats_days": 20,
+      "symbol": "FME"
+    },
+    {
+      "avg_volume": 234472.0,
+      "close_price": 0.47,
+      "price_max_20d": 0.52,
+      "stats_days": 20,
+      "symbol": "FRFY"
+    },
+    {
+      "avg_volume": 11674979.0,
+      "close_price": 4.01,
+      "price_max_20d": 4.23,
+      "stats_days": 20,
+      "symbol": "FRN"
+    },
+    {
+      "avg_volume": 732494.0,
+      "close_price": 1.95,
+      "price_max_20d": 2.28,
+      "stats_days": 20,
+      "symbol": "FSEA"
+    },
+    {
+      "avg_volume": 8862656.0,
+      "close_price": 3.9,
+      "price_max_20d": 4.2,
+      "stats_days": 20,
+      "symbol": "GBOX"
+    },
+    {
+      "avg_volume": 581524.0,
+      "close_price": 2.16,
+      "price_max_20d": 2.28,
+      "stats_days": 20,
+      "symbol": "GBV"
+    },
+    {
+      "avg_volume": 774522.0,
+      "close_price": 4.59,
+      "price_max_20d": 5.04,
+      "stats_days": 20,
+      "symbol": "GFV"
+    },
+    {
+      "avg_volume": 18570380.0,
+      "close_price": 13.04,
+      "price_max_20d": 14.88,
+      "stats_days": 20,
+      "symbol": "GGAH"
+    },
+    {
+      "avg_volume": 390293.0,
+      "close_price": 4.26,
+      "price_max_20d": 4.55,
+      "stats_days": 20,
+      "symbol": "GKMB"
+    },
+    {
+      "avg_volume": 80719.0,
+      "close_price": 0.49,
+      "price_max_20d": 0.55,
+      "stats_days": 20,
+      "symbol": "GLBS"
+    },
+    {
+      "avg_volume": 118834.0,
+      "close_price": 3.97,
+      "price_max_20d": 4.49,
+      "stats_days": 20,
+      "symbol": "GMGI"
+    },
+    {
+      "avg_volume": 21717805.0,
+      "close_price": 8.9,
+      "price_max_20d": 10.41,
+      "stats_days": 20,
+      "symbol": "GNPX"
+    },
+    {
+      "avg_volume": 14073560.0,
+      "close_price": 7.19,
+      "price_max_20d": 7.71,
+      "stats_days": 20,
+      "symbol": "GRCL"
+    },
+    {
+      "avg_volume": 528352.0,
+      "close_price": 2.83,
+      "price_max_20d": 3.34,
+      "stats_days": 20,
+      "symbol": "GRIL"
+    },
+    {
+      "avg_volume": 47790.0,
+      "close_price": 3.32,
+      "price_max_20d": 3.67,
+      "stats_days": 20,
+      "symbol": "GSUN"
+    },
+    {
+      "avg_volume": 216246.0,
+      "close_price": 0.61,
+      "price_max_20d": 0.66,
+      "stats_days": 20,
+      "symbol": "GTT"
+    },
+    {
+      "avg_volume": 527740.0,
+      "close_price": 0.79,
+      "price_max_20d": 0.88,
+      "stats_days": 20,
+      "symbol": "HCDI"
+    },
+    {
+      "avg_volume": 4422278.0,
+      "close_price": 7.75,
+      "price_max_20d": 7.97,
+      "stats_days": 20,
+      "symbol": "HDEV"
+    },
+    {
+      "avg_volume": 14222820.0,
+      "close_price": 5.72,
+      "price_max_20d": 6.71,
+      "stats_days": 20,
+      "symbol": "HGUY"
+    },
+    {
+      "avg_volume": 14695659.0,
+      "close_price": 12.3,
+      "price_max_20d": 12.88,
+      "stats_days": 20,
+      "symbol": "HHPD"
+    },
+    {
+      "avg_volume": 15084217.0,
+      "close_price": 13.14,
+      "price_max_20d": 15.25,
+      "stats_days": 20,
+      "symbol": "HKFZ"
+    },
+    {
+      "avg_volume": 19950882.0,
+      "close_price": 14.63,
+      "price_max_20d": 16.5,
+      "stats_days": 20,
+      "symbol": "HNTB"
+    },
+    {
+      "avg_volume": 10425657.0,
+      "close_price": 14.24,
+      "price_max_20d": 15.24,
+      "stats_days": 20,
+      "symbol": "HOLO"
+    },
+    {
+      "avg_volume": 20940019.0,
+      "close_price": 5.46,
+      "price_max_20d": 5.88,
+      "stats_days": 20,
+      "symbol": "HUGE"
+    },
+    {
+      "avg_volume": 211247.0,
+      "close_price": 4.41,
+      "price_max_20d": 4.64,
+      "stats_days": 20,
+      "symbol": "HVEN"
+    },
+    {
+      "avg_volume": 1749921.0,
+      "close_price": 3.84,
+      "price_max_20d": 4.1,
+      "stats_days": 20,
+      "symbol": "HWAP"
+    },
+    {
+      "avg_volume": 18941599.0,
+      "close_price": 14.15,
+      "price_max_20d": 15.43,
+      "stats_days": 20,
+      "symbol": "HYMC"
+    },
+    {
+      "avg_volume": 12919935.0,
+      "close_price": 11.76,
+      "price_max_20d": 12.66,
+      "stats_days": 20,
+      "symbol": "IDAI"
+    },
+    {
+      "avg_volume": 20163485.0,
+      "close_price": 10.57,
+      "price_max_20d": 12.32,
+      "stats_days": 20,
+      "symbol": "IMPP"
+    },
+    {
+      "avg_volume": 14319612.0,
+      "close_price": 10.37,
+      "price_max_20d": 11.2,
+      "stats_days": 20,
+      "symbol": "INBS"
+    },
+    {
+      "avg_volume": 760757.0,
+      "close_price": 1.76,
+      "price_max_20d": 1.89,
+      "stats_days": 20,
+      "symbol": "INEO"
+    },
+    {
+      "avg_volume": 748107.0,
+      "close_price": 1.01,
+      "price_max_20d": 1.18,
+      "stats_days": 20,
+      "symbol": "IPDN"
+    },
+    {
+      "avg_volume": 889400.0,
+      "close_price": 2.05,
+      "price_max_20d": 2.39,
+      "stats_days": 20,
+      "symbol": "JDTK"
+    },
+    {
+      "avg_volume": 294190.0,
+      "close_price": 3.29,
+      "price_max_20d": 3.36,
+      "stats_days": 20,
+      "symbol": "JFBR"
+    },
+    {
+      "avg_volume": 159871.0,
+      "close_price": 4.04,
+      "price_max_20d": 4.38,
+      "stats_days": 20,
+      "symbol": "JHG"
+    },
+    {
+      "avg_volume": 304368.0,
+      "close_price": 0.79,
+      "price_max_20d": 0.85,
+      "stats_days": 20,
+      "symbol": "JKBJ"
+    },
+    {
+      "avg_volume": 5863031.0,
+      "close_price": 12.1,
+      "price_max_20d": 13.91,
+      "stats_days": 20,
+      "symbol": "JTM"
+    },
+    {
+      "avg_volume": 17595340.0,
+      "close_price": 5.63,
+      "price_max_20d": 6.19,
+      "stats_days": 20,
+      "symbol": "JURU"
+    },
+    {
+      "avg_volume": 11544486.0,
+      "close_price": 12.3,
+      "price_max_20d": 13.32,
+      "stats_days": 20,
+      "symbol": "JWEL"
+    },
+    {
+      "avg_volume": 315435.0,
+      "close_price": 2.98,
+      "price_max_20d": 3.39,
+      "stats_days": 20,
+      "symbol": "JYG"
+    },
+    {
+      "avg_volume": 119869.0,
+      "close_price": 3.63,
+      "price_max_20d": 3.83,
+      "stats_days": 20,
+      "symbol": "KAVL"
+    },
+    {
+      "avg_volume": 555770.0,
+      "close_price": 3.47,
+      "price_max_20d": 4.03,
+      "stats_days": 20,
+      "symbol": "KBAL"
+    },
+    {
+      "avg_volume": 251645.0,
+      "close_price": 3.13,
+      "price_max_20d": 3.27,
+      "stats_days": 20,
+      "symbol": "KFR"
+    },
+    {
+      "avg_volume": 95742.0,
+      "close_price": 4.52,
+      "price_max_20d": 5.07,
+      "stats_days": 20,
+      "symbol": "KNDI"
+    },
+    {
+      "avg_volume": 16364571.0,
+      "close_price": 14.2,
+      "price_max_20d": 14.98,
+      "stats_days": 20,
+      "symbol": "KPRX"
+    },
+    {
+      "avg_volume": 8688168.0,
+      "close_price": 8.68,
+      "price_max_20d": 9.86,
+      "stats_days": 20,
+      "symbol": "KRKR"
+    },
+    {
+      "avg_volume": 15197675.0,
+      "close_price": 12.57,
+      "price_max_20d": 13.96,
+      "stats_days": 20,
+      "symbol": "KSBS"
+    },
+    {
+      "avg_volume": 844727.0,
+      "close_price": 3.81,
+      "price_max_20d": 4.11,
+      "stats_days": 20,
+      "symbol": "KYMX"
+    },
+    {
+      "avg_volume": 4156498.0,
+      "close_price": 12.77,
+      "price_max_20d": 14.14,
+      "stats_days": 20,
+      "symbol": "LAKB"
+    },
+    {
+      "avg_volume": 20464582.0,
+      "close_price": 11.43,
+      "price_max_20d": 13.41,
+      "stats_days": 20,
+      "symbol": "LBJ"
+    },
+    {
+      "avg_volume": 525173.0,
+      "close_price": 1.47,
+      "price_max_20d": 1.67,
+      "stats_days": 20,
+      "symbol": "LDHV"
+    },
+    {
+      "avg_volume": 235591.0,
+      "close_price": 2.53,
+      "price_max_20d": 2.71,
+      "stats_days": 20,
+      "symbol": "LGMK"
+    },
+    {
+      "avg_volume": 365071.0,
+      "close_price": 1.19,
+      "price_max_20d": 1.33,
+      "stats_days": 20,
+      "symbol": "LGVB"
+    },
+    {
+      "avg_volume": 15190459.0,
+      "close_price": 12.09,
+      "price_max_20d": 13.25,
+      "stats_days": 20,
+      "symbol": "LIQT"
+    },
+    {
+      "avg_volume": 164028.0,
+      "close_price": 1.75,
+      "price_max_20d": 2.05,
+      "stats_days": 20,
+      "symbol": "LITM"
+    },
+    {
+      "avg_volume": 776062.0,
+      "close_price": 2.67,
+      "price_max_20d": 2.74,
+      "stats_days": 20,
+      "symbol": "LNSR"
+    },
+    {
+      "avg_volume": 832516.0,
+      "close_price": 4.14,
+      "price_max_20d": 4.7,
+      "stats_days": 20,
+      "symbol": "LPCN"
+    },
+    {
+      "avg_volume": 9773864.0,
+      "close_price": 10.77,
+      "price_max_20d": 11.25,
+      "stats_days": 20,
+      "symbol": "LZY"
+    },
+    {
+      "avg_volume": 765613.0,
+      "close_price": 4.6,
+      "price_max_20d": 4.86,
+      "stats_days": 20,
+      "symbol": "MACE"
+    },
+    {
+      "avg_volume": 14787318.0,
+      "close_price": 7.05,
+      "price_max_20d": 7.99,
+      "stats_days": 20,
+      "symbol": "MCYM"
+    },
+    {
+      "avg_volume": 17500531.0,
+      "close_price": 12.11,
+      "price_max_20d": 12.84,
+      "stats_days": 20,
+      "symbol": "MDJH"
+    },
+    {
+      "avg_volume": 256733.0,
+      "close_price": 0.88,
+      "price_max_20d": 0.92,
+      "stats_days": 20,
+      "symbol": "MGOL"
+    },
+    {
+      "avg_volume": 637382.0,
+      "close_price": 3.09,
+      "price_max_20d": 3.41,
+      "stats_days": 20,
+      "symbol": "MINM"
+    },
+    {
+      "avg_volume": 21542922.0,
+      "close_price": 7.46,
+      "price_max_20d": 8.47,
+      "stats_days": 20,
+      "symbol": "MJCX"
+    },
+    {
+      "avg_volume": 18944731.0,
+      "close_price": 6.99,
+      "price_max_20d": 7.86,
+      "stats_days": 20,
+      "symbol": "MKET"
+    },
+    {
+      "avg_volume": 12287895.0,
+      "close_price": 3.95,
+      "price_max_20d": 4.26,
+      "stats_days": 20,
+      "symbol": "MKFG"
+    },
+    {
+      "avg_volume": 8243150.0,
+      "close_price": 3.52,
+      "price_max_20d": 3.61,
+      "stats_days": 20,
+      "symbol": "MMAT"
+    },
+    {
+      "avg_volume": 682549.0,
+      "close_price": 3.43,
+      "price_max_20d": 3.61,
+      "stats_days": 20,
+      "symbol": "MMKU"
+    },
+    {
+      "avg_volume": 19516983.0,
+      "close_price": 9.56,
+      "price_max_20d": 10.76,
+      "stats_days": 20,
+      "symbol": "MOMO"
+    },
+    {
+      "avg_volume": 357098.0,
+      "close_price": 3.91,
+      "price_max_20d": 4.6,
+      "stats_days": 20,
+      "symbol": "MOXC"
+    },
+    {
+      "avg_volume": 5585778.0,
+      "close_price": 12.45,
+      "price_max_20d": 13.38,
+      "stats_days": 20,
+      "symbol": "MRIN"
+    },
+    {
+      "avg_volume": 636094.0,
+      "close_price": 3.94,
+      "price_max_20d": 4.17,
+      "stats_days": 20,
+      "symbol": "MURA"
+    },
+    {
+      "avg_volume": 658952.0,
+      "close_price": 1.5,
+      "price_max_20d": 1.58,
+      "stats_days": 20,
+      "symbol": "MVB"
+    },
+    {
+      "avg_volume": 16821264.0,
+      "close_price": 2.63,
+      "price_max_20d": 2.93,
+      "stats_days": 20,
+      "symbol": "MVST"
+    },
+    {
+      "avg_volume": 15757258.0,
+      "close_price": 6.2,
+      "price_max_20d": 6.33,
+      "stats_days": 20,
+      "symbol": "MWVC"
+    },
+    {
+      "avg_volume": 19721305.0,
+      "close_price": 12.16,
+      "price_max_20d": 13.67,
+      "stats_days": 20,
+      "symbol": "MYPP"
+    },
+    {
+      "avg_volume": 589609.0,
+      "close_price": 3.7,
+      "price_max_20d": 3.93,
+      "stats_days": 20,
+      "symbol": "NAAS"
+    },
+    {
+      "avg_volume": 45431.0,
+      "close_price": 0.64,
+      "price_max_20d": 0.71,
+      "stats_days": 20,
+      "symbol": "NCPL"
+    },
+    {
+      "avg_volume": 17180023.0,
+      "close_price": 9.42,
+      "price_max_20d": 9.8,
+      "stats_days": 20,
+      "symbol": "NEXG"
+    },
+    {
+      "avg_volume": 17214477.0,
+      "close_price": 9.81,
+      "price_max_20d": 10.17,
+      "stats_days": 20,
+      "symbol": "NGQ"
+    },
+    {
+      "avg_volume": 9784729.0,
+      "close_price": 9.22,
+      "price_max_20d": 10.2,
+      "stats_days": 20,
+      "symbol": "NITO"
+    },
+    {
+      "avg_volume": 1027088.0,
+      "close_price": 6.1,
+      "price_max_20d": 7.04,
+      "stats_days": 20,
+      "symbol": "NKLA"
+    },
+    {
+      "avg_volume": 3207057.0,
+      "close_price": 3.91,
+      "price_max_20d": 4.25,
+      "stats_days": 20,
+      "symbol": "NNRY"
+    },
+    {
+      "avg_volume": 6438814.0,
+      "close_price": 11.53,
+      "price_max_20d": 13.49,
+      "stats_days": 20,
+      "symbol": "NNVC"
+    },
+    {
+      "avg_volume": 1400000,
+      "close_price": 0.6,
+      "price_max_20d": 2.6,
+      "stats_days": 20,
+      "symbol": "OST"
+    },
+    {
+      "avg_volume": 489504.0,
+      "close_price": 3.25,
+      "price_max_20d": 3.33,
+      "stats_days": 20,
+      "symbol": "PJJ"
+    },
+    {
+      "avg_volume": 638402.0,
+      "close_price": 5.82,
+      "price_max_20d": 6.7,
+      "stats_days": 20,
+      "symbol": "PJMH"
+    },
+    {
+      "avg_volume": 294033.0,
+      "close_price": 0.86,
+      "price_max_20d": 0.95,
+      "stats_days": 20,
+      "symbol": "PNHM"
+    },
+    {
+      "avg_volume": 6811157.0,
+      "close_price": 6.11,
+      "price_max_20d": 6.49,
+      "stats_days": 20,
+      "symbol": "PVUM"
+    },
+    {
+      "avg_volume": 9155902.0,
+      "close_price": 4.24,
+      "price_max_20d": 4.61,
+      "stats_days": 20,
+      "symbol": "QAUR"
+    },
+    {
+      "avg_volume": 271961.0,
+      "close_price": 4.44,
+      "price_max_20d": 4.88,
+      "stats_days": 20,
+      "symbol": "QMF"
+    },
+    {
+      "avg_volume": 203097.0,
+      "close_price": 1.82,
+      "price_max_20d": 1.97,
+      "stats_days": 20,
+      "symbol": "QTQV"
+    },
+    {
+      "avg_volume": 12893252.0,
+      "close_price": 7.96,
+      "price_max_20d": 9.05,
+      "stats_days": 20,
+      "symbol": "REC"
+    },
+    {
+      "avg_volume": 607577.0,
+      "close_price": 5.02,
+      "price_max_20d": 5.69,
+      "stats_days": 20,
+      "symbol": "REKB"
+    },
+    {
+      "avg_volume": 708461.0,
+      "close_price": 3.3,
+      "price_max_20d": 3.84,
+      "stats_days": 20,
+      "symbol": "RFLZ"
+    },
+    {
+      "avg_volume": 428493.0,
+      "close_price": 0.55,
+      "price_max_20d": 0.59,
+      "stats_days": 20,
+      "symbol": "RRWP"
+    },
+    {
+      "avg_volume": 8078477.0,
+      "close_price": 3.31,
+      "price_max_20d": 3.77,
+      "stats_days": 20,
+      "symbol": "RXQD"
+    },
+    {
+      "avg_volume": 2310039.0,
+      "close_price": 12.16,
+      "price_max_20d": 13.65,
+      "stats_days": 20,
+      "symbol": "SHL"
+    },
+    {
+      "avg_volume": 20722473.0,
+      "close_price": 8.3,
+      "price_max_20d": 8.47,
+      "stats_days": 20,
+      "symbol": "SJUS"
+    },
+    {
+      "avg_volume": 18339088.0,
+      "close_price": 5.71,
+      "price_max_20d": 6.16,
+      "stats_days": 20,
+      "symbol": "SZCU"
+    },
+    {
+      "avg_volume": 461193.0,
+      "close_price": 1.42,
+      "price_max_20d": 1.46,
+      "stats_days": 20,
+      "symbol": "TCDN"
+    },
+    {
+      "avg_volume": 618901.0,
+      "close_price": 0.98,
+      "price_max_20d": 1.07,
+      "stats_days": 20,
+      "symbol": "TGA"
+    },
+    {
+      "avg_volume": 4772548.0,
+      "close_price": 14.32,
+      "price_max_20d": 15.93,
+      "stats_days": 20,
+      "symbol": "TGSW"
+    },
+    {
+      "avg_volume": 11043703.0,
+      "close_price": 10.21,
+      "price_max_20d": 12.04,
+      "stats_days": 20,
+      "symbol": "THSV"
+    },
+    {
+      "avg_volume": 11641087.0,
+      "close_price": 4.86,
+      "price_max_20d": 5.49,
+      "stats_days": 20,
+      "symbol": "THW"
+    },
+    {
+      "avg_volume": 4300840.0,
+      "close_price": 11.5,
+      "price_max_20d": 13.28,
+      "stats_days": 20,
+      "symbol": "TQNB"
+    },
+    {
+      "avg_volume": 316886.0,
+      "close_price": 0.95,
+      "price_max_20d": 1.07,
+      "stats_days": 20,
+      "symbol": "TSN"
+    },
+    {
+      "avg_volume": 3185611.0,
+      "close_price": 7.33,
+      "price_max_20d": 8.0,
+      "stats_days": 20,
+      "symbol": "TWB"
+    },
+    {
+      "avg_volume": 8018961.0,
+      "close_price": 9.0,
+      "price_max_20d": 9.6,
+      "stats_days": 20,
+      "symbol": "UJGT"
+    },
+    {
+      "avg_volume": 461624.0,
+      "close_price": 2.17,
+      "price_max_20d": 2.43,
+      "stats_days": 20,
+      "symbol": "UJUB"
+    },
+    {
+      "avg_volume": 9251634.0,
+      "close_price": 9.78,
+      "price_max_20d": 10.61,
+      "stats_days": 20,
+      "symbol": "UQYR"
+    },
+    {
+      "avg_volume": 2598547.0,
+      "close_price": 6.65,
+      "price_max_20d": 7.19,
+      "stats_days": 20,
+      "symbol": "UZGM"
+    },
+    {
+      "avg_volume": 17284462.0,
+      "close_price": 3.38,
+      "price_max_20d": 3.97,
+      "stats_days": 20,
+      "symbol": "VAR"
+    },
+    {
+      "avg_volume": 704394.0,
+      "close_price": 2.65,
+      "price_max_20d": 3.03,
+      "stats_days": 20,
+      "symbol": "VDXF"
+    },
+    {
+      "avg_volume": 9351844.0,
+      "close_price": 14.0,
+      "price_max_20d": 14.81,
+      "stats_days": 20,
+      "symbol": "VGMG"
+    },
+    {
+      "avg_volume": 700000,
+      "close_price": 0.95,
+      "price_max_20d": 2.1,
+      "stats_days": 20,
+      "symbol": "VISL"
+    },
+    {
+      "avg_volume": 807603.0,
+      "close_price": 2.11,
+      "price_max_20d": 2.19,
+      "stats_days": 20,
+      "symbol": "VNF"
+    },
+    {
+      "avg_volume": 16871934.0,
+      "close_price": 8.19,
+      "price_max_20d": 9.16,
+      "stats_days": 20,
+      "symbol": "VRME"
+    },
+    {
+      "avg_volume": 17261862.0,
+      "close_price": 10.27,
+      "price_max_20d": 11.25,
+      "stats_days": 20,
+      "symbol": "VWW"
+    },
+    {
+      "avg_volume": 16706024.0,
+      "close_price": 8.27,
+      "price_max_20d": 8.52,
+      "stats_days": 20,
+      "symbol": "WFRD"
+    },
+    {
+      "avg_volume": 9273496.0,
+      "close_price": 7.74,
+      "price_max_20d": 8.34,
+      "stats_days": 20,
+      "symbol": "WJZN"
+    },
+    {
+      "avg_volume": 21121748.0,
+      "close_price": 13.72,
+      "price_max_20d": 16.19,
+      "stats_days": 20,
+      "symbol": "WKJD"
+    },
+    {
+      "avg_volume": 51890.0,
+      "close_price": 2.32,
+      "price_max_20d": 2.43,
+      "stats_days": 20,
+      "symbol": "WLYB"
+    },
+    {
+      "avg_volume": 922343.0,
+      "close_price": 3.61,
+      "price_max_20d": 3.76,
+      "stats_days": 20,
+      "symbol": "WPBH"
+    },
+    {
+      "avg_volume": 788834.0,
+      "close_price": 3.82,
+      "price_max_20d": 4.15,
+      "stats_days": 20,
+      "symbol": "WQRG"
+    },
+    {
+      "avg_volume": 506319.0,
+      "close_price": 3.34,
+      "price_max_20d": 3.88,
+      "stats_days": 20,
+      "symbol": "WVAN"
+    },
+    {
+      "avg_volume": 373050.0,
+      "close_price": 0.54,
+      "price_max_20d": 0.58,
+      "stats_days": 20,
+      "symbol": "WVQ"
+    },
+    {
+      "avg_volume": 52759.0,
+      "close_price": 3.41,
+      "price_max_20d": 3.86,
+      "stats_days": 20,
+      "symbol": "WWAG"
+    },
+    {
+      "avg_volume": 137682.0,
+      "close_price": 3.58,
+      "price_max_20d": 4.19,
+      "stats_days": 20,
+      "symbol": "WZHZ"
+    },
+    {
+      "avg_volume": 17168232.0,
+      "close_price": 2.7,
+      "price_max_20d": 2.9,
+      "stats_days": 20,
+      "symbol": "XAZW"
+    },
+    {
+      "avg_volume": 2731501.0,
+      "close_price": 8.74,
+      "price_max_20d": 9.36,
+      "stats_days": 20,
+      "symbol": "XBA"
+    },
+    {
+      "avg_volume": 16172745.0,
+      "close_price": 9.32,
+      "price_max_20d": 10.71,
+      "stats_days": 20,
+      "symbol": "XFUX"
+    },
+    {
+      "avg_volume": 7780575.0,
+      "close_price": 5.61,
+      "price_max_20d": 6.41,
+      "stats_days": 20,
+      "symbol": "XLVS"
+    },
+    {
+      "avg_volume": 403617.0,
+      "close_price": 0.91,
+      "price_max_20d": 0.95,
+      "stats_days": 20,
+      "symbol": "YETT"
+    },
+    {
+      "avg_volume": 18357552.0,
+      "close_price": 3.04,
+      "price_max_20d": 3.46,
+      "stats_days": 20,
+      "symbol": "YGBY"
+    },
+    {
+      "avg_volume": 11391441.0,
+      "close_price": 10.72,
+      "price_max_20d": 10.97,
+      "stats_days": 20,
+      "symbol": "YJRC"
+    },
+    {
+      "avg_volume": 20397568.0,
+      "close_price": 3.8,
+      "price_max_20d": 4.39,
+      "stats_days": 20,
+      "symbol": "YLE"
+    },
+    {
+      "avg_volume": 11717392.0,
+      "close_price": 13.99,
+      "price_max_20d": 14.82,
+      "stats_days": 20,
+      "symbol": "YNK"
+    },
+    {
+      "avg_volume": 7843968.0,
+      "close_price": 7.51,
+      "price_max_20d": 7.96,
+      "stats_days": 20,
+      "symbol": "YQD"
+    },
+    {
+      "avg_volume": 7592153.0,
+      "close_price": 3.85,
+      "price_max_20d": 4.51,
+      "stats_days": 20,
+      "symbol": "YTDE"
+    },
+    {
+      "avg_volume": 622208.0,
+      "close_price": 4.19,
+      "price_max_20d": 4.55,
+      "stats_days": 20,
+      "symbol": "ZARG"
+    },
+    {
+      "avg_volume": 7244134.0,
+      "close_price": 13.09,
+      "price_max_20d": 14.0,
+      "stats_days": 20,
+      "symbol": "ZCQY"
+    },
+    {
+      "avg_volume": 5860179.0,
+      "close_price": 9.65,
+      "price_max_20d": 10.44,
+      "stats_days": 20,
+      "symbol": "ZCZ"
+    },
+    {
+      "avg_volume": 181941.0,
+      "close_price": 3.62,
+      "price_max_20d": 3.88,
+      "stats_days": 20,
+      "symbol": "ZFGP"
+    },
+    {
+      "avg_volume": 2756988.0,
+      "close_price": 13.4,
+      "price_max_20d": 13.7,
+      "stats_days": 20,
+      "symbol": "ZGHT"
+    },
+    {
+      "avg_volume": 246510.0,
+      "close_price": 0.75,
+      "price_max_20d": 0.86,
+      "stats_days": 20,
+      "symbol": "ZNBC"
+    }
+  ],
+  "source": "synthetic",
+  "trading_days": 20
+}

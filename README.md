@@ -2,16 +2,18 @@
 
 > Repo: `high-risk-symbols`. Product/dashboard name: **Pump-&-Dump Radar**.
 
-A daily surveillance scan that flags **major-exchange (no-OTC)** US-listed
-micro-caps fitting the classic **pump-and-dump** profile. It combines two
-independent views and reports the union:
+A daily surveillance scan over **major-exchange (no-OTC)** US-listed common/ADR
+symbols. The database keeps every major-exchange symbol with daily market stats,
+then the scanner flags names fitting the classic **pump-and-dump** profile. It
+combines two independent views and reports the union:
 
 1. **Editable rule set** — a symbol is rule-based high-risk only when **all five**
    criteria hold for the day. Every threshold is editable in `data/params.json`.
 2. **PCA(3) structural model** — an unsupervised view over four size/liquidity
-   features. The component that best separates the confirmed high-risk anchors
-   (documented DOJ/SEC pump-and-dump cases + rule hits) becomes the *risk axis*;
-   everything past a percentile cut on the high-risk side is flagged.
+   features. The component that best separates the candidate set (documented
+   DOJ/SEC pump-and-dump anchors + every name with at least 3 of 5 rule hits)
+   becomes the *risk axis*; everything past a percentile cut on the high-risk
+   side is flagged.
 
 A static dashboard reads the JSON snapshots and renders the verdict, the rule
 criteria, the fitted PCA model, an interactive cut, and a per-symbol drill-down.
@@ -35,9 +37,10 @@ criteria, the fitted PCA model, an interactive cut, and a per-symbol drill-down.
 
 Issuer location is **not** a criterion — documented US-listed pump-and-dumps
 are frequently US issuers, so a non-US filter was dropping real cases. The
-universe filter keeps names under **$20** (wider than the $7 rule) so near-misses
-stay visible in the PCA view. All thresholds live in `data/params.json` and are
-also tunable live in the dashboard.
+database is **not** pre-filtered by price; the `$20` setting is only a
+dashboard lens/KPI so near-misses can be viewed without removing safer names
+from the PCA space. All thresholds live in `data/params.json` and are also
+tunable live in the dashboard.
 
 "...has been below X in the last 20 business days" is read conservatively as
 *stayed below for the whole window* — the engine tests the 20-day extreme
@@ -51,14 +54,29 @@ Securities. (See `data/params.json` for the per-firm source notes.)
 ### PCA(3) structural model
 
 Features (log1p → z-scored): `market_cap`, `avg_volume`, `close_price`,
-`num_employees`. PCA(3) is fit by SVD; for each component we measure how well
-it separates the known high-risk anchor set (Cohen's *d*). The
-**risk-discriminating component** is the one with the largest separation,
-oriented so the anchors sit on the high side. Because all four inputs are
-size/liquidity measures, the risk axis is effectively a "smallness &
-illiquidity" direction — small cap, thin float, thin volume, few employees and
-low price all load together. Names at/above the **80th percentile** (tunable)
-on that axis are flagged.
+`num_employees`. PCA(3) is fit by SVD on the whole scanned database; no symbol
+is excluded because it is too cheap, too expensive, safe-looking, or risky
+looking. The candidate label is added **after** rules are computed: documented
+anchors plus every symbol with at least **3 of 5** rule criteria.
+
+For each principal component we measure how well it separates candidates from
+the rest (Cohen's *d*). The **risk-discriminating component** is the one with
+the largest absolute separation, oriented so candidates sit on the high side.
+Names at/above the **80th percentile** (tunable) on that oriented axis are
+flagged.
+
+The loadings shown in the dashboard are not raw dollar/share coefficients. PCA
+first transforms each feature with `log1p`, then z-scores it, then rotates that
+standardized 4D feature space into orthogonal principal components. A loading is
+therefore the direction cosine of one standardized log feature inside the risk
+component. Its sign says whether increasing that standardized feature moves a
+name toward or away from the high-risk side; its magnitude says relative
+importance within that rotated axis. Because the risk axis can be multiplied by
+`-1` without changing the geometry, the engine stores an `orientation_sign` and
+reports **oriented loadings** so "positive/high risk" is consistent with the
+candidate side. The PCA3 map is the more faithful geometry: PC1/PC2 position
+plus PC3 bubble depth shows risky candidates clustering toward one side of PC
+space, while MAG7/blue-chip rulers sit at the opposite, safer side.
 
 Anchors are documented DOJ/SEC pump-and-dump cases — **CLEU, OST, VISL, ABVC,
 ALZN** (from `data/params.json`) — replacing the earlier seed anchors. MAG7
@@ -73,6 +91,8 @@ only**; they are never scanned, counted, or flagged.
 Each symbol is tagged: **Rule + PCA** (highest conviction), **Rule only**,
 **PCA only**, **Watch** (3–4 rule flags, not yet flagged), or **Clear**. The
 reported high-risk list is the union of the editable rules and the PCA region.
+The table itself remains the full major-exchange database, paginated by default
+at 20 rows.
 
 ---
 
@@ -82,9 +102,9 @@ reported high-risk list is the union of the editable rules and the PCA region.
 GitHub Actions (weeknight, after the US close)
         │
         ▼
-Python engine ── NASDAQ Trader symbol directory (universe)
-                 Massive/Polygon grouped daily bars (price, volume)
-                 Massive/Polygon ticker overview (fundamentals)
+Python engine ── NASDAQ Trader symbol directory (monthly static master)
+                 Massive/Polygon grouped daily bars (daily price, volume)
+                 Massive/Polygon ticker overview (monthly/cached fundamentals)
                  underwriters.json (curated boutique → symbol map)
    data → editable 5-rule set → PCA(3) risk axis → combined verdict
                           │
@@ -113,6 +133,8 @@ high-risk-symbols/
 │   └── requirements.txt
 ├── data/
 │   ├── params.json        # EDITABLE thresholds + underwriter watchlist + anchors
+│   ├── security_master.json # monthly/static major-exchange symbol master
+│   ├── market_stats.json  # daily price/volume stats
 │   ├── universe_seed.json # curated fallback universe (major exchanges, no OTC)
 │   ├── underwriters.json  # curated symbol → firm map (maintained seed)
 │   ├── symbols.json       # scan output (one row per symbol)
@@ -131,11 +153,18 @@ high-risk-symbols/
 
 | Field | Source |
 |---|---|
-| Universe (major-exchange US-listed, **no OTC**) | NASDAQ Trader symbol directory (`nasdaqlisted` + `otherlisted`) |
-| Price, 20-day high, avg volume | Massive/Polygon grouped daily bars (`include_otc=false`), one request per market date |
-| Shares out, market cap, employees, exchange | Massive/Polygon ticker overview, cached and capped per run; OTC/non-major exchanges dropped |
+| Static security master | `data/security_master.json`; refreshed monthly from NASDAQ Trader + cached Massive ticker overview |
+| Price, 20-day high, avg volume | `data/market_stats.json`; refreshed daily from Massive/Polygon grouped bars (`include_otc=false`) |
+| Shares out, market cap, employees, exchange | Massive/Polygon ticker overview, cached and capped per static refresh; OTC/non-major exchanges dropped |
 | **IPO underwriter** | `data/underwriters.json` — the one field no price feed carries |
 | Scan parameters (thresholds, cut, watchlist, anchors) | `data/params.json` — editable; no code change needed |
+
+The security master rejects non-common-stock rows at multiple layers: symbols
+with class/suffix punctuation, five-letter suffix forms such as warrant/right/
+unit/foreign-ordinary endings (`...W`, `...R`, `...U`, `...F`), ETF/test issues,
+and security names containing warrant/right/unit/preferred/note markers. Live
+Massive rows are then checked again for major primary exchange and common/ADR
+ticker type.
 
 The underwriter **watchlist** (which firms count as high-risk) lives in
 `data/params.json` and is sourced from FINRA/SEC small-cap ramp-and-dump

@@ -5,11 +5,13 @@ Pipeline
 1. Features: market_cap, avg_volume, close_price, num_employees.
    All four are strongly right-skewed, so we log1p them, then z-score.
 2. PCA(3) via numpy SVD on the standardized matrix.
-3. Pick the single component that best SEPARATES the known high-risk anchor
-   set (documented DOJ/SEC pump-and-dump cases + any strict rule-based hits)
-   from the rest, measured by standardized mean difference (Cohen's d). That
-   is the "risk-discriminating component".
-4. Orient it so the anchors sit on the HIGH side, call the oriented score the
+3. Mark PCA candidates as every documented anchor plus every symbol with at
+   least three of the five editable rule criteria. Nothing is price-pre-filtered
+   out before PCA; candidates are simply labelled in the full PCA space.
+4. Pick the single component that best SEPARATES that candidate/anchor set from
+   the rest, measured by standardized mean difference (Cohen's d). That is the
+   "risk-discriminating component".
+5. Orient it so the candidates sit on the HIGH side, call the oriented score the
    risk_score, and flag every symbol at/above the PCA_RISK_PERCENTILE cut.
 
 The four features are all size/liquidity measures, so the risk component is
@@ -64,16 +66,19 @@ def run_pca(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     for j in range(k):
         df[f"pc{j+1}"] = scores[:, j]
 
-    # 3) anchor set = confirmed high-risk names
-    anchor_mask = df["symbol"].isin(PCA_ANCHORS).to_numpy()
-    if "rule_high_risk" in df.columns:
-        anchor_mask = anchor_mask | df["rule_high_risk"].to_numpy()
+    # 3) candidate set = documented anchors + every name with >=3 rule hits.
+    # This labels candidates inside the full PCA space; it is not a pre-filter.
+    anchor_only_mask = df["symbol"].isin(PCA_ANCHORS).to_numpy()
+    candidate_mask = anchor_only_mask.copy()
+    if "hit_count" in df.columns:
+        candidate_mask = candidate_mask | (df["hit_count"].to_numpy() >= 3)
+    df["pca_candidate"] = candidate_mask
 
     seps = []
     for j in range(k):
         s = scores[:, j]
-        if anchor_mask.sum() >= 1 and (~anchor_mask).sum() >= 1:
-            seps.append(_cohens_d(s[anchor_mask], s[~anchor_mask]))
+        if candidate_mask.sum() >= 1 and (~candidate_mask).sum() >= 1:
+            seps.append(_cohens_d(s[candidate_mask], s[~candidate_mask]))
         else:
             # no anchors: fall back to "smallness" — correlate component with
             # standardized market cap; risk = the opposite of size.
@@ -125,7 +130,9 @@ def run_pca(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         "risk_threshold": round(threshold, 4),
         "risk_loadings": {kk: round(vv, 4) for kk, vv in loadings.items()},
         "anchors": PCA_ANCHORS,
-        "anchor_count": int(anchor_mask.sum()),
+        "anchor_count": int(anchor_only_mask.sum()),
+        "candidate_rule_min": 3,
+        "candidate_count": int(candidate_mask.sum()),
         "reference_symbols": references,
         "reference_note": (
             "MAG7 and blue-chip points are projected into the fitted PCA space "
