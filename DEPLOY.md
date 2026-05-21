@@ -106,12 +106,12 @@ only, with warrants, rights, units, five-letter `...W`/`...R`/`...U`/`...F`
 suffix forms, ETFs, tests, OTC and non-major exchange rows excluded.
 `data/market_stats.json` is daily: Massive/Polygon grouped bars with
 `include_otc=false`.
-Live runs ignore synthetic or suspiciously small security-master caches and
-rebuild from NASDAQ Trader, then hydrate static fundamentals in bounded batches
-to avoid rate-limit hits.
-For a local backfill, export `MASSIVE_API_KEY` and run
-`python python/backfill_fundamentals.py --limit 250 --sleep-sec 15`; repeat the
-command until `detail_coverage` reaches the desired level.
+Daily live runs do not hydrate or commit static fundamentals. They read the
+committed security master and update only market stats, symbols, meta, and
+history. For a local backfill, export `MASSIVE_API_KEY`, run
+`python python/backfill_fundamentals.py --limit 5 --sleep-sec 15`, validate with
+`python python/validate_data.py`, then repeat larger chunks until
+`detail_coverage` reaches the desired level.
 
 ## What runs where (cheat sheet)
 

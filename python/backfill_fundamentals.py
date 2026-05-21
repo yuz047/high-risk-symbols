@@ -5,7 +5,7 @@ security master with ticker-overview fields (shares, market cap, employees)
 in resumable chunks using data/cache/massive_details.json.
 
 Usage:
-  MASSIVE_API_KEY=... python python/backfill_fundamentals.py --limit 250
+  MASSIVE_API_KEY=... python python/backfill_fundamentals.py --limit 5
 
 The API key must come from the environment. Do not commit it.
 """
@@ -77,6 +77,18 @@ def _detail_payload_to_row(info: dict, seed: dict, fallback: dict) -> dict:
     }
 
 
+def _cache_data_to_info(data: dict) -> dict:
+    return {
+        "name": data.get("name"),
+        "address": {"country": data.get("country")},
+        "weighted_shares_outstanding": data.get("shares_out"),
+        "market_cap": data.get("market_cap"),
+        "total_employees": data.get("num_employees"),
+        "primary_exchange": data.get("primary_exchange"),
+        "type": data.get("ticker_type"),
+    }
+
+
 def _write_master(rows: list[dict], dropped: int) -> None:
     rows = sorted(rows, key=lambda r: r["symbol"])
     md._write_snapshot(
@@ -94,7 +106,7 @@ def _write_master(rows: list[dict], dropped: int) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--limit", type=int, default=250, help="max new API detail calls this run")
+    ap.add_argument("--limit", type=int, default=5, help="max new API detail calls this run")
     ap.add_argument("--sleep-sec", type=float, default=15.0, help="sleep after every API call")
     ap.add_argument("--max-minutes", type=float, default=0.0, help="optional wall-clock stop")
     ap.add_argument("--refresh-directory", action="store_true", help="refresh NASDAQ directory first")
@@ -131,18 +143,16 @@ def main() -> None:
         cached = cache.get(sym)
         info = None
         if cached and isinstance(cached.get("data"), dict) and cached["data"]:
-            data = cached["data"]
-            info = {
-                "name": data.get("name"),
-                "address": {"country": data.get("country")},
-                "weighted_shares_outstanding": data.get("shares_out"),
-                "market_cap": data.get("market_cap"),
-                "total_employees": data.get("num_employees"),
-                "primary_exchange": data.get("primary_exchange"),
-                "type": data.get("ticker_type"),
-            }
-            used_cache += 1
-        else:
+            cached_info = _cache_data_to_info(cached["data"])
+            cached_row = {**r, **_detail_payload_to_row(cached_info, seed.get(sym, {}), r)}
+            if _has_fundamentals(cached_row):
+                info = cached_info
+                used_cache += 1
+            else:
+                cache.pop(sym, None)
+                _log(f"cached detail for {sym} lacks fundamentals; refetching")
+
+        if info is None:
             try:
                 payload = md._massive_get(f"/v3/reference/tickers/{sym}")
                 info = (payload or {}).get("results") or {}
@@ -155,6 +165,13 @@ def main() -> None:
                 raise
 
         merged = {**r, **_detail_payload_to_row(info, seed.get(sym, {}), r)}
+        cache[sym] = {
+            "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "data": {k: merged.get(k) for k in (
+                "name", "country", "shares_out", "market_cap", "num_employees",
+                "primary_exchange", "ticker_type"
+            )},
+        }
         typ = str(merged.get("ticker_type") or "").upper()
         exch = merged.get("primary_exchange")
         if exch and exch not in md.MAJOR_EXCHANGES:
@@ -172,11 +189,13 @@ def main() -> None:
         if (fetched + used_cache) % 10 == 0:
             current = list(out_by_symbol.values())
             _write_master(current, dropped)
+            md._save_details_cache(cache)
             _log(f"progress idx={i+1}/{len(missing)} fetched={fetched} cache={used_cache} "
                  f"fundamentals={sum(1 for x in current if _has_fundamentals(x))}/{len(current)}")
 
     final = list(out_by_symbol.values())
     _write_master(final, dropped)
+    md._save_details_cache(cache)
     after = sum(1 for r in final if _has_fundamentals(r))
     _log(f"done fetched={fetched} cache={used_cache} dropped={dropped} fundamentals={after}/{len(final)}")
     if stopped_for_rate_limit:

@@ -41,6 +41,24 @@ def _category(rule: bool, pca: bool, hit: int) -> str:
     return "clear"
 
 
+def _security_master_stats() -> dict:
+    p = DATA_DIR / "security_master.json"
+    if not p.exists():
+        return {}
+    try:
+        rows = json.loads(p.read_text()).get("rows") or []
+    except Exception:
+        return {}
+    coverage = sum(
+        1 for r in rows
+        if r.get("shares_out") is not None and r.get("market_cap") is not None
+    )
+    return {
+        "security_master_rows": len(rows),
+        "security_master_detail_coverage": coverage,
+    }
+
+
 def main() -> None:
     df = get_market_frame(prefer_live=True)
     df = apply_rules(df)
@@ -125,6 +143,7 @@ def main() -> None:
             "daily_market_stats": "data/market_stats.json",
             "static_refresh_policy": "monthly",
             "market_stats_refresh_policy": "daily",
+            **_security_master_stats(),
         },
         "data_health": {
             "ok": True,

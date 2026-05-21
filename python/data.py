@@ -2,10 +2,10 @@
 
 Source priority (highest to lowest):
 
-  1. LIVE — the real US-listed symbol directory from NASDAQ Trader, screened
-     for price < UNIVERSE_MAX_PRICE via Massive/Polygon grouped daily bars.
-     Company size fields are pulled from Massive ticker overview with a small
-     persistent cache so the daily job does not repeat per-symbol calls.
+  1. LIVE — the real US-listed symbol directory from the committed static
+     security master, screened for price < UNIVERSE_MAX_PRICE via
+     Massive/Polygon grouped daily bars. Company size fields are maintained by
+     the separate local fundamentals backfill, not by the daily scan.
 
   2. SEED/SYNTHETIC — deterministic fundamentals generated from
      ``data/universe_seed.json``. Used when the feeds are unreachable (e.g. a
@@ -304,32 +304,30 @@ def _merge_security_master_details(rows: list[dict]) -> list[dict]:
 
 
 def load_security_master(force_refresh: bool = False) -> list[dict] | None:
-    """Monthly/static security master: major exchanges only, no warrants/rights."""
-    if not force_refresh and _snapshot_fresh(SECURITY_MASTER_PATH, MASSIVE_SECURITY_MASTER_TTL_DAYS):
-        snap = _read_snapshot(SECURITY_MASTER_PATH)
-        if _security_master_cache_usable(snap):
-            rows = snap.get("rows") or []
-            coverage = _security_master_detail_coverage(rows)
-            _log(f"security master cache: {len(rows)} symbols ({coverage} with fundamentals)")
-            if _massive_api_key() and coverage < len(rows):
-                _log("security master cache needs more fundamentals; hydrating next missing batch")
-                return _merge_security_master_details(rows)
-            return rows
-        rows = (snap or {}).get("rows") or []
-        if rows:
-            _log(f"security master cache ignored: source={snap.get('source')} count={len(rows)}")
+    """Monthly/static security master: major exchanges only, no warrants/rights.
 
-    rows = build_security_master_from_directory()
-    if not rows:
-        snap = _read_snapshot(SECURITY_MASTER_PATH)
-        rows = (snap or {}).get("rows") if snap else None
-        if rows:
-            _log(f"using stale security master: {len(rows)} symbols")
+    Daily scans must treat this file as read-only. Static fundamentals are
+    hydrated by ``backfill_fundamentals.py`` in controlled local batches.
+    """
+    snap = None if force_refresh else _read_snapshot(SECURITY_MASTER_PATH)
+    if _security_master_cache_usable(snap):
+        rows = snap.get("rows") or []
+        coverage = _security_master_detail_coverage(rows)
+        freshness = "fresh" if _snapshot_fresh(SECURITY_MASTER_PATH, MASSIVE_SECURITY_MASTER_TTL_DAYS) else "stale"
+        _log(f"security master cache: {len(rows)} symbols ({coverage} with fundamentals; {freshness})")
         return rows
 
-    # Hydrate a bounded slice with Massive overview data; the directory remains
-    # the complete master, and the cache fills in across monthly refreshes.
-    return _merge_security_master_details(rows)
+    rows = (snap or {}).get("rows") or []
+    if rows:
+        _log(f"security master cache ignored: source={snap.get('source')} count={len(rows)}")
+
+    rows = build_security_master_from_directory()
+    if rows:
+        coverage = _security_master_detail_coverage(rows)
+        _log(f"using live directory master in memory: {len(rows)} symbols "
+             f"({coverage} with fundamentals; run local backfill for static fields)")
+        return rows
+    return None
 
 
 def load_market_stats(symbols: list[str]) -> dict[str, dict] | None:

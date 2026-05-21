@@ -153,9 +153,9 @@ high-risk-symbols/
 
 | Field | Source |
 |---|---|
-| Static security master | `data/security_master.json`; refreshed monthly from NASDAQ Trader + cached Massive ticker overview |
+| Static security master | `data/security_master.json`; refreshed locally/monthly from NASDAQ Trader + controlled Massive ticker overview backfills |
 | Price, 20-day high, avg volume | `data/market_stats.json`; refreshed daily from Massive/Polygon grouped bars (`include_otc=false`) |
-| Shares out, market cap, employees, exchange | Massive/Polygon ticker overview, cached and capped per static refresh; OTC/non-major exchanges dropped |
+| Shares out, market cap, employees, exchange | Massive/Polygon ticker overview, hydrated locally into the static master; OTC/non-major exchanges dropped |
 | **IPO underwriter** | `data/underwriters.json` — the one field no price feed carries |
 | Scan parameters (thresholds, cut, watchlist, anchors) | `data/params.json` — editable; no code change needed |
 
@@ -166,10 +166,10 @@ and security names containing warrant/right/unit/preferred/note markers. Live
 Massive rows are then checked again for major primary exchange and common/ADR
 ticker type.
 
-If the committed fallback master is synthetic or suspiciously small, a live run
-with `MASSIVE_API_KEY` ignores it and rebuilds from NASDAQ Trader. Static
-fundamentals are hydrated in bounded batches so the monthly master fills in
-without blowing through rate limits.
+Daily GitHub Actions treat the committed security master as read-only. If the
+master is missing or unusable, the live scanner can rebuild the NASDAQ Trader
+directory in memory, but it does not hydrate or commit static fundamentals.
+Use the local backfill script for controlled Massive overview calls.
 
 The underwriter **watchlist** (which firms count as high-risk) lives in
 `data/params.json` and is sourced from FINRA/SEC small-cap ramp-and-dump
@@ -206,13 +206,19 @@ To hydrate static fundamentals locally instead of inside GitHub Actions:
 
 ```bash
 export MASSIVE_API_KEY="..."   # do not commit this
+python python/backfill_fundamentals.py --limit 5 --sleep-sec 15
+python python/validate_data.py
+
+# After the small batch validates, continue in larger resumable chunks.
 python python/backfill_fundamentals.py --limit 250 --sleep-sec 15
+python python/validate_data.py
 ```
 
 The backfill is resumable. It writes `data/security_master.json` and uses the
 ignored `data/cache/massive_details.json` cache, so later chunks continue where
-the previous one stopped. Increase `--limit` or lower `--sleep-sec` only if the
-Massive plan can support the request rate.
+the previous one stopped. It ignores empty cached overview rows so missing
+fundamentals are refetched. Increase `--limit` or lower `--sleep-sec` only if
+the Massive plan can support the request rate.
 
 Open `web/index.html` in a browser. The percentile slider re-cuts the PCA
 region live; the table drills into each symbol's five-criterion breakdown and
