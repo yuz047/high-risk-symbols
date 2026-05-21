@@ -51,6 +51,7 @@ OTHER_LISTED_EXCHANGE_MAP = {
 }
 SECURITY_MASTER_PATH = DATA_DIR / "security_master.json"
 MARKET_STATS_PATH = DATA_DIR / "market_stats.json"
+MIN_LIVE_SECURITY_MASTER_ROWS = 1_000
 
 
 def _log(msg: str) -> None:
@@ -224,6 +225,19 @@ def _snapshot_fresh(path: Path, ttl_days: int) -> bool:
     return generated_at >= _utc_now() - timedelta(days=ttl_days)
 
 
+def _security_master_cache_usable(snap: dict | None) -> bool:
+    """Live runs must not reuse the small synthetic fallback master."""
+    if not snap:
+        return False
+    rows = snap.get("rows") or []
+    source = str(snap.get("source") or "").lower()
+    if source == "synthetic":
+        return False
+    if len(rows) < MIN_LIVE_SECURITY_MASTER_ROWS:
+        return False
+    return True
+
+
 def _write_snapshot(path: Path, rows: list[dict], source: str, extra: dict | None = None) -> None:
     payload = {
         "generated_at": _utc_now().isoformat(timespec="seconds"),
@@ -236,25 +250,16 @@ def _write_snapshot(path: Path, rows: list[dict], source: str, extra: dict | Non
     path.write_text(json.dumps(payload, indent=2, sort_keys=True))
 
 
-def load_security_master(force_refresh: bool = False) -> list[dict] | None:
-    """Monthly/static security master: major exchanges only, no warrants/rights."""
-    if not force_refresh and _snapshot_fresh(SECURITY_MASTER_PATH, MASSIVE_SECURITY_MASTER_TTL_DAYS):
-        snap = _read_snapshot(SECURITY_MASTER_PATH)
-        rows = (snap or {}).get("rows") or []
-        if rows:
-            _log(f"security master cache: {len(rows)} symbols")
-            return rows
+def _has_static_fundamentals(row: dict) -> bool:
+    return row.get("shares_out") is not None and row.get("market_cap") is not None
 
-    rows = build_security_master_from_directory()
-    if not rows:
-        snap = _read_snapshot(SECURITY_MASTER_PATH)
-        rows = (snap or {}).get("rows") if snap else None
-        if rows:
-            _log(f"using stale security master: {len(rows)} symbols")
-        return rows
 
-    # Hydrate a bounded slice with Massive overview data; the directory remains
-    # the complete master, and the cache fills in across monthly refreshes.
+def _security_master_detail_coverage(rows: list[dict]) -> int:
+    return sum(1 for r in rows if _has_static_fundamentals(r))
+
+
+def _merge_security_master_details(rows: list[dict]) -> list[dict]:
+    """Merge cached/new Massive details into the directory master."""
     details = fetch_details([r["symbol"] for r in rows])
     out = []
     dropped = 0
@@ -278,19 +283,53 @@ def load_security_master(force_refresh: bool = False) -> list[dict] | None:
         out.append({
             "symbol": sym,
             "name": name,
-            "country": d.get("country") or seed.get("country") or "United States",
+            "country": d.get("country") or r.get("country") or seed.get("country") or "United States",
             "primary_exchange": exch,
             "ticker_type": typ or "CS",
-            "shares_out": d.get("shares_out") or seed.get("shares_out"),
-            "market_cap": d.get("market_cap") or seed.get("market_cap"),
-            "num_employees": d.get("num_employees") or seed.get("num_employees"),
+            "shares_out": d.get("shares_out") or r.get("shares_out") or seed.get("shares_out"),
+            "market_cap": d.get("market_cap") or r.get("market_cap") or seed.get("market_cap"),
+            "num_employees": d.get("num_employees") or r.get("num_employees") or seed.get("num_employees"),
         })
     _write_snapshot(
         SECURITY_MASTER_PATH, out, "nasdaq_trader",
-        {"refresh_policy": "monthly/static", "dropped_non_stock": dropped},
+        {
+            "refresh_policy": "monthly/static",
+            "dropped_non_stock": dropped,
+            "detail_coverage": _security_master_detail_coverage(out),
+        },
     )
-    _log(f"security master refreshed: {len(out)} symbols ({dropped} dropped)")
+    _log(f"security master refreshed: {len(out)} symbols "
+         f"({_security_master_detail_coverage(out)} with fundamentals; {dropped} dropped)")
     return out
+
+
+def load_security_master(force_refresh: bool = False) -> list[dict] | None:
+    """Monthly/static security master: major exchanges only, no warrants/rights."""
+    if not force_refresh and _snapshot_fresh(SECURITY_MASTER_PATH, MASSIVE_SECURITY_MASTER_TTL_DAYS):
+        snap = _read_snapshot(SECURITY_MASTER_PATH)
+        if _security_master_cache_usable(snap):
+            rows = snap.get("rows") or []
+            coverage = _security_master_detail_coverage(rows)
+            _log(f"security master cache: {len(rows)} symbols ({coverage} with fundamentals)")
+            if _massive_api_key() and coverage < len(rows):
+                _log("security master cache needs more fundamentals; hydrating next missing batch")
+                return _merge_security_master_details(rows)
+            return rows
+        rows = (snap or {}).get("rows") or []
+        if rows:
+            _log(f"security master cache ignored: source={snap.get('source')} count={len(rows)}")
+
+    rows = build_security_master_from_directory()
+    if not rows:
+        snap = _read_snapshot(SECURITY_MASTER_PATH)
+        rows = (snap or {}).get("rows") if snap else None
+        if rows:
+            _log(f"using stale security master: {len(rows)} symbols")
+        return rows
+
+    # Hydrate a bounded slice with Massive overview data; the directory remains
+    # the complete master, and the cache fills in across monthly refreshes.
+    return _merge_security_master_details(rows)
 
 
 def load_market_stats(symbols: list[str]) -> dict[str, dict] | None:
@@ -416,14 +455,15 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
     out: dict[str, dict] = {}
     cache = _load_details_cache()
     seed_by_symbol = {r["symbol"]: r for r in load_universe_seed()}
-    max_n = min(len(symbols), MAX_DETAIL_FETCH)
     fetched = 0
     cache_hits = 0
-    for n, sym in enumerate(symbols[:MAX_DETAIL_FETCH]):
+    for n, sym in enumerate(symbols):
         cached = cache.get(sym)
         if cached:
             out[sym] = cached["data"]
             cache_hits += 1
+            continue
+        if fetched >= MAX_DETAIL_FETCH:
             continue
         try:
             payload = _massive_get(f"/v3/reference/tickers/{sym}")
@@ -451,17 +491,17 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
             fetched += 1
         except Exception as e:
             if _is_rate_limit_error(e):
-                _log(f"details {n}/{max_n}: Massive rate limited; stopping detail fetch")
+                _log(f"details {n}/{len(symbols)}: Massive rate limited; stopping detail fetch")
                 break
             out[sym] = {}
             cache[sym] = {"fetched_at": _utc_now().isoformat(timespec="seconds"), "data": {}}
             fetched += 1
         if n % 50 == 0:
-            _log(f"details {n}/{max_n} (cache hits={cache_hits}, fetched={fetched})")
+            _log(f"details {n}/{len(symbols)} (cache hits={cache_hits}, fetched={fetched})")
         if fetched and fetched % MASSIVE_DETAIL_CACHE_FLUSH_EVERY == 0:
             _save_details_cache(cache)
     _save_details_cache(cache)
-    _log(f"details done: {len(out)}/{max_n} usable responses, cache hits={cache_hits}, fetched={fetched}")
+    _log(f"details done: {len(out)}/{len(symbols)} usable responses, cache hits={cache_hits}, fetched={fetched}")
     return out
 
 
@@ -626,21 +666,26 @@ def _synth_frame() -> pd.DataFrame:
     df = pd.DataFrame(out)
     df["source"] = "synthetic"
     df["synthetic"] = True
-    _write_snapshot(
-        SECURITY_MASTER_PATH,
-        [{
-            "symbol": r["symbol"],
-            "name": r["name"],
-            "country": r["country"],
-            "primary_exchange": "XNAS",
-            "ticker_type": "CS",
-            "shares_out": r["shares_out"],
-            "market_cap": r["market_cap"],
-            "num_employees": r["num_employees"],
-        } for r in out],
-        "synthetic",
-        {"refresh_policy": "monthly/static"},
-    )
+    existing_master = _read_snapshot(SECURITY_MASTER_PATH)
+    if not _security_master_cache_usable(existing_master):
+        _write_snapshot(
+            SECURITY_MASTER_PATH,
+            [{
+                "symbol": r["symbol"],
+                "name": r["name"],
+                "country": r["country"],
+                "primary_exchange": "XNAS",
+                "ticker_type": "CS",
+                "shares_out": r["shares_out"],
+                "market_cap": r["market_cap"],
+                "num_employees": r["num_employees"],
+            } for r in out],
+            "synthetic",
+            {
+                "refresh_policy": "monthly/static",
+                "detail_coverage": len(out),
+            },
+        )
     _write_snapshot(
         MARKET_STATS_PATH,
         [{

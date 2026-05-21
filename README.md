@@ -166,6 +166,11 @@ and security names containing warrant/right/unit/preferred/note markers. Live
 Massive rows are then checked again for major primary exchange and common/ADR
 ticker type.
 
+If the committed fallback master is synthetic or suspiciously small, a live run
+with `MASSIVE_API_KEY` ignores it and rebuilds from NASDAQ Trader. Static
+fundamentals are hydrated in bounded batches so the monthly master fills in
+without blowing through rate limits.
+
 The underwriter **watchlist** (which firms count as high-risk) lives in
 `data/params.json` and is sourced from FINRA/SEC small-cap ramp-and-dump
 enforcement. The per-symbol **map** (`data/underwriters.json`) is a curated

@@ -106,6 +106,9 @@ only, with warrants, rights, units, five-letter `...W`/`...R`/`...U`/`...F`
 suffix forms, ETFs, tests, OTC and non-major exchange rows excluded.
 `data/market_stats.json` is daily: Massive/Polygon grouped bars with
 `include_otc=false`.
+Live runs ignore synthetic or suspiciously small security-master caches and
+rebuild from NASDAQ Trader, then hydrate static fundamentals in bounded batches
+to avoid rate-limit hits.
 
 ## What runs where (cheat sheet)
 
