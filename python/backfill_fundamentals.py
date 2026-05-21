@@ -117,6 +117,7 @@ def main() -> None:
     fetched = 0
     used_cache = 0
     dropped = 0
+    stopped_for_rate_limit = False
     out_by_symbol = {r["symbol"]: dict(r) for r in rows}
 
     for i, r in enumerate(missing):
@@ -142,9 +143,16 @@ def main() -> None:
             }
             used_cache += 1
         else:
-            payload = md._massive_get(f"/v3/reference/tickers/{sym}")
-            info = (payload or {}).get("results") or {}
-            fetched += 1
+            try:
+                payload = md._massive_get(f"/v3/reference/tickers/{sym}")
+                info = (payload or {}).get("results") or {}
+                fetched += 1
+            except Exception as e:
+                if md._is_rate_limit_error(e):
+                    stopped_for_rate_limit = True
+                    _log(f"rate limited at {sym}; saving progress and stopping")
+                    break
+                raise
 
         merged = {**r, **_detail_payload_to_row(info, seed.get(sym, {}), r)}
         typ = str(merged.get("ticker_type") or "").upper()
@@ -171,6 +179,8 @@ def main() -> None:
     _write_master(final, dropped)
     after = sum(1 for r in final if _has_fundamentals(r))
     _log(f"done fetched={fetched} cache={used_cache} dropped={dropped} fundamentals={after}/{len(final)}")
+    if stopped_for_rate_limit:
+        raise SystemExit(75)
 
 
 if __name__ == "__main__":
