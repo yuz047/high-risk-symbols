@@ -91,6 +91,29 @@ def _is_excluded_security_name(name: str | None) -> bool:
     return bool(name and SECURITY_NAME_EXCLUDE_RE.search(name))
 
 
+def _is_inactive_or_delisted(row: dict) -> bool:
+    active = row.get("active")
+    if isinstance(active, bool) and not active:
+        return True
+    if isinstance(active, str) and active.strip().lower() in {"false", "0", "no", "n"}:
+        return True
+    return bool(row.get("delisted_utc") or row.get("delisted"))
+
+
+def _is_excluded_security_row(row: dict) -> bool:
+    sym = str(row.get("symbol") or "").upper()
+    typ = str(row.get("ticker_type") or "").upper()
+    exch = row.get("primary_exchange")
+    name = row.get("name")
+    return (
+        _is_excluded_symbol(sym)
+        or _is_excluded_security_name(name)
+        or _is_inactive_or_delisted(row)
+        or (typ and typ not in ALLOWED_TICKER_TYPES)
+        or (exch and exch not in MAJOR_EXCHANGES)
+    )
+
+
 # --------------------------------------------------------------------- #
 # Seeds
 # --------------------------------------------------------------------- #
@@ -186,6 +209,8 @@ def build_security_master_from_directory() -> list[dict] | None:
                     "name": name or sym,
                     "primary_exchange": exch,
                     "ticker_type": "CS",
+                    "active": True,
+                    "delisted_utc": None,
                 }
         except Exception as e:
             _log(f"universe {url} raised: {e}")
@@ -267,29 +292,23 @@ def _merge_security_master_details(rows: list[dict]) -> list[dict]:
     for r in rows:
         sym = r["symbol"]
         d = details.get(sym, {})
-        exch = d.get("primary_exchange") or r.get("primary_exchange")
-        typ = str(d.get("ticker_type") or r.get("ticker_type") or "").upper()
-        name = d.get("name") or r.get("name") or sym
-        if exch and exch not in MAJOR_EXCHANGES:
-            dropped += 1
-            continue
-        if typ and typ not in ALLOWED_TICKER_TYPES:
-            dropped += 1
-            continue
-        if _is_excluded_symbol(sym) or _is_excluded_security_name(name):
-            dropped += 1
-            continue
         seed = seed_by_symbol.get(sym, {})
-        out.append({
+        merged = {
             "symbol": sym,
-            "name": name,
+            "name": d.get("name") or r.get("name") or sym,
             "country": d.get("country") or r.get("country") or seed.get("country") or "United States",
-            "primary_exchange": exch,
-            "ticker_type": typ or "CS",
+            "primary_exchange": d.get("primary_exchange") or r.get("primary_exchange"),
+            "ticker_type": str(d.get("ticker_type") or r.get("ticker_type") or "CS").upper(),
+            "active": d.get("active", r.get("active", True)),
+            "delisted_utc": d.get("delisted_utc") or r.get("delisted_utc"),
             "shares_out": d.get("shares_out") or r.get("shares_out") or seed.get("shares_out"),
             "market_cap": d.get("market_cap") or r.get("market_cap") or seed.get("market_cap"),
             "num_employees": d.get("num_employees") or r.get("num_employees") or seed.get("num_employees"),
-        })
+        }
+        if _is_excluded_security_row(merged):
+            dropped += 1
+            continue
+        out.append(merged)
     _write_snapshot(
         SECURITY_MASTER_PATH, out, "nasdaq_trader",
         {
@@ -498,6 +517,8 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
                 "num_employees": info.get("total_employees"),
                 "primary_exchange": info.get("primary_exchange"),
                 "ticker_type": info.get("type"),
+                "active": info.get("active"),
+                "delisted_utc": info.get("delisted_utc"),
             }
             out[sym] = data
             cache[sym] = {"fetched_at": _utc_now().isoformat(timespec="seconds"), "data": data}
@@ -536,15 +557,7 @@ def _get_live_frame() -> pd.DataFrame | None:
         if sym not in priced:
             missing_stats += 1
             continue
-        if _is_excluded_symbol(sym) or _is_excluded_security_name(d.get("name")):
-            dropped_non_stock += 1
-            continue
-        exch = d.get("primary_exchange")
-        typ = str(d.get("ticker_type") or "").upper()
-        if exch and exch not in MAJOR_EXCHANGES:
-            dropped_non_stock += 1
-            continue
-        if typ and typ not in ALLOWED_TICKER_TYPES:
+        if _is_excluded_security_row(d):
             dropped_non_stock += 1
             continue
         p = priced[sym]
@@ -685,6 +698,8 @@ def _synth_frame() -> pd.DataFrame:
                 "country": r["country"],
                 "primary_exchange": "XNAS",
                 "ticker_type": "CS",
+                "active": True,
+                "delisted_utc": None,
                 "shares_out": r["shares_out"],
                 "market_cap": r["market_cap"],
                 "num_employees": r["num_employees"],

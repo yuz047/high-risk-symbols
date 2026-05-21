@@ -1,6 +1,6 @@
 {
-  "count": 5580,
-  "generated_at": "2026-05-21T14:42:29+00:00",
+  "count": 5581,
+  "generated_at": "2026-05-21T17:02:14+00:00",
   "refresh_policy": "daily/market",
   "rows": [
     {
@@ -5259,6 +5259,13 @@
       "price_max_20d": 3.3986,
       "stats_days": 20,
       "symbol": "BNC"
+    },
+    {
+      "avg_volume": 7942.3407165,
+      "close_price": 0.18,
+      "price_max_20d": 1.67,
+      "stats_days": 18,
+      "symbol": "BNCWZ"
     },
     {
       "avg_volume": 239659.18674554996,

@@ -55,15 +55,7 @@ def _check_security_master() -> None:
     bad_rows = []
     for row in rows:
         sym = str(row.get("symbol") or "").upper()
-        typ = str(row.get("ticker_type") or "").upper()
-        exch = row.get("primary_exchange")
-        name = row.get("name")
-        if (
-            md._is_excluded_symbol(sym)
-            or md._is_excluded_security_name(name)
-            or (typ and typ not in md.ALLOWED_TICKER_TYPES)
-            or (exch and exch not in md.MAJOR_EXCHANGES)
-        ):
+        if md._is_excluded_security_row(row):
             bad_rows.append(sym or "<blank>")
 
     if bad_rows:

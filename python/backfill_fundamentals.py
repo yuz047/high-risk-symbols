@@ -37,7 +37,10 @@ def _load_master(refresh_directory: bool) -> list[dict]:
             # Preserve any already-hydrated fields by symbol.
             old = {r["symbol"]: r for r in rows}
             rows = [{**r, **{k: v for k, v in old.get(r["symbol"], {}).items()
-                            if k in {"country", "shares_out", "market_cap", "num_employees"}
+                            if k in {
+                                "country", "shares_out", "market_cap", "num_employees",
+                                "active", "delisted_utc",
+                            }
                             and v is not None}}
                     for r in fresh]
     if not rows:
@@ -74,6 +77,8 @@ def _detail_payload_to_row(info: dict, seed: dict, fallback: dict) -> dict:
         ),
         "primary_exchange": info.get("primary_exchange") or fallback.get("primary_exchange"),
         "ticker_type": info.get("type") or fallback.get("ticker_type") or "CS",
+        "active": info.get("active", fallback.get("active", True)),
+        "delisted_utc": info.get("delisted_utc") or fallback.get("delisted_utc"),
     }
 
 
@@ -86,6 +91,8 @@ def _cache_data_to_info(data: dict) -> dict:
         "total_employees": data.get("num_employees"),
         "primary_exchange": data.get("primary_exchange"),
         "type": data.get("ticker_type"),
+        "active": data.get("active"),
+        "delisted_utc": data.get("delisted_utc"),
     }
 
 
@@ -145,6 +152,11 @@ def main() -> None:
         if cached and isinstance(cached.get("data"), dict) and cached["data"]:
             cached_info = _cache_data_to_info(cached["data"])
             cached_row = {**r, **_detail_payload_to_row(cached_info, seed.get(sym, {}), r)}
+            if md._is_excluded_security_row(cached_row):
+                out_by_symbol.pop(sym, None)
+                used_cache += 1
+                dropped += 1
+                continue
             if _has_fundamentals(cached_row):
                 info = cached_info
                 used_cache += 1
@@ -155,7 +167,7 @@ def main() -> None:
         if info is None:
             try:
                 payload = md._massive_get(f"/v3/reference/tickers/{sym}")
-                info = (payload or {}).get("results") or {}
+                info = None if payload is None else (payload.get("results") or {})
                 fetched += 1
             except Exception as e:
                 if md._is_rate_limit_error(e):
@@ -164,23 +176,35 @@ def main() -> None:
                     break
                 raise
 
+        if info is None:
+            _log(f"{sym}: no usable Massive detail response; keeping row for a later retry")
+            continue
+
+        if info is not None and not info:
+            out_by_symbol.pop(sym, None)
+            cache[sym] = {
+                "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "data": {
+                    "name": r.get("name") or sym,
+                    "primary_exchange": r.get("primary_exchange"),
+                    "ticker_type": r.get("ticker_type"),
+                    "active": False,
+                    "delisted_utc": "missing_detail",
+                },
+            }
+            dropped += 1
+            _log(f"{sym}: no Massive detail result; dropping as inactive/invalid")
+            continue
+
         merged = {**r, **_detail_payload_to_row(info, seed.get(sym, {}), r)}
         cache[sym] = {
             "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "data": {k: merged.get(k) for k in (
                 "name", "country", "shares_out", "market_cap", "num_employees",
-                "primary_exchange", "ticker_type"
+                "primary_exchange", "ticker_type", "active", "delisted_utc"
             )},
         }
-        typ = str(merged.get("ticker_type") or "").upper()
-        exch = merged.get("primary_exchange")
-        if exch and exch not in md.MAJOR_EXCHANGES:
-            out_by_symbol.pop(sym, None)
-            dropped += 1
-        elif typ and typ not in md.ALLOWED_TICKER_TYPES:
-            out_by_symbol.pop(sym, None)
-            dropped += 1
-        elif md._is_excluded_symbol(sym) or md._is_excluded_security_name(merged.get("name")):
+        if md._is_excluded_security_row(merged):
             out_by_symbol.pop(sym, None)
             dropped += 1
         else:
