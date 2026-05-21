@@ -118,6 +118,7 @@
     .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle;}
     .legend i.sq{border-radius:2px;}
     .chart-box{position:relative;height:320px;}
+    .chart-box canvas,.chart-box svg{display:block;width:100%;height:100%;}
     @media(max-width:880px){.chart-box{height:280px;}}
 
     .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
@@ -480,9 +481,7 @@
       }).join("")+`<div class="disclaim" style="margin-top:6px">All four are size/liquidity measures, so the risk axis is essentially a "smallness &amp; illiquidity" direction — MAG7 / blue-chips sit at the far safe end.</div>`;
     }
 
-    let pca3Chart,histChart;
     function buildCharts(){
-      if(typeof Chart==="undefined") return;
       const scope=state.scope;
       const grp={};["both","rule","pca","watch","clear"].forEach(k=>grp[k]=[]);
       const pc3vals=scope.map(s=>s.pc3);
@@ -491,19 +490,6 @@
       const anchorPts=scope.filter(s=>ANCHORS.includes(s.symbol)).map(s=>({x:s.pc1,y:s.pc2,r:11,sym:s.symbol,pc3:s.pc3,risk:s.risk_score}));
       const refs=(META.pca&&META.pca.reference_symbols)||[];
       const refPts=refs.map(r=>({x:r.pc1,y:r.pc2,r:6,sym:r.symbol,pc3:r.pc3,risk:r.risk_score}));
-      const ds=["clear","watch","pca","rule","both"].map(k=>({
-        label:CAT_LABEL[k],data:grp[k],backgroundColor:CAT_COLOR[k],
-        pointRadius:ctx=>ctx.raw.r||4,pointHoverRadius:8}));
-      ds.push({label:"ruler",data:refPts,backgroundColor:C.ref,pointStyle:"rect",pointRadius:5,pointHoverRadius:7});
-      ds.push({label:"anchor",data:anchorPts,backgroundColor:"transparent",borderColor:C.accent,
-        borderWidth:2,pointStyle:"circle",pointRadius:9,pointHoverRadius:10});
-      if(pca3Chart)pca3Chart.destroy();
-      pca3Chart=new Chart($("#pca3"),{type:"bubble",data:{datasets:ds},
-        options:{maintainAspectRatio:false,plugins:{legend:{display:false},
-          tooltip:{callbacks:{label:c=>`${c.raw.sym}: PC1 ${c.raw.x.toFixed(2)}, PC2 ${c.raw.y.toFixed(2)}, PC3 ${c.raw.pc3.toFixed(2)}, risk ${c.raw.risk.toFixed(2)}`}}},
-          scales:{x:{title:{display:true,text:"PC1",color:C.mute,font:{size:10}},grid:{color:"rgba(0,0,0,.04)"},ticks:{color:C.mute,font:{size:10}}},
-            y:{title:{display:true,text:"PC2  (bubble size = PC3)",color:C.mute,font:{size:10}},grid:{color:"rgba(0,0,0,.04)"},ticks:{color:C.mute,font:{size:10}}}}}});
-
       const scores=scope.map(s=>s.risk_score);
       const lo=Math.min(...scores),hi=Math.max(...scores),NB=24,w=(hi-lo)/NB||1;
       const bins=Array.from({length:NB},(_,i)=>({c:lo+w*(i+0.5),hi:lo+w*(i+1),n:0}));
@@ -511,16 +497,55 @@
       const labels=bins.map(b=>b.c.toFixed(1));
       const colors=bins.map(b=>b.hi>state.threshold?C.stop:C.rule);
       const anchorX={};scope.filter(s=>ANCHORS.includes(s.symbol)).forEach(s=>{let i=Math.min(NB-1,Math.floor((s.risk_score-lo)/w));anchorX[i]=(anchorX[i]?anchorX[i]+"/":"")+s.symbol;});
-      const anchPlugin={id:"anch",afterDraw(ch){const cx=ch.ctx,ya=ch.chartArea;
-        Object.keys(anchorX).forEach(i=>{const px=ch.scales.x.getPixelForValue(labels[i]);cx.save();
-          cx.strokeStyle=C.accent;cx.lineWidth=1.4;cx.beginPath();cx.moveTo(px,ya.top);cx.lineTo(px,ya.bottom);cx.stroke();
-          cx.fillStyle=C.accent;cx.font="9px monospace";cx.fillText(anchorX[i],px+3,ya.top+10);cx.restore();});}};
-      if(histChart)histChart.destroy();
-      histChart=new Chart($("#hist"),{type:"bar",data:{labels,datasets:[{data:bins.map(b=>b.n),backgroundColor:colors,borderWidth:0,categoryPercentage:1,barPercentage:1}]},
-        options:{maintainAspectRatio:false,plugins:{legend:{display:false},
-          tooltip:{callbacks:{title:items=>`risk ≈ ${items[0].label}`,label:c=>`${c.raw} symbols`}}},
-          scales:{x:{title:{display:true,text:"risk axis →  (red = past the cut)",color:C.mute,font:{size:10}},grid:{display:false},ticks:{color:C.mute,font:{size:9},maxTicksLimit:8}},
-            y:{grid:{color:"rgba(0,0,0,.04)"},ticks:{color:C.mute,font:{size:10}}}}},plugins:[anchPlugin]});
+      drawSvgCharts(grp,anchorPts,refPts,pc3min,pc3max,bins,colors,anchorX);
+    }
+
+    function svgGrid(w,h,pad,xLabel,yLabel){
+      let out="";
+      for(let i=0;i<=4;i++){
+        const x=pad.l+(w-pad.l-pad.r)*i/4,y=pad.t+(h-pad.t-pad.b)*i/4;
+        out+=`<line x1="${x}" y1="${pad.t}" x2="${x}" y2="${h-pad.b}" stroke="rgba(0,0,0,.08)"/>`;
+        out+=`<line x1="${pad.l}" y1="${y}" x2="${w-pad.r}" y2="${y}" stroke="rgba(0,0,0,.08)"/>`;
+      }
+      out+=`<text x="${w/2}" y="${h-8}" text-anchor="middle" fill="${C.mute}" font-family="JetBrains Mono, monospace" font-size="10">${esc(xLabel)}</text>`;
+      out+=`<text transform="translate(12 ${h/2}) rotate(-90)" text-anchor="middle" fill="${C.mute}" font-family="JetBrains Mono, monospace" font-size="10">${esc(yLabel)}</text>`;
+      return out;
+    }
+    function drawSvgCharts(grp,anchorPts,refPts,pc3min,pc3max,bins,colors,anchorX){
+      const pad={l:42,r:16,t:14,b:34};
+      const w=760,h=320;
+      const all=[...Object.values(grp).flat(),...anchorPts,...refPts];
+      const xs=all.map(p=>p.x),ys=all.map(p=>p.y);
+      let xmin=Math.min(...xs),xmax=Math.max(...xs),ymin=Math.min(...ys),ymax=Math.max(...ys);
+      const xspan=xmax-xmin||1,yspan=ymax-ymin||1;
+      xmin-=xspan*.06;xmax+=xspan*.06;ymin-=yspan*.08;ymax+=yspan*.08;
+      const x=v=>pad.l+(v-xmin)/(xmax-xmin)*(w-pad.l-pad.r);
+      const y=v=>h-pad.b-(v-ymin)/(ymax-ymin)*(h-pad.t-pad.b);
+      let pca=svgGrid(w,h,pad,"PC1","PC2 (bubble = PC3)");
+      ["clear","watch","pca","rule","both"].forEach(k=>{
+        const op=k==="clear"?.38:.78;
+        pca+=grp[k].map(p=>{
+          const rr=2+((p.pc3-pc3min)/((pc3max-pc3min)||1))*6;
+          return `<circle cx="${x(p.x).toFixed(1)}" cy="${y(p.y).toFixed(1)}" r="${rr.toFixed(1)}" fill="${CAT_COLOR[k]}" opacity="${op}"><title>${esc(p.sym)} · PC3 ${p.pc3.toFixed(2)} · risk ${p.risk.toFixed(2)}</title></circle>`;
+        }).join("");
+      });
+      pca+=refPts.map(p=>`<rect x="${(x(p.x)-4).toFixed(1)}" y="${(y(p.y)-4).toFixed(1)}" width="8" height="8" fill="${C.ref}"><title>${esc(p.sym)} · ruler</title></rect>`).join("");
+      pca+=anchorPts.map(p=>`<circle cx="${x(p.x).toFixed(1)}" cy="${y(p.y).toFixed(1)}" r="9" fill="none" stroke="${C.accent}" stroke-width="1.8"><title>${esc(p.sym)} · reported case</title></circle>`).join("");
+      $("#pca3").parentElement.innerHTML=`<svg id="pca3" viewBox="0 0 ${w} ${h}" role="img" aria-label="PCA3 map">${pca}</svg>`;
+
+      const hw=760,hh=320,hpad={l:42,r:16,t:14,b:34};
+      const maxN=Math.max(...bins.map(b=>b.n),1),bw=(hw-hpad.l-hpad.r)/bins.length;
+      let hist=svgGrid(hw,hh,hpad,"risk axis -> red = past cut","symbols");
+      hist+=bins.map((b,i)=>{
+        const bh=(b.n/maxN)*(hh-hpad.t-hpad.b),x0=hpad.l+i*bw+1,y0=hh-hpad.b-bh;
+        return `<rect x="${x0.toFixed(1)}" y="${y0.toFixed(1)}" width="${Math.max(1,bw-2).toFixed(1)}" height="${bh.toFixed(1)}" fill="${colors[i]}"><title>${b.n} symbols · risk ${b.c.toFixed(1)}</title></rect>`;
+      }).join("");
+      Object.keys(anchorX).forEach(i=>{
+        const px=hpad.l+(Number(i)+.5)*bw;
+        hist+=`<line x1="${px.toFixed(1)}" y1="${hpad.t}" x2="${px.toFixed(1)}" y2="${hh-hpad.b}" stroke="${C.accent}" stroke-width="1.4"/>`;
+        hist+=`<text x="${(px+3).toFixed(1)}" y="${hpad.t+10}" fill="${C.accent}" font-family="JetBrains Mono, monospace" font-size="10">${esc(anchorX[i])}</text>`;
+      });
+      $("#hist").parentElement.innerHTML=`<svg id="hist" viewBox="0 0 ${hw} ${hh}" role="img" aria-label="Risk-score distribution">${hist}</svg>`;
     }
 
     const COLS=[
