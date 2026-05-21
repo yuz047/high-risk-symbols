@@ -16,8 +16,8 @@ permissions:
   contents: write   # so the job can commit refreshed data/*.json back to the repo
 
 concurrency:
-  group: high-risk-symbols-${{ github.ref }}
-  cancel-in-progress: true
+  group: high-risk-symbols-api
+  cancel-in-progress: false
 
 env:
   # GitHub is forcing JS actions to Node 24 on 2026-06-02; opt in now.

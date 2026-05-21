@@ -120,7 +120,9 @@ high-risk-symbols (repo)                dashboard
 ────────────────────────                ─────────
 python/  ── runs in GH Actions          web/index.html
 .github/workflows/daily.yml                │  fetch() ──► data/*.json
-   │  commits data/*.json                  │            (same repo, or raw.github)
+   │  commits daily market outputs         │            (same repo, or raw.github)
+.github/workflows/static-security-master.yml
+   │  commits monthly/static master only
    ▼                                        ▼
 data/symbols.json  data/meta.json       GitHub Pages (free, https)
 data/history.json   data/market_stats.json

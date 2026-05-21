@@ -124,10 +124,11 @@ snapshots over HTTPS, with an embedded seed as an offline fallback.
 high-risk-symbols/
 ├── python/
 │   ├── config.py          # thresholds, universe filter, underwriters, anchors
-│   ├── data.py            # universe + Massive/Polygon screen/details + synthetic seed
+│   ├── data.py            # static master + daily Massive/Polygon market stats + synthetic seed
 │   ├── rules.py           # the editable five-criterion rule set
 │   ├── pca.py             # PCA(3) via SVD + risk-axis selection + cut
 │   ├── run_daily.py       # orchestrator → data/*.json (entry point for cron)
+│   ├── backfill_fundamentals.py # local/monthly static security-master hydration
 │   ├── seed_universe.py   # (re)build the deterministic seed universe + uw map
 │   ├── embed_seed.py      # embed current data/ into web/index.html (offline)
 │   └── requirements.txt
@@ -143,6 +144,7 @@ high-risk-symbols/
 ├── web/
 │   └── index.html         # the dashboard (self-contained, Chart.js)
 ├── .github/workflows/daily.yml
+├── .github/workflows/static-security-master.yml
 ├── README.md
 └── DEPLOY.md
 ```
@@ -169,7 +171,10 @@ ticker type.
 Daily GitHub Actions treat the committed security master as read-only. If the
 master is missing or unusable, the live scanner can rebuild the NASDAQ Trader
 directory in memory, but it does not hydrate or commit static fundamentals.
-Use the local backfill script for controlled Massive overview calls.
+Use the local backfill script, or the separate static security-master workflow,
+for controlled Massive overview calls. The daily and static workflows share a
+single non-canceling API concurrency group, so they queue instead of calling
+Massive at the same time.
 
 The underwriter **watchlist** (which firms count as high-risk) lives in
 `data/params.json` and is sourced from FINRA/SEC small-cap ramp-and-dump
@@ -219,6 +224,13 @@ ignored `data/cache/massive_details.json` cache, so later chunks continue where
 the previous one stopped. It ignores empty cached overview rows so missing
 fundamentals are refetched. Increase `--limit` or lower `--sleep-sec` only if
 the Massive plan can support the request rate.
+
+GitHub Actions split the two refresh cadences:
+
+- `High-Risk Symbols daily` runs after market close and commits only
+  `market_stats`, `symbols`, `meta`, and `history`.
+- `High-Risk Symbols static security master` runs monthly or manually and
+  commits only `data/security_master.json`.
 
 Open `web/index.html` in a browser. The percentile slider re-cuts the PCA
 region live; the table drills into each symbol's five-criterion breakdown and
