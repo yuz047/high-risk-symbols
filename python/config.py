@@ -2,22 +2,27 @@
 
 Mandate
 -------
-Surface US-listed symbols that fit the classic small-cap "pump-and-dump"
-risk profile, by combining two independent views:
+Surface US-listed symbols (major exchanges only — no OTC) that fit the classic
+small-cap "pump-and-dump" risk profile, by combining two independent views:
 
-  1. A strict RULE-BASED gate (all six criteria must hold for the day).
+  1. An editable RULE SET (all five criteria must hold for the day).
   2. A PCA(3) structural view — a single risk-discriminating component
      built from size/liquidity features; everything past a percentile cut
      on the high-risk side of that axis is flagged.
 
 The final list is the UNION of the two views, tagged so each symbol shows
-whether it was caught by the rule gate, the PCA region, or both.
+whether it was caught by the editable rules, the PCA region, or both.
+
+The thresholds, the PCA cut, the underwriter watchlist, and the anchors are all
+read from data/params.json so they can be edited without touching code.
 
 > Research / surveillance tooling. Not investment advice. The underwriter
-> map is a maintained seed and must be reconciled against the firm's own
-> new-issue / syndicate records (or EDGAR 424B4 prospectuses).
+> watchlist is sourced from FINRA/SEC small-cap "ramp-and-dump" actions and the
+> symbol->firm map is a maintained seed — reconcile both against syndicate
+> records (or EDGAR 424B4 prospectuses).
 """
 from __future__ import annotations
+import json
 from pathlib import Path
 
 # --- Paths --------------------------------------------------------------
@@ -27,45 +32,68 @@ CACHE_DIR = DATA_DIR / "cache"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-# --- Universe gate ------------------------------------------------------
-# The pool we even bother to scan. The daily job pulls the full US-listed
-# symbol directory, then keeps names whose last close is under this price.
-# (The rule gate below uses the stricter <$5 test; this wider $15 gate keeps
-#  near-miss names visible in the PCA view.)
-UNIVERSE_MAX_PRICE = 15.0
-LOOKBACK_DAYS = 20  # "in the last 20 business days"
+# --- Editable parameters (data/params.json) ----------------------------
+# Defaults below are used when params.json is absent or a key is missing.
+_DEFAULTS = {
+    "universe_max_price": 20.0,
+    "lookback_days": 20,
+    "mcap_max_usd": 500_000_000.0,
+    "shares_out_max": 60_000_000.0,
+    "avg_vol_max": 2_000_000.0,
+    "price_max_usd": 7.0,
+    "pca_risk_percentile": 80.0,
+    "high_risk_underwriters": [
+        "US Tiger Securities", "Spartan Capital Securities", "Aegis Capital",
+        "Boustead Securities", "Network 1 Financial Securities",
+        "Sutter Securities", "TradeUP Securities",
+    ],
+    "pca_anchors": ["CLEU", "OST", "VISL", "ABVC", "ALZN"],
+}
 
-# --- Rule-based criteria thresholds ------------------------------------
-# A symbol is rule-based high-risk only if ALL of these hold for the day.
-MCAP_MAX_USD = 300_000_000.0     # market cap below $300M across the window
-SHARES_OUT_MAX = 40_000_000.0    # shares outstanding below 40M
-AVG_VOL_MAX = 1_000_000.0        # 20-day average volume below 1M shares
-PRICE_MAX_USD = 5.0              # price below $5 across the window
-# "Issuer location is not in the United States" -> country != "United States"
+
+def _load_params() -> dict:
+    p = DATA_DIR / "params.json"
+    out = dict(_DEFAULTS)
+    if p.exists():
+        try:
+            user = json.loads(p.read_text())
+            for k in _DEFAULTS:
+                if k in user and user[k] not in (None, ""):
+                    out[k] = user[k]
+        except Exception:
+            pass
+    return out
+
+
+_P = _load_params()
+
+# --- Universe filter ----------------------------------------------------
+# The pool we even bother to scan: major-exchange (no-OTC) names whose last
+# close is under this price. Wider than the rule's price test so near-miss
+# names stay visible in the PCA view.
+UNIVERSE_MAX_PRICE = float(_P["universe_max_price"])
+LOOKBACK_DAYS = int(_P["lookback_days"])  # "in the last 20 business days"
+
+# --- Rule-based criteria thresholds (5 criteria; ALL must hold) ---------
+MCAP_MAX_USD = float(_P["mcap_max_usd"])      # market cap below cap across the window
+SHARES_OUT_MAX = float(_P["shares_out_max"])  # shares outstanding below cap
+AVG_VOL_MAX = float(_P["avg_vol_max"])        # 20-day average volume below cap
+PRICE_MAX_USD = float(_P["price_max_usd"])    # price below cap across the window
+# Kept for issuer-location display only (no longer a rule criterion).
 US_COUNTRY_NAMES = {"United States", "United States of America", "USA", "US"}
 
-# --- High-risk underwriters --------------------------------------------
-# The nine boutiques associated with the small-cap profile we monitor.
-HIGH_RISK_UNDERWRITERS = [
-    "US Tiger Securities",
-    "WestPark Capital",
-    "R.F. Lafferty",
-    "Cathay Securities",
-    "Prime Number Capital",
-    "Benjamin Securities",
-    "Revere Securities",
-    "D. Boral Capital",
-    "Dominari Securities",
-]
+# --- High-risk underwriter watchlist -----------------------------------
+# Sourced from FINRA/SEC small-cap "ramp-and-dump" enforcement (see params.json).
+HIGH_RISK_UNDERWRITERS = list(_P["high_risk_underwriters"])
 
 # --- PCA(3) risk model --------------------------------------------------
 PCA_FEATURES = ["market_cap", "avg_volume", "close_price", "num_employees"]
 PCA_N_COMPONENTS = 3
 # Symbols at/above this percentile on the oriented risk component are flagged.
-PCA_RISK_PERCENTILE = 85.0
-# Anchor names — the first two confirmed high-risk symbols reported. Used to
-# orient the risk component (their side of the axis is the high-risk side).
-PCA_ANCHORS = ["BDMD", "TLIH"]
+PCA_RISK_PERCENTILE = float(_P["pca_risk_percentile"])
+# Anchor names — documented pump-and-dump cases (DOJ/SEC). They orient the risk
+# component (their side of the axis is the high-risk side).
+PCA_ANCHORS = list(_P["pca_anchors"])
 
 # Large-cap reference names projected into the fitted PCA space as a visual
 # ruler only. They are not part of the scan universe, percentile cut, table, or

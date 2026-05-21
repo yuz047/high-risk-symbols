@@ -18,6 +18,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -32,6 +33,13 @@ from config import (
     MASSIVE_REQUEST_SLEEP_SEC, MAX_DETAIL_FETCH, NASDAQ_LISTED_URL,
     OTHER_LISTED_URL, UNIVERSE_MAX_PRICE, US_COUNTRY_NAMES,
 )
+
+SECURITY_NAME_EXCLUDE_RE = re.compile(
+    r"\b(warrant|right|rights|unit|units|preferred|depositary share|"
+    r"depositary shares|note due|notes due|senior note|subordinated note)\b",
+    re.IGNORECASE,
+)
+ALLOWED_TICKER_TYPES = {"CS", "ADRC", "ADRP", "ADRR"}
 
 
 def _log(msg: str) -> None:
@@ -123,6 +131,7 @@ def build_live_universe() -> list[str] | None:
             lines = [ln for ln in r.text.splitlines() if ln and not ln.startswith("File Creation")]
             header = lines[0].split("|")
             sidx = header.index(sep_col)
+            nidx = header.index("Security Name") if "Security Name" in header else None
             tidx = header.index("Test Issue") if "Test Issue" in header else None
             etfidx = header.index("ETF") if "ETF" in header else None
             for ln in lines[1:]:
@@ -130,7 +139,12 @@ def build_live_universe() -> list[str] | None:
                 if len(parts) <= sidx:
                     continue
                 sym = parts[sidx].strip()
-                if not sym or not sym.isalpha():  # drop warrants/units/rights (^, ., $, digits)
+                # Drop warrants/units/rights/classes and other suffix forms
+                # such as ABC-W, ABC.W, ABC/U, ABC^A, or symbols with digits.
+                if not sym or not sym.isalpha():
+                    continue
+                name = parts[nidx].strip() if nidx is not None and len(parts) > nidx else ""
+                if SECURITY_NAME_EXCLUDE_RE.search(name):
                     continue
                 if tidx is not None and parts[tidx].strip() == "Y":
                     continue
@@ -278,6 +292,8 @@ def fetch_details(symbols: list[str]) -> dict[str, dict]:
                 ),
                 "market_cap": info.get("market_cap") or info.get("marketcap"),
                 "num_employees": info.get("total_employees"),
+                "primary_exchange": info.get("primary_exchange"),
+                "ticker_type": info.get("type"),
             }
             out[sym] = data
             cache[sym] = {"fetched_at": _utc_now().isoformat(timespec="seconds"), "data": data}
@@ -310,10 +326,22 @@ def _get_live_frame() -> pd.DataFrame | None:
     cands = sorted(priced.keys(), key=lambda s: priced[s]["close_price"])[:MAX_DETAIL_FETCH]
     details = fetch_details(cands)
     uw_map = load_underwriter_map()
+    # Major-exchange common/ADR equity only — drop OTC, warrants, rights,
+    # units, preferreds, notes, and other non-stock security types.
+    major = {"XNAS", "XNYS", "XASE", "ARCX", "BATS", "IEXG"}
     rows = []
+    dropped_non_stock = 0
     for sym in cands:
         p = priced[sym]
         d = details.get(sym, {})
+        exch = d.get("primary_exchange")
+        typ = str(d.get("ticker_type") or "").upper()
+        if exch and exch not in major:
+            dropped_non_stock += 1
+            continue
+        if typ and typ not in ALLOWED_TICKER_TYPES:
+            dropped_non_stock += 1
+            continue
         close = p["close_price"]
         mcap = d.get("market_cap")
         shares = d.get("shares_out")
@@ -348,7 +376,7 @@ def _get_live_frame() -> pd.DataFrame | None:
     df["num_employees"] = df["num_employees"].fillna(emp_median).round().astype(int)
     df["source"] = "massive"
     df["synthetic"] = False
-    _log(f"live frame: {len(df)} symbols (employees imputed for "
+    _log(f"live frame: {len(df)} symbols ({dropped_non_stock} non-stock/OTC rows dropped; employees imputed for "
          f"{int(df['num_employees'].eq(round(emp_median)).sum())} missing)")
     return df
 
@@ -356,13 +384,16 @@ def _get_live_frame() -> pd.DataFrame | None:
 # --------------------------------------------------------------------- #
 # Seed / synthetic path
 # --------------------------------------------------------------------- #
-# Pinned seed fundamentals for the two reported anchor names so they are
-# unambiguously high-risk on every criterion (they orient the PCA axis and
-# must appear in the combined list). Live runs overwrite these with Massive data.
+# Pinned seed fundamentals for the documented anchor cases (DOJ/SEC reported
+# pump-and-dumps) so they sit on the small/illiquid high-risk side and orient
+# the PCA axis. Live runs overwrite these with Massive data.
 _ANCHOR_FUNDAMENTALS = {
     # symbol: (close, price_max_20d, shares_m, vol_shares, employees)
-    "BDMD": (2.60, 2.90, 23.0, 120_000, 210),
-    "TLIH": (3.15, 3.55, 15.5, 280_000, 160),
+    "CLEU": (2.20, 3.40, 33.9, 900_000, 180),   # China Liberal Education
+    "OST":  (0.60, 2.60, 25.0, 1_400_000, 90),  # Ostin Technology
+    "VISL": (0.95, 2.10, 18.0, 700_000, 120),   # Vislink Technologies
+    "ABVC": (1.40, 3.20, 22.0, 400_000, 70),    # ABVC BioPharma
+    "ALZN": (1.10, 2.80, 12.0, 300_000, 25),    # Alzamend Neuro
 }
 
 
@@ -391,9 +422,9 @@ def _synth_frame() -> pd.DataFrame:
 
         seed = int(hashlib.md5(sym.encode()).hexdigest()[:8], 16)
         rng = np.random.default_rng(seed)
-        foreign = not is_us(country)
-        # propensity to look like a pump-and-dump shell
-        risk = 0.18 + (0.34 if foreign else 0.0) + (0.30 if uw else 0.0)
+        # propensity to look like a pump-and-dump shell (issuer location no
+        # longer matters; an at-risk underwriter raises the odds).
+        risk = 0.30 + (0.40 if uw else 0.0)
         risky = rng.random() < risk
 
         if risky:

@@ -1,39 +1,37 @@
 {
-  "as_of": "2026-05-20",
-  "generated_at": "2026-05-20T21:33:03+00:00",
-  "source": "massive",
-  "synthetic": false,
-  "universe_size": 51,
-  "scanned_count": 51,
+  "as_of": "2026-05-21",
+  "generated_at": "2026-05-21T01:15:03+00:00",
+  "source": "synthetic",
+  "synthetic": true,
+  "universe_size": 210,
+  "scanned_count": 210,
   "counts": {
-    "rule_high_risk": 0,
-    "pca_high_risk": 8,
-    "both": 0,
-    "rule_only": 0,
-    "pca_only": 8,
-    "combined_total": 8,
-    "watch": 41
+    "rule_high_risk": 53,
+    "pca_high_risk": 42,
+    "both": 22,
+    "rule_only": 31,
+    "pca_only": 20,
+    "combined_total": 73,
+    "watch": 31
   },
   "thresholds": {
-    "universe_max_price": 15.0,
+    "universe_max_price": 20.0,
     "lookback_days": 20,
-    "mcap_max_usd": 300000000.0,
-    "shares_out_max": 40000000.0,
-    "avg_vol_max": 1000000.0,
-    "price_max_usd": 5.0
+    "mcap_max_usd": 500000000.0,
+    "shares_out_max": 60000000.0,
+    "avg_vol_max": 2000000.0,
+    "price_max_usd": 7.0
   },
   "underwriters": [
     "US Tiger Securities",
-    "WestPark Capital",
-    "R.F. Lafferty",
-    "Cathay Securities",
-    "Prime Number Capital",
-    "Benjamin Securities",
-    "Revere Securities",
-    "D. Boral Capital",
-    "Dominari Securities"
+    "Spartan Capital Securities",
+    "Aegis Capital",
+    "Boustead Securities",
+    "Network 1 Financial Securities",
+    "Sutter Securities",
+    "TradeUP Securities"
   ],
-  "underwriter_seed_count": 49,
+  "underwriter_seed_count": 75,
   "pca": {
     "features": [
       "market_cap",
@@ -43,171 +41,174 @@
     ],
     "n_components": 3,
     "explained_variance_ratio": [
-      0.341,
-      0.2874,
-      0.2603
+      0.8473,
+      0.0865,
+      0.0457
     ],
-    "risk_component_index": 1,
-    "risk_component_label": "PC2",
-    "orientation_sign": 1.0,
+    "risk_component_index": 0,
+    "risk_component_label": "PC1",
+    "orientation_sign": -1.0,
     "separation_cohens_d": [
-      0.596,
-      0.715,
-      -0.064
+      -1.697,
+      -0.099,
+      0.008
     ],
-    "risk_separation": 0.715,
-    "risk_percentile": 85.0,
-    "risk_threshold": 0.9463,
+    "risk_separation": -1.697,
+    "risk_percentile": 80.0,
+    "risk_threshold": 1.9806,
     "risk_loadings": {
-      "market_cap": -0.6666,
-      "avg_volume": -0.397,
-      "close_price": 0.0933,
-      "num_employees": -0.6239
+      "market_cap": -0.5224,
+      "avg_volume": -0.494,
+      "close_price": -0.4842,
+      "num_employees": -0.4985
     },
     "anchors": [
-      "BDMD",
-      "TLIH"
+      "CLEU",
+      "OST",
+      "VISL",
+      "ABVC",
+      "ALZN"
     ],
-    "anchor_count": 0,
+    "anchor_count": 55,
     "reference_symbols": [
       {
         "symbol": "AAPL",
         "name": "Apple",
         "group": "MAG7",
-        "pc1": -529.0975,
-        "pc2": 52.0156,
-        "pc3": 80.2198,
-        "risk_score": 52.0156,
-        "risk_rank": 100.0
+        "pc1": 6.8079,
+        "pc2": -3.039,
+        "pc3": 0.1729,
+        "risk_score": -6.8079,
+        "risk_rank": 0.0
       },
       {
         "symbol": "MSFT",
         "name": "Microsoft",
         "group": "MAG7",
-        "pc1": -604.9734,
-        "pc2": 61.3437,
-        "pc3": 92.5858,
-        "risk_score": 61.3437,
-        "risk_rank": 100.0
+        "pc1": 7.1584,
+        "pc2": -4.0996,
+        "pc3": 0.5544,
+        "risk_score": -7.1584,
+        "risk_rank": 0.0
       },
       {
         "symbol": "NVDA",
         "name": "NVIDIA",
         "group": "MAG7",
-        "pc1": -482.9867,
-        "pc2": 46.7117,
-        "pc3": 71.7929,
-        "risk_score": 46.7117,
-        "risk_rank": 100.0
+        "pc1": 6.4924,
+        "pc2": -2.4953,
+        "pc3": -0.7485,
+        "risk_score": -6.4924,
+        "risk_rank": 0.0
       },
       {
         "symbol": "AMZN",
         "name": "Amazon",
         "group": "MAG7",
-        "pc1": -520.7368,
-        "pc2": 50.4592,
-        "pc3": 79.9177,
-        "risk_score": 50.4592,
-        "risk_rank": 100.0
+        "pc1": 7.001,
+        "pc2": -2.5919,
+        "pc3": 0.8818,
+        "risk_score": -7.001,
+        "risk_rank": 0.0
       },
       {
         "symbol": "GOOGL",
         "name": "Alphabet",
         "group": "MAG7",
-        "pc1": -512.8965,
-        "pc2": 50.3461,
-        "pc3": 78.1059,
-        "risk_score": 50.3461,
-        "risk_rank": 100.0
+        "pc1": 6.4271,
+        "pc2": -2.9745,
+        "pc3": 0.4659,
+        "risk_score": -6.4271,
+        "risk_rank": 0.0
       },
       {
         "symbol": "META",
         "name": "Meta",
         "group": "MAG7",
-        "pc1": -619.9627,
-        "pc2": 64.0686,
-        "pc3": 94.6328,
-        "risk_score": 64.0686,
-        "risk_rank": 100.0
+        "pc1": 6.7287,
+        "pc2": -4.4801,
+        "pc3": 0.2416,
+        "risk_score": -6.7287,
+        "risk_rank": 0.0
       },
       {
         "symbol": "TSLA",
         "name": "Tesla",
         "group": "MAG7",
-        "pc1": -515.3679,
-        "pc2": 51.046,
-        "pc3": 77.8093,
-        "risk_score": 51.046,
-        "risk_rank": 100.0
+        "pc1": 6.4005,
+        "pc2": -2.6372,
+        "pc3": -0.2188,
+        "risk_score": -6.4005,
+        "risk_rank": 0.0
       },
       {
         "symbol": "JPM",
         "name": "JPMorgan Chase",
         "group": "Blue chip",
-        "pc1": -528.4885,
-        "pc2": 52.8657,
-        "pc3": 81.266,
-        "risk_score": 52.8657,
-        "risk_rank": 100.0
+        "pc1": 6.0526,
+        "pc2": -3.1999,
+        "pc3": 0.884,
+        "risk_score": -6.0526,
+        "risk_rank": 0.0
       },
       {
         "symbol": "BRK.B",
         "name": "Berkshire Hathaway",
         "group": "Blue chip",
-        "pc1": -602.1804,
-        "pc2": 61.7342,
-        "pc3": 93.1629,
-        "risk_score": 61.7342,
-        "risk_rank": 100.0
+        "pc1": 6.517,
+        "pc2": -4.2494,
+        "pc3": 1.2136,
+        "risk_score": -6.517,
+        "risk_rank": 0.0
       },
       {
         "symbol": "JNJ",
         "name": "Johnson & Johnson",
         "group": "Blue chip",
-        "pc1": -496.7655,
-        "pc2": 49.5826,
-        "pc3": 76.178,
-        "risk_score": 49.5826,
-        "risk_rank": 100.0
+        "pc1": 5.4673,
+        "pc2": -3.0273,
+        "pc3": 0.7614,
+        "risk_score": -5.4673,
+        "risk_rank": 0.0
       },
       {
         "symbol": "XOM",
         "name": "Exxon Mobil",
         "group": "Blue chip",
-        "pc1": -474.1489,
-        "pc2": 46.8068,
-        "pc3": 72.1066,
-        "risk_score": 46.8068,
-        "risk_rank": 100.0
+        "pc1": 5.3972,
+        "pc2": -2.7943,
+        "pc3": 0.3964,
+        "risk_score": -5.3972,
+        "risk_rank": 0.0
       },
       {
         "symbol": "PG",
         "name": "Procter & Gamble",
         "group": "Blue chip",
-        "pc1": -509.6335,
-        "pc2": 51.1917,
-        "pc3": 78.1573,
-        "risk_score": 51.1917,
-        "risk_rank": 100.0
+        "pc1": 5.5171,
+        "pc2": -3.2534,
+        "pc3": 0.7514,
+        "risk_score": -5.5171,
+        "risk_rank": 0.0
       }
     ],
     "reference_note": "MAG7 and blue-chip points are projected into the fitted PCA space as visual rulers only; they are not scanned, counted, or flagged.",
     "feature_log_mean": {
-      "market_cap": 11.5596,
-      "avg_volume": 9.9413,
-      "close_price": 0.0163,
-      "num_employees": 4.2707
+      "market_cap": 19.4743,
+      "avg_volume": 14.509,
+      "close_price": 1.722,
+      "num_employees": 7.0822
     },
     "feature_log_std": {
-      "market_cap": 1.6302,
-      "avg_volume": 1.702,
-      "close_price": 0.0077,
-      "num_employees": 1.5722
+      "market_cap": 2.143,
+      "avg_volume": 1.8525,
+      "close_price": 0.6599,
+      "num_employees": 2.4147
     }
   },
   "data_health": {
     "ok": true,
-    "synthetic": false,
-    "note": "live Massive/Polygon data"
+    "synthetic": true,
+    "note": "SEED DATA \u2014 sandbox feeds are firewalled; the GitHub Action replaces this with live Massive/Polygon data when the API key is available."
   }
 }

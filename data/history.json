@@ -7,5 +7,14 @@
     "both": 0,
     "combined": 8,
     "source": "massive"
+  },
+  {
+    "date": "2026-05-21",
+    "scanned": 210,
+    "rule": 53,
+    "pca": 42,
+    "both": 22,
+    "combined": 73,
+    "source": "synthetic"
   }
 ]

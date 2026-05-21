@@ -1,0 +1,29 @@
+{
+  "_note": "Editable scan parameters. The engine (config.py) and the dashboard both read this. Edit the thresholds, the PCA cut, or the underwriter watchlist here and re-run; no code change needed. Reconcile the watchlist and the symbol->firm map (underwriters.json) against FINRA/SEC actions and your own syndicate records.",
+  "universe_max_price": 20.0,
+  "lookback_days": 20,
+  "mcap_max_usd": 500000000,
+  "shares_out_max": 60000000,
+  "avg_vol_max": 2000000,
+  "price_max_usd": 7.0,
+  "pca_risk_percentile": 80.0,
+  "high_risk_underwriters": [
+    "US Tiger Securities",
+    "Spartan Capital Securities",
+    "Aegis Capital",
+    "Boustead Securities",
+    "Network 1 Financial Securities",
+    "Sutter Securities",
+    "TradeUP Securities"
+  ],
+  "underwriter_sources": {
+    "US Tiger Securities": "FINRA AWC — US Tiger/TradeUP consented to sanctions in small-cap ramp-and-dump context",
+    "Spartan Capital Securities": "FINRA Dept. of Enforcement fraud/churning complaint",
+    "Aegis Capital": "SEC/FINRA fines for SAR failures and penny-stock supervision",
+    "Boustead Securities": "FINRA complaint — ~30 small/micro/nano-cap offerings, many China",
+    "Network 1 Financial Securities": "FINRA AWC — CIP failures on foreign small-cap IPO investors",
+    "Sutter Securities": "named alongside Boustead in FINRA supervision/AML complaint",
+    "TradeUP Securities": "FINRA AWC alongside US Tiger"
+  },
+  "pca_anchors": ["CLEU", "OST", "VISL", "ABVC", "ALZN"]
+}

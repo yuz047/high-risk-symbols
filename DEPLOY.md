@@ -19,7 +19,7 @@ README — this folder already has one).
 cd "/Users/yunhanzhang/Desktop/works/high-risk-symbols"
 git init
 git add .
-git commit -m "initial: rule gate + PCA(3) risk model + dashboard + daily cron"
+git commit -m "initial: editable rules + PCA(3) risk model + dashboard + daily cron"
 git branch -M main
 git remote add origin git@github.com:yuz047/high-risk-symbols.git
 git push -u origin main
@@ -86,12 +86,19 @@ is committed; check the Actions tab for failed runs.
 
 ---
 
-## Maintaining the underwriter map
+## Tuning the scan (no code change)
 
-`data/underwriters.json` is the one input no price feed carries. Replace the
-seed entries with your desk's syndicate records (or EDGAR 424B4 prospectus
-data) for the nine boutiques. The scan picks it up on the next run — no code
-change needed.
+Two editable JSON files drive the scan:
+
+- `data/params.json` — the rule thresholds, the PCA percentile cut, the
+  high-risk **underwriter watchlist** (sourced from FINRA/SEC ramp-and-dump
+  actions), and the PCA **anchors** (documented DOJ/SEC cases).
+- `data/underwriters.json` — the per-symbol underwriter **map**. Replace the
+  seed entries with your desk's syndicate records (or EDGAR 424B4 prospectus
+  data).
+
+The dashboard also exposes the thresholds, the cut, and the watchlist as live
+controls. The engine picks up `params.json`/`underwriters.json` on the next run.
 
 ## What runs where (cheat sheet)
 

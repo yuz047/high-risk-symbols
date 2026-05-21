@@ -6,9 +6,9 @@ Pipeline
    All four are strongly right-skewed, so we log1p them, then z-score.
 2. PCA(3) via numpy SVD on the standardized matrix.
 3. Pick the single component that best SEPARATES the known high-risk anchor
-   set (BDMD / TLIH + any strict rule-based hits) from the rest, measured by
-   standardized mean difference (Cohen's d). That is the "risk-discriminating
-   component".
+   set (documented DOJ/SEC pump-and-dump cases + any strict rule-based hits)
+   from the rest, measured by standardized mean difference (Cohen's d). That
+   is the "risk-discriminating component".
 4. Orient it so the anchors sit on the HIGH side, call the oriented score the
    risk_score, and flag every symbol at/above the PCA_RISK_PERCENTILE cut.
 

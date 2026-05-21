@@ -1,546 +1,474 @@
 [
   {
-    "symbol": "AAGAF",
-    "name": "AAGAF Corp",
-    "country": "China",
-    "sector": "Consumer Electronics",
-    "underwriter": null
-  },
-  {
     "symbol": "ABEB",
-    "name": "Nova Biosciences",
-    "country": "Malaysia",
-    "sector": "Pharmaceuticals",
-    "underwriter": "Dominari Securities"
+    "name": "Nova Therapeutics",
+    "country": "United States",
+    "sector": "Energy",
+    "underwriter": "Network 1 Financial Securities"
   },
   {
-    "symbol": "ACDXF",
-    "name": "ACDXF Corp",
-    "country": "Japan",
+    "symbol": "ABVC",
+    "name": "ABVC BioPharma",
+    "country": "United States",
     "sector": "Biotechnology",
-    "underwriter": null
+    "underwriter": "Boustead Securities",
+    "reported_case": true
   },
   {
     "symbol": "AERT",
     "name": "AERT Corp",
     "country": "United States",
+    "sector": "Medical Devices",
+    "underwriter": null
+  },
+  {
+    "symbol": "AJJA",
+    "name": "Cascade Therapeutics",
+    "country": "United States",
+    "sector": "Software",
+    "underwriter": null
+  },
+  {
+    "symbol": "AKDT",
+    "name": "Vanguard Energy",
+    "country": "United States",
+    "sector": "Clean Energy",
+    "underwriter": "Network 1 Financial Securities"
+  },
+  {
+    "symbol": "ALYA",
+    "name": "Phoenix Resources",
+    "country": "Israel",
+    "sector": "Medical Devices",
+    "underwriter": "TradeUP Securities"
+  },
+  {
+    "symbol": "ALZN",
+    "name": "Alzamend Neuro",
+    "country": "United States",
+    "sector": "Biotechnology",
+    "underwriter": "TradeUP Securities",
+    "reported_case": true
+  },
+  {
+    "symbol": "AMND",
+    "name": "Cascade Systems",
+    "country": "United States",
+    "sector": "Clean Energy",
+    "underwriter": null
+  },
+  {
+    "symbol": "AMVF",
+    "name": "Cascade Capital",
+    "country": "Australia",
     "sector": "Real Estate",
     "underwriter": null
-  },
-  {
-    "symbol": "AFNB",
-    "name": "Silverline Pharma",
-    "country": "United States",
-    "sector": "Mining",
-    "underwriter": null
-  },
-  {
-    "symbol": "AMV",
-    "name": "Lion City Pharma",
-    "country": "China",
-    "sector": "Industrial Machinery",
-    "underwriter": null
-  },
-  {
-    "symbol": "ANLBF",
-    "name": "ANLBF Corp",
-    "country": "Cayman Islands",
-    "sector": "Semiconductors",
-    "underwriter": "Revere Securities"
   },
   {
     "symbol": "ANPA",
     "name": "ANPA Corp",
     "country": "United States",
-    "sector": "Semiconductors",
+    "sector": "Specialty Retail",
     "underwriter": null
   },
   {
-    "symbol": "APTOF",
-    "name": "APTOF Corp",
+    "symbol": "APD",
+    "name": "Apex Technology",
     "country": "United States",
-    "sector": "Clean Energy",
-    "underwriter": null
-  },
-  {
-    "symbol": "ARAK",
-    "name": "Star Biosciences",
-    "country": "United Kingdom",
-    "sector": "Software",
-    "underwriter": null
+    "sector": "Consumer Electronics",
+    "underwriter": "Boustead Securities"
   },
   {
     "symbol": "ARBB",
     "name": "ARBB Corp",
     "country": "United States",
-    "sector": "Pharmaceuticals",
+    "sector": "Biotechnology",
     "underwriter": null
   },
   {
-    "symbol": "ARZAA",
-    "name": "Vision Robotics",
-    "country": "Israel",
+    "symbol": "AREC",
+    "name": "American Resources Corp.",
+    "country": "United States",
+    "sector": "Materials",
+    "underwriter": "Boustead Securities",
+    "reported_case": true
+  },
+  {
+    "symbol": "BFPP",
+    "name": "Nova Energy",
+    "country": "United Kingdom",
+    "sector": "Specialty Retail",
+    "underwriter": "TradeUP Securities"
+  },
+  {
+    "symbol": "BFR",
+    "name": "Apex Therapeutics",
+    "country": "Cayman Islands",
     "sector": "Consumer Electronics",
     "underwriter": null
   },
   {
-    "symbol": "ATMGF",
-    "name": "ATMGF Corp",
+    "symbol": "BHNE",
+    "name": "Quantum Resources",
+    "country": "Singapore",
+    "sector": "Biotechnology",
+    "underwriter": "Aegis Capital"
+  },
+  {
+    "symbol": "BIIO",
+    "name": "BIIO Corp",
+    "country": "United States",
+    "sector": "Pharmaceuticals",
+    "underwriter": "US Tiger Securities"
+  },
+  {
+    "symbol": "BIOX",
+    "name": "BIOX Corp",
     "country": "United States",
     "sector": "Clean Energy",
     "underwriter": null
   },
   {
-    "symbol": "AURE",
-    "name": "Orient Industrial",
+    "symbol": "BLFT",
+    "name": "NeoTech Therapeutics",
+    "country": "United States",
+    "sector": "Education",
+    "underwriter": null
+  },
+  {
+    "symbol": "BMWC",
+    "name": "NeoTech Technology",
     "country": "United Kingdom",
     "sector": "Mining",
-    "underwriter": null
+    "underwriter": "Network 1 Financial Securities"
   },
   {
-    "symbol": "AVWWZ",
-    "name": "Phoenix Group",
+    "symbol": "BON",
+    "name": "BON Corp",
     "country": "United States",
-    "sector": "Industrial Machinery",
+    "sector": "Energy",
     "underwriter": null
   },
   {
-    "symbol": "AWWD",
-    "name": "Prime Holdings",
+    "symbol": "BQAP",
+    "name": "Cascade Therapeutics",
+    "country": "Singapore",
+    "sector": "Pharmaceuticals",
+    "underwriter": "Network 1 Financial Securities"
+  },
+  {
+    "symbol": "BQP",
+    "name": "Apex Materials",
+    "country": "United States",
+    "sector": "Energy",
+    "underwriter": null
+  },
+  {
+    "symbol": "CBGL",
+    "name": "Nova Digital",
     "country": "United States",
     "sector": "Software",
     "underwriter": null
   },
   {
-    "symbol": "AZNL",
-    "name": "Prime Pharma",
+    "symbol": "CCDS",
+    "name": "Apex Robotics",
     "country": "United States",
-    "sector": "Semiconductors",
-    "underwriter": null
-  },
-  {
-    "symbol": "BACP",
-    "name": "Jin Therapeutics",
-    "country": "Malaysia",
-    "sector": "Real Estate",
-    "underwriter": null
-  },
-  {
-    "symbol": "BBBMF",
-    "name": "BBBMF Corp",
-    "country": "British Virgin Islands",
-    "sector": "Biotechnology",
-    "underwriter": null
-  },
-  {
-    "symbol": "BDMD",
-    "name": "Baird Medical Investment Holdings",
-    "country": "China",
-    "sector": "Medical Devices",
-    "underwriter": "Prime Number Capital"
-  },
-  {
-    "symbol": "BDUH",
-    "name": "Bright Logistics",
-    "country": "United Kingdom",
-    "sector": "Financial Services",
-    "underwriter": "Prime Number Capital"
-  },
-  {
-    "symbol": "BELH",
-    "name": "Dragon Holdings",
-    "country": "South Korea",
-    "sector": "Semiconductors",
-    "underwriter": "Revere Securities"
-  },
-  {
-    "symbol": "BEYXP",
-    "name": "BlueSky Biosciences",
-    "country": "Taiwan",
-    "sector": "Medical Devices",
-    "underwriter": null
-  },
-  {
-    "symbol": "BFPP",
-    "name": "Summit Industrial",
-    "country": "Cayman Islands",
-    "sector": "Industrial Machinery",
-    "underwriter": null
-  },
-  {
-    "symbol": "BGL",
-    "name": "Summit Therapeutics",
-    "country": "United States",
-    "sector": "Medical Devices",
-    "underwriter": null
-  },
-  {
-    "symbol": "BHNE",
-    "name": "Global Materials",
-    "country": "Brazil",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
-  },
-  {
-    "symbol": "BIIO",
-    "name": "BIIO Corp",
-    "country": "Israel",
-    "sector": "Real Estate",
-    "underwriter": null
-  },
-  {
-    "symbol": "BIOX",
-    "name": "BIOX Corp",
-    "country": "Brazil",
-    "sector": "Mining",
-    "underwriter": "WestPark Capital"
-  },
-  {
-    "symbol": "BJYGC",
-    "name": "NeoTech International",
-    "country": "Japan",
-    "sector": "Education",
-    "underwriter": null
-  },
-  {
-    "symbol": "BON",
-    "name": "BON Corp",
-    "country": "India",
-    "sector": "Biotechnology",
-    "underwriter": "Dominari Securities"
-  },
-  {
-    "symbol": "BRSYF",
-    "name": "BRSYF Corp",
-    "country": "Cayman Islands",
-    "sector": "Medical Devices",
-    "underwriter": null
-  },
-  {
-    "symbol": "BRU",
-    "name": "Silverline Holdings",
-    "country": "Hong Kong",
-    "sector": "Medical Devices",
-    "underwriter": null
-  },
-  {
-    "symbol": "BRYFF",
-    "name": "BRYFF Corp",
-    "country": "Brazil",
-    "sector": "Consumer Electronics",
-    "underwriter": "D. Boral Capital"
-  },
-  {
-    "symbol": "BXXGD",
-    "name": "Crown Capital",
-    "country": "United States",
-    "sector": "Mining",
-    "underwriter": null
-  },
-  {
-    "symbol": "BYYX",
-    "name": "Dragon Industrial",
-    "country": "Taiwan",
-    "sector": "Consumer Electronics",
-    "underwriter": null
-  },
-  {
-    "symbol": "CANVF",
-    "name": "CANVF Corp",
-    "country": "Israel",
     "sector": "Specialty Retail",
-    "underwriter": "Revere Securities"
-  },
-  {
-    "symbol": "CCDSF",
-    "name": "CCDSF Corp",
-    "country": "United States",
-    "sector": "Pharmaceuticals",
     "underwriter": null
   },
   {
     "symbol": "CCM",
     "name": "CCM Corp",
-    "country": "South Korea",
-    "sector": "Software",
-    "underwriter": "Cathay Securities"
+    "country": "China",
+    "sector": "Education",
+    "underwriter": "Aegis Capital"
   },
   {
-    "symbol": "CDBMF",
-    "name": "CDBMF Corp",
-    "country": "Israel",
-    "sector": "Specialty Retail",
-    "underwriter": "Prime Number Capital"
-  },
-  {
-    "symbol": "CENEF",
-    "name": "CENEF Corp",
+    "symbol": "CEI",
+    "name": "Camber Energy",
     "country": "United States",
-    "sector": "Real Estate",
-    "underwriter": null
-  },
-  {
-    "symbol": "CEQ",
-    "name": "United Biosciences",
-    "country": "United States",
-    "sector": "Financial Services",
-    "underwriter": null
+    "sector": "Energy",
+    "underwriter": null,
+    "reported_case": true
   },
   {
     "symbol": "CGC",
-    "name": "Prime Robotics",
+    "name": "BlueSky Pharma",
     "country": "United States",
-    "sector": "Specialty Retail",
-    "underwriter": null
+    "sector": "Financial Services",
+    "underwriter": "Network 1 Financial Securities"
   },
   {
     "symbol": "CGEX",
-    "name": "Bright Biosciences",
-    "country": "British Virgin Islands",
-    "sector": "Consumer Electronics",
-    "underwriter": null
+    "name": "Beacon Energy",
+    "country": "Australia",
+    "sector": "Mining",
+    "underwriter": "Spartan Capital Securities"
   },
   {
-    "symbol": "CGF",
-    "name": "Prime Materials",
-    "country": "United States",
-    "sector": "Biotechnology",
-    "underwriter": null
-  },
-  {
-    "symbol": "CHRZU",
-    "name": "Sino Technology",
-    "country": "Taiwan",
-    "sector": "Biotechnology",
-    "underwriter": "US Tiger Securities"
-  },
-  {
-    "symbol": "CLGOF",
-    "name": "CLGOF Corp",
-    "country": "Hong Kong",
-    "sector": "Specialty Retail",
-    "underwriter": null
-  },
-  {
-    "symbol": "CMTG",
-    "name": "Sino Group",
-    "country": "United States",
-    "sector": "Clean Energy",
-    "underwriter": null
+    "symbol": "CLEU",
+    "name": "China Liberal Education Holdings",
+    "country": "China",
+    "sector": "Education",
+    "underwriter": "US Tiger Securities",
+    "reported_case": true
   },
   {
     "symbol": "CPHI",
     "name": "CPHI Corp",
-    "country": "China",
-    "sector": "Industrial Machinery",
-    "underwriter": null
+    "country": "United States",
+    "sector": "Communications Equipment",
+    "underwriter": "Boustead Securities"
   },
   {
     "symbol": "CREG",
     "name": "CREG Corp",
-    "country": "Canada",
+    "country": "United States",
     "sector": "Biotechnology",
-    "underwriter": "WestPark Capital"
+    "underwriter": "Aegis Capital"
   },
   {
     "symbol": "CUEN",
     "name": "CUEN Corp",
     "country": "United States",
-    "sector": "Semiconductors",
-    "underwriter": null
-  },
-  {
-    "symbol": "CZCZ",
-    "name": "Crown Therapeutics",
-    "country": "Malaysia",
-    "sector": "Specialty Retail",
-    "underwriter": "US Tiger Securities"
+    "sector": "Energy",
+    "underwriter": "Sutter Securities"
   },
   {
     "symbol": "DBVT",
     "name": "DBVT Corp",
-    "country": "Cayman Islands",
-    "sector": "Biotechnology",
+    "country": "Israel",
+    "sector": "Clean Energy",
+    "underwriter": null
+  },
+  {
+    "symbol": "DFJU",
+    "name": "Sterling Digital",
+    "country": "United States",
+    "sector": "Specialty Retail",
     "underwriter": null
   },
   {
     "symbol": "DGAP",
-    "name": "Jin Digital",
-    "country": "Singapore",
-    "sector": "Industrial Machinery",
+    "name": "Vision Pharma",
+    "country": "United States",
+    "sector": "Semiconductors",
     "underwriter": null
   },
   {
-    "symbol": "DLBE",
-    "name": "Phoenix Digital",
+    "symbol": "DKBF",
+    "name": "Vector Energy",
     "country": "United States",
-    "sector": "Biotechnology",
+    "sector": "Financial Services",
     "underwriter": null
   },
   {
     "symbol": "DLPN",
     "name": "DLPN Corp",
-    "country": "British Virgin Islands",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
-  },
-  {
-    "symbol": "DLZZ",
-    "name": "Lion City Holdings",
     "country": "United States",
-    "sector": "Education",
-    "underwriter": null
+    "sector": "Clean Energy",
+    "underwriter": "Network 1 Financial Securities"
   },
   {
     "symbol": "DMAC",
     "name": "DMAC Corp",
-    "country": "United States",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "DPSJS",
-    "name": "Hua Materials",
-    "country": "United States",
-    "sector": "Clean Energy",
-    "underwriter": null
-  },
-  {
-    "symbol": "DRCFW",
-    "name": "Evergreen Medical",
-    "country": "Malaysia",
+    "country": "Hong Kong",
     "sector": "Mining",
+    "underwriter": null
+  },
+  {
+    "symbol": "DRJV",
+    "name": "Apex Biosciences",
+    "country": "United States",
+    "sector": "Specialty Retail",
     "underwriter": null
   },
   {
     "symbol": "DRTS",
     "name": "DRTS Corp",
     "country": "United States",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
+    "sector": "Education",
+    "underwriter": "US Tiger Securities"
   },
   {
-    "symbol": "DTKV",
-    "name": "Evergreen International",
-    "country": "United States",
-    "sector": "Biotechnology",
-    "underwriter": null
-  },
-  {
-    "symbol": "DUX",
-    "name": "Bright Resources",
-    "country": "Australia",
-    "sector": "Industrial Machinery",
-    "underwriter": null
-  },
-  {
-    "symbol": "DXN",
-    "name": "Silverline Logistics",
+    "symbol": "DSR",
+    "name": "Meridian Networks",
     "country": "United States",
     "sector": "Specialty Retail",
     "underwriter": null
   },
   {
-    "symbol": "DXUS",
-    "name": "Bright Capital",
-    "country": "Brazil",
+    "symbol": "DSYX",
+    "name": "Sterling Group",
+    "country": "United States",
     "sector": "Financial Services",
+    "underwriter": "US Tiger Securities"
+  },
+  {
+    "symbol": "DUX",
+    "name": "Pioneer Digital",
+    "country": "Canada",
+    "sector": "Medical Devices",
     "underwriter": null
   },
   {
-    "symbol": "DYLE",
-    "name": "Nova Technology",
+    "symbol": "EBEX",
+    "name": "Frontier Digital",
     "country": "United States",
-    "sector": "Semiconductors",
-    "underwriter": null
+    "sector": "Pharmaceuticals",
+    "underwriter": "Spartan Capital Securities"
   },
   {
     "symbol": "EDTK",
     "name": "EDTK Corp",
     "country": "United States",
-    "sector": "Specialty Retail",
-    "underwriter": null
-  },
-  {
-    "symbol": "EDY",
-    "name": "Asia Resources",
-    "country": "United States",
-    "sector": "Specialty Retail",
+    "sector": "Real Estate",
     "underwriter": null
   },
   {
     "symbol": "EFSH",
     "name": "EFSH Corp",
-    "country": "Brazil",
+    "country": "Hong Kong",
+    "sector": "Financial Services",
+    "underwriter": "TradeUP Securities"
+  },
+  {
+    "symbol": "EGJ",
+    "name": "Pioneer Technology",
+    "country": "United States",
+    "sector": "Pharmaceuticals",
+    "underwriter": "Aegis Capital"
+  },
+  {
+    "symbol": "EKDG",
+    "name": "Frontier Logistics",
+    "country": "United States",
     "sector": "Specialty Retail",
     "underwriter": null
   },
   {
     "symbol": "ELMD",
     "name": "ELMD Corp",
-    "country": "United States",
-    "sector": "Semiconductors",
-    "underwriter": null
-  },
-  {
-    "symbol": "EMXL",
-    "name": "Lion City Digital",
-    "country": "United States",
-    "sector": "Software",
+    "country": "United Kingdom",
+    "sector": "Biotechnology",
     "underwriter": null
   },
   {
     "symbol": "ENSC",
     "name": "ENSC Corp",
-    "country": "Canada",
-    "sector": "Medical Devices",
-    "underwriter": "Revere Securities"
+    "country": "United States",
+    "sector": "Consumer Electronics",
+    "underwriter": null
   },
   {
     "symbol": "EOSE",
     "name": "EOSE Corp",
-    "country": "China",
-    "sector": "Pharmaceuticals",
+    "country": "United States",
+    "sector": "Energy",
     "underwriter": null
   },
   {
-    "symbol": "EQRZH",
-    "name": "Dragon Holdings",
+    "symbol": "EQY",
+    "name": "Phoenix Energy",
     "country": "United States",
-    "sector": "Medical Devices",
+    "sector": "Software",
+    "underwriter": "Spartan Capital Securities"
+  },
+  {
+    "symbol": "ETKT",
+    "name": "Vision Capital",
+    "country": "United States",
+    "sector": "Consumer Electronics",
     "underwriter": null
   },
   {
     "symbol": "EVTL",
     "name": "EVTL Corp",
-    "country": "Singapore",
+    "country": "United States",
+    "sector": "Software",
+    "underwriter": null
+  },
+  {
+    "symbol": "EWRZ",
+    "name": "Crown Energy",
+    "country": "Australia",
     "sector": "Education",
-    "underwriter": "Cathay Securities"
+    "underwriter": "Sutter Securities"
+  },
+  {
+    "symbol": "EXLH",
+    "name": "Summit Materials",
+    "country": "United States",
+    "sector": "Consumer Electronics",
+    "underwriter": null
+  },
+  {
+    "symbol": "EYX",
+    "name": "Pioneer Networks",
+    "country": "United States",
+    "sector": "Education",
+    "underwriter": null
   },
   {
     "symbol": "FAMI",
     "name": "FAMI Corp",
-    "country": "Singapore",
-    "sector": "Industrial Machinery",
-    "underwriter": null
+    "country": "Hong Kong",
+    "sector": "Financial Services",
+    "underwriter": "US Tiger Securities"
   },
   {
     "symbol": "FCEL",
     "name": "FCEL Corp",
-    "country": "Canada",
-    "sector": "Financial Services",
-    "underwriter": "Cathay Securities"
+    "country": "United States",
+    "sector": "Pharmaceuticals",
+    "underwriter": null
+  },
+  {
+    "symbol": "FDLB",
+    "name": "Sterling Therapeutics",
+    "country": "Cayman Islands",
+    "sector": "Software",
+    "underwriter": null
   },
   {
     "symbol": "FFIE",
     "name": "FFIE Corp",
-    "country": "United Kingdom",
-    "sector": "Education",
+    "country": "United States",
+    "sector": "Biotechnology",
+    "underwriter": null
+  },
+  {
+    "symbol": "FGAY",
+    "name": "Vision Logistics",
+    "country": "United States",
+    "sector": "Financial Services",
     "underwriter": null
   },
   {
     "symbol": "FLXS",
     "name": "FLXS Corp",
+    "country": "United States",
+    "sector": "Pharmaceuticals",
+    "underwriter": null
+  },
+  {
+    "symbol": "FME",
+    "name": "Cascade Biosciences",
+    "country": "United States",
+    "sector": "Consumer Electronics",
+    "underwriter": "Spartan Capital Securities"
+  },
+  {
+    "symbol": "FRFY",
+    "name": "Vector Group",
+    "country": "United States",
+    "sector": "Energy",
+    "underwriter": "Boustead Securities"
+  },
+  {
+    "symbol": "FRN",
+    "name": "Sterling Biosciences",
     "country": "United States",
     "sector": "Software",
     "underwriter": null
@@ -548,1065 +476,1007 @@
   {
     "symbol": "FSEA",
     "name": "FSEA Corp",
-    "country": "South Korea",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "FTA",
-    "name": "Crown Digital",
-    "country": "Brazil",
-    "sector": "Specialty Retail",
-    "underwriter": null
-  },
-  {
-    "symbol": "FUJZ",
-    "name": "Pacific Technology",
-    "country": "United States",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
-  },
-  {
-    "symbol": "GAHJ",
-    "name": "Crown Medical",
-    "country": "Canada",
-    "sector": "Specialty Retail",
-    "underwriter": null
-  },
-  {
-    "symbol": "GAYEP",
-    "name": "Star Biosciences",
-    "country": "Brazil",
-    "sector": "Industrial Machinery",
+    "country": "Israel",
+    "sector": "Financial Services",
     "underwriter": null
   },
   {
     "symbol": "GBOX",
     "name": "GBOX Corp",
     "country": "United States",
-    "sector": "Clean Energy",
+    "sector": "Specialty Retail",
     "underwriter": null
   },
   {
-    "symbol": "GJCL",
-    "name": "NeoTech Capital",
-    "country": "Hong Kong",
-    "sector": "Medical Devices",
-    "underwriter": "D. Boral Capital"
+    "symbol": "GBV",
+    "name": "Pinnacle Robotics",
+    "country": "United States",
+    "sector": "Energy",
+    "underwriter": "TradeUP Securities"
+  },
+  {
+    "symbol": "GFV",
+    "name": "Apex Energy",
+    "country": "Australia",
+    "sector": "Mining",
+    "underwriter": null
+  },
+  {
+    "symbol": "GGAH",
+    "name": "Summit Energy",
+    "country": "United States",
+    "sector": "Consumer Electronics",
+    "underwriter": null
+  },
+  {
+    "symbol": "GKMB",
+    "name": "NeoTech Energy",
+    "country": "Australia",
+    "sector": "Mining",
+    "underwriter": "TradeUP Securities"
   },
   {
     "symbol": "GLBS",
     "name": "GLBS Corp",
     "country": "United States",
-    "sector": "Biotechnology",
+    "sector": "Real Estate",
     "underwriter": null
   },
   {
     "symbol": "GMGI",
     "name": "GMGI Corp",
-    "country": "Taiwan",
-    "sector": "Clean Energy",
-    "underwriter": "Dominari Securities"
+    "country": "Hong Kong",
+    "sector": "Specialty Retail",
+    "underwriter": null
   },
   {
     "symbol": "GNPX",
     "name": "GNPX Corp",
-    "country": "British Virgin Islands",
-    "sector": "Mining",
-    "underwriter": "US Tiger Securities"
-  },
-  {
-    "symbol": "GQYE",
-    "name": "Jin Energy",
-    "country": "Brazil",
+    "country": "United States",
     "sector": "Clean Energy",
     "underwriter": null
   },
   {
     "symbol": "GRCL",
     "name": "GRCL Corp",
-    "country": "Taiwan",
-    "sector": "Consumer Electronics",
+    "country": "United States",
+    "sector": "Energy",
     "underwriter": null
   },
   {
     "symbol": "GRIL",
     "name": "GRIL Corp",
-    "country": "Cayman Islands",
-    "sector": "Education",
-    "underwriter": null
+    "country": "United States",
+    "sector": "Consumer Electronics",
+    "underwriter": "TradeUP Securities"
   },
   {
     "symbol": "GSUN",
     "name": "GSUN Corp",
-    "country": "Israel",
-    "sector": "Clean Energy",
-    "underwriter": null
+    "country": "Australia",
+    "sector": "Consumer Electronics",
+    "underwriter": "Network 1 Financial Securities"
   },
   {
-    "symbol": "GVGM",
-    "name": "Silverline Technology",
-    "country": "Canada",
-    "sector": "Specialty Retail",
-    "underwriter": "WestPark Capital"
-  },
-  {
-    "symbol": "GWS",
-    "name": "Dragon Medical",
-    "country": "Singapore",
-    "sector": "Shipping",
-    "underwriter": null
+    "symbol": "GTT",
+    "name": "GTT Communications",
+    "country": "United States",
+    "sector": "Telecom",
+    "underwriter": null,
+    "reported_case": true
   },
   {
     "symbol": "HCDI",
     "name": "HCDI Corp",
     "country": "Australia",
+    "sector": "Education",
+    "underwriter": "US Tiger Securities"
+  },
+  {
+    "symbol": "HDEV",
+    "name": "Quantum Logistics",
+    "country": "United States",
+    "sector": "Education",
+    "underwriter": null
+  },
+  {
+    "symbol": "HGUY",
+    "name": "Atlas Biosciences",
+    "country": "United States",
     "sector": "Real Estate",
-    "underwriter": "Cathay Securities"
+    "underwriter": "US Tiger Securities"
   },
   {
     "symbol": "HHPD",
-    "name": "Golden Education",
-    "country": "Canada",
-    "sector": "Education",
+    "name": "Vanguard Holdings",
+    "country": "United States",
+    "sector": "Medical Devices",
+    "underwriter": null
+  },
+  {
+    "symbol": "HKFZ",
+    "name": "Pioneer Biosciences",
+    "country": "United States",
+    "sector": "Semiconductors",
+    "underwriter": "TradeUP Securities"
+  },
+  {
+    "symbol": "HNTB",
+    "name": "BlueSky Group",
+    "country": "United States",
+    "sector": "Semiconductors",
     "underwriter": null
   },
   {
     "symbol": "HOLO",
     "name": "HOLO Corp",
     "country": "United States",
-    "sector": "Biotechnology",
+    "sector": "Education",
     "underwriter": null
   },
   {
-    "symbol": "HUFU",
-    "name": "BlueSky Robotics",
+    "symbol": "HUGE",
+    "name": "FSD Pharma",
     "country": "Canada",
-    "sector": "Financial Services",
-    "underwriter": "Dominari Securities"
+    "sector": "Pharmaceuticals",
+    "underwriter": null,
+    "reported_case": true
   },
   {
-    "symbol": "HUJU",
-    "name": "Bright Medical",
-    "country": "Australia",
-    "sector": "Software",
-    "underwriter": "WestPark Capital"
+    "symbol": "HVEN",
+    "name": "Nova Holdings",
+    "country": "United States",
+    "sector": "Energy",
+    "underwriter": "Aegis Capital"
+  },
+  {
+    "symbol": "HWAP",
+    "name": "Vector Energy",
+    "country": "United States",
+    "sector": "Clean Energy",
+    "underwriter": null
   },
   {
     "symbol": "HYMC",
     "name": "HYMC Corp",
     "country": "United States",
-    "sector": "Software",
-    "underwriter": null
+    "sector": "Mining",
+    "underwriter": "Aegis Capital"
   },
   {
     "symbol": "IDAI",
     "name": "IDAI Corp",
-    "country": "Canada",
-    "sector": "Pharmaceuticals",
+    "country": "United States",
+    "sector": "Clean Energy",
     "underwriter": null
   },
   {
     "symbol": "IMPP",
     "name": "IMPP Corp",
     "country": "United States",
-    "sector": "Industrial Machinery",
+    "sector": "Mining",
     "underwriter": null
   },
   {
     "symbol": "INBS",
     "name": "INBS Corp",
-    "country": "Malaysia",
-    "sector": "Real Estate",
-    "underwriter": "WestPark Capital"
+    "country": "Israel",
+    "sector": "Energy",
+    "underwriter": null
   },
   {
     "symbol": "INEO",
     "name": "INEO Corp",
-    "country": "India",
-    "sector": "Industrial Machinery",
-    "underwriter": "R.F. Lafferty"
+    "country": "Canada",
+    "sector": "Energy",
+    "underwriter": "Network 1 Financial Securities"
   },
   {
     "symbol": "IPDN",
     "name": "IPDN Corp",
-    "country": "United States",
-    "sector": "Mining",
-    "underwriter": null
+    "country": "Canada",
+    "sector": "Software",
+    "underwriter": "Boustead Securities"
   },
   {
-    "symbol": "JDTN",
-    "name": "Golden Group",
-    "country": "Cayman Islands",
-    "sector": "Medical Devices",
-    "underwriter": "Prime Number Capital"
+    "symbol": "JDTK",
+    "name": "Quantum Materials",
+    "country": "United States",
+    "sector": "Energy",
+    "underwriter": "US Tiger Securities"
   },
   {
     "symbol": "JFBR",
     "name": "JFBR Corp",
-    "country": "United States",
-    "sector": "Real Estate",
-    "underwriter": null
-  },
-  {
-    "symbol": "JFGAY",
-    "name": "Greenland International",
-    "country": "Singapore",
-    "sector": "Education",
+    "country": "Hong Kong",
+    "sector": "Energy",
     "underwriter": null
   },
   {
     "symbol": "JHG",
-    "name": "Silverline Biosciences",
-    "country": "British Virgin Islands",
-    "sector": "Financial Services",
+    "name": "Quantum Resources",
+    "country": "United States",
+    "sector": "Real Estate",
+    "underwriter": "TradeUP Securities"
+  },
+  {
+    "symbol": "JKBJ",
+    "name": "Crown Robotics",
+    "country": "United States",
+    "sector": "Mining",
+    "underwriter": "TradeUP Securities"
+  },
+  {
+    "symbol": "JTM",
+    "name": "Cascade Energy",
+    "country": "United States",
+    "sector": "Semiconductors",
     "underwriter": null
   },
   {
-    "symbol": "JUFC",
-    "name": "Silverline Industrial",
-    "country": "Canada",
+    "symbol": "JURU",
+    "name": "Summit Systems",
+    "country": "United States",
     "sector": "Specialty Retail",
-    "underwriter": null
-  },
-  {
-    "symbol": "JVJF",
-    "name": "Apex Biosciences",
-    "country": "Cayman Islands",
-    "sector": "Consumer Electronics",
-    "underwriter": null
-  },
-  {
-    "symbol": "JVWS",
-    "name": "United Capital",
-    "country": "India",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
+    "underwriter": "US Tiger Securities"
   },
   {
     "symbol": "JWEL",
     "name": "JWEL Corp",
-    "country": "Taiwan",
-    "sector": "Semiconductors",
-    "underwriter": "Dominari Securities"
-  },
-  {
-    "symbol": "JWZH",
-    "name": "Lion City Technology",
     "country": "United States",
-    "sector": "Medical Devices",
+    "sector": "Education",
     "underwriter": null
   },
   {
-    "symbol": "JXFU",
-    "name": "Prime Resources",
+    "symbol": "JYG",
+    "name": "Pinnacle Materials",
     "country": "United States",
-    "sector": "Financial Services",
-    "underwriter": null
-  },
-  {
-    "symbol": "JXGD",
-    "name": "Phoenix Therapeutics",
-    "country": "Canada",
-    "sector": "Industrial Machinery",
+    "sector": "Education",
     "underwriter": null
   },
   {
     "symbol": "KAVL",
     "name": "KAVL Corp",
-    "country": "Israel",
-    "sector": "Clean Energy",
+    "country": "Cayman Islands",
+    "sector": "Pharmaceuticals",
     "underwriter": null
   },
   {
     "symbol": "KBAL",
     "name": "KBAL Corp",
+    "country": "United Kingdom",
+    "sector": "Financial Services",
+    "underwriter": null
+  },
+  {
+    "symbol": "KFR",
+    "name": "Vanguard Resources",
+    "country": "United States",
+    "sector": "Real Estate",
+    "underwriter": "TradeUP Securities"
+  },
+  {
+    "symbol": "KNDI",
+    "name": "KNDI Corp",
+    "country": "Canada",
+    "sector": "Consumer Electronics",
+    "underwriter": null
+  },
+  {
+    "symbol": "KPRX",
+    "name": "KPRX Corp",
+    "country": "United States",
+    "sector": "Consumer Electronics",
+    "underwriter": "Aegis Capital"
+  },
+  {
+    "symbol": "KRKR",
+    "name": "KRKR Corp",
+    "country": "Cayman Islands",
+    "sector": "Communications Equipment",
+    "underwriter": null
+  },
+  {
+    "symbol": "KSBS",
+    "name": "Vector Materials",
+    "country": "United States",
+    "sector": "Clean Energy",
+    "underwriter": null
+  },
+  {
+    "symbol": "KYMX",
+    "name": "Phoenix Pharma",
     "country": "United States",
     "sector": "Medical Devices",
     "underwriter": null
   },
   {
-    "symbol": "KDK",
-    "name": "Hua Energy",
-    "country": "India",
+    "symbol": "LAKB",
+    "name": "Pinnacle Energy",
+    "country": "United States",
+    "sector": "Financial Services",
+    "underwriter": null
+  },
+  {
+    "symbol": "LBJ",
+    "name": "Phoenix Holdings",
+    "country": "United States",
     "sector": "Medical Devices",
     "underwriter": null
   },
   {
-    "symbol": "KDQT",
-    "name": "Summit Medical",
+    "symbol": "LDHV",
+    "name": "BlueSky Energy",
     "country": "United States",
     "sector": "Education",
     "underwriter": null
   },
   {
-    "symbol": "KEH",
-    "name": "Hua Robotics",
-    "country": "United States",
-    "sector": "Financial Services",
-    "underwriter": null
-  },
-  {
-    "symbol": "KLDH",
-    "name": "Prime Digital",
-    "country": "Singapore",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
-  },
-  {
-    "symbol": "KNDI",
-    "name": "KNDI Corp",
-    "country": "British Virgin Islands",
-    "sector": "Financial Services",
-    "underwriter": "D. Boral Capital"
-  },
-  {
-    "symbol": "KPRX",
-    "name": "KPRX Corp",
-    "country": "Taiwan",
-    "sector": "Medical Devices",
-    "underwriter": null
-  },
-  {
-    "symbol": "KRKR",
-    "name": "KRKR Corp",
-    "country": "United Kingdom",
-    "sector": "Mining",
-    "underwriter": null
-  },
-  {
-    "symbol": "KTTTE",
-    "name": "Silverline International",
-    "country": "India",
-    "sector": "Biotechnology",
-    "underwriter": null
-  },
-  {
-    "symbol": "KXHYD",
-    "name": "Asia Digital",
+    "symbol": "LGMK",
+    "name": "LGMK Corp",
     "country": "United States",
     "sector": "Software",
     "underwriter": null
   },
   {
-    "symbol": "LBAW",
-    "name": "Global Pharma",
+    "symbol": "LGVB",
+    "name": "Atlas Resources",
     "country": "United States",
-    "sector": "Medical Devices",
-    "underwriter": null
-  },
-  {
-    "symbol": "LBJ",
-    "name": "Asia Holdings",
-    "country": "United States",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
-  },
-  {
-    "symbol": "LFT",
-    "name": "United Pharma",
-    "country": "United States",
-    "sector": "Mining",
-    "underwriter": null
-  },
-  {
-    "symbol": "LGH",
-    "name": "Global Pharma",
-    "country": "British Virgin Islands",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "LGMK",
-    "name": "LGMK Corp",
-    "country": "China",
-    "sector": "Clean Energy",
-    "underwriter": null
-  },
-  {
-    "symbol": "LHTR",
-    "name": "Lion City Therapeutics",
-    "country": "Brazil",
-    "sector": "Medical Devices",
-    "underwriter": null
-  },
-  {
-    "symbol": "LHZA",
-    "name": "Prime Resources",
-    "country": "Malaysia",
-    "sector": "Biotechnology",
+    "sector": "Energy",
     "underwriter": null
   },
   {
     "symbol": "LIQT",
     "name": "LIQT Corp",
     "country": "United States",
-    "sector": "Shipping",
+    "sector": "Education",
     "underwriter": null
   },
   {
     "symbol": "LITM",
     "name": "LITM Corp",
-    "country": "Israel",
-    "sector": "Biotechnology",
-    "underwriter": null
-  },
-  {
-    "symbol": "LKUA",
-    "name": "Vision Medical",
-    "country": "United Kingdom",
-    "sector": "Clean Energy",
-    "underwriter": "Benjamin Securities"
-  },
-  {
-    "symbol": "LLAZ",
-    "name": "NeoTech Digital",
-    "country": "Brazil",
-    "sector": "Semiconductors",
-    "underwriter": null
+    "country": "United States",
+    "sector": "Consumer Electronics",
+    "underwriter": "TradeUP Securities"
   },
   {
     "symbol": "LNSR",
     "name": "LNSR Corp",
     "country": "United States",
-    "sector": "Semiconductors",
+    "sector": "Communications Equipment",
     "underwriter": null
   },
   {
     "symbol": "LPCN",
     "name": "LPCN Corp",
-    "country": "South Korea",
-    "sector": "Biotechnology",
-    "underwriter": "US Tiger Securities"
-  },
-  {
-    "symbol": "LPFT",
-    "name": "Apex Energy",
-    "country": "United States",
-    "sector": "Shipping",
+    "country": "Israel",
+    "sector": "Real Estate",
     "underwriter": null
   },
   {
-    "symbol": "LWQZN",
-    "name": "Phoenix Technology",
-    "country": "United States",
-    "sector": "Medical Devices",
+    "symbol": "LZY",
+    "name": "Sterling Pharma",
+    "country": "Singapore",
+    "sector": "Software",
     "underwriter": null
   },
   {
     "symbol": "MACE",
     "name": "MACE Corp",
     "country": "United States",
-    "sector": "Shipping",
+    "sector": "Medical Devices",
     "underwriter": null
   },
   {
     "symbol": "MCYM",
-    "name": "Summit Digital",
+    "name": "Nova Systems",
     "country": "United States",
-    "sector": "Biotechnology",
+    "sector": "Energy",
     "underwriter": null
   },
   {
     "symbol": "MDJH",
     "name": "MDJH Corp",
     "country": "China",
-    "sector": "Mining",
-    "underwriter": null
-  },
-  {
-    "symbol": "MEHA",
-    "name": "Vision Digital",
-    "country": "United States",
-    "sector": "Financial Services",
-    "underwriter": null
-  },
-  {
-    "symbol": "MGN",
-    "name": "United Energy",
-    "country": "United States",
-    "sector": "Specialty Retail",
+    "sector": "Pharmaceuticals",
     "underwriter": null
   },
   {
     "symbol": "MGOL",
     "name": "MGOL Corp",
-    "country": "Taiwan",
+    "country": "Australia",
     "sector": "Specialty Retail",
     "underwriter": null
   },
   {
     "symbol": "MINM",
     "name": "MINM Corp",
-    "country": "China",
+    "country": "United States",
     "sector": "Semiconductors",
-    "underwriter": "Cathay Securities"
+    "underwriter": "Sutter Securities"
   },
   {
     "symbol": "MJCX",
-    "name": "Pacific Energy",
+    "name": "Summit Systems",
     "country": "United States",
-    "sector": "Financial Services",
+    "sector": "Real Estate",
+    "underwriter": null
+  },
+  {
+    "symbol": "MKET",
+    "name": "BlueSky Biosciences",
+    "country": "Hong Kong",
+    "sector": "Communications Equipment",
     "underwriter": null
   },
   {
     "symbol": "MKFG",
     "name": "MKFG Corp",
-    "country": "Hong Kong",
-    "sector": "Specialty Retail",
-    "underwriter": "D. Boral Capital"
-  },
-  {
-    "symbol": "MKUF",
-    "name": "Global Technology",
-    "country": "United States",
-    "sector": "Biotechnology",
+    "country": "China",
+    "sector": "Software",
     "underwriter": null
   },
   {
-    "symbol": "MMKET",
-    "name": "Asia International",
-    "country": "Brazil",
+    "symbol": "MMAT",
+    "name": "Meta Materials",
+    "country": "United States",
+    "sector": "Materials",
+    "underwriter": "Aegis Capital",
+    "reported_case": true
+  },
+  {
+    "symbol": "MMKU",
+    "name": "Vision Group",
+    "country": "United Kingdom",
     "sector": "Education",
-    "underwriter": "WestPark Capital"
+    "underwriter": "Boustead Securities"
   },
   {
     "symbol": "MOMO",
     "name": "MOMO Corp",
-    "country": "Hong Kong",
-    "sector": "Semiconductors",
+    "country": "United States",
+    "sector": "Clean Energy",
     "underwriter": null
   },
   {
     "symbol": "MOXC",
     "name": "MOXC Corp",
-    "country": "Hong Kong",
-    "sector": "Specialty Retail",
-    "underwriter": null
+    "country": "Israel",
+    "sector": "Real Estate",
+    "underwriter": "US Tiger Securities"
   },
   {
     "symbol": "MRIN",
     "name": "MRIN Corp",
-    "country": "Malaysia",
-    "sector": "Industrial Machinery",
+    "country": "United States",
+    "sector": "Medical Devices",
     "underwriter": null
   },
   {
     "symbol": "MURA",
     "name": "MURA Corp",
-    "country": "Brazil",
-    "sector": "Semiconductors",
-    "underwriter": "Dominari Securities"
+    "country": "United States",
+    "sector": "Software",
+    "underwriter": "Sutter Securities"
+  },
+  {
+    "symbol": "MVB",
+    "name": "Vector Biosciences",
+    "country": "Canada",
+    "sector": "Financial Services",
+    "underwriter": "Spartan Capital Securities"
   },
   {
     "symbol": "MVST",
     "name": "MVST Corp",
-    "country": "China",
-    "sector": "Mining",
-    "underwriter": "Cathay Securities"
+    "country": "United States",
+    "sector": "Medical Devices",
+    "underwriter": null
+  },
+  {
+    "symbol": "MWVC",
+    "name": "Nova Pharma",
+    "country": "United States",
+    "sector": "Pharmaceuticals",
+    "underwriter": null
+  },
+  {
+    "symbol": "MYPP",
+    "name": "Vision Energy",
+    "country": "Australia",
+    "sector": "Semiconductors",
+    "underwriter": null
   },
   {
     "symbol": "NAAS",
     "name": "NAAS Corp",
-    "country": "United Kingdom",
-    "sector": "Mining",
-    "underwriter": null
-  },
-  {
-    "symbol": "NAG",
-    "name": "Sino Medical",
-    "country": "Singapore",
-    "sector": "Real Estate",
-    "underwriter": null
-  },
-  {
-    "symbol": "NBTC",
-    "name": "United Materials",
     "country": "United States",
-    "sector": "Industrial Machinery",
-    "underwriter": null
+    "sector": "Financial Services",
+    "underwriter": "Network 1 Financial Securities"
   },
   {
     "symbol": "NCPL",
     "name": "NCPL Corp",
-    "country": "Canada",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "NEHV",
-    "name": "Nova Logistics",
-    "country": "Canada",
-    "sector": "Software",
+    "country": "United States",
+    "sector": "Real Estate",
     "underwriter": "US Tiger Securities"
   },
   {
-    "symbol": "NFKXX",
-    "name": "Asia Materials",
-    "country": "United States",
-    "sector": "Specialty Retail",
-    "underwriter": null
+    "symbol": "NEXG",
+    "name": "Pinnacle Holdings",
+    "country": "Cayman Islands",
+    "sector": "Real Estate",
+    "underwriter": "TradeUP Securities"
   },
   {
-    "symbol": "NHTWW",
-    "name": "Evergreen Energy",
+    "symbol": "NGQ",
+    "name": "Vector Digital",
     "country": "United States",
-    "sector": "Industrial Machinery",
-    "underwriter": null
+    "sector": "Energy",
+    "underwriter": "Sutter Securities"
   },
   {
     "symbol": "NITO",
     "name": "NITO Corp",
-    "country": "Japan",
-    "sector": "Industrial Machinery",
+    "country": "United Kingdom",
+    "sector": "Consumer Electronics",
     "underwriter": null
   },
   {
     "symbol": "NKLA",
     "name": "NKLA Corp",
     "country": "United States",
-    "sector": "Industrial Machinery",
+    "sector": "Semiconductors",
+    "underwriter": "Sutter Securities"
+  },
+  {
+    "symbol": "NNRY",
+    "name": "Cascade Group",
+    "country": "United States",
+    "sector": "Software",
     "underwriter": null
   },
   {
     "symbol": "NNVC",
     "name": "NNVC Corp",
-    "country": "South Korea",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "NXQX",
-    "name": "Phoenix Medical",
     "country": "United States",
-    "sector": "Industrial Machinery",
+    "sector": "Specialty Retail",
     "underwriter": null
   },
   {
-    "symbol": "PAMND",
-    "name": "BlueSky Digital",
-    "country": "United States",
-    "sector": "Financial Services",
-    "underwriter": null
-  },
-  {
-    "symbol": "PDP",
-    "name": "Global Pharma",
+    "symbol": "OST",
+    "name": "Ostin Technology Group",
     "country": "China",
-    "sector": "Education",
-    "underwriter": "Revere Securities"
-  },
-  {
-    "symbol": "PHDE",
-    "name": "Apex Materials",
-    "country": "United States",
-    "sector": "Shipping",
-    "underwriter": null
+    "sector": "Consumer Electronics",
+    "underwriter": null,
+    "reported_case": true
   },
   {
     "symbol": "PJJ",
-    "name": "Vision Technology",
-    "country": "Israel",
+    "name": "Beacon Materials",
+    "country": "United States",
+    "sector": "Education",
+    "underwriter": "Network 1 Financial Securities"
+  },
+  {
+    "symbol": "PJMH",
+    "name": "Quantum Technology",
+    "country": "United States",
+    "sector": "Pharmaceuticals",
+    "underwriter": null
+  },
+  {
+    "symbol": "PNHM",
+    "name": "Atlas Biosciences",
+    "country": "Singapore",
+    "sector": "Communications Equipment",
+    "underwriter": null
+  },
+  {
+    "symbol": "PVUM",
+    "name": "Catalyst Materials",
+    "country": "Australia",
     "sector": "Mining",
     "underwriter": null
   },
   {
-    "symbol": "PQP",
-    "name": "Crown Pharma",
-    "country": "United States",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "PZYX",
-    "name": "Vision International",
-    "country": "Malaysia",
+    "symbol": "QAUR",
+    "name": "Meridian Networks",
+    "country": "China",
     "sector": "Semiconductors",
-    "underwriter": "Cathay Securities"
+    "underwriter": "Spartan Capital Securities"
   },
   {
-    "symbol": "QGKA",
-    "name": "Star Capital",
-    "country": "United States",
-    "sector": "Biotechnology",
-    "underwriter": null
-  },
-  {
-    "symbol": "QWJX",
-    "name": "Star Capital",
-    "country": "India",
-    "sector": "Financial Services",
-    "underwriter": null
-  },
-  {
-    "symbol": "QXZY",
-    "name": "United International",
+    "symbol": "QMF",
+    "name": "Pinnacle Robotics",
     "country": "United States",
     "sector": "Software",
     "underwriter": null
   },
   {
-    "symbol": "RGE",
-    "name": "BlueSky Energy",
-    "country": "Taiwan",
+    "symbol": "QTQV",
+    "name": "BlueSky Capital",
+    "country": "China",
+    "sector": "Medical Devices",
+    "underwriter": null
+  },
+  {
+    "symbol": "REC",
+    "name": "Vanguard Technology",
+    "country": "United States",
     "sector": "Mining",
     "underwriter": null
   },
   {
-    "symbol": "RQB",
-    "name": "United Holdings",
+    "symbol": "REKB",
+    "name": "Pinnacle Technology",
     "country": "United States",
-    "sector": "Shipping",
+    "sector": "Consumer Electronics",
+    "underwriter": "Network 1 Financial Securities"
+  },
+  {
+    "symbol": "RFLZ",
+    "name": "Sterling Therapeutics",
+    "country": "Singapore",
+    "sector": "Semiconductors",
+    "underwriter": "Aegis Capital"
+  },
+  {
+    "symbol": "RRWP",
+    "name": "Summit Biosciences",
+    "country": "Hong Kong",
+    "sector": "Pharmaceuticals",
+    "underwriter": "Sutter Securities"
+  },
+  {
+    "symbol": "RXQD",
+    "name": "Frontier Holdings",
+    "country": "United States",
+    "sector": "Communications Equipment",
     "underwriter": null
   },
   {
-    "symbol": "RTWVZ",
-    "name": "Star Industrial",
+    "symbol": "SHL",
+    "name": "Cascade Systems",
+    "country": "China",
+    "sector": "Communications Equipment",
+    "underwriter": null
+  },
+  {
+    "symbol": "SJUS",
+    "name": "Vanguard Biosciences",
+    "country": "Australia",
+    "sector": "Communications Equipment",
+    "underwriter": "Sutter Securities"
+  },
+  {
+    "symbol": "SZCU",
+    "name": "Sterling Group",
+    "country": "United States",
+    "sector": "Financial Services",
+    "underwriter": null
+  },
+  {
+    "symbol": "TCDN",
+    "name": "Sterling Holdings",
+    "country": "United States",
+    "sector": "Software",
+    "underwriter": "TradeUP Securities"
+  },
+  {
+    "symbol": "TGA",
+    "name": "Quantum Logistics",
+    "country": "United States",
+    "sector": "Medical Devices",
+    "underwriter": "Network 1 Financial Securities"
+  },
+  {
+    "symbol": "TGSW",
+    "name": "Vanguard Robotics",
     "country": "United States",
     "sector": "Consumer Electronics",
     "underwriter": null
   },
   {
-    "symbol": "RTZG",
-    "name": "Evergreen Group",
-    "country": "Japan",
-    "sector": "Specialty Retail",
-    "underwriter": "US Tiger Securities"
-  },
-  {
-    "symbol": "RZCQY",
-    "name": "Hua Industrial",
-    "country": "British Virgin Islands",
-    "sector": "Specialty Retail",
-    "underwriter": null
-  },
-  {
-    "symbol": "SBSD",
-    "name": "Vision Pharma",
-    "country": "South Korea",
-    "sector": "Biotechnology",
-    "underwriter": null
-  },
-  {
-    "symbol": "SJJU",
-    "name": "Asia Group",
+    "symbol": "THSV",
+    "name": "NeoTech Robotics",
     "country": "Cayman Islands",
-    "sector": "Biotechnology",
+    "sector": "Energy",
     "underwriter": null
   },
   {
-    "symbol": "SNV",
-    "name": "NeoTech Technology",
-    "country": "Malaysia",
-    "sector": "Shipping",
-    "underwriter": "R.F. Lafferty"
-  },
-  {
-    "symbol": "SVHT",
-    "name": "NeoTech Biosciences",
-    "country": "South Korea",
-    "sector": "Education",
-    "underwriter": "Revere Securities"
-  },
-  {
-    "symbol": "TFT",
-    "name": "Hua Biosciences",
+    "symbol": "THW",
+    "name": "Pinnacle Holdings",
     "country": "United States",
-    "sector": "Education",
+    "sector": "Communications Equipment",
     "underwriter": null
   },
   {
-    "symbol": "TGXH",
-    "name": "Vision Resources",
-    "country": "Malaysia",
+    "symbol": "TQNB",
+    "name": "Vector Technology",
+    "country": "United States",
+    "sector": "Financial Services",
+    "underwriter": null
+  },
+  {
+    "symbol": "TSN",
+    "name": "Quantum Capital",
+    "country": "Hong Kong",
     "sector": "Semiconductors",
     "underwriter": null
   },
   {
-    "symbol": "THX",
-    "name": "Vision Holdings",
-    "country": "Taiwan",
-    "sector": "Biotechnology",
+    "symbol": "TWB",
+    "name": "Quantum Logistics",
+    "country": "United States",
+    "sector": "Mining",
     "underwriter": null
   },
   {
-    "symbol": "TLIH",
-    "name": "Ten-League International Holdings",
-    "country": "Malaysia",
-    "sector": "Industrial Machinery",
+    "symbol": "UJGT",
+    "name": "Apex Holdings",
+    "country": "Cayman Islands",
+    "sector": "Clean Energy",
+    "underwriter": null
+  },
+  {
+    "symbol": "UJUB",
+    "name": "Vanguard Resources",
+    "country": "Canada",
+    "sector": "Clean Energy",
     "underwriter": "US Tiger Securities"
   },
   {
-    "symbol": "TSN",
-    "name": "Nova Materials",
-    "country": "Hong Kong",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "UBCX",
-    "name": "Jin Technology",
-    "country": "Taiwan",
-    "sector": "Education",
-    "underwriter": "Prime Number Capital"
-  },
-  {
-    "symbol": "UCUZD",
-    "name": "Orient Energy",
+    "symbol": "UQYR",
+    "name": "Meridian Holdings",
     "country": "United States",
-    "sector": "Biotechnology",
+    "sector": "Real Estate",
     "underwriter": null
   },
   {
-    "symbol": "UJMK",
-    "name": "Golden Industrial",
+    "symbol": "UZGM",
+    "name": "Atlas Robotics",
+    "country": "Israel",
+    "sector": "Semiconductors",
+    "underwriter": null
+  },
+  {
+    "symbol": "VAR",
+    "name": "NeoTech Therapeutics",
+    "country": "Singapore",
+    "sector": "Financial Services",
+    "underwriter": "US Tiger Securities"
+  },
+  {
+    "symbol": "VDXF",
+    "name": "Phoenix Resources",
+    "country": "Cayman Islands",
+    "sector": "Communications Equipment",
+    "underwriter": null
+  },
+  {
+    "symbol": "VGMG",
+    "name": "Atlas Group",
+    "country": "United States",
+    "sector": "Software",
+    "underwriter": "US Tiger Securities"
+  },
+  {
+    "symbol": "VISL",
+    "name": "Vislink Technologies",
+    "country": "United States",
+    "sector": "Communications Equipment",
+    "underwriter": null,
+    "reported_case": true
+  },
+  {
+    "symbol": "VNF",
+    "name": "Vision Group",
     "country": "United States",
     "sector": "Software",
     "underwriter": null
   },
   {
-    "symbol": "ULMAQ",
-    "name": "Dragon Group",
-    "country": "United States",
-    "sector": "Financial Services",
-    "underwriter": null
-  },
-  {
-    "symbol": "UQYR",
-    "name": "Jin Holdings",
-    "country": "United States",
+    "symbol": "VRME",
+    "name": "Cascade Energy",
+    "country": "Cayman Islands",
     "sector": "Clean Energy",
     "underwriter": null
   },
   {
-    "symbol": "UTC",
-    "name": "Jin Industrial",
+    "symbol": "VWW",
+    "name": "Vector Digital",
+    "country": "United States",
+    "sector": "Energy",
+    "underwriter": null
+  },
+  {
+    "symbol": "WFRD",
+    "name": "NeoTech Systems",
     "country": "United States",
     "sector": "Financial Services",
     "underwriter": null
   },
   {
-    "symbol": "UTLN",
-    "name": "Global Pharma",
+    "symbol": "WJZN",
+    "name": "Catalyst Therapeutics",
     "country": "United States",
-    "sector": "Biotechnology",
+    "sector": "Real Estate",
     "underwriter": null
   },
   {
-    "symbol": "UUAZH",
-    "name": "Nova Therapeutics",
+    "symbol": "WKJD",
+    "name": "Atlas Biosciences",
     "country": "United States",
-    "sector": "Biotechnology",
-    "underwriter": null
-  },
-  {
-    "symbol": "UVB",
-    "name": "Hua Pharma",
-    "country": "United States",
-    "sector": "Education",
-    "underwriter": null
-  },
-  {
-    "symbol": "UVFR",
-    "name": "Asia Energy",
-    "country": "Japan",
     "sector": "Semiconductors",
     "underwriter": null
   },
   {
-    "symbol": "UWF",
-    "name": "Jin Medical",
+    "symbol": "WLYB",
+    "name": "Atlas Energy",
     "country": "United States",
-    "sector": "Specialty Retail",
-    "underwriter": null
-  },
-  {
-    "symbol": "UZPY",
-    "name": "Prime Logistics",
-    "country": "Singapore",
-    "sector": "Pharmaceuticals",
-    "underwriter": "Prime Number Capital"
-  },
-  {
-    "symbol": "VAR",
-    "name": "United Resources",
-    "country": "Singapore",
-    "sector": "Semiconductors",
-    "underwriter": null
-  },
-  {
-    "symbol": "VBUN",
-    "name": "Hua Capital",
-    "country": "Malaysia",
-    "sector": "Semiconductors",
-    "underwriter": "Revere Securities"
-  },
-  {
-    "symbol": "VFBVL",
-    "name": "Crown Energy",
-    "country": "South Korea",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
-  },
-  {
-    "symbol": "VJX",
-    "name": "Asia Therapeutics",
-    "country": "United States",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
-  },
-  {
-    "symbol": "VMCY",
-    "name": "Lion City Digital",
-    "country": "India",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "VMU",
-    "name": "Global Therapeutics",
-    "country": "United States",
-    "sector": "Mining",
-    "underwriter": null
-  },
-  {
-    "symbol": "VSLQ",
-    "name": "Asia Logistics",
-    "country": "Japan",
-    "sector": "Mining",
-    "underwriter": null
-  },
-  {
-    "symbol": "WLDVZ",
-    "name": "Silverline Logistics",
-    "country": "United States",
-    "sector": "Education",
-    "underwriter": null
-  },
-  {
-    "symbol": "WNEX",
-    "name": "Pacific Education",
-    "country": "Japan",
-    "sector": "Financial Services",
+    "sector": "Real Estate",
     "underwriter": null
   },
   {
     "symbol": "WPBH",
-    "name": "Asia Therapeutics",
+    "name": "Phoenix Energy",
     "country": "United States",
-    "sector": "Pharmaceuticals",
+    "sector": "Specialty Retail",
     "underwriter": null
+  },
+  {
+    "symbol": "WQRG",
+    "name": "Atlas Therapeutics",
+    "country": "United States",
+    "sector": "Financial Services",
+    "underwriter": null
+  },
+  {
+    "symbol": "WVAN",
+    "name": "Cascade Logistics",
+    "country": "Canada",
+    "sector": "Education",
+    "underwriter": "Aegis Capital"
   },
   {
     "symbol": "WVQ",
-    "name": "Bright Holdings",
-    "country": "Cayman Islands",
-    "sector": "Specialty Retail",
-    "underwriter": null
-  },
-  {
-    "symbol": "XARL",
-    "name": "Nova Group",
-    "country": "China",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
-  },
-  {
-    "symbol": "XBA",
-    "name": "Jin Therapeutics",
-    "country": "Hong Kong",
-    "sector": "Specialty Retail",
-    "underwriter": null
-  },
-  {
-    "symbol": "XEEWR",
-    "name": "Asia Materials",
+    "name": "Cascade Capital",
     "country": "United States",
-    "sector": "Clean Energy",
+    "sector": "Semiconductors",
     "underwriter": null
   },
   {
-    "symbol": "XGDM",
-    "name": "Prime Group",
-    "country": "China",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "XJPW",
-    "name": "Vision Technology",
-    "country": "Cayman Islands",
-    "sector": "Industrial Machinery",
-    "underwriter": "Benjamin Securities"
-  },
-  {
-    "symbol": "XMM",
-    "name": "Summit International",
+    "symbol": "WWAG",
+    "name": "Apex Robotics",
     "country": "United States",
-    "sector": "Shipping",
-    "underwriter": null
+    "sector": "Consumer Electronics",
+    "underwriter": "Network 1 Financial Securities"
   },
   {
-    "symbol": "XSST",
-    "name": "Apex Energy",
-    "country": "Singapore",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "YDNHB",
-    "name": "Greenland Therapeutics",
-    "country": "Canada",
-    "sector": "Specialty Retail",
-    "underwriter": "Dominari Securities"
-  },
-  {
-    "symbol": "YJRC",
-    "name": "Golden Holdings",
-    "country": "United States",
-    "sector": "Clean Energy",
-    "underwriter": null
-  },
-  {
-    "symbol": "YPPA",
-    "name": "Global Logistics",
-    "country": "United States",
-    "sector": "Shipping",
-    "underwriter": null
-  },
-  {
-    "symbol": "YTXL",
-    "name": "Prime Group",
-    "country": "Singapore",
-    "sector": "Education",
-    "underwriter": null
-  },
-  {
-    "symbol": "ZBQMF",
-    "name": "Dragon International",
+    "symbol": "WZHZ",
+    "name": "Crown Group",
     "country": "United States",
     "sector": "Software",
     "underwriter": null
   },
   {
-    "symbol": "ZGHT",
-    "name": "Lion City Group",
+    "symbol": "XAZW",
+    "name": "Cascade Logistics",
     "country": "United States",
-    "sector": "Pharmaceuticals",
-    "underwriter": null
-  },
-  {
-    "symbol": "ZPXY",
-    "name": "United Industrial",
-    "country": "Taiwan",
-    "sector": "Pharmaceuticals",
+    "sector": "Communications Equipment",
     "underwriter": "US Tiger Securities"
   },
   {
-    "symbol": "ZVPW",
-    "name": "Pacific Medical",
-    "country": "Taiwan",
+    "symbol": "XBA",
+    "name": "Phoenix Pharma",
+    "country": "United States",
+    "sector": "Education",
+    "underwriter": null
+  },
+  {
+    "symbol": "XFUX",
+    "name": "Pioneer Systems",
+    "country": "United States",
+    "sector": "Communications Equipment",
+    "underwriter": null
+  },
+  {
+    "symbol": "XLVS",
+    "name": "Beacon Materials",
+    "country": "United States",
     "sector": "Semiconductors",
+    "underwriter": "Aegis Capital"
+  },
+  {
+    "symbol": "YETT",
+    "name": "Catalyst Networks",
+    "country": "United States",
+    "sector": "Education",
+    "underwriter": null
+  },
+  {
+    "symbol": "YGBY",
+    "name": "Vector Networks",
+    "country": "United States",
+    "sector": "Specialty Retail",
+    "underwriter": null
+  },
+  {
+    "symbol": "YJRC",
+    "name": "Apex Holdings",
+    "country": "United States",
+    "sector": "Consumer Electronics",
+    "underwriter": null
+  },
+  {
+    "symbol": "YLE",
+    "name": "Vanguard Group",
+    "country": "United States",
+    "sector": "Specialty Retail",
+    "underwriter": null
+  },
+  {
+    "symbol": "YNK",
+    "name": "Crown Networks",
+    "country": "United States",
+    "sector": "Biotechnology",
+    "underwriter": null
+  },
+  {
+    "symbol": "YQD",
+    "name": "Sterling Biosciences",
+    "country": "China",
+    "sector": "Mining",
+    "underwriter": null
+  },
+  {
+    "symbol": "YTDE",
+    "name": "Nova Capital",
+    "country": "United States",
+    "sector": "Real Estate",
+    "underwriter": null
+  },
+  {
+    "symbol": "ZARG",
+    "name": "Vector Systems",
+    "country": "Israel",
+    "sector": "Medical Devices",
+    "underwriter": null
+  },
+  {
+    "symbol": "ZCQY",
+    "name": "Atlas Pharma",
+    "country": "United States",
+    "sector": "Specialty Retail",
+    "underwriter": null
+  },
+  {
+    "symbol": "ZCZ",
+    "name": "BlueSky Logistics",
+    "country": "United States",
+    "sector": "Biotechnology",
+    "underwriter": null
+  },
+  {
+    "symbol": "ZFGP",
+    "name": "Quantum Pharma",
+    "country": "United States",
+    "sector": "Consumer Electronics",
+    "underwriter": "Aegis Capital"
+  },
+  {
+    "symbol": "ZGHT",
+    "name": "Frontier Holdings",
+    "country": "United States",
+    "sector": "Clean Energy",
+    "underwriter": null
+  },
+  {
+    "symbol": "ZNBC",
+    "name": "Pinnacle Group",
+    "country": "United States",
+    "sector": "Medical Devices",
     "underwriter": null
   }
 ]

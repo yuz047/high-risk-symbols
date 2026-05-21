@@ -36,7 +36,7 @@ def _category(rule: bool, pca: bool, hit: int) -> str:
         return "rule"
     if pca:
         return "pca"
-    if hit >= 4:
+    if hit >= 3:  # 3-4 of 5 criteria — near-miss watch band
         return "watch"
     return "clear"
 
