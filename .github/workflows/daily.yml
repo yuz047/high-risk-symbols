@@ -22,6 +22,10 @@ on:
 permissions:
   contents: write   # so the job can commit refreshed data/*.json back to the repo
 
+concurrency:
+  group: high-risk-symbols-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   # GitHub is forcing JS actions to Node 24 on 2026-06-02; opt in now.
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
@@ -86,5 +90,16 @@ jobs:
             echo "No data changes."
           else
             git commit -m "data: scan refresh $(date -u +%Y-%m-%d)"
-            git push
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase -X theirs origin/main
+              if git push origin HEAD:main; then
+                break
+              fi
+              if [ "$attempt" = "3" ]; then
+                echo "Push failed after ${attempt} attempts."
+                exit 1
+              fi
+              sleep $((attempt * 5))
+            done
           fi
