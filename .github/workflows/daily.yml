@@ -1,6 +1,13 @@
 name: High-Risk Symbols daily
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/daily.yml'
+      - 'python/**'
+      - 'data/params.json'
+      - 'data/underwriters.json'
   schedule:
     # 00:30 UTC Tue–Sat ≈ 20:30 ET Mon–Fri (after the US close).
     - cron: '30 0 * * 2-6'
@@ -26,6 +33,23 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+
+      - name: Validate checked-out scanner
+        run: |
+          echo "github.sha=${GITHUB_SHA}"
+          echo "git head=$(git rev-parse HEAD)"
+          grep -n "MIN_LIVE_SECURITY_MASTER_ROWS" python/data.py
+          grep -n "security master cache ignored" python/data.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("data/security_master.json")
+          if not p.exists():
+              print("security_master: missing")
+          else:
+              d = json.loads(p.read_text())
+              print(f"security_master: source={d.get('source')} count={d.get('count')} rows={len(d.get('rows', []))}")
+          PY
 
       - uses: actions/setup-python@v5
         with:
