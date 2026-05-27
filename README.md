@@ -250,4 +250,6 @@ a conclusion.
 
 ## License
 
-MIT.
+Individual personal use only. Business, institutional, commercial, hosted,
+production, or internal organizational use requires prior written consent from
+Yunhan "Sirius" Zhang. See `LICENSE`.
