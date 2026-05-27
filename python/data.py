@@ -61,7 +61,7 @@ def _log(msg: str) -> None:
 
 
 def is_us(country: str | None) -> bool:
-    return (country or "").strip() in US_COUNTRY_NAMES
+    return isinstance(country, str) and country.strip() in US_COUNTRY_NAMES
 
 
 def _is_rate_limit_error(exc: BaseException) -> bool:
