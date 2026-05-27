@@ -8,7 +8,7 @@ Pipeline
    market cap/shares were conservatively imputed remain in the database, but
    they are not used to fit or flag PCA.
 3. Mark PCA candidates as every documented anchor plus every symbol with at
-   least three of the five editable rule criteria. Nothing is price-pre-filtered
+   least three of the four editable rule criteria. Nothing is price-pre-filtered
    out before PCA; candidates are simply labelled in the full PCA space.
 4. Pick the single component that best SEPARATES that candidate/anchor set from
    the rest, measured by standardized mean difference (Cohen's d). That is the

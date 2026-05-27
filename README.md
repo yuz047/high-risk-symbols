@@ -7,11 +7,11 @@ symbols. The database keeps every major-exchange symbol with daily market stats,
 then the scanner flags names fitting the classic **pump-and-dump** profile. It
 combines two independent views and reports the union:
 
-1. **Editable rule set** — a symbol is rule-based high-risk only when **all five**
+1. **Editable rule set** — a symbol is rule-based high-risk only when **all four**
    criteria hold for the day. Every threshold is editable in `data/params.json`.
 2. **PCA(3) structural model** — an unsupervised view over four size/liquidity
    features. The component that best separates the candidate set (documented
-   DOJ/SEC pump-and-dump anchors + every name with at least 3 of 5 rule hits)
+   DOJ/SEC pump-and-dump anchors + every name with at least 3 of 4 rule hits)
    becomes the *risk axis*; everything past a percentile cut on the high-risk
    side is flagged.
 
@@ -25,7 +25,7 @@ criteria, the fitted PCA model, an interactive cut, and a per-symbol drill-down.
 
 ## The two views
 
-### Editable Rule Set (all five must hold by default)
+### Editable Rule Set (all four must hold by default)
 
 | # | Criterion | Default threshold |
 |---|---|---|
@@ -33,14 +33,17 @@ criteria, the fitted PCA model, an interactive cut, and a per-symbol drill-down.
 | 2 | Shares outstanding below cap | < 60M |
 | 3 | 20-day average volume below cap | < 2M |
 | 4 | Price below cap across the last 20 business days | < $7 |
-| 5 | IPO underwriter is on the **high-risk watchlist** | watchlist match |
-
 Issuer location is **not** a criterion — documented US-listed pump-and-dumps
 are frequently US issuers, so a non-US filter was dropping real cases. The
 database is **not** pre-filtered by price; the `$20` setting is only a
 dashboard lens/KPI so near-misses can be viewed without removing safer names
 from the PCA space. All thresholds live in `data/params.json` and are also
 tunable live in the dashboard.
+
+The underwriter watchlist is **not** a rule criterion. It is retained as
+editable context and filter metadata because it can be useful during manual
+review, but it does not contribute to `hit_count`, the rule-based verdict, or
+the PCA candidate label.
 
 "...has been below X in the last 20 business days" is read conservatively as
 *stayed below for the whole window* — the engine tests the 20-day extreme
@@ -57,7 +60,7 @@ Features (log1p → z-scored): `market_cap`, `avg_volume`, `close_price`,
 `num_employees`. PCA(3) is fit by SVD on the whole scanned database; no symbol
 is excluded because it is too cheap, too expensive, safe-looking, or risky
 looking. The candidate label is added **after** rules are computed: documented
-anchors plus every symbol with at least **3 of 5** rule criteria.
+anchors plus every symbol with at least **3 of 4** rule criteria.
 
 For each principal component we measure how well it separates candidates from
 the rest (Cohen's *d*). The **risk-discriminating component** is the one with
@@ -89,7 +92,7 @@ only**; they are never scanned, counted, or flagged.
 ### Combined verdict
 
 Each symbol is tagged: **Rule + PCA** (highest conviction), **Rule only**,
-**PCA only**, **Watch** (3–4 rule flags, not yet flagged), or **Clear**. The
+**PCA only**, **Watch** (3 of 4 rule flags, not yet flagged), or **Clear**. The
 reported high-risk list is the union of the editable rules and the PCA region.
 The table itself remains the full major-exchange database, paginated by default
 at 20 rows.
@@ -106,7 +109,7 @@ Python engine ── NASDAQ Trader symbol directory (monthly static master)
                  Massive/Polygon grouped daily bars (daily price, volume)
                  Massive/Polygon ticker overview (monthly/cached fundamentals)
                  underwriters.json (curated boutique → symbol map)
-   data → editable 5-rule set → PCA(3) risk axis → combined verdict
+   data → editable 4-rule set → PCA(3) risk axis → combined verdict
                           │
                           ▼
                   data/*.json ──► static dashboard (GitHub Pages)
@@ -125,7 +128,7 @@ high-risk-symbols/
 ├── python/
 │   ├── config.py          # thresholds, universe filter, underwriters, anchors
 │   ├── data.py            # static master + daily Massive/Polygon market stats + synthetic seed
-│   ├── rules.py           # the editable five-criterion rule set
+│   ├── rules.py           # the editable four-criterion rule set
 │   ├── pca.py             # PCA(3) via SVD + risk-axis selection + cut
 │   ├── run_daily.py       # orchestrator → data/*.json (entry point for cron)
 │   ├── backfill_fundamentals.py # local/monthly static security-master hydration
@@ -233,7 +236,7 @@ GitHub Actions split the two refresh cadences:
   commits only `data/security_master.json`.
 
 Open `web/index.html` in a browser. The percentile slider re-cuts the PCA
-region live; the table drills into each symbol's five-criterion breakdown and
+region live; the table drills into each symbol's four-criterion breakdown and
 PCA placement.
 
 ---

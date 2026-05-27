@@ -192,7 +192,7 @@
         <h1>Two views on small-cap manipulation risk,<br/>refreshed every weekday after the US close.</h1>
         <p class="lede">
           A daily scan of major-exchange (no-OTC) US-listed micro-caps that fit the classic
-          pump-and-dump profile. An <b>editable rule set</b> (five criteria, all must hold by default) runs
+          pump-and-dump profile. An <b>editable rule set</b> (four criteria, all must hold by default) runs
           alongside a <b>PCA(3) structural model</b> anchored on documented DOJ/SEC cases — it learns
           the size/liquidity axis those names sit on and flags everything past a percentile cut. The
           reported list is the union of the two, and every threshold below is tunable. Surveillance
@@ -244,7 +244,7 @@
           <span><i style="background:var(--stop)"></i>Rule + PCA</span>
           <span><i style="background:var(--warn)"></i>Rule only</span>
           <span><i style="background:var(--accent)"></i>PCA only</span>
-          <span><i style="background:var(--ink-mute)"></i>Watch (3–4 flags)</span>
+          <span><i style="background:var(--ink-mute)"></i>Watch (3 of 4 flags)</span>
           <span><i style="background:var(--rule-strong)"></i>Clear</span>
           <span>◎ = anchor (DOJ/SEC case)</span>
           <span><i class="sq" style="background:#9aa7b8"></i>MAG7 / blue-chip ruler</span>
@@ -308,8 +308,9 @@
       <div class="panel">
         <div class="panel-head"><h2>Method &amp; limits</h2></div>
         <p class="disclaim" style="margin-top:0">
-          The editable rule set flags a name when <b>all five</b> default criteria hold for the day, with the
-          "last 20 business days" tests evaluated against the 20-day extreme (worst case). Issuer
+          The editable rule set flags a name when <b>all four</b> default size/liquidity criteria hold for the day, with the
+          "last 20 business days" tests evaluated against the 20-day extreme (worst case). The underwriter
+          watchlist is context and filter metadata, not a counted rule flag. Issuer
           location is deliberately <b>not</b> a criterion — documented US-listed pump-and-dumps are
           frequently US issuers. The PCA model is unsupervised on the four size/liquidity features;
           the anchors only <b>orient</b> the risk axis, and the percentile cut sets how aggressive the
@@ -337,7 +338,7 @@
   <div class="modal-bg" id="modalBg"><div class="modal" id="modal"></div></div>
 
   <script id="embedSymbols" type="application/json">[]</script>
-  <script id="embedMeta" type="application/json">{"as_of":"2026-05-27","generated_at":"2026-05-27T19:16:08+00:00","source":"massive","synthetic":false,"universe_size":4974,"scanned_count":4974,"counts":{"rule_high_risk":9,"pca_high_risk":994,"both":8,"rule_only":1,"pca_only":986,"combined_total":995,"watch":935,"pca_candidate":1908},"thresholds":{"universe_max_price":20.0,"lookback_days":20,"mcap_max_usd":500000000.0,"shares_out_max":60000000.0,"avg_vol_max":2000000.0,"price_max_usd":7.0},"underwriters":["US Tiger Securities","Spartan Capital Securities","Aegis Capital","Boustead Securities","Network 1 Financial Securities","Sutter Securities","TradeUP Securities"],"underwriter_seed_count":75,"pca":{"features":["market_cap","avg_volume","close_price","num_employees"],"n_components":3,"explained_variance_ratio":[0.6807,0.2097,0.0859],"risk_component_index":0,"risk_component_label":"PC1","orientation_sign":1.0,"separation_cohens_d":[2.527,0.255,0.331],"risk_separation":2.527,"risk_percentile":80.0,"risk_threshold":1.6279,"risk_loadings":{"market_cap":-0.5812,"avg_volume":-0.349,"close_price":-0.515,"num_employees":-0.5246},"anchors":["CLEU","OST","VISL","ABVC","ALZN"],"anchor_count":2,"fit_count":4966,"imputed_static_count":8,"fit_candidate_count":1908,"candidate_rule_min":3,"candidate_count":1908,"reference_symbols":[{"symbol":"AAPL","name":"Apple","group":"MAG7","pc1":-4.5627,"pc2":-1.0898,"pc3":-0.1036,"risk_score":-4.5627,"risk_rank":0.1},{"symbol":"MSFT","name":"Microsoft","group":"MAG7","pc1":-4.7026,"pc2":-0.3523,"pc3":-0.1424,"risk_score":-4.7026,"risk_rank":0.1},{"symbol":"NVDA","name":"NVIDIA","group":"MAG7","pc1":-4.3107,"pc2":-1.9411,"pc3":-0.6368,"risk_score":-4.3107,"risk_rank":0.2},{"symbol":"AMZN","name":"Amazon","group":"MAG7","pc1":-4.8309,"pc2":-0.848,"pc3":0.7143,"risk_score":-4.8309,"risk_rank":0.0},{"symbol":"GOOGL","name":"Alphabet","group":"MAG7","pc1":-4.3188,"pc2":-0.8254,"pc3":0.0715,"risk_score":-4.3188,"risk_rank":0.2},{"symbol":"META","name":"Meta","group":"MAG7","pc1":-4.2654,"pc2":-0.2348,"pc3":-0.4645,"risk_score":-4.2654,"risk_rank":0.2},{"symbol":"TSLA","name":"Tesla","group":"MAG7","pc1":-4.2121,"pc2":-1.3875,"pc3":0.0071,"risk_score":-4.2121,"risk_rank":0.3},{"symbol":"JPM","name":"JPMorgan Chase","group":"Blue chip","pc1":-4.0123,"pc2":-0.2748,"pc3":0.4149,"risk_score":-4.0123,"risk_rank":0.4},{"symbol":"BRK.B","name":"Berkshire Hathaway","group":"Blue chip","pc1":-4.2474,"pc2":0.3744,"pc3":0.2931,"risk_score":-4.2474,"risk_rank":0.2},{"symbol":"JNJ","name":"Johnson & Johnson","group":"Blue chip","pc1":-3.5884,"pc2":-0.3089,"pc3":0.2836,"risk_score":-3.5884,"risk_rank":0.9},{"symbol":"XOM","name":"Exxon Mobil","group":"Blue chip","pc1":-3.5459,"pc2":-0.6867,"pc3":0.0214,"risk_score":-3.5459,"risk_rank":1.0},{"symbol":"PG","name":"Procter & Gamble","group":"Blue chip","pc1":-3.5952,"pc2":-0.2164,"pc3":0.1777,"risk_score":-3.5952,"risk_rank":0.9}],"reference_note":"MAG7 and blue-chip points are projected into the fitted PCA space as visual rulers only; they are not scanned, counted, or flagged.","feature_log_mean":{"market_cap":20.4497,"avg_volume":13.1916,"close_price":2.8564,"num_employees":6.5513},"feature_log_std":{"market_cap":2.7004,"avg_volume":1.9514,"close_price":1.5408,"num_employees":2.558},"fit_note":"PCA is fitted and flagged only on rows with real static fundamentals; rows with conservative market-cap/share imputations stay in the database but are excluded from the PCA cut until static backfill fills them."},"database":{"scope":"all major-exchange non-OTC common/ADR symbols with daily market stats","static_security_master":"data/security_master.json","daily_market_stats":"data/market_stats.json","static_refresh_policy":"monthly","market_stats_refresh_policy":"daily","security_master_rows":4991,"security_master_detail_coverage":4960},"data_health":{"ok":true,"synthetic":false,"note":"live Massive/Polygon data"}}</script>
+  <script id="embedMeta" type="application/json">{"as_of":"2026-05-27","generated_at":"2026-05-27T19:43:29+00:00","source":"massive","synthetic":false,"universe_size":4974,"scanned_count":4974,"counts":{"rule_high_risk":906,"pca_high_risk":994,"both":712,"rule_only":194,"pca_only":282,"combined_total":1188,"watch":738,"pca_candidate":1905},"thresholds":{"universe_max_price":20.0,"lookback_days":20,"mcap_max_usd":500000000.0,"shares_out_max":60000000.0,"avg_vol_max":2000000.0,"price_max_usd":7.0},"underwriters":["US Tiger Securities","Spartan Capital Securities","Aegis Capital","Boustead Securities","Network 1 Financial Securities","Sutter Securities","TradeUP Securities"],"underwriter_seed_count":75,"pca":{"features":["market_cap","avg_volume","close_price","num_employees"],"n_components":3,"explained_variance_ratio":[0.6805,0.2097,0.086],"risk_component_index":0,"risk_component_label":"PC1","orientation_sign":1.0,"separation_cohens_d":[2.529,0.259,0.329],"risk_separation":2.529,"risk_percentile":80.0,"risk_threshold":1.638,"risk_loadings":{"market_cap":-0.5812,"avg_volume":-0.3487,"close_price":-0.5151,"num_employees":-0.5246},"anchors":["CLEU","OST","VISL","ABVC","ALZN"],"anchor_count":2,"fit_count":4966,"imputed_static_count":8,"fit_candidate_count":1905,"candidate_rule_min":3,"candidate_count":1905,"reference_symbols":[{"symbol":"AAPL","name":"Apple","group":"MAG7","pc1":-4.5577,"pc2":-1.0936,"pc3":-0.0974,"risk_score":-4.5577,"risk_rank":0.2},{"symbol":"MSFT","name":"Microsoft","group":"MAG7","pc1":-4.6973,"pc2":-0.3561,"pc3":-0.1369,"risk_score":-4.6973,"risk_rank":0.1},{"symbol":"NVDA","name":"NVIDIA","group":"MAG7","pc1":-4.306,"pc2":-1.946,"pc3":-0.6297,"risk_score":-4.306,"risk_rank":0.2},{"symbol":"AMZN","name":"Amazon","group":"MAG7","pc1":-4.826,"pc2":-0.8506,"pc3":0.72,"risk_score":-4.826,"risk_rank":0.0},{"symbol":"GOOGL","name":"Alphabet","group":"MAG7","pc1":-4.3139,"pc2":-0.8284,"pc3":0.0773,"risk_score":-4.3139,"risk_rank":0.2},{"symbol":"META","name":"Meta","group":"MAG7","pc1":-4.2601,"pc2":-0.2389,"pc3":-0.4594,"risk_score":-4.2601,"risk_rank":0.2},{"symbol":"TSLA","name":"Tesla","group":"MAG7","pc1":-4.2072,"pc2":-1.3915,"pc3":0.013,"risk_score":-4.2072,"risk_rank":0.3},{"symbol":"JPM","name":"JPMorgan Chase","group":"Blue chip","pc1":-4.0073,"pc2":-0.2769,"pc3":0.4198,"risk_score":-4.0073,"risk_rank":0.4},{"symbol":"BRK.B","name":"Berkshire Hathaway","group":"Blue chip","pc1":-4.2421,"pc2":0.3721,"pc3":0.2975,"risk_score":-4.2421,"risk_rank":0.2},{"symbol":"JNJ","name":"Johnson & Johnson","group":"Blue chip","pc1":-3.5835,"pc2":-0.3107,"pc3":0.2884,"risk_score":-3.5835,"risk_rank":1.0},{"symbol":"XOM","name":"Exxon Mobil","group":"Blue chip","pc1":-3.5411,"pc2":-0.689,"pc3":0.0267,"risk_score":-3.5411,"risk_rank":1.0},{"symbol":"PG","name":"Procter & Gamble","group":"Blue chip","pc1":-3.5902,"pc2":-0.2184,"pc3":0.1825,"risk_score":-3.5902,"risk_rank":1.0}],"reference_note":"MAG7 and blue-chip points are projected into the fitted PCA space as visual rulers only; they are not scanned, counted, or flagged.","feature_log_mean":{"market_cap":20.4497,"avg_volume":13.1999,"close_price":2.8646,"num_employees":6.5513},"feature_log_std":{"market_cap":2.7004,"avg_volume":1.9493,"close_price":1.5431,"num_employees":2.558},"fit_note":"PCA is fitted and flagged only on rows with real static fundamentals; rows with conservative market-cap/share imputations stay in the database but are excluded from the PCA cut until static backfill fills them."},"database":{"scope":"all major-exchange non-OTC common/ADR symbols with daily market stats","static_security_master":"data/security_master.json","daily_market_stats":"data/market_stats.json","static_refresh_policy":"monthly","market_stats_refresh_policy":"daily","security_master_rows":4991,"security_master_detail_coverage":4960},"data_health":{"ok":true,"synthetic":false,"note":"live Massive/Polygon data"}}</script>
   <script>
   (function(){
     "use strict";
@@ -345,6 +346,7 @@
     const CAT_COLOR={both:C.stop,rule:C.warn,pca:C.accent,watch:C.mute,clear:C.rule};
     const CAT_PILL={both:"red",rule:"amber",pca:"navy",watch:"grey",clear:"ok"};
     const CAT_LABEL={both:"Rule + PCA",rule:"Rule only",pca:"PCA only",watch:"Watch",clear:"Clear"};
+    const RULE_FLAG_KEYS=["mcap_below","shares_below","vol_below","price_below"];
 
     const SOURCES=["https://raw.githubusercontent.com/yuz047/high-risk-symbols/main/data","../data"];
     const readEmbed=(id,fallback)=>{
@@ -384,8 +386,8 @@
           price_below: s.price_max_20d < state.price,
           hi_risk_underwriter: !!s.underwriter && wl.has(String(s.underwriter).toLowerCase())
         };
-        s._hit=Object.values(s._f).filter(Boolean).length;
-        s._rule=s._hit===5;
+        s._hit=RULE_FLAG_KEYS.filter(k=>s._f[k]).length;
+        s._rule=s._hit===RULE_FLAG_KEYS.length;
         s._candidate=s._hit>=3 || ANCHORS.includes(s.symbol);
       });
       const pcaScope=scope.filter(s=>s._pcaEligible);
@@ -428,8 +430,8 @@
         ["shares","2",`<b>Shares outstanding &lt; ${state.shares}M</b>`],
         ["vol","3",`<b>20-day avg volume &lt; ${state.vol}M</b> shares`],
         ["price","4",`<b>Price &lt; $${state.price}</b> across the trailing 20 business days`],
-        ["underwriter","5",`<b>High-risk underwriter</b> — on the watchlist below`],
-        ["pca","PCA",`<b>PCA cut ${state.pct}th percentile</b> · candidates = anchors + ≥3/5 rule hits`],
+        ["underwriter","Watch",`<b>High-risk underwriter</b> — context only; not counted as a rule flag`],
+        ["pca","PCA",`<b>PCA cut ${state.pct}th percentile</b> · candidates = anchors + ≥3/4 rule hits`],
         ["univ","Lens",`<b>Low-price lens &lt; $${state.univ}</b> · does not filter the database`]
       ];
       $("#critGrid").innerHTML=items.map(([key,n,t])=>`<div class="crit editable" data-edit="${key}"><span class="n">${n}</span><span class="t">${t}</span></div>`).join("");
@@ -461,7 +463,7 @@
         ["Database",c.scope,"major exchanges only",""],
         ["PCA fit",c.pcaEligible,`${c.pcaPending} awaiting static fields`,"navy"],
         ["Combined high-risk",c.combined,"rule ∪ PCA","red"],
-        ["Rule-based",c.rule,"all 5 criteria","amber"],
+        ["Rule-based",c.rule,"all 4 criteria","amber"],
         ["PCA region",c.pca,`top ${(100-state.pct).toFixed(0)}%`,"navy"],
         ["Candidates",c.candidate,"≥3 flags + anchors","amber"]
       ];
@@ -608,7 +610,7 @@
           <td class="right ${fl.price_below?'flagged':''}">$${s.close_price}</td>
           <td class="right">${s.num_employees}</td>
           <td class="mono ${fl.hi_risk_underwriter?'flagged':''}">${esc(s.underwriter||"—")}</td>
-          <td class="right"><b style="color:${s._hit===5?C.stop:s._hit>=3?C.warn:C.mute}">${s._hit}/5</b></td>
+          <td class="right"><b style="color:${s._hit===RULE_FLAG_KEYS.length?C.stop:s._hit>=3?C.warn:C.mute}">${s._hit}/${RULE_FLAG_KEYS.length}</b></td>
           <td class="right">${s._pcaEligible?Number(s.risk_rank).toFixed(0):"—"}</td>
           <td><span class="pill ${CAT_PILL[s._cat]}" style="cursor:pointer" data-sym="${esc(s.symbol)}">${CAT_LABEL[s._cat]}</span></td>
         </tr>`;}).join("");
@@ -643,7 +645,7 @@
       $("#modal").innerHTML=`
         <button class="close" id="mClose">✕</button>
         <h3>${esc(title)}</h3>
-        <div class="msub">${key==="univ"?"Display lens only; it does not filter the database or PCA fit.":"Edits recompute rules, candidates, PCA cut display, and table verdicts live."}</div>
+        <div class="msub">${key==="univ"?"Display lens only; it does not filter the database or PCA fit.":key==="underwriter"?"Context/filter only; this does not affect rule hit counts.":"Edits recompute rules, candidates, PCA cut display, and table verdicts live."}</div>
         <div class="edit-form">
           <div><label>${esc(unit)}</label><input id="editVal" type="${type}" step="${step}" value="${esc(state[stateKey])}"></div>
           <button class="btn" id="saveEdit">Apply</button>
@@ -666,7 +668,7 @@
         <button class="close" id="mClose">✕</button>
         <h3>${esc(s.symbol)}</h3>
         <div class="msub">${esc(s.name)} · ${esc(s.country||"—")} · <span class="pill ${CAT_PILL[s._cat]}">${CAT_LABEL[s._cat]}</span>${ANCHORS.includes(s.symbol)?' <span class="anchor-tag">reported case</span>':''}</div>
-        <div class="section-title">Rule criteria — ${s._hit}/5 flagged ${s._rule?'· <span style="color:'+C.stop+'">all hold → rule high-risk</span>':''}</div>
+        <div class="section-title">Rule criteria — ${s._hit}/4 flagged ${s._rule?'· <span style="color:'+C.stop+'">all hold → rule high-risk</span>':''}</div>
         <table class="mtable"><tbody>
         ${crit.map(([l,t,v,hit])=>`<tr><td class="lab">${l}</td><td class="thr">${t}</td><td class="val" style="color:${hit?C.stop:C.ok}">${v}</td><td style="text-align:center"><span class="mark ${hit?'x':'ok'}">${hit?'✗':'✓'}</span></td></tr>`).join("")}
         </tbody></table>

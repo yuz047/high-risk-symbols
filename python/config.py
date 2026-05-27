@@ -5,7 +5,7 @@ Mandate
 Surface US-listed symbols (major exchanges only — no OTC) that fit the classic
 small-cap "pump-and-dump" risk profile, by combining two independent views:
 
-  1. An editable RULE SET (all five criteria must hold for the day).
+  1. An editable RULE SET (all four criteria must hold for the day).
   2. A PCA(3) structural view — a single risk-discriminating component
      built from size/liquidity features; everything past a percentile cut
      on the high-risk side of that axis is flagged.
@@ -74,7 +74,7 @@ _P = _load_params()
 UNIVERSE_MAX_PRICE = float(_P["universe_max_price"])
 LOOKBACK_DAYS = int(_P["lookback_days"])  # "in the last 20 business days"
 
-# --- Rule-based criteria thresholds (5 criteria; ALL must hold) ---------
+# --- Rule-based criteria thresholds (4 criteria; ALL must hold) ---------
 MCAP_MAX_USD = float(_P["mcap_max_usd"])      # market cap below cap across the window
 SHARES_OUT_MAX = float(_P["shares_out_max"])  # shares outstanding below cap
 AVG_VOL_MAX = float(_P["avg_vol_max"])        # 20-day average volume below cap

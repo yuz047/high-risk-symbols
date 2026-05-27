@@ -1,12 +1,14 @@
 """Editable rule-based high-risk classifier.
 
-A symbol is RULE-BASED high-risk only if ALL five editable criteria hold:
+A symbol is RULE-BASED high-risk only if ALL four editable criteria hold:
 
   1. mcap_below          market cap stayed below the cap across the last 20 bd
   2. shares_below        shares outstanding below the cap
   3. vol_below           20-day average volume below the cap
   4. price_below         price stayed below the cap across the last 20 bd
-  5. hi_risk_underwriter IPO underwriter is on the high-risk watchlist
+
+The high-risk underwriter watchlist is retained as context, but it is not a
+rule flag and does not contribute to hit_count or rule_high_risk.
 
 The non-US-issuer criterion has been removed — documented US-listed pump-and-
 dump cases are frequently US issuers, so location was dropping real cases.
@@ -27,7 +29,7 @@ from config import (
 )
 
 FLAG_COLS = [
-    "mcap_below", "shares_below", "vol_below", "price_below", "hi_risk_underwriter",
+    "mcap_below", "shares_below", "vol_below", "price_below",
 ]
 _UW_SET = {u.strip().lower() for u in HIGH_RISK_UNDERWRITERS}
 
