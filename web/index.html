@@ -183,6 +183,8 @@
     .dive-table{max-height:280px;overflow-y:auto;overflow-x:hidden;margin-top:10px;border:1px solid var(--rule);border-radius:8px;}
     .dive-table table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11.5px;}
     .dive-table th,.dive-table td{padding:7px 6px;border-bottom:1px solid var(--rule);white-space:nowrap;text-align:left;overflow:hidden;text-overflow:ellipsis;}
+    .dive-table .pick-cell{text-align:center;}
+    .dive-pick{width:14px;height:14px;accent-color:#7c3aed;cursor:pointer;}
     .dive-table th{position:sticky;top:0;background:var(--paper-deep);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);}
     @media(max-width:980px){.dive-layout{grid-template-columns:1fr;}.chart-large{height:58vh;}}
     .modal h3{font-family:var(--display);font-weight:600;font-size:26px;margin:0;letter-spacing:-.02em;}
@@ -758,7 +760,7 @@
     function shadeDiveNeighbors(anchor,rows,mode,delta){
       const svg=document.getElementById("pca3Large");
       if(!svg)return;
-      svg.querySelectorAll(".dive-shade,.dive-anchor,.dive-anchor-label").forEach(el=>el.remove());
+      svg.querySelectorAll(".dive-shade,.dive-anchor,.dive-anchor-label,.dive-tag").forEach(el=>el.remove());
       const shadeColor="#7c3aed",gold="#d4a017";
       if(mode==="band"){
         const band=rows.filter(s=>s.symbol!==anchor.symbol);
@@ -795,11 +797,37 @@
         a.parentNode.appendChild(label);
       }
     }
+    function addDiveTag(sym,idx){
+      const svg=document.getElementById("pca3Large");
+      if(!svg)return;
+      const pt=svg.querySelector(`.pca-point[data-sym="${CSS.escape(sym)}"]`);
+      if(!pt)return;
+      const cx=Number(pt.getAttribute("cx")),cy=Number(pt.getAttribute("cy"));
+      const g=document.createElementNS("http://www.w3.org/2000/svg","g");
+      g.setAttribute("class","dive-tag");
+      const y=cy-16-(idx%4)*12;
+      const dot=document.createElementNS("http://www.w3.org/2000/svg","circle");
+      dot.setAttribute("cx",cx.toFixed(1));dot.setAttribute("cy",cy.toFixed(1));dot.setAttribute("r","5.8");
+      dot.setAttribute("fill","#7c3aed");dot.setAttribute("stroke",C.ink);dot.setAttribute("stroke-width","1");
+      const text=document.createElementNS("http://www.w3.org/2000/svg","text");
+      text.setAttribute("x",(cx+9).toFixed(1));text.setAttribute("y",Math.max(18,y).toFixed(1));
+      text.setAttribute("fill","#7c3aed");text.setAttribute("stroke","rgba(255,255,255,.82)");text.setAttribute("stroke-width","3");text.setAttribute("paint-order","stroke");
+      text.setAttribute("font-family","JetBrains Mono, monospace");text.setAttribute("font-size","10.5");text.setAttribute("font-weight","800");
+      text.textContent=sym;
+      g.appendChild(dot);g.appendChild(text);svg.appendChild(g);
+    }
+    function syncDiveTags(anchorSym){
+      const svg=document.getElementById("pca3Large");
+      if(!svg)return;
+      svg.querySelectorAll(".dive-tag").forEach(el=>el.remove());
+      const picked=[...document.querySelectorAll("#diveCard .dive-pick[data-sym]:checked")].map(el=>el.dataset.sym).filter(sym=>sym!==anchorSym);
+      picked.forEach((sym,i)=>addDiveTag(sym,i));
+    }
     function renderDiveMethodCard(sym){
       const anchor=state.scope.find(s=>s.symbol===sym&&s._plotEligible);
       if(!anchor)return;
       const svg=document.getElementById("pca3Large");
-      if(svg)svg.querySelectorAll(".dive-shade,.dive-anchor,.dive-anchor-label").forEach(el=>el.remove());
+      if(svg)svg.querySelectorAll(".dive-shade,.dive-anchor,.dive-anchor-label,.dive-tag").forEach(el=>el.remove());
       $("#diveCard").innerHTML=`<h4>${esc(anchor.symbol)}</h4><div class="msub">${esc(anchor.name)} · risk ${anchor.risk_score.toFixed(3)}</div>
         <label>Method</label><select id="diveMode"><option value="">Select method</option><option value="band">PCA1 risk ±</option><option value="knn">PCA123 KNN</option></select>
         <div class="disclaim">PCA1 mode follows the oriented risk axis. KNN mode uses normalized distance across PC1, PC2, and PC3.</div>`;
@@ -821,7 +849,7 @@
       shadeDiveNeighbors(anchor,rows,mode,delta);
       const hi=rows.filter(s=>s._combined).length,rule=rows.filter(s=>s._rule).length,pca=rows.filter(s=>s._pca).length;
       const lo=anchor.risk_score-delta,hiRisk=anchor.risk_score+delta;
-      const tableRows=rows.slice(0,40).map(s=>`<tr title="${esc(s.name)}"><td><b>${esc(s.symbol)}</b></td><td>${s.risk_score.toFixed(2)}</td><td>${mode==="knn"?(s._pcaDist||0).toFixed(3):s._riskDist.toFixed(2)}</td><td>${esc(CAT_LABEL[s._cat])}</td></tr>`).join("");
+      const tableRows=rows.slice(0,40).map(s=>`<tr title="${esc(s.name)}"><td class="pick-cell"><input class="dive-pick" type="checkbox" data-sym="${esc(s.symbol)}" ${s.symbol===anchor.symbol?"checked disabled":""} aria-label="Tag ${esc(s.symbol)} on PCA plot"></td><td><b>${esc(s.symbol)}</b></td><td>${s.risk_score.toFixed(2)}</td><td>${mode==="knn"?(s._pcaDist||0).toFixed(3):s._riskDist.toFixed(2)}</td><td>${esc(CAT_LABEL[s._cat])}</td></tr>`).join("");
       $("#diveCard").innerHTML=`<h4>${esc(anchor.symbol)}</h4><div class="msub">${esc(anchor.name)} · risk ${anchor.risk_score.toFixed(3)}</div>
         <div class="dive-controls"><div><label>Method</label><select id="diveMode"><option value="band" ${mode==="band"?"selected":""}>PCA1 risk ±</option><option value="knn" ${mode==="knn"?"selected":""}>PCA123 KNN</option></select></div><div><label>${mode==="knn"?"K neighbors":"PCA1 ±"}</label><input id="${mode==="knn"?"knnK":"riskBandDelta"}" type="number" min="${mode==="knn"?"3":"0.01"}" step="${mode==="knn"?"1":"0.05"}" value="${mode==="knn"?k:delta}"></div></div>
         <div class="row"><span>${mode==="knn"?"Neighborhood":"Risk band"}</span><b>${mode==="knn"?`${rows.length} nearest`:`${lo.toFixed(2)} to ${hiRisk.toFixed(2)}`}</b></div>
@@ -829,12 +857,14 @@
         <div class="row"><span>Combined / Rule / PCA</span><b>${hi} / ${rule} / ${pca}</b></div>
         <div class="row"><span>Avg mkt cap / volume</span><b>${fmtMcap(avg(rows,"mcap_musd"))} / ${avg(rows,"vol_m").toFixed(2)}M</b></div>
         <button class="btn" id="bandCsvBtn" style="margin-top:12px;width:100%">Export CSV</button>
-        <div class="dive-table"><table><colgroup><col style="width:24%"><col style="width:22%"><col style="width:20%"><col style="width:34%"></colgroup><thead><tr><th>Symbol</th><th>Risk</th><th>${mode==="knn"?"Dist":"Δ"}</th><th>Verdict</th></tr></thead><tbody>${tableRows}</tbody></table></div>
+        <div class="dive-table"><table><colgroup><col style="width:12%"><col style="width:22%"><col style="width:20%"><col style="width:18%"><col style="width:28%"></colgroup><thead><tr><th>Pick</th><th>Symbol</th><th>Risk</th><th>${mode==="knn"?"Dist":"Δ"}</th><th>Verdict</th></tr></thead><tbody>${tableRows}</tbody></table></div>
         <div class="disclaim">${mode==="knn"?"PCA123 distance is normalized by each axis range.":"Shaded points are inside the PCA1 risk band."}</div>`;
       $("#diveMode").onchange=e=>{state.diveMode=e.target.value;renderDiveCard(anchor.symbol);};
       const activeInput=mode==="knn"?$("#knnK"):$("#riskBandDelta");
       activeInput.oninput=e=>renderDiveCard(anchor.symbol);
       $("#bandCsvBtn").onclick=()=>exportNeighbors(anchor,rows,mode,delta,k);
+      document.querySelectorAll("#diveCard .dive-pick[data-sym]").forEach(el=>el.onchange=()=>syncDiveTags(anchor.symbol));
+      syncDiveTags(anchor.symbol);
     }
 
     function openRuleEditor(key){
