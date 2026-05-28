@@ -121,6 +121,10 @@
     .legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 4px;font-family:var(--mono);font-size:11px;color:var(--ink-mute);}
     .legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle;}
     .legend i.sq{border-radius:2px;}
+    .chart-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:22px 0 6px;}
+    .chart-title-row .section-title{margin:0;}
+    .chart-expand{border:1px solid var(--rule-strong);background:var(--panel);color:var(--ink-soft);border-radius:6px;padding:5px 9px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;}
+    .chart-expand:hover{border-color:var(--accent);color:var(--accent);}
     .chart-box{position:relative;height:320px;}
     .chart-box canvas,.chart-box svg{display:block;width:100%;height:100%;}
     @media(max-width:880px){.chart-box{height:280px;}}
@@ -162,6 +166,9 @@
     .modal-bg{position:fixed;inset:0;background:rgba(20,22,26,.32);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:99;padding:20px;}
     .modal-bg.open{display:flex;}
     .modal{background:var(--panel);border:1px solid var(--rule);border-radius:var(--radius-lg);width:min(640px,100%);max-height:88vh;overflow:auto;padding:28px;box-shadow:0 24px 70px rgba(20,22,26,.18);}
+    .modal.chart-modal{width:min(1180px,100%);}
+    .chart-large{height:min(72vh,720px);margin-top:16px;}
+    .chart-large svg{display:block;width:100%;height:100%;}
     .modal h3{font-family:var(--display);font-weight:600;font-size:26px;margin:0;letter-spacing:-.02em;}
     .modal .msub{font-size:13px;color:var(--ink-mute);margin-top:4px;}
     .modal .close{float:right;border:1px solid var(--rule);background:var(--paper);border-radius:8px;width:32px;height:32px;cursor:pointer;color:var(--ink-mute);font-size:15px;}
@@ -266,8 +273,14 @@
         </div>
         <div class="disclaim" id="selectedPcaNote"></div>
         <div class="grid two" style="margin-top:6px">
-          <div><div class="section-title">PCA3 map: PC1 vs PC2 (bubble = PC3)</div><div class="chart-box"><canvas id="pca3"></canvas></div></div>
-          <div><div class="section-title">Risk-score distribution &amp; cut</div><div class="chart-box"><canvas id="hist"></canvas></div></div>
+          <div>
+            <div class="chart-title-row"><div class="section-title">PCA3 map: PC1 vs PC2 (bubble = PC3)</div><button class="chart-expand" data-chart="pca3">Enlarge</button></div>
+            <div class="chart-box"><canvas id="pca3"></canvas></div>
+          </div>
+          <div>
+            <div class="chart-title-row"><div class="section-title">Risk-score distribution &amp; cut</div><button class="chart-expand" data-chart="hist">Enlarge</button></div>
+            <div class="chart-box"><canvas id="hist"></canvas></div>
+          </div>
         </div>
       </div>
     </section>
@@ -276,9 +289,6 @@
       <div class="panel">
         <div class="panel-head"><h2>Scanned symbols</h2><span class="sub" id="tableCount"></span></div>
         <div class="toolbar">
-          <select id="symbolSelect" class="symbol-select">
-            <option value="">Locate symbol in PCA</option>
-          </select>
           <input type="text" id="fSearch" placeholder="Search symbol or name…" />
           <select id="fCat">
             <option value="">All verdicts</option>
@@ -397,13 +407,14 @@
         watch:(META.underwriters||[]).slice()
       };
     }
-    const state={...defaults(),f:{q:"",cat:"",country:"",uw:""},sort:{key:"risk_score",dir:"desc"},page:1,pageSize:20,selectedSym:"",selectedSyms:new Set(),visualSyms:new Set()};
+    const state={...defaults(),f:{q:"",cat:"",country:"",uw:""},sort:{key:"risk_score",dir:"desc"},page:1,pageSize:20,selectedSyms:new Set(),visualSyms:new Set()};
 
     function recompute(){
       const wl=new Set(state.watch.map(u=>u.trim().toLowerCase()).filter(Boolean));
       const scope=SYMBOLS.slice();
       scope.forEach(s=>{
         s._pcaEligible = s.pca_eligible !== false && Number.isFinite(+s.risk_score);
+        s._plotEligible = ["pc1","pc2","pc3","risk_score"].every(k=>Number.isFinite(+s[k]));
         s._f={
           mcap_below: s.mcap_max_musd < state.mcap,
           shares_below: s.shares_m < state.shares,
@@ -514,7 +525,7 @@
     }
 
     function buildCharts(){
-      const scope=state.scope.filter(s=>s._pcaEligible);
+      const scope=state.scope.filter(s=>s._plotEligible);
       if(!scope.length) return;
       const grp={};["both","rule","pca","watch","clear"].forEach(k=>grp[k]=[]);
       const pc3vals=scope.map(s=>s.pc3);
@@ -601,15 +612,16 @@
       const selected=state.scope?Array.from(state.selectedSyms).map(sym=>state.scope.find(x=>x.symbol===sym)).filter(Boolean):[];
       const visual=state.scope?Array.from(state.visualSyms).map(sym=>state.scope.find(x=>x.symbol===sym)).filter(Boolean):[];
       if(!selected.length){$("#selectedPcaNote").textContent="";return;}
-      const plotted=visual.filter(s=>s._pcaEligible);
-      const pending=selected.filter(s=>!s._pcaEligible);
+      const plotted=visual.filter(s=>s._plotEligible);
+      const pending=selected.filter(s=>!s._plotEligible);
+      const projected=plotted.filter(s=>!s._pcaEligible);
       const names=selected.slice(0,10).map(s=>s.symbol).join(", ");
       const suffix=selected.length>10?` +${selected.length-10} more`:"";
       if(!plotted.length){
-        $("#selectedPcaNote").textContent=`${selected.length} selected (${names}${suffix}) · click Visualize to plot PCA-eligible selections. ${pending.length} awaiting static fundamentals.`;
+        $("#selectedPcaNote").textContent=`${selected.length} selected (${names}${suffix}) · click Visualize to plot symbols with PCA coordinates. ${pending.length} without coordinates.`;
         return;
       }
-      $("#selectedPcaNote").textContent=`${selected.length} selected (${names}${suffix}) · plotting ${plotted.length} PCA-eligible symbol${plotted.length===1?"":"s"}${pending.length?`; ${pending.length} awaiting static fundamentals`:""}.`;
+      $("#selectedPcaNote").textContent=`${selected.length} selected (${names}${suffix}) · plotting ${plotted.length} symbol${plotted.length===1?"":"s"}${projected.length?`; ${projected.length} projected but excluded from PCA cut because static fundamentals are imputed`:""}${pending.length?`; ${pending.length} without coordinates`:""}.`;
     }
 
     const COLS=[
@@ -681,6 +693,18 @@
       });
     }
 
+    function openChartModal(chartId){
+      const svg=document.getElementById(chartId);
+      if(!svg) return;
+      const title=chartId==="pca3"?"PCA3 map: PC1 vs PC2":"Risk-score distribution & cut";
+      const largeSvg=svg.outerHTML.replace(`id="${chartId}"`,`id="${chartId}Large"`);
+      const modal=$("#modal");
+      modal.className="modal chart-modal";
+      modal.innerHTML=`<button class="close" id="mClose">×</button><h3>${esc(title)}</h3><div class="msub">${chartId==="pca3"?"Selected symbols are outlined and labeled in black. Imputed static rows may be projected, but they are not used for PCA cut/counts.":"Selected symbols are marked with black vertical lines."}</div><div class="chart-large">${largeSvg}</div>`;
+      $("#modalBg").classList.add("open");
+      $("#mClose").onclick=closeModal;
+    }
+
     function openRuleEditor(key){
       const labels={
         mcap:["Market cap threshold","mcap","number","$M",10],
@@ -721,6 +745,7 @@
 
     function openModal(sym){
       const s=SYMBOLS.find(x=>x.symbol===sym);if(!s||!s._f)return;const fl=s._f;
+      $("#modal").className="modal";
       const crit=[
         [`Market cap &lt; $${state.mcap}M (20d)`,`&lt; $${state.mcap}M`,fmtMcap(s.mcap_max_musd),fl.mcap_below],
         [`Shares outstanding &lt; ${state.shares}M`,`&lt; ${state.shares}M`,`${s.shares_m}M`,fl.shares_below],
@@ -740,7 +765,7 @@
         <table class="mtable"><tbody>
           <tr><td class="lab">Risk score (oriented ${esc((META.pca||{}).risk_component_label||"PC1")})</td><td class="val">${s.risk_score.toFixed(3)}</td></tr>
           <tr><td class="lab">Risk percentile rank</td><td class="val">${s.risk_rank.toFixed(0)} / 100</td></tr>
-          <tr><td class="lab">PCA eligible?</td><td class="val" style="color:${s._pcaEligible?C.ok:C.warn}">${s._pcaEligible?"yes — real static fundamentals":"no — awaiting static fundamentals"}</td></tr>
+          <tr><td class="lab">PCA eligible?</td><td class="val" style="color:${s._pcaEligible?C.ok:C.warn}">${s._pcaEligible?"yes — real static fundamentals":"projected only — excluded from PCA cut"}</td></tr>
           <tr><td class="lab">Past the ${state.pct}th-pctl cut?</td><td class="val" style="color:${s._pca?C.stop:C.ok}">${s._pca?"YES — in PCA region":(s._pcaEligible?"no":"not evaluated")}</td></tr>
           <tr><td class="lab">Coordinates (PC1, PC2, PC3)</td><td class="val">${s.pc1.toFixed(2)}, ${s.pc2.toFixed(2)}, ${s.pc3.toFixed(2)}</td></tr>
           <tr><td class="lab">Combined verdict</td><td class="val" style="color:${s._combined?C.stop:C.ok}">${s._combined?"HIGH-RISK":"not flagged"}</td></tr>
@@ -748,7 +773,7 @@
       $("#modalBg").classList.add("open");
       $("#mClose").onclick=closeModal;
     }
-    function closeModal(){$("#modalBg").classList.remove("open");}
+    function closeModal(){$("#modalBg").classList.remove("open");$("#modal").className="modal";}
 
     function exportCSV(){
       const head=["symbol","name","country","underwriter","close_price","price_max_20d","mcap_musd","shares_m","vol_m","num_employees","fundamentals_imputed","pca_eligible","mcap_below","shares_below","vol_below","price_below","hi_risk_underwriter","hit_count","rule_high_risk","risk_score","risk_rank","pca_high_risk","combined_high_risk","verdict"];
@@ -761,14 +786,11 @@
     function fillFilters(){
       const countries=[...new Set(SYMBOLS.map(s=>s.country).filter(Boolean))].sort();
       $("#fCountry").innerHTML='<option value="">All issuers</option>'+countries.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
-      const symbols=SYMBOLS.slice().sort((a,b)=>a.symbol.localeCompare(b.symbol));
-      $("#symbolSelect").innerHTML='<option value="">Locate symbol in PCA</option>'+symbols.map(s=>`<option value="${esc(s.symbol)}">${esc(s.symbol)} · ${esc(String(s.name||"").slice(0,52))}</option>`).join("");
     }
 
     function syncControls(){
       $("#pctSlider").value=state.pct;
       $("#pageSize").value=String(state.pageSize);
-      $("#symbolSelect").value=state.selectedSym||"";
       $("#pctOut").textContent=`${state.pct}th → top ${(100-state.pct)}%`;
     }
 
@@ -792,11 +814,6 @@
     function init(){
       statusBanner();pcaPanel();fillFilters();syncControls();
       $("#pctSlider").oninput=e=>{state.pct=+e.target.value;renderAll();};
-      $("#symbolSelect").onchange=e=>{
-        state.selectedSym=e.target.value;
-        if(state.selectedSym){state.selectedSyms.add(state.selectedSym);state.f.q=state.selectedSym;$("#fSearch").value=state.selectedSym;}
-        state.page=1;renderAll();
-      };
       $("#fSearch").oninput=e=>{state.f.q=e.target.value;state.page=1;renderTable();};
       $("#fCat").onchange=e=>{state.f.cat=e.target.value;state.page=1;renderTable();};
       $("#fCountry").onchange=e=>{state.f.country=e.target.value;state.page=1;renderTable();};
@@ -806,6 +823,7 @@
       $("#nextPage").onclick=()=>{state.page+=1;renderTable();};
       $("#vizBtn").onclick=()=>{state.visualSyms=new Set(state.selectedSyms);renderAll();};
       $("#csvBtn").onclick=exportCSV;
+      document.querySelectorAll("[data-chart]").forEach(btn=>btn.onclick=()=>openChartModal(btn.dataset.chart));
       $("#modalBg").onclick=e=>{if(e.target.id==="modalBg")closeModal();};
       document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
       tryFresh().then(ok=>{
