@@ -178,10 +178,11 @@
     .dive-card .row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:6px 0;border-bottom:1px solid var(--rule);font-size:12px;color:var(--ink-soft);}
     .dive-card .row b{font-family:var(--mono);color:var(--ink);}
     .dive-card label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);margin:12px 0 5px;}
-    .dive-card input{width:100%;font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--panel);border:1px solid var(--rule-strong);border-radius:6px;padding:7px 9px;}
-    .dive-table{max-height:280px;overflow:auto;margin-top:10px;border:1px solid var(--rule);border-radius:8px;}
-    .dive-table table{width:100%;border-collapse:collapse;font-size:11.5px;}
-    .dive-table th,.dive-table td{padding:7px 8px;border-bottom:1px solid var(--rule);white-space:nowrap;text-align:left;}
+    .dive-card input,.dive-card select{width:100%;font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--panel);border:1px solid var(--rule-strong);border-radius:6px;padding:7px 9px;}
+    .dive-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .dive-table{max-height:280px;overflow-y:auto;overflow-x:hidden;margin-top:10px;border:1px solid var(--rule);border-radius:8px;}
+    .dive-table table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:11.5px;}
+    .dive-table th,.dive-table td{padding:7px 6px;border-bottom:1px solid var(--rule);white-space:nowrap;text-align:left;overflow:hidden;text-overflow:ellipsis;}
     .dive-table th{position:sticky;top:0;background:var(--paper-deep);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);}
     @media(max-width:980px){.dive-layout{grid-template-columns:1fr;}.chart-large{height:58vh;}}
     .modal h3{font-family:var(--display);font-weight:600;font-size:26px;margin:0;letter-spacing:-.02em;}
@@ -315,10 +316,6 @@
             <option value="combined">Combined high-risk (rule ∪ PCA)</option>
           </select>
           <select id="fCountry"><option value="">All issuers</option></select>
-          <select id="fUw">
-            <option value="">All underwriters</option>
-            <option value="__hr__">High-risk underwriter only</option>
-          </select>
           <div class="spacer"></div>
           <button class="btn" id="vizBtn">Visualize</button>
           <button class="btn" id="csvBtn">↓ Export CSV</button>
@@ -423,7 +420,7 @@
         watch:(META.underwriters||[]).slice()
       };
     }
-    const state={...defaults(),f:{q:"",cat:"",country:"",uw:""},sort:{key:"risk_score",dir:"desc"},page:1,pageSize:20,selectedSyms:new Set(),visualSyms:new Set(),diveDelta:.35};
+    const state={...defaults(),f:{q:"",cat:"",country:""},sort:{key:"risk_score",dir:"desc"},page:1,pageSize:20,selectedSyms:new Set(),visualSyms:new Set(),diveDelta:.35,diveK:20,diveMode:"band"};
 
     function recompute(){
       const wl=new Set(state.watch.map(u=>u.trim().toLowerCase()).filter(Boolean));
@@ -642,10 +639,10 @@
 
     const COLS=[
       ["_select","",0,"3%"],
-      ["symbol","Symbol",0,"6.5%"],["name","Name",0,"15.5%"],["country","Issuer",0,"6.5%"],
-      ["mcap_musd","Mkt Cap",1,"7.5%"],["shares_m","Shares",1,"7%"],["vol_m","Avg Vol",1,"7%"],
-      ["close_price","Price",1,"6%"],["num_employees","Emp",1,"5.5%"],["underwriter","Underwriter",0,"17%"],
-      ["_hit","Flags",1,"4.5%"],["risk_rank","Risk %ile",1,"6.5%"],["_cat","Verdict",0,"7.5%"]
+      ["symbol","Symbol",0,"7%"],["name","Name",0,"22%"],["country","Issuer",0,"7%"],
+      ["mcap_musd","Mkt Cap",1,"9%"],["shares_m","Shares",1,"8%"],["vol_m","Avg Vol",1,"8%"],
+      ["close_price","Price",1,"7%"],["num_employees","Emp",1,"6.5%"],
+      ["_hit","Flags",1,"5.5%"],["risk_rank","Risk %ile",1,"8%"],["_cat","Verdict",0,"9%"]
     ];
     function colgroup(){
       $("#colGroup").innerHTML=COLS.map(c=>`<col style="width:${c[3]}">`).join("");
@@ -666,7 +663,6 @@
         if(f.q){const q=f.q.toLowerCase();if(!s.symbol.toLowerCase().includes(q)&&!String(s.name).toLowerCase().includes(q))return false;}
         if(f.cat){if(f.cat==="combined"){if(!s._combined)return false;}else if(s._cat!==f.cat)return false;}
         if(f.country&&s.country!==f.country)return false;
-        if(f.uw==="__hr__"&&!s._f.hi_risk_underwriter)return false;
         return true;});
       const{key,dir}=state.sort,m=dir==="asc"?1:-1;
       rows.sort((a,b)=>{let x=a[key],y=b[key];
@@ -700,7 +696,6 @@
           <td class="right ${fl.vol_below?'flagged':''}">${s.vol_m}M</td>
           <td class="right ${fl.price_below?'flagged':''}">$${s.close_price}</td>
           <td class="right">${s.num_employees}</td>
-          <td class="mono ${fl.hi_risk_underwriter?'flagged':''}">${esc(s.underwriter||"—")}</td>
           <td class="right"><b style="color:${s._hit===RULE_FLAG_KEYS.length?C.stop:s._hit>=3?C.warn:C.mute}">${s._hit}/${RULE_FLAG_KEYS.length}</b></td>
           <td class="right">${s._pcaEligible?Number(s.risk_rank).toFixed(0):"—"}</td>
           <td><span class="pill ${CAT_PILL[s._cat]}" style="cursor:pointer" data-sym="${esc(s.symbol)}">${CAT_LABEL[s._cat]}</span></td>
@@ -720,17 +715,30 @@
       const largeSvg=svg.outerHTML.replace(`id="${chartId}"`,`id="${chartId}Large"`);
       const modal=$("#modal");
       modal.className="modal chart-modal";
-      modal.innerHTML=`<button class="close" id="mClose">×</button><h3>${esc(title)}</h3><div class="msub">${chartId==="pca3"?"Hover for symbol detail; click a point to select a PCA1 risk-score band.":"Click a selected marker to inspect the same PCA1 risk-score band."}</div><div class="dive-layout"><div class="chart-large">${largeSvg}</div><div class="dive-card" id="diveCard"><h4>Dive In</h4><div class="msub">Click a plotted symbol to select neighbors by PCA1 risk score.</div><label>PCA1 risk ±</label><input id="riskBandDelta" type="number" min="0.01" step="0.05" value="${state.diveDelta}"><div class="disclaim">The band uses oriented PC1/risk_score, not Euclidean PCA distance.</div></div></div>`;
+      modal.innerHTML=`<button class="close" id="mClose">×</button><h3>${esc(title)}</h3><div class="msub">${chartId==="pca3"?"Hover for symbol detail; click a point to inspect PCA1 or PCA123 neighbors.":"Click a selected marker to inspect PCA1 or PCA123 neighbors."}</div><div class="dive-layout"><div class="chart-large">${largeSvg}</div><div class="dive-card" id="diveCard"><h4>Dive In</h4><div class="msub">Click a plotted symbol, then choose the neighborhood method.</div><div class="dive-controls"><div><label>Method</label><select id="diveMode"><option value="band">PCA1 risk ±</option><option value="knn">PCA123 KNN</option></select></div><div><label>PCA1 ±</label><input id="riskBandDelta" type="number" min="0.01" step="0.05" value="${state.diveDelta}"></div></div><div class="disclaim">PCA1 mode follows the oriented risk axis. KNN mode uses normalized distance across PC1, PC2, and PC3.</div></div></div>`;
       $("#modalBg").classList.add("open");
       $("#mClose").onclick=closeModal;
       $("#riskBandDelta").oninput=e=>{const v=parseFloat(e.target.value);if(Number.isFinite(v)&&v>0)state.diveDelta=v;};
+      $("#diveMode").onchange=e=>{state.diveMode=e.target.value;};
       modal.querySelectorAll("[data-sym]").forEach(el=>el.addEventListener("click",e=>{
         e.stopPropagation();
         renderDiveCard(el.dataset.sym);
       }));
     }
 
-    function riskBandRows(anchor,delta){
+    function pcaSpans(){
+      const rows=state.scope.filter(s=>s._plotEligible);
+      const span=k=>Math.max(...rows.map(s=>+s[k]))-Math.min(...rows.map(s=>+s[k]))||1;
+      return {pc1:span("pc1"),pc2:span("pc2"),pc3:span("pc3")};
+    }
+    function neighborRows(anchor,mode,delta,k){
+      if(mode==="knn"){
+        const sp=pcaSpans();
+        return state.scope.filter(s=>s._plotEligible)
+          .map(s=>({...s,_riskDist:Math.abs(s.risk_score-anchor.risk_score),_pcaDist:Math.hypot((s.pc1-anchor.pc1)/sp.pc1,(s.pc2-anchor.pc2)/sp.pc2,(s.pc3-anchor.pc3)/sp.pc3)}))
+          .sort((a,b)=>a._pcaDist-b._pcaDist||a.symbol.localeCompare(b.symbol))
+          .slice(0,k);
+      }
       const lo=anchor.risk_score-delta,hi=anchor.risk_score+delta;
       return state.scope.filter(s=>s._plotEligible&&s.risk_score>=lo&&s.risk_score<=hi)
         .map(s=>({...s,_riskDist:Math.abs(s.risk_score-anchor.risk_score)}))
@@ -744,32 +752,70 @@
       const csv=[head,...rows].map(r=>r.map(v=>`"${String(v==null?"":v).replace(/"/g,'""')}"`).join(",")).join("\n");
       const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=filename;a.click();
     }
-    function exportRiskBand(anchor,rows,delta){
-      const head=["anchor","range_plus_minus","symbol","name","verdict","risk_score","risk_distance","risk_rank","pc1","pc2","pc3","price","mcap_musd","shares_m","avg_vol_m","flags","pca_eligible","underwriter"];
-      const out=rows.map(s=>[anchor.symbol,delta,s.symbol,s.name,CAT_LABEL[s._cat],s.risk_score,s._riskDist,s.risk_rank,s.pc1,s.pc2,s.pc3,s.close_price,s.mcap_musd,s.shares_m,s.vol_m,s._hit,s._pcaEligible,s.underwriter||""]);
-      csvDownload(`pca1_risk_band_${anchor.symbol}_${META.as_of||"scan"}.csv`,head,out);
+    function exportNeighbors(anchor,rows,mode,delta,k){
+      const head=["anchor","method","range_plus_minus","k","symbol","name","verdict","risk_score","risk_distance","pca123_distance","risk_rank","pc1","pc2","pc3","price","mcap_musd","shares_m","avg_vol_m","flags","pca_eligible","underwriter"];
+      const out=rows.map(s=>[anchor.symbol,mode,mode==="band"?delta:"",mode==="knn"?k:"",s.symbol,s.name,CAT_LABEL[s._cat],s.risk_score,s._riskDist,s._pcaDist??"",s.risk_rank,s.pc1,s.pc2,s.pc3,s.close_price,s.mcap_musd,s.shares_m,s.vol_m,s._hit,s._pcaEligible,s.underwriter||""]);
+      csvDownload(`pca_neighbors_${anchor.symbol}_${mode}_${META.as_of||"scan"}.csv`,head,out);
+    }
+    function shadeDiveNeighbors(anchor,rows,mode,delta){
+      const svg=document.getElementById("pca3Large");
+      if(!svg)return;
+      svg.querySelectorAll(".dive-shade,.dive-anchor").forEach(el=>el.remove());
+      if(mode==="band"){
+        const band=rows.filter(s=>s.symbol!==anchor.symbol);
+        band.forEach(s=>{
+          const pt=svg.querySelector(`.pca-point[data-sym="${CSS.escape(s.symbol)}"]`);
+          if(!pt)return;
+          const c=pt.cloneNode(false);c.removeAttribute("class");c.removeAttribute("data-sym");
+          c.setAttribute("class","dive-shade");c.setAttribute("fill",C.warn);c.setAttribute("opacity",".22");c.setAttribute("r",Math.max(8,Number(pt.getAttribute("r")||5)+4));
+          pt.parentNode.insertBefore(c,pt);
+        });
+      }else{
+        rows.filter(s=>s.symbol!==anchor.symbol).forEach(s=>{
+          const pt=svg.querySelector(`.pca-point[data-sym="${CSS.escape(s.symbol)}"]`);
+          if(!pt)return;
+          const c=pt.cloneNode(false);c.removeAttribute("class");c.removeAttribute("data-sym");
+          c.setAttribute("class","dive-shade");c.setAttribute("fill",C.accent);c.setAttribute("opacity",".24");c.setAttribute("r",Math.max(8,Number(pt.getAttribute("r")||5)+4));
+          pt.parentNode.insertBefore(c,pt);
+        });
+      }
+      const a=svg.querySelector(`.pca-point[data-sym="${CSS.escape(anchor.symbol)}"]`);
+      if(a){
+        const ring=a.cloneNode(false);ring.removeAttribute("class");ring.removeAttribute("data-sym");
+        ring.setAttribute("class","dive-anchor");ring.setAttribute("fill","none");ring.setAttribute("stroke",C.ink);ring.setAttribute("stroke-width","3");ring.setAttribute("opacity","1");ring.setAttribute("r",Math.max(13,Number(a.getAttribute("r")||5)+7));
+        a.parentNode.appendChild(ring);
+      }
     }
     function renderDiveCard(sym){
       const anchor=state.scope.find(s=>s.symbol===sym&&s._plotEligible);
       if(!anchor)return;
+      const modeSel=$("#diveMode");
       const deltaInput=$("#riskBandDelta");
+      const kInput=$("#knnK");
+      const mode=modeSel?modeSel.value:state.diveMode;
       const delta=Math.max(.01,parseFloat(deltaInput&&deltaInput.value)||state.diveDelta);
+      const k=Math.max(3,Math.min(100,parseInt(kInput&&kInput.value,10)||state.diveK));
       state.diveDelta=delta;
-      const rows=riskBandRows(anchor,delta);
+      state.diveMode=mode;
+      state.diveK=k;
+      const rows=neighborRows(anchor,mode,delta,k);
+      shadeDiveNeighbors(anchor,rows,mode,delta);
       const hi=rows.filter(s=>s._combined).length,rule=rows.filter(s=>s._rule).length,pca=rows.filter(s=>s._pca).length;
       const lo=anchor.risk_score-delta,hiRisk=anchor.risk_score+delta;
-      const tableRows=rows.slice(0,30).map(s=>`<tr><td><b>${esc(s.symbol)}</b></td><td>${s.risk_score.toFixed(2)}</td><td>${s._riskDist.toFixed(2)}</td><td>${esc(CAT_LABEL[s._cat])}</td><td>${fmtMcap(s.mcap_musd)}</td><td>${s.vol_m}M</td></tr>`).join("");
+      const tableRows=rows.slice(0,40).map(s=>`<tr title="${esc(s.name)}"><td><b>${esc(s.symbol)}</b></td><td>${s.risk_score.toFixed(2)}</td><td>${mode==="knn"?(s._pcaDist||0).toFixed(3):s._riskDist.toFixed(2)}</td><td>${esc(CAT_LABEL[s._cat])}</td></tr>`).join("");
       $("#diveCard").innerHTML=`<h4>${esc(anchor.symbol)}</h4><div class="msub">${esc(anchor.name)} · risk ${anchor.risk_score.toFixed(3)}</div>
-        <label>PCA1 risk ±</label><input id="riskBandDelta" type="number" min="0.01" step="0.05" value="${delta}">
-        <div class="row"><span>Risk band</span><b>${lo.toFixed(2)} to ${hiRisk.toFixed(2)}</b></div>
-        <div class="row"><span>Symbols in band</span><b>${rows.length}</b></div>
+        <div class="dive-controls"><div><label>Method</label><select id="diveMode"><option value="band" ${mode==="band"?"selected":""}>PCA1 risk ±</option><option value="knn" ${mode==="knn"?"selected":""}>PCA123 KNN</option></select></div><div><label>${mode==="knn"?"K neighbors":"PCA1 ±"}</label><input id="${mode==="knn"?"knnK":"riskBandDelta"}" type="number" min="${mode==="knn"?"3":"0.01"}" step="${mode==="knn"?"1":"0.05"}" value="${mode==="knn"?k:delta}"></div></div>
+        <div class="row"><span>${mode==="knn"?"Neighborhood":"Risk band"}</span><b>${mode==="knn"?`${rows.length} nearest`:`${lo.toFixed(2)} to ${hiRisk.toFixed(2)}`}</b></div>
+        <div class="row"><span>Symbols</span><b>${rows.length}</b></div>
         <div class="row"><span>Combined / Rule / PCA</span><b>${hi} / ${rule} / ${pca}</b></div>
         <div class="row"><span>Avg mkt cap / volume</span><b>${fmtMcap(avg(rows,"mcap_musd"))} / ${avg(rows,"vol_m").toFixed(2)}M</b></div>
-        <button class="btn" id="bandCsvBtn" style="margin-top:12px;width:100%">Export Band CSV</button>
-        <div class="dive-table"><table><thead><tr><th>Symbol</th><th>Risk</th><th>Δ</th><th>Verdict</th><th>Mkt Cap</th><th>Vol</th></tr></thead><tbody>${tableRows}</tbody></table></div>
-        <div class="disclaim">Showing first ${Math.min(30,rows.length)} sorted by absolute PCA1 risk-score distance.</div>`;
-      $("#riskBandDelta").oninput=e=>renderDiveCard(anchor.symbol);
-      $("#bandCsvBtn").onclick=()=>exportRiskBand(anchor,rows,delta);
+        <button class="btn" id="bandCsvBtn" style="margin-top:12px;width:100%">Export CSV</button>
+        <div class="dive-table"><table><colgroup><col style="width:24%"><col style="width:22%"><col style="width:20%"><col style="width:34%"></colgroup><thead><tr><th>Symbol</th><th>Risk</th><th>${mode==="knn"?"Dist":"Δ"}</th><th>Verdict</th></tr></thead><tbody>${tableRows}</tbody></table></div>
+        <div class="disclaim">${mode==="knn"?"PCA123 distance is normalized by each axis range.":"Shaded points are inside the PCA1 risk band."}</div>`;
+      $("#diveMode").onchange=e=>{state.diveMode=e.target.value;renderDiveCard(anchor.symbol);};
+      const activeInput=mode==="knn"?$("#knnK"):$("#riskBandDelta");
+      activeInput.oninput=e=>renderDiveCard(anchor.symbol);
+      $("#bandCsvBtn").onclick=()=>exportNeighbors(anchor,rows,mode,delta,k);
     }
 
     function openRuleEditor(key){
@@ -884,7 +930,6 @@
       $("#fSearch").oninput=e=>{state.f.q=e.target.value;state.page=1;renderTable();};
       $("#fCat").onchange=e=>{state.f.cat=e.target.value;state.page=1;renderTable();};
       $("#fCountry").onchange=e=>{state.f.country=e.target.value;state.page=1;renderTable();};
-      $("#fUw").onchange=e=>{state.f.uw=e.target.value;state.page=1;renderTable();};
       $("#pageSize").onchange=e=>{state.pageSize=+e.target.value||20;state.page=1;renderTable();};
       $("#prevPage").onclick=()=>{state.page=Math.max(1,state.page-1);renderTable();};
       $("#nextPage").onclick=()=>{state.page+=1;renderTable();};
