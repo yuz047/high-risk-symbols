@@ -715,14 +715,12 @@
       const largeSvg=svg.outerHTML.replace(`id="${chartId}"`,`id="${chartId}Large"`);
       const modal=$("#modal");
       modal.className="modal chart-modal";
-      modal.innerHTML=`<button class="close" id="mClose">×</button><h3>${esc(title)}</h3><div class="msub">${chartId==="pca3"?"Hover for symbol detail; click a point to inspect PCA1 or PCA123 neighbors.":"Click a selected marker to inspect PCA1 or PCA123 neighbors."}</div><div class="dive-layout"><div class="chart-large">${largeSvg}</div><div class="dive-card" id="diveCard"><h4>Dive In</h4><div class="msub">Click a plotted symbol, then choose the neighborhood method.</div><div class="dive-controls"><div><label>Method</label><select id="diveMode"><option value="band">PCA1 risk ±</option><option value="knn">PCA123 KNN</option></select></div><div><label>PCA1 ±</label><input id="riskBandDelta" type="number" min="0.01" step="0.05" value="${state.diveDelta}"></div></div><div class="disclaim">PCA1 mode follows the oriented risk axis. KNN mode uses normalized distance across PC1, PC2, and PC3.</div></div></div>`;
+      modal.innerHTML=`<button class="close" id="mClose">×</button><h3>${esc(title)}</h3><div class="msub">${chartId==="pca3"?"Hover for symbol detail; click a point to inspect PCA1 or PCA123 neighbors.":"Click a selected marker to inspect PCA1 or PCA123 neighbors."}</div><div class="dive-layout"><div class="chart-large">${largeSvg}</div><div class="dive-card" id="diveCard"><h4>Dive In</h4><div class="msub">Click a plotted symbol, then choose the neighborhood method.</div></div></div>`;
       $("#modalBg").classList.add("open");
       $("#mClose").onclick=closeModal;
-      $("#riskBandDelta").oninput=e=>{const v=parseFloat(e.target.value);if(Number.isFinite(v)&&v>0)state.diveDelta=v;};
-      $("#diveMode").onchange=e=>{state.diveMode=e.target.value;};
       modal.querySelectorAll("[data-sym]").forEach(el=>el.addEventListener("click",e=>{
         e.stopPropagation();
-        renderDiveCard(el.dataset.sym);
+        renderDiveMethodCard(el.dataset.sym);
       }));
     }
 
@@ -785,6 +783,16 @@
         ring.setAttribute("class","dive-anchor");ring.setAttribute("fill","none");ring.setAttribute("stroke",C.ink);ring.setAttribute("stroke-width","3");ring.setAttribute("opacity","1");ring.setAttribute("r",Math.max(13,Number(a.getAttribute("r")||5)+7));
         a.parentNode.appendChild(ring);
       }
+    }
+    function renderDiveMethodCard(sym){
+      const anchor=state.scope.find(s=>s.symbol===sym&&s._plotEligible);
+      if(!anchor)return;
+      const svg=document.getElementById("pca3Large");
+      if(svg)svg.querySelectorAll(".dive-shade,.dive-anchor").forEach(el=>el.remove());
+      $("#diveCard").innerHTML=`<h4>${esc(anchor.symbol)}</h4><div class="msub">${esc(anchor.name)} · risk ${anchor.risk_score.toFixed(3)}</div>
+        <label>Method</label><select id="diveMode"><option value="">Select method</option><option value="band">PCA1 risk ±</option><option value="knn">PCA123 KNN</option></select>
+        <div class="disclaim">PCA1 mode follows the oriented risk axis. KNN mode uses normalized distance across PC1, PC2, and PC3.</div>`;
+      $("#diveMode").onchange=e=>{if(e.target.value){state.diveMode=e.target.value;renderDiveCard(anchor.symbol);}};
     }
     function renderDiveCard(sym){
       const anchor=state.scope.find(s=>s.symbol===sym&&s._plotEligible);
