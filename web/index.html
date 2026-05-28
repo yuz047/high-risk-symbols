@@ -758,14 +758,15 @@
     function shadeDiveNeighbors(anchor,rows,mode,delta){
       const svg=document.getElementById("pca3Large");
       if(!svg)return;
-      svg.querySelectorAll(".dive-shade,.dive-anchor").forEach(el=>el.remove());
+      svg.querySelectorAll(".dive-shade,.dive-anchor,.dive-anchor-label").forEach(el=>el.remove());
+      const shadeColor="#7c3aed",gold="#d4a017";
       if(mode==="band"){
         const band=rows.filter(s=>s.symbol!==anchor.symbol);
         band.forEach(s=>{
           const pt=svg.querySelector(`.pca-point[data-sym="${CSS.escape(s.symbol)}"]`);
           if(!pt)return;
           const c=pt.cloneNode(false);c.removeAttribute("class");c.removeAttribute("data-sym");
-          c.setAttribute("class","dive-shade");c.setAttribute("fill",C.warn);c.setAttribute("opacity",".22");c.setAttribute("r",Math.max(8,Number(pt.getAttribute("r")||5)+4));
+          c.setAttribute("class","dive-shade");c.setAttribute("fill",shadeColor);c.setAttribute("opacity",".22");c.setAttribute("r",Math.max(8,Number(pt.getAttribute("r")||5)+4));
           pt.parentNode.insertBefore(c,pt);
         });
       }else{
@@ -773,22 +774,32 @@
           const pt=svg.querySelector(`.pca-point[data-sym="${CSS.escape(s.symbol)}"]`);
           if(!pt)return;
           const c=pt.cloneNode(false);c.removeAttribute("class");c.removeAttribute("data-sym");
-          c.setAttribute("class","dive-shade");c.setAttribute("fill",C.accent);c.setAttribute("opacity",".24");c.setAttribute("r",Math.max(8,Number(pt.getAttribute("r")||5)+4));
+          c.setAttribute("class","dive-shade");c.setAttribute("fill",shadeColor);c.setAttribute("opacity",".24");c.setAttribute("r",Math.max(8,Number(pt.getAttribute("r")||5)+4));
           pt.parentNode.insertBefore(c,pt);
         });
       }
       const a=svg.querySelector(`.pca-point[data-sym="${CSS.escape(anchor.symbol)}"]`);
       if(a){
-        const ring=a.cloneNode(false);ring.removeAttribute("class");ring.removeAttribute("data-sym");
-        ring.setAttribute("class","dive-anchor");ring.setAttribute("fill","none");ring.setAttribute("stroke",C.ink);ring.setAttribute("stroke-width","3");ring.setAttribute("opacity","1");ring.setAttribute("r",Math.max(13,Number(a.getAttribute("r")||5)+7));
-        a.parentNode.appendChild(ring);
+        const cx=Number(a.getAttribute("cx")),cy=Number(a.getAttribute("cy"));
+        const tri=document.createElementNS("http://www.w3.org/2000/svg","polygon");
+        tri.setAttribute("class","dive-anchor");
+        tri.setAttribute("points",`${cx.toFixed(1)},${(cy-15).toFixed(1)} ${(cx+13).toFixed(1)},${(cy+10).toFixed(1)} ${(cx-13).toFixed(1)},${(cy+10).toFixed(1)}`);
+        tri.setAttribute("fill",gold);tri.setAttribute("stroke",C.ink);tri.setAttribute("stroke-width","1.6");tri.setAttribute("opacity",".96");
+        a.parentNode.appendChild(tri);
+        const label=document.createElementNS("http://www.w3.org/2000/svg","text");
+        label.setAttribute("class","dive-anchor-label");
+        label.setAttribute("x",(cx+16).toFixed(1));label.setAttribute("y",(cy-12).toFixed(1));
+        label.setAttribute("fill",gold);label.setAttribute("stroke","rgba(255,255,255,.75)");label.setAttribute("stroke-width","3");label.setAttribute("paint-order","stroke");
+        label.setAttribute("font-family","JetBrains Mono, monospace");label.setAttribute("font-size","12");label.setAttribute("font-weight","800");
+        label.textContent=anchor.symbol;
+        a.parentNode.appendChild(label);
       }
     }
     function renderDiveMethodCard(sym){
       const anchor=state.scope.find(s=>s.symbol===sym&&s._plotEligible);
       if(!anchor)return;
       const svg=document.getElementById("pca3Large");
-      if(svg)svg.querySelectorAll(".dive-shade,.dive-anchor").forEach(el=>el.remove());
+      if(svg)svg.querySelectorAll(".dive-shade,.dive-anchor,.dive-anchor-label").forEach(el=>el.remove());
       $("#diveCard").innerHTML=`<h4>${esc(anchor.symbol)}</h4><div class="msub">${esc(anchor.name)} · risk ${anchor.risk_score.toFixed(3)}</div>
         <label>Method</label><select id="diveMode"><option value="">Select method</option><option value="band">PCA1 risk ±</option><option value="knn">PCA123 KNN</option></select>
         <div class="disclaim">PCA1 mode follows the oriented risk axis. KNN mode uses normalized distance across PC1, PC2, and PC3.</div>`;
