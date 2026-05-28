@@ -128,6 +128,7 @@
     .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
     .toolbar input[type=text],.toolbar select{font-family:var(--sans);font-size:13px;color:var(--ink);background:var(--panel);border:1px solid var(--rule-strong);border-radius:var(--radius-sm);padding:7px 10px;outline:none;}
     .toolbar input[type=text]{min-width:180px;} .toolbar .spacer{flex:1;}
+    .toolbar .symbol-select{min-width:220px;}
     .btn{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule-strong);background:var(--panel);color:var(--ink-soft);border-radius:var(--radius-sm);padding:8px 14px;cursor:pointer;}
     .btn:hover{border-color:var(--accent);color:var(--accent);}
     .pager{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;font-family:var(--mono);font-size:11px;color:var(--ink-mute);}
@@ -146,6 +147,7 @@
     table.gl td{padding:10px 12px;border-bottom:1px solid var(--rule);color:var(--ink-soft);font-size:13px;white-space:nowrap;}
     table.gl tr:last-child td{border-bottom:0;}
     table.gl tbody tr:hover td{background:rgba(31,58,95,.025);}
+    table.gl tbody tr.is-selected td{background:rgba(31,58,95,.075);}
     table.gl td.symbol{font-family:var(--display);font-weight:600;color:var(--ink);}
     table.gl td.right{text-align:right;font-family:var(--mono);font-size:12.5px;}
     table.gl td.mono{font-family:var(--mono);font-size:12px;}
@@ -259,6 +261,7 @@
           <input type="range" id="pctSlider" min="50" max="98" step="1" />
           <span class="out" id="pctOut"></span>
         </div>
+        <div class="disclaim" id="selectedPcaNote"></div>
         <div class="grid two" style="margin-top:6px">
           <div><div class="section-title">PCA3 map: PC1 vs PC2 (bubble = PC3)</div><div class="chart-box"><canvas id="pca3"></canvas></div></div>
           <div><div class="section-title">Risk-score distribution &amp; cut</div><div class="chart-box"><canvas id="hist"></canvas></div></div>
@@ -270,6 +273,9 @@
       <div class="panel">
         <div class="panel-head"><h2>Scanned symbols</h2><span class="sub" id="tableCount"></span></div>
         <div class="toolbar">
+          <select id="symbolSelect" class="symbol-select">
+            <option value="">Locate symbol in PCA</option>
+          </select>
           <input type="text" id="fSearch" placeholder="Search symbol or name…" />
           <select id="fCat">
             <option value="">All verdicts</option>
@@ -387,7 +393,7 @@
         watch:(META.underwriters||[]).slice()
       };
     }
-    const state={...defaults(),f:{q:"",cat:"",country:"",uw:""},sort:{key:"risk_score",dir:"desc"},page:1,pageSize:20};
+    const state={...defaults(),f:{q:"",cat:"",country:"",uw:""},sort:{key:"risk_score",dir:"desc"},page:1,pageSize:20,selectedSym:""};
 
     function recompute(){
       const wl=new Set(state.watch.map(u=>u.trim().toLowerCase()).filter(Boolean));
@@ -520,7 +526,8 @@
       const labels=bins.map(b=>b.c.toFixed(1));
       const colors=bins.map(b=>b.hi>state.threshold?C.stop:C.rule);
       const anchorX={};scope.filter(s=>ANCHORS.includes(s.symbol)).forEach(s=>{let i=Math.min(NB-1,Math.floor((s.risk_score-lo)/w));anchorX[i]=(anchorX[i]?anchorX[i]+"/":"")+s.symbol;});
-      drawSvgCharts(grp,anchorPts,refPts,pc3min,pc3max,bins,colors,anchorX);
+      const selected=state.selectedSym?scope.find(s=>s.symbol===state.selectedSym):null;
+      drawSvgCharts(grp,anchorPts,refPts,pc3min,pc3max,bins,colors,anchorX,selected);
     }
 
     function svgGrid(w,h,pad,xLabel,yLabel){
@@ -534,7 +541,7 @@
       out+=`<text transform="translate(12 ${h/2}) rotate(-90)" text-anchor="middle" fill="${C.mute}" font-family="JetBrains Mono, monospace" font-size="10">${esc(yLabel)}</text>`;
       return out;
     }
-    function drawSvgCharts(grp,anchorPts,refPts,pc3min,pc3max,bins,colors,anchorX){
+    function drawSvgCharts(grp,anchorPts,refPts,pc3min,pc3max,bins,colors,anchorX,selected){
       const pad={l:42,r:16,t:14,b:34};
       const w=760,h=320;
       const all=[...Object.values(grp).flat(),...anchorPts,...refPts];
@@ -554,6 +561,12 @@
       });
       pca+=refPts.map(p=>`<rect x="${(x(p.x)-4).toFixed(1)}" y="${(y(p.y)-4).toFixed(1)}" width="8" height="8" fill="${C.ref}"><title>${esc(p.sym)} · ruler</title></rect>`).join("");
       pca+=anchorPts.map(p=>`<circle cx="${x(p.x).toFixed(1)}" cy="${y(p.y).toFixed(1)}" r="9" fill="none" stroke="${C.accent}" stroke-width="1.8"><title>${esc(p.sym)} · reported case</title></circle>`).join("");
+      if(selected){
+        const sx=x(selected.pc1),sy=y(selected.pc2);
+        pca+=`<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="13" fill="none" stroke="${C.ink}" stroke-width="2.4"/>`;
+        pca+=`<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.5" fill="${C.ink}"><title>${esc(selected.symbol)} · selected · risk ${selected.risk_score.toFixed(2)}</title></circle>`;
+        pca+=`<text x="${Math.min(w-pad.r-44,sx+12).toFixed(1)}" y="${Math.max(pad.t+12,sy-10).toFixed(1)}" fill="${C.ink}" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">${esc(selected.symbol)}</text>`;
+      }
       $("#pca3").parentElement.innerHTML=`<svg id="pca3" viewBox="0 0 ${w} ${h}" role="img" aria-label="PCA3 map">${pca}</svg>`;
 
       const hw=760,hh=320,hpad={l:42,r:16,t:14,b:34};
@@ -568,7 +581,26 @@
         hist+=`<line x1="${px.toFixed(1)}" y1="${hpad.t}" x2="${px.toFixed(1)}" y2="${hh-hpad.b}" stroke="${C.accent}" stroke-width="1.4"/>`;
         hist+=`<text x="${(px+3).toFixed(1)}" y="${hpad.t+10}" fill="${C.accent}" font-family="JetBrains Mono, monospace" font-size="10">${esc(anchorX[i])}</text>`;
       });
+      if(selected){
+        const riskLo=bins[0].c-(bins[1]?((bins[1].c-bins[0].c)/2):0.5);
+        const riskHi=bins[bins.length-1].c+(bins[1]?((bins[1].c-bins[0].c)/2):0.5);
+        const px=hpad.l+(selected.risk_score-riskLo)/(riskHi-riskLo)*(hw-hpad.l-hpad.r);
+        const clamped=Math.max(hpad.l,Math.min(hw-hpad.r,px));
+        hist+=`<line x1="${clamped.toFixed(1)}" y1="${hpad.t}" x2="${clamped.toFixed(1)}" y2="${hh-hpad.b}" stroke="${C.ink}" stroke-width="2.2"/>`;
+        hist+=`<circle cx="${clamped.toFixed(1)}" cy="${hpad.t+18}" r="4.5" fill="${C.ink}"><title>${esc(selected.symbol)} · selected · risk ${selected.risk_score.toFixed(2)}</title></circle>`;
+        hist+=`<text x="${Math.min(hw-hpad.r-44,clamped+7).toFixed(1)}" y="${hpad.t+21}" fill="${C.ink}" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">${esc(selected.symbol)}</text>`;
+      }
       $("#hist").parentElement.innerHTML=`<svg id="hist" viewBox="0 0 ${hw} ${hh}" role="img" aria-label="Risk-score distribution">${hist}</svg>`;
+    }
+
+    function selectedStatus(){
+      const s=state.selectedSym&&state.scope?state.scope.find(x=>x.symbol===state.selectedSym):null;
+      if(!s){$("#selectedPcaNote").textContent="";return;}
+      if(!s._pcaEligible){
+        $("#selectedPcaNote").textContent=`${s.symbol} selected · awaiting static fundamentals, so no PCA position is plotted.`;
+        return;
+      }
+      $("#selectedPcaNote").textContent=`${s.symbol} selected · PC1 ${s.pc1.toFixed(2)}, PC2 ${s.pc2.toFixed(2)}, PC3 ${s.pc3.toFixed(2)} · risk ${s.risk_score.toFixed(2)} (${Number(s.risk_rank).toFixed(0)}th percentile).`;
     }
 
     const COLS=[
@@ -615,7 +647,7 @@
       if(!rows.length){$("#tbody").innerHTML=`<tr><td colspan="${COLS.length}" class="empty">No symbols match the current filters.</td></tr>`;return;}
       $("#tbody").innerHTML=pageRows.map(s=>{
         const fl=s._f;const anc=ANCHORS.includes(s.symbol)?`<span class="anchor-tag">anchor</span>`:"";
-        return `<tr>
+        return `<tr class="${state.selectedSym===s.symbol?'is-selected':''}">
           <td class="symbol">${esc(s.symbol)}${anc}</td>
           <td title="${esc(s.name)}">${esc(s.name.length>22?s.name.slice(0,22)+"…":s.name)}</td>
           <td>${esc(s.country||"—")}</td>
@@ -712,15 +744,19 @@
     function fillFilters(){
       const countries=[...new Set(SYMBOLS.map(s=>s.country).filter(Boolean))].sort();
       $("#fCountry").innerHTML='<option value="">All issuers</option>'+countries.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
+      const symbols=SYMBOLS.slice().sort((a,b)=>a.symbol.localeCompare(b.symbol));
+      $("#symbolSelect").innerHTML='<option value="">Locate symbol in PCA</option>'+symbols.map(s=>`<option value="${esc(s.symbol)}">${esc(s.symbol)} · ${esc(String(s.name||"").slice(0,52))}</option>`).join("");
     }
 
     function syncControls(){
       $("#pctSlider").value=state.pct;
       $("#pageSize").value=String(state.pageSize);
+      $("#symbolSelect").value=state.selectedSym||"";
       $("#pctOut").textContent=`${state.pct}th → top ${(100-state.pct)}%`;
     }
 
     function renderAll(){recompute();heroPills();critGrid();kpis();try{buildCharts();}catch(e){console.warn("chart render failed",e);}renderTable();
+      selectedStatus();
       $("#pctOut").textContent=`${state.pct}th → top ${(100-state.pct)}%`;}
 
     function renderUnavailable(){
@@ -739,6 +775,11 @@
     function init(){
       statusBanner();pcaPanel();fillFilters();syncControls();
       $("#pctSlider").oninput=e=>{state.pct=+e.target.value;renderAll();};
+      $("#symbolSelect").onchange=e=>{
+        state.selectedSym=e.target.value;
+        if(state.selectedSym){state.f.q=state.selectedSym;$("#fSearch").value=state.selectedSym;}
+        state.page=1;renderAll();
+      };
       $("#fSearch").oninput=e=>{state.f.q=e.target.value;state.page=1;renderTable();};
       $("#fCat").onchange=e=>{state.f.cat=e.target.value;state.page=1;renderTable();};
       $("#fCountry").onchange=e=>{state.f.country=e.target.value;state.page=1;renderTable();};
