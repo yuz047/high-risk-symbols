@@ -151,5 +151,14 @@
     "both": 669,
     "combined": 1180,
     "source": "massive"
+  },
+  {
+    "date": "2026-06-17",
+    "scanned": 5140,
+    "rule": 858,
+    "pca": 992,
+    "both": 672,
+    "combined": 1178,
+    "source": "massive"
   }
 ]
