@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-06-19",
-  "generated_at": "2026-06-19T05:42:22+00:00",
+  "as_of": "2026-06-20",
+  "generated_at": "2026-06-20T05:01:08+00:00",
   "source": "massive",
   "synthetic": false,
   "universe_size": 5140,
@@ -172,7 +172,7 @@
         "name": "Johnson & Johnson",
         "group": "Blue chip",
         "pc1": -3.5527,
-        "pc2": -0.41,
+        "pc2": -0.4101,
         "pc3": -0.2658,
         "risk_score": -3.5527,
         "risk_rank": 1.0
@@ -182,8 +182,8 @@
         "name": "Exxon Mobil",
         "group": "Blue chip",
         "pc1": -3.4961,
-        "pc2": -0.7858,
-        "pc3": -0.0016,
+        "pc2": -0.7859,
+        "pc3": -0.0015,
         "risk_score": -3.4961,
         "risk_rank": 1.1
       },
@@ -201,7 +201,7 @@
     "reference_note": "MAG7 and blue-chip points are projected into the fitted PCA space as visual rulers only; they are not scanned, counted, or flagged.",
     "feature_log_mean": {
       "market_cap": 20.4504,
-      "avg_volume": 13.3362,
+      "avg_volume": 13.3361,
       "close_price": 2.8666,
       "num_employees": 6.5526
     },
