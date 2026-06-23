@@ -187,5 +187,14 @@
     "both": 669,
     "combined": 1173,
     "source": "massive"
+  },
+  {
+    "date": "2026-06-23",
+    "scanned": 5140,
+    "rule": 845,
+    "pca": 992,
+    "both": 667,
+    "combined": 1170,
+    "source": "massive"
   }
 ]
