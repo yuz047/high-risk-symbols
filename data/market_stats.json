@@ -1,6 +1,6 @@
 {
   "count": 5163,
-  "generated_at": "2026-09-05T04:57:58+00:00",
+  "generated_at": "2026-09-08T05:10:42+00:00",
   "refresh_policy": "daily/market",
   "rows": [
     {
@@ -5009,9 +5009,9 @@
       "symbol": "BRT"
     },
     {
-      "avg_volume": 417652.56764794997,
-      "close_price": 0.148,
-      "price_max_20d": 0.236,
+      "avg_volume": 20882.628382450002,
+      "close_price": 2.96,
+      "price_max_20d": 4.72,
       "stats_days": 20,
       "symbol": "BRTX"
     },
@@ -8383,9 +8383,9 @@
       "symbol": "CTSH"
     },
     {
-      "avg_volume": 440717.336809,
-      "close_price": 0.3501,
-      "price_max_20d": 0.4717,
+      "avg_volume": 22035.86684045,
+      "close_price": 7.002,
+      "price_max_20d": 9.434,
       "stats_days": 20,
       "symbol": "CTSO"
     },
@@ -14116,9 +14116,9 @@
       "symbol": "GT"
     },
     {
-      "avg_volume": 478537.1403715999,
-      "close_price": 0.241,
-      "price_max_20d": 0.334599,
+      "avg_volume": 19141.485614900004,
+      "close_price": 6.025,
+      "price_max_20d": 8.365,
       "stats_days": 20,
       "symbol": "GTBP"
     },
@@ -18988,9 +18988,9 @@
       "symbol": "LRCX"
     },
     {
-      "avg_volume": 2006389.3260085501,
-      "close_price": 0.4828,
-      "price_max_20d": 0.825,
+      "avg_volume": 334398.2210015499,
+      "close_price": 2.8968,
+      "price_max_20d": 4.95,
       "stats_days": 20,
       "symbol": "LRHC"
     },
@@ -20080,9 +20080,9 @@
       "symbol": "MGM"
     },
     {
-      "avg_volume": 15471251.449486753,
-      "close_price": 0.1004,
-      "price_max_20d": 0.2172,
+      "avg_volume": 386781.28623715,
+      "close_price": 4.016,
+      "price_max_20d": 8.688,
       "stats_days": 20,
       "symbol": "MGN"
     },
@@ -28949,9 +28949,9 @@
       "symbol": "SFST"
     },
     {
-      "avg_volume": 14498.657179210524,
-      "close_price": 0.9497,
-      "price_max_20d": 0.98,
+      "avg_volume": 966.5771453157895,
+      "close_price": 14.2455,
+      "price_max_20d": 14.7,
       "stats_days": 19,
       "symbol": "SFWL"
     },
@@ -32015,9 +32015,9 @@
       "symbol": "TNL"
     },
     {
-      "avg_volume": 10364412.03997675,
-      "close_price": 0.4374,
-      "price_max_20d": 0.799,
+      "avg_volume": 1295551.5049971498,
+      "close_price": 3.4992,
+      "price_max_20d": 6.392,
       "stats_days": 20,
       "symbol": "TNMG"
     },
@@ -34619,9 +34619,9 @@
       "symbol": "WCN"
     },
     {
-      "avg_volume": 2987008.6609534496,
-      "close_price": 1.44,
-      "price_max_20d": 1.84,
+      "avg_volume": 597401.7321906501,
+      "close_price": 7.2,
+      "price_max_20d": 9.2,
       "stats_days": 20,
       "symbol": "WCT"
     },
