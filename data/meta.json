@@ -1,19 +1,19 @@
 {
-  "as_of": "2026-09-29",
-  "generated_at": "2026-09-29T06:09:24+00:00",
+  "as_of": "2026-09-30",
+  "generated_at": "2026-09-30T05:58:19+00:00",
   "source": "massive",
   "synthetic": false,
-  "universe_size": 5163,
-  "scanned_count": 5163,
+  "universe_size": 5161,
+  "scanned_count": 5161,
   "counts": {
-    "rule_high_risk": 898,
+    "rule_high_risk": 900,
     "pca_high_risk": 980,
-    "both": 682,
-    "rule_only": 216,
-    "pca_only": 298,
-    "combined_total": 1196,
+    "both": 685,
+    "rule_only": 215,
+    "pca_only": 295,
+    "combined_total": 1195,
     "watch": 717,
-    "pca_candidate": 1885
+    "pca_candidate": 1883
   },
   "thresholds": {
     "universe_max_price": 20.0,
@@ -42,26 +42,26 @@
     ],
     "n_components": 3,
     "explained_variance_ratio": [
-      0.6754,
-      0.212,
-      0.0858
+      0.675,
+      0.2127,
+      0.0857
     ],
     "risk_component_index": 0,
     "risk_component_label": "PC1",
     "orientation_sign": 1.0,
     "separation_cohens_d": [
       2.512,
-      -0.203,
-      -0.332
+      -0.204,
+      -0.33
     ],
     "risk_separation": 2.512,
     "risk_percentile": 80.0,
-    "risk_threshold": 1.652,
+    "risk_threshold": 1.6489,
     "risk_loadings": {
-      "market_cap": -0.5819,
-      "avg_volume": -0.3518,
-      "close_price": -0.5097,
-      "num_employees": -0.5271
+      "market_cap": -0.5822,
+      "avg_volume": -0.3504,
+      "close_price": -0.5101,
+      "num_employees": -0.5273
     },
     "anchors": [
       "CLEU",
@@ -71,80 +71,80 @@
       "ALZN"
     ],
     "anchor_count": 2,
-    "fit_count": 4900,
+    "fit_count": 4898,
     "imputed_static_count": 263,
-    "fit_candidate_count": 1885,
+    "fit_candidate_count": 1883,
     "candidate_rule_min": 3,
-    "candidate_count": 1885,
+    "candidate_count": 1883,
     "reference_symbols": [
       {
         "symbol": "AAPL",
         "name": "Apple",
         "group": "MAG7",
-        "pc1": -4.5933,
-        "pc2": 1.1473,
-        "pc3": 0.1157,
-        "risk_score": -4.5933,
+        "pc1": -4.5925,
+        "pc2": 1.1543,
+        "pc3": 0.1182,
+        "risk_score": -4.5925,
         "risk_rank": 0.1
       },
       {
         "symbol": "MSFT",
         "name": "Microsoft",
         "group": "MAG7",
-        "pc1": -4.7219,
-        "pc2": 0.3927,
-        "pc3": 0.1571,
-        "risk_score": -4.7219,
+        "pc1": -4.7217,
+        "pc2": 0.3997,
+        "pc3": 0.1594,
+        "risk_score": -4.7217,
         "risk_rank": 0.1
       },
       {
         "symbol": "NVDA",
         "name": "NVIDIA",
         "group": "MAG7",
-        "pc1": -4.3514,
-        "pc2": 2.0227,
-        "pc3": 0.6481,
-        "risk_score": -4.3514,
+        "pc1": -4.3498,
+        "pc2": 2.0301,
+        "pc3": 0.6505,
+        "risk_score": -4.3498,
         "risk_rank": 0.2
       },
       {
         "symbol": "AMZN",
         "name": "Amazon",
         "group": "MAG7",
-        "pc1": -4.8616,
-        "pc2": 0.8904,
-        "pc3": -0.6994,
-        "risk_score": -4.8616,
+        "pc1": -4.8611,
+        "pc2": 0.8974,
+        "pc3": -0.6969,
+        "risk_score": -4.8611,
         "risk_rank": 0.0
       },
       {
         "symbol": "GOOGL",
         "name": "Alphabet",
         "group": "MAG7",
-        "pc1": -4.3449,
-        "pc2": 0.8742,
-        "pc3": -0.0615,
-        "risk_score": -4.3449,
+        "pc1": -4.3445,
+        "pc2": 0.8805,
+        "pc3": -0.0588,
+        "risk_score": -4.3445,
         "risk_rank": 0.2
       },
       {
         "symbol": "META",
         "name": "Meta",
         "group": "MAG7",
-        "pc1": -4.279,
-        "pc2": 0.2698,
-        "pc3": 0.4823,
-        "risk_score": -4.279,
+        "pc1": -4.2788,
+        "pc2": 0.2761,
+        "pc3": 0.4841,
+        "risk_score": -4.2788,
         "risk_rank": 0.2
       },
       {
         "symbol": "TSLA",
         "name": "Tesla",
         "group": "MAG7",
-        "pc1": -4.2443,
-        "pc2": 1.4397,
-        "pc3": 0.0145,
-        "risk_score": -4.2443,
+        "pc1": -4.2431,
+        "pc2": 1.4465,
+        "pc3": 0.0159,
+        "risk_score": -4.2431,
         "risk_rank": 0.3
       },
       {
@@ -152,8 +152,8 @@
         "name": "JPMorgan Chase",
         "group": "Blue chip",
         "pc1": -4.0288,
-        "pc2": 0.3006,
-        "pc3": -0.4005,
+        "pc2": 0.3059,
+        "pc3": -0.3984,
         "risk_score": -4.0288,
         "risk_rank": 0.4
       },
@@ -161,55 +161,55 @@
         "symbol": "BRK.B",
         "name": "Berkshire Hathaway",
         "group": "Blue chip",
-        "pc1": -4.2545,
-        "pc2": -0.3604,
-        "pc3": -0.278,
-        "risk_score": -4.2545,
+        "pc1": -4.2551,
+        "pc2": -0.3549,
+        "pc3": -0.2758,
+        "risk_score": -4.2551,
         "risk_rank": 0.2
       },
       {
         "symbol": "JNJ",
         "name": "Johnson & Johnson",
         "group": "Blue chip",
-        "pc1": -3.6032,
-        "pc2": 0.3353,
-        "pc3": -0.272,
-        "risk_score": -3.6032,
+        "pc1": -3.6033,
+        "pc2": 0.3399,
+        "pc3": -0.2698,
+        "risk_score": -3.6033,
         "risk_rank": 0.9
       },
       {
         "symbol": "XOM",
         "name": "Exxon Mobil",
         "group": "Blue chip",
-        "pc1": -3.5657,
-        "pc2": 0.7264,
-        "pc3": -0.0123,
-        "risk_score": -3.5657,
-        "risk_rank": 1.0
+        "pc1": -3.5656,
+        "pc2": 0.7312,
+        "pc3": -0.0098,
+        "risk_score": -3.5656,
+        "risk_rank": 0.9
       },
       {
         "symbol": "PG",
         "name": "Procter & Gamble",
         "group": "Blue chip",
-        "pc1": -3.6082,
-        "pc2": 0.2424,
-        "pc3": -0.1664,
-        "risk_score": -3.6082,
+        "pc1": -3.6084,
+        "pc2": 0.247,
+        "pc3": -0.1642,
+        "risk_score": -3.6084,
         "risk_rank": 0.9
       }
     ],
     "reference_note": "MAG7 and blue-chip points are projected into the fitted PCA space as visual rulers only; they are not scanned, counted, or flagged.",
     "feature_log_mean": {
       "market_cap": 20.4796,
-      "avg_volume": 13.1996,
-      "close_price": 2.8483,
-      "num_employees": 6.5696
+      "avg_volume": 13.2012,
+      "close_price": 2.8442,
+      "num_employees": 6.5699
     },
     "feature_log_std": {
-      "market_cap": 2.6856,
-      "avg_volume": 1.8928,
-      "close_price": 1.5501,
-      "num_employees": 2.5525
+      "market_cap": 2.6859,
+      "avg_volume": 1.891,
+      "close_price": 1.5515,
+      "num_employees": 2.5529
     },
     "fit_note": "PCA is fitted and flagged only on rows with real static fundamentals; rows with conservative market-cap/share imputations stay in the database but are excluded from the PCA cut until static backfill fills them."
   },
