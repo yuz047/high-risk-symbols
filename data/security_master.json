@@ -1,9 +1,9 @@
 {
-  "backfilled_at": "2026-09-01T07:16:59+00:00",
-  "count": 5174,
-  "detail_coverage": 4896,
+  "backfilled_at": "2026-10-01T08:13:09+00:00",
+  "count": 5176,
+  "detail_coverage": 4879,
   "dropped_non_stock": 221,
-  "generated_at": "2026-09-01T07:16:59+00:00",
+  "generated_at": "2026-10-01T08:13:09+00:00",
   "refresh_policy": "monthly/static",
   "rows": [
     {
@@ -465,6 +465,18 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": null,
+      "name": "Accelevation Holdings Corp. Class A Ordinary Shares",
+      "num_employees": null,
+      "primary_exchange": "XNAS",
+      "shares_out": null,
+      "symbol": "ACCV",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 1402135835.75,
       "name": "ProFrac Holding Corp. - Class A Common Stock",
       "num_employees": 2280,
@@ -874,8 +886,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 2430457852.98,
-      "name": "Advasa Holdings, Inc. Common Stock",
-      "num_employees": null,
+      "name": "Advasa Holdings, Inc. - Common stock",
       "primary_exchange": "XNAS",
       "shares_out": 487065702,
       "symbol": "ADBT",
@@ -946,8 +957,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 1678661907.78,
-      "name": "ADI Global Distribution Inc.",
-      "num_employees": null,
+      "name": "ADI Global Distribution Inc. Common Stock",
       "primary_exchange": "XNYS",
       "shares_out": 75923198,
       "symbol": "ADIG",
@@ -1023,6 +1033,18 @@
       "primary_exchange": "XNAS",
       "shares_out": 160044392,
       "symbol": "ADPT",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 2203845341.375,
+      "name": "ADARx Pharmaceuticals, Inc. Common Stock",
+      "num_employees": null,
+      "primary_exchange": "XNAS",
+      "shares_out": 106801325,
+      "symbol": "ADRX",
       "ticker_type": "CS"
     },
     {
@@ -2093,18 +2115,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 25900791.04,
-      "name": "AIxCrypto Holdings, Inc. - Common Stock",
-      "num_employees": 10,
-      "primary_exchange": "XNAS",
-      "shares_out": 20234993,
-      "symbol": "AIXC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 12684690548.369999,
       "name": "Assurant, Inc. Common Stock",
       "num_employees": 14800,
@@ -2582,7 +2592,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 10587746.8584,
-      "name": "Alpha Compute Corp  - Common Stock",
+      "name": "Alpha Compute Corp  - Ordinary Shares",
       "num_employees": 4,
       "primary_exchange": "XNAS",
       "shares_out": 23434588,
@@ -3238,18 +3248,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 6508070.3292000005,
-      "name": "Amaze Holdings, Inc. Common Stock",
-      "num_employees": 28,
-      "primary_exchange": "XASE",
-      "shares_out": 45007402,
-      "symbol": "AMZE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 2853753562276.4404,
       "name": "Amazon.com, Inc. - Common Stock",
       "num_employees": 1576000,
@@ -3502,18 +3500,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 7893508.920000001,
-      "name": "Sphere 3D Corp. - Common Shares",
-      "num_employees": 4,
-      "primary_exchange": "XNAS",
-      "shares_out": 4243822,
-      "symbol": "ANY",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 203552665.99,
       "name": "Angel Oak Mortgage REIT, Inc. Common Stock",
       "num_employees": 800,
@@ -3669,18 +3655,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 6242994143.75,
-      "name": "Apogee Therapeutics, Inc. - Common Stock",
-      "num_employees": 261,
-      "primary_exchange": "XNAS",
-      "shares_out": 75389375,
-      "symbol": "APGE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 171691519144.2,
       "name": "Amphenol Corporation Common Stock",
       "num_employees": 170000,
@@ -3730,8 +3704,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 1183146766.93,
-      "name": "Apnimed, Inc. Common Stock",
-      "num_employees": null,
+      "name": "Apnimed, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "shares_out": 39823183,
       "symbol": "APMD",
@@ -4470,8 +4443,20 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": 1193362967.8799999,
+      "name": "American Savings Bank, N.A.",
+      "num_employees": null,
+      "primary_exchange": "XNYS",
+      "shares_out": 64997983,
+      "symbol": "ASBH",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 6566836.380000001,
-      "name": "Aspire Biopharma Holdings, Inc.  - Common Stock",
+      "name": "Aspire-Lakewood Holdings, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "shares_out": 1295234,
       "symbol": "ASBP",
@@ -4751,18 +4736,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 14499088,
       "symbol": "ASYS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 1579435031.46,
-      "name": "AtaiBeckley Inc. - Common Stock",
-      "num_employees": 99,
-      "primary_exchange": "XNAS",
-      "shares_out": 368166674,
-      "symbol": "ATAI",
       "ticker_type": "CS"
     },
     {
@@ -5070,11 +5043,22 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 890700651.9,
-      "name": "Attovia Therapeutics, Inc. Common Stock",
-      "num_employees": null,
+      "name": "Attovia Therapeutics, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "shares_out": 43029017,
       "symbol": "ATTO",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 15509321.520000001,
+      "name": "Atlas Trinity Tech Limited Ordinary Shares",
+      "num_employees": 15,
+      "primary_exchange": "XNAS",
+      "shares_out": 5874743,
+      "symbol": "ATTT",
       "ticker_type": "CS"
     },
     {
@@ -5267,6 +5251,18 @@
       "primary_exchange": "XNAS",
       "shares_out": 5364050,
       "symbol": "AUUD",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 513006976.56,
+      "name": "Gold X2 Mining Inc.",
+      "num_employees": 26,
+      "primary_exchange": "XASE",
+      "shares_out": 101184808,
+      "symbol": "AUXX",
       "ticker_type": "CS"
     },
     {
@@ -7231,8 +7227,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 12300998.4384,
-      "name": "Instinct Bio Technical Company Holdings Inc. Ordinary Shares",
-      "num_employees": null,
+      "name": "Instinct Bio Technical Company Holdings Inc. - Common stock",
       "primary_exchange": "XNAS",
       "shares_out": 28794472,
       "symbol": "BIOT",
@@ -7675,8 +7670,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 568827489.5999999,
-      "name": "BlossomHill Therapeutics, Inc. Common Stock",
-      "num_employees": null,
+      "name": "BlossomHill Therapeutics, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "shares_out": 29081160,
       "symbol": "BLSM",
@@ -7903,7 +7897,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 115389812.28999999,
-      "name": "CEA Industries Inc. - Common Stock",
+      "name": "BNB Standard Corporation - Common Stock",
       "num_employees": 164,
       "primary_exchange": "XNAS",
       "shares_out": 42895841,
@@ -8476,7 +8470,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 2804254.3200000003,
-      "name": "BrenX Ltd. Ordinary Shares",
+      "name": "BrenX Ltd. - Ordinary Shares",
       "num_employees": 46,
       "primary_exchange": "XNAS",
       "shares_out": 720888,
@@ -8505,18 +8499,6 @@
       "primary_exchange": "XNYS",
       "shares_out": 137192622,
       "symbol": "BROS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 135860286.0,
-      "name": "ProCap Financial, Inc. - Common Stock",
-      "num_employees": 5,
-      "primary_exchange": "XNAS",
-      "shares_out": 90573524,
-      "symbol": "BRR",
       "ticker_type": "CS"
     },
     {
@@ -8559,6 +8541,18 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": 479668121.73,
+      "name": "B&R Technology Merger Corp. Class A Ordinary Shares",
+      "num_employees": null,
+      "primary_exchange": "XNAS",
+      "shares_out": 48895833,
+      "symbol": "BRTM",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 4754226.522,
       "name": "BioRestorative Therapies, Inc. - Common Stock",
       "num_employees": 14,
@@ -8582,11 +8576,11 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": null,
+      "market_cap": 2011470567.46,
       "name": "Braveheart Bio, Inc. Common Stock",
       "num_employees": null,
       "primary_exchange": "XNAS",
-      "shares_out": null,
+      "shares_out": 90038969,
       "symbol": "BRVE",
       "ticker_type": "CS"
     },
@@ -8643,7 +8637,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 62945092.629999995,
-      "name": "BioStem Technologies, Inc. Common Stock",
+      "name": "BioStem Technologies, Inc. - Common Stock",
       "num_employees": 2,
       "primary_exchange": "XNAS",
       "shares_out": 17831471,
@@ -8731,18 +8725,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 303796674,
       "symbol": "BSY",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 37670678.1,
-      "name": "BioXcel Therapeutics, Inc. - Common Stock",
-      "num_employees": 29,
-      "primary_exchange": "XNAS",
-      "shares_out": 30877605,
-      "symbol": "BTAI",
       "ticker_type": "CS"
     },
     {
@@ -8846,7 +8828,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 20277539.814,
-      "name": "Brightline Interactive, Inc. Common Stock",
+      "name": "Brightline Interactive, Inc. - Common Stock",
       "num_employees": 40,
       "primary_exchange": "XNAS",
       "shares_out": 21698812,
@@ -8875,18 +8857,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 45443079,
       "symbol": "BTOC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 2753683.11,
-      "name": "Bit Origin Limited - Class A Ordinary Shares",
-      "num_employees": 5,
-      "primary_exchange": "XNAS",
-      "shares_out": 1610341,
-      "symbol": "BTOG",
       "ticker_type": "CS"
     },
     {
@@ -8994,6 +8964,18 @@
       "primary_exchange": "XNYS",
       "shares_out": 62830271,
       "symbol": "BURL",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 8705678.0655,
+      "name": "Nuburu, Inc.",
+      "num_employees": 9,
+      "primary_exchange": "XASE",
+      "shares_out": 9262345,
+      "symbol": "BURU",
       "ticker_type": "CS"
     },
     {
@@ -10232,8 +10214,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 307990286.61,
-      "name": "Columbus Circle Capital Corp III Class A Ordinary Shares",
-      "num_employees": null,
+      "name": "Columbus Circle Capital Corp III - Class A Ordinary Shares",
       "primary_exchange": "XNAS",
       "shares_out": 31331667,
       "symbol": "CCCT",
@@ -11028,8 +11009,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 270600000.0,
-      "name": "Cartesian Growth Corporation IV Class A Ordinary Shares",
-      "num_employees": null,
+      "name": "Cartesian Growth Corporation IV - Class A Ordinary Shares",
       "primary_exchange": "XNAS",
       "shares_out": 27500000,
       "symbol": "CGCF",
@@ -12625,7 +12605,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 23148356.25,
-      "name": "Cerenome, Inc. Common Stock",
+      "name": "Cerenome, Inc. - Common Stock",
       "num_employees": 28,
       "primary_exchange": "XNAS",
       "shares_out": 7589625,
@@ -13695,18 +13675,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 90893695,
       "symbol": "CRNT",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 3878090850.2400002,
-      "name": "Crinetics Pharmaceuticals, Inc. - Common Stock",
-      "num_employees": 594,
-      "primary_exchange": "XNAS",
-      "shares_out": 105440208,
-      "symbol": "CRNX",
       "ticker_type": "CS"
     },
     {
@@ -14930,18 +14898,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 13857004.8,
-      "name": "Cyclerion Therapeutics, Inc. - Common Stock",
-      "num_employees": 1,
-      "primary_exchange": "XNAS",
-      "shares_out": 4330314,
-      "symbol": "CYCN",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 8005040.5699,
       "name": "Cycurion, Inc. - Common Stock",
       "num_employees": 74,
@@ -15248,18 +15204,6 @@
       "primary_exchange": "XNYS",
       "shares_out": 50749521,
       "symbol": "DBI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 2861422673.58,
-      "name": "DigitalBridge Group, Inc.",
-      "num_employees": 311,
-      "primary_exchange": "XNYS",
-      "shares_out": 182372382,
-      "symbol": "DBRG",
       "ticker_type": "CS"
     },
     {
@@ -16285,18 +16229,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 169298992.5,
-      "name": "Domo, Inc. - Class B Common Stock",
-      "num_employees": 876,
-      "primary_exchange": "XNAS",
-      "shares_out": 45146398,
-      "symbol": "DOMO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 4200833806.56,
       "name": "BRP Inc. - Common Subordinate Voting Shares",
       "num_employees": 17000,
@@ -16458,6 +16390,18 @@
       "primary_exchange": "XNAS",
       "shares_out": 7312398,
       "symbol": "DRIO",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 30545843.44,
+      "name": "DarkHorse Technologies Inc. Common Shares",
+      "num_employees": 4,
+      "primary_exchange": "XNAS",
+      "shares_out": 10569496,
+      "symbol": "DRK",
       "ticker_type": "CS"
     },
     {
@@ -17327,7 +17271,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 1986599.0058000002,
-      "name": "Endovia Health Sciences, Inc.",
+      "name": "Endovia Health Sciences, Inc. Common Stock",
       "num_employees": 3,
       "primary_exchange": "XASE",
       "shares_out": 6412521,
@@ -18282,6 +18226,18 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": 3792230.6999999997,
+      "name": "Eocene Ltd. Ordinary Shares",
+      "num_employees": 6,
+      "primary_exchange": "XNAS",
+      "shares_out": 1068234,
+      "symbol": "EOCN",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 72544005786.0,
       "name": "EOG Resources, Inc. Common Stock",
       "num_employees": 3400,
@@ -18842,6 +18798,18 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": 17886616.0,
+      "name": "EnerSyn Global Inc. Common Stock",
+      "num_employees": 4,
+      "primary_exchange": "XNAS",
+      "shares_out": 7726400,
+      "symbol": "ESYN",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 508926780.0,
       "name": "Ethan Allen Interiors Inc. Common Stock",
       "num_employees": 3105,
@@ -18896,6 +18864,18 @@
       "primary_exchange": "XNYS",
       "shares_out": 457886847,
       "symbol": "ETR",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 712404939.25,
+      "name": "Electra Therapeutics, Inc. Common stock",
+      "num_employees": null,
+      "primary_exchange": "XNAS",
+      "shares_out": 62766955,
+      "symbol": "ETRA",
       "ticker_type": "CS"
     },
     {
@@ -19524,8 +19504,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 32224671.492,
-      "name": "First Breach Inc. Common Stock",
-      "num_employees": null,
+      "name": "First Breach Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "shares_out": 45995820,
       "symbol": "FBDT",
@@ -19951,18 +19930,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 5637997.92,
-      "name": "ENvue Medical, Inc. - Common Stock",
-      "num_employees": 14,
-      "primary_exchange": "XNAS",
-      "shares_out": 6091840,
-      "symbol": "FEED",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 674762515.12,
       "name": "Frequency Electronics, Inc. - Common Stock",
       "num_employees": 226,
@@ -20107,6 +20074,18 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": null,
+      "name": "FF EAI Robotics Ecosystem Inc. Common Stock",
+      "num_employees": null,
+      "primary_exchange": "XNAS",
+      "shares_out": 21108884,
+      "symbol": "FFR",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 3684407571.8999996,
       "name": "F&G Annuities & Life, Inc. Common Stock",
       "num_employees": 1173,
@@ -20131,6 +20110,18 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": 31797093.12,
+      "name": "FG Communities Holdings Inc. Common Stock",
+      "num_employees": 15,
+      "primary_exchange": "XNAS",
+      "shares_out": 5095688,
+      "symbol": "FGC",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 11162746.38,
       "name": "FGI Industries Ltd. - Ordinary Shares",
       "num_employees": 426,
@@ -20149,18 +20140,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 987495,
       "symbol": "FGL",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 48085109.76,
-      "name": "FG Nexus Inc. - Common Stock",
-      "num_employees": 15,
-      "primary_exchange": "XNAS",
-      "shares_out": 6261082,
-      "symbol": "FGNX",
       "ticker_type": "CS"
     },
     {
@@ -20424,6 +20403,18 @@
       "primary_exchange": "XNAS",
       "shares_out": 93632102,
       "symbol": "FIZZ",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 149280400.0,
+      "name": "ARC Group Securities Acquisition I Class A Ordinary Shares",
+      "num_employees": null,
+      "primary_exchange": "XNAS",
+      "shares_out": 15140000,
+      "symbol": "FJDI",
       "ticker_type": "CS"
     },
     {
@@ -21882,7 +21873,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 21141097526.88,
-      "name": "Liberty Media Corporation - Series A Liberty Formula One Common Stock",
+      "name": "Liberty Media Corporation - Series A Common Stock",
       "num_employees": 1674,
       "primary_exchange": "XNAS",
       "shares_out": 250605708,
@@ -21894,7 +21885,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 22907867768.28,
-      "name": "Liberty Media Corporation - Series C Liberty Formula One Common Stock",
+      "name": "Liberty Media Corporation - Series C Common Stock",
       "num_employees": 1674,
       "primary_exchange": "XNAS",
       "shares_out": 250605708,
@@ -22150,18 +22141,6 @@
       "primary_exchange": "XASE",
       "shares_out": 5131934,
       "symbol": "GBR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 4927758727.5,
-      "name": "Global Business Travel Group, Inc. Class A Common Stock",
-      "num_employees": 27000,
-      "primary_exchange": "XNYS",
-      "shares_out": 521455950,
-      "symbol": "GBTG",
       "ticker_type": "CS"
     },
     {
@@ -22571,18 +22550,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 460855168.40000004,
-      "name": "Getty Images Holdings, Inc. Class A Common Stock",
-      "num_employees": 1650,
-      "primary_exchange": "XNYS",
-      "shares_out": 418959244,
-      "symbol": "GETY",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 287656693047.65,
       "name": "GE Vernova Inc. Common Stock",
       "num_employees": 75000,
@@ -22763,8 +22730,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 449397750.0,
-      "name": "Gores Holdings XI, Inc. Class A Ordinary Shares",
-      "num_employees": null,
+      "name": "Gores Holdings XI, Inc. - Class A Ordinary Shares",
       "primary_exchange": "XNAS",
       "shares_out": 45075000,
       "symbol": "GHXI",
@@ -22939,6 +22905,18 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": 11003729.665000001,
+      "name": "Gix Internet Ltd. Ordinary Shares",
+      "num_employees": null,
+      "primary_exchange": "XNAS",
+      "shares_out": 2492351,
+      "symbol": "GIXI",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 6752637747.67,
       "name": "Glaukos Corporation Common Stock",
       "num_employees": 1094,
@@ -23053,18 +23031,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 39904994,
       "symbol": "GLIBK",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 4157782.02,
-      "name": "Galmed Pharmaceuticals Ltd. - Ordinary Shares",
-      "num_employees": 6,
-      "primary_exchange": "XNAS",
-      "shares_out": 6599654,
-      "symbol": "GLMD",
       "ticker_type": "CS"
     },
     {
@@ -23555,6 +23521,18 @@
       "primary_exchange": "XNAS",
       "shares_out": 3473260,
       "symbol": "GOVX",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 148633772.4,
+      "name": "GOWell Energy Technology Ordinary shares",
+      "num_employees": null,
+      "primary_exchange": "XNAS",
+      "shares_out": 46740180,
+      "symbol": "GOW",
       "ticker_type": "CS"
     },
     {
@@ -24364,8 +24342,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 16982560.0,
-      "name": "Game Your Game, Inc. Common Stock",
-      "num_employees": null,
+      "name": "Game Your Game, Inc. - Common Stock",
       "primary_exchange": "XNAS",
       "shares_out": 14392000,
       "symbol": "GYGY",
@@ -24781,18 +24758,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 6948277.3648,
-      "name": "Healthy Choice Wellness Corp. Class A Common Stock",
-      "num_employees": 430,
-      "primary_exchange": "XASE",
-      "shares_out": 26550544,
-      "symbol": "HCWC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 309306428915.32,
       "name": "Home Depot, Inc. (The) Common Stock",
       "num_employees": 472400,
@@ -24877,7 +24842,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 221031000.32999998,
-      "name": "Cybin Inc. - Common Stock",
+      "name": "Helus Pharma Inc.  - Common Stock",
       "num_employees": 50,
       "primary_exchange": "XNAS",
       "shares_out": 49894131,
@@ -25283,24 +25248,24 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 73714819337.32,
-      "name": "Hilton Worldwide Holdings Inc. Common Stock",
-      "num_employees": 182000,
-      "primary_exchange": "XNYS",
-      "shares_out": 227648372,
-      "symbol": "HLT",
+      "market_cap": 1082160.0,
+      "name": "Tessera Defense and Homeland Security Inc.",
+      "num_employees": 20,
+      "primary_exchange": "XASE",
+      "shares_out": 2700000,
+      "symbol": "HLSQ",
       "ticker_type": "CS"
     },
     {
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 1489163490.12,
-      "name": "Helix Energy Solutions Group, Inc. Common Stock",
-      "num_employees": 2212,
+      "market_cap": 73714819337.32,
+      "name": "Hilton Worldwide Holdings Inc. Common Stock",
+      "num_employees": 182000,
       "primary_exchange": "XNYS",
-      "shares_out": 147296092,
-      "symbol": "HLX",
+      "shares_out": 227648372,
+      "symbol": "HLT",
       "ticker_type": "CS"
     },
     {
@@ -25526,6 +25491,30 @@
       "primary_exchange": "XNAS",
       "shares_out": 127838883,
       "symbol": "HOPE",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 2514630000.0,
+      "name": "Hornbeck Offshore Services, Inc.",
+      "num_employees": null,
+      "primary_exchange": "XNYS",
+      "shares_out": 327000000,
+      "symbol": "HOS",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": null,
+      "name": "Host Digital Inc.",
+      "num_employees": null,
+      "primary_exchange": "XASE",
+      "shares_out": 28200321,
+      "symbol": "HOST",
       "ticker_type": "CS"
     },
     {
@@ -26083,6 +26072,18 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": 156630416.13,
+      "name": "Huckleberry.ai, Inc. Class B Common Stock",
+      "num_employees": 876,
+      "primary_exchange": "XNAS",
+      "shares_out": 47036161,
+      "symbol": "HUCK",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 15157132.92,
       "name": "Huadi International Group Co., Ltd. - Ordinary Shares",
       "num_employees": 362,
@@ -26191,17 +26192,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 271423363.19,
-      "name": "Hennessy Capital Investment Corp. VII - Ordinary Shares",
-      "primary_exchange": "XNAS",
-      "shares_out": 26023333,
-      "symbol": "HVII",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 298511500.0,
       "name": "Highview Merger Corp. - Class A Ordinary Share",
       "primary_exchange": "XNAS",
@@ -26243,18 +26233,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 81157968,
       "symbol": "HWC",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 8074512.000000001,
-      "name": "HWH International Inc. - Common Stock",
-      "num_employees": 4,
-      "primary_exchange": "XNAS",
-      "shares_out": 7476400,
-      "symbol": "HWH",
       "ticker_type": "CS"
     },
     {
@@ -26418,7 +26396,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 369617922.45,
-      "name": "Innovative Solutions & Support",
+      "name": "Innovative Solutions and Support, Inc. - Common Stock",
       "num_employees": 147,
       "primary_exchange": "XNAS",
       "shares_out": 17899173,
@@ -27101,8 +27079,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 1088710000.0,
-      "name": "IMC Rare Earths Ltd",
-      "num_employees": null,
+      "name": "IMC Rare Earths Ltd Ordinary Shares",
       "primary_exchange": "XASE",
       "shares_out": 105700000,
       "symbol": "IMC",
@@ -27521,8 +27498,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 15622499999.999998,
-      "name": "INNIO N.V. Ordinary Shares",
-      "num_employees": null,
+      "name": "INNIO N.V. - Ordinary Shares",
       "primary_exchange": "XNAS",
       "shares_out": 750000000,
       "symbol": "INIO",
@@ -27869,7 +27845,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 94344413.16,
-      "name": "Identiv, Inc. - Common Stock",
+      "name": "INVE Technologies, Inc. - Common Stock",
       "num_employees": 155,
       "primary_exchange": "XNAS",
       "shares_out": 24006212,
@@ -27917,8 +27893,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 3203346959.37,
-      "name": "Ionic Digital Inc. Class A Common Stock",
-      "num_employees": null,
+      "name": "Ionic Digital Inc. - Class A Common Stock",
       "primary_exchange": "XNAS",
       "shares_out": 44921427,
       "symbol": "IOND",
@@ -28108,8 +28083,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 253108062.5,
-      "name": "InterPrivate Investment Partners V, Inc. Class A Ordinary Shares",
-      "num_employees": null,
+      "name": "InterPrivate Investment Partners V, Inc. - Class A Ordinary Shares",
       "primary_exchange": "XNAS",
       "shares_out": 25696250,
       "symbol": "IPVV",
@@ -28384,8 +28358,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 595867755.9,
-      "name": "ITG, Inc. Class A Common Stock",
-      "num_employees": null,
+      "name": "ITG, Inc. - Class A Common Stock",
       "primary_exchange": "XNAS",
       "shares_out": 48444533,
       "symbol": "ITG",
@@ -28515,6 +28488,18 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
+      "market_cap": null,
+      "name": "Ives Ultra AI Opportunities Inc.",
+      "num_employees": null,
+      "primary_exchange": "XNYS",
+      "shares_out": null,
+      "symbol": "IVAI",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
       "market_cap": 3663712.532,
       "name": "Iveda Solutions, Inc. - Common Stock",
       "num_employees": 32,
@@ -28580,6 +28565,18 @@
       "primary_exchange": "XNYS",
       "shares_out": 443296629,
       "symbol": "IVZ",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "country": "United States",
+      "delisted_utc": null,
+      "market_cap": 40644591.480000004,
+      "name": "Incannex Healthcare Limited Common Stock",
+      "num_employees": 12,
+      "primary_exchange": "XNAS",
+      "shares_out": 12544627,
+      "symbol": "IXHL",
       "ticker_type": "CS"
     },
     {
@@ -28835,14 +28832,6 @@
     },
     {
       "active": true,
-      "delisted_utc": null,
-      "name": "Nuveen Core Equity Alpha Fund Common Shares of Beneficial Interest",
-      "primary_exchange": "XNYS",
-      "symbol": "JCE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 85550409852.66,
@@ -28923,26 +28912,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 1801268,
       "symbol": "JEM",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 81405486.0,
-      "name": "JFB Construction Holdings - Class A Common Stock",
-      "num_employees": 22,
-      "primary_exchange": "XNAS",
-      "shares_out": 15330600,
-      "symbol": "JFB",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "delisted_utc": null,
-      "name": "Nuveen Floating Rate Income Fund Common Stock",
-      "primary_exchange": "XNYS",
-      "symbol": "JFR",
       "ticker_type": "CS"
     },
     {
@@ -29143,6 +29112,14 @@
       "name": "Japan Smaller Capitalization Fund Inc Common Stock",
       "primary_exchange": "XNYS",
       "symbol": "JOF",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "delisted_utc": null,
+      "name": "Jones Ventures INTL Acquisition1 Corp - Class A Ordinary Shares",
+      "primary_exchange": "XNAS",
+      "symbol": "JONE",
       "ticker_type": "CS"
     },
     {
@@ -29736,9 +29713,9 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 28280796666.300003,
-      "name": "The Kraft Heinz Company - Common Stock",
+      "name": "The Kraft Heinz Company Common Stock",
       "num_employees": 35000,
-      "primary_exchange": "XNAS",
+      "primary_exchange": "XNYS",
       "shares_out": 1185777638,
       "symbol": "KHC",
       "ticker_type": "CS"
@@ -30381,6 +30358,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "Korsana Biosciences, Inc. - Common Stock",
+      "primary_exchange": "XNAS",
+      "symbol": "KRSA",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 528240322.26,
@@ -30597,18 +30582,6 @@
       "primary_exchange": "XNYS",
       "shares_out": 299279813,
       "symbol": "KVYO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 17598418.866,
-      "name": "K Wave Media, Ltd. - Ordinary Shares",
-      "num_employees": 172,
-      "primary_exchange": "XNAS",
-      "shares_out": 68476338,
-      "symbol": "KWM",
       "ticker_type": "CS"
     },
     {
@@ -32265,18 +32238,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 79982861,
       "symbol": "LPLA",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 25691416.97,
-      "name": "LivePerson, Inc. - Common Stock",
-      "num_employees": 615,
-      "primary_exchange": "XNAS",
-      "shares_out": 12176027,
-      "symbol": "LPSN",
       "ticker_type": "CS"
     },
     {
@@ -36882,18 +36843,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 116541943.815,
-      "name": "NCS Multistage Holdings, Inc. - Common Stock",
-      "num_employees": 272,
-      "primary_exchange": "XNAS",
-      "shares_out": 2624523,
-      "symbol": "NCSM",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 4439712.600000001,
       "name": "Intercont (Cayman) Limited - Class A Ordinary shares",
       "num_employees": 24,
@@ -37408,17 +37357,6 @@
       "primary_exchange": "XNYS",
       "shares_out": 48471079,
       "symbol": "NHI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 295456564.09999996,
-      "name": "NewHold Investment Corp III - Class A Ordinary shares",
-      "primary_exchange": "XNAS",
-      "shares_out": 27612763,
-      "symbol": "NHIC",
       "ticker_type": "CS"
     },
     {
@@ -38998,6 +38936,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "newcleo plc - Ordinary Shares",
+      "primary_exchange": "XNAS",
+      "symbol": "NWCL",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 4455640679.04,
@@ -39102,6 +39048,14 @@
       "primary_exchange": "XNYS",
       "shares_out": 45933814,
       "symbol": "NX",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "delisted_utc": null,
+      "name": "Nexus Advanced Technologies Inc. - Ordinary Shares",
+      "primary_exchange": "XNAS",
+      "symbol": "NXAT",
       "ticker_type": "CS"
     },
     {
@@ -39840,6 +39794,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "Orion180 Insurance Group Inc. - Class A Common Stock",
+      "primary_exchange": "XNAS",
+      "symbol": "OIG",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 3895051973.45,
@@ -40200,6 +40162,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "ONE Nuclear Energy Inc. - Common Stock",
+      "primary_exchange": "XNAS",
+      "symbol": "ONEN",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 177807688.7,
@@ -40420,6 +40390,14 @@
       "primary_exchange": "XNYS",
       "shares_out": 105946106,
       "symbol": "OPLN",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "delisted_utc": null,
+      "name": "OpenWorld, Inc. - Common Stock",
+      "primary_exchange": "XNAS",
+      "symbol": "OPNW",
       "ticker_type": "CS"
     },
     {
@@ -42462,18 +42440,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 16437355.920000002,
-      "name": "BiomX Inc. COmmon Stock",
-      "num_employees": 57,
-      "primary_exchange": "XASE",
-      "shares_out": 10146516,
-      "symbol": "PHGE",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 4045852992.5,
       "name": "PLDT Inc. Sponsored ADR",
       "num_employees": 14304,
@@ -42993,17 +42959,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "name": "Platinum Analytics Cayman Limited - Class A Ordinary Shares",
-      "num_employees": 6,
-      "primary_exchange": "XNAS",
-      "shares_out": 18059109,
-      "symbol": "PLTS",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 5357065274.88,
       "name": "Plug Power, Inc. - Common Stock",
       "num_employees": 2582,
@@ -43098,7 +43053,7 @@
     {
       "active": true,
       "delisted_utc": null,
-      "name": "Ming Shing Group Holdings Limited - Ordinary Shares",
+      "name": "PMA Graphene Technology Group Inc. - Class A Ordinary Shares",
       "primary_exchange": "XNAS",
       "symbol": "PMA",
       "ticker_type": "CS"
@@ -45207,18 +45162,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 10712941.200000001,
-      "name": "Raytech Holding Limited - Ordinary Shares",
-      "num_employees": 6,
-      "primary_exchange": "XNAS",
-      "shares_out": 2975817,
-      "symbol": "RAY",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 3104918.04,
       "name": "Erayak Power Solution Group Inc. - Class A Ordinary Shares",
       "num_employees": 349,
@@ -46289,18 +46232,6 @@
       "primary_exchange": "XNYS",
       "shares_out": 558306597,
       "symbol": "RITM",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 31084498.75,
-      "name": "Reitar Logtech Holdings Limited - Ordinary shares",
-      "num_employees": 56,
-      "primary_exchange": "XNAS",
-      "shares_out": 62443750,
-      "symbol": "RITR",
       "ticker_type": "CS"
     },
     {
@@ -47549,6 +47480,14 @@
     {
       "active": true,
       "delisted_utc": null,
+      "name": "Roze AI Inc. - Common Shares",
+      "primary_exchange": "XNAS",
+      "symbol": "RZAI",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "delisted_utc": null,
       "name": "Reinsurance Group of America, Incorporated 7.125% Fixed-Rate Reset Subordinated Debentures due 2052",
       "primary_exchange": "XNYS",
       "symbol": "RZC",
@@ -48073,17 +48012,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 1139700000,
       "symbol": "SBUX",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 274659450.0,
-      "name": "SilverBox Corp IV Class A Ordinary Shares",
-      "primary_exchange": "XNYS",
-      "shares_out": 25455000,
-      "symbol": "SBXD",
       "ticker_type": "CS"
     },
     {
@@ -48864,6 +48792,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "Scorpio Gold Corporation - Common Stock",
+      "primary_exchange": "XNAS",
+      "symbol": "SGLD",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 2864883.6576,
@@ -48908,6 +48844,14 @@
       "primary_exchange": "XNAS",
       "shares_out": 33433355,
       "symbol": "SGP",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "delisted_utc": null,
+      "name": "SANGRIX INC. - Class A Ordinary Shares",
+      "primary_exchange": "XNAS",
+      "symbol": "SGRX",
       "ticker_type": "CS"
     },
     {
@@ -50435,18 +50379,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 3949958.9833,
-      "name": "Synergy CHC Corp. - Common Stock",
-      "num_employees": 28,
-      "primary_exchange": "XNAS",
-      "shares_out": 14899883,
-      "symbol": "SNYR",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 106067760310.82,
       "name": "Southern Company (The) Common Stock",
       "num_employees": 29800,
@@ -50477,18 +50409,6 @@
       "primary_exchange": "XNYS",
       "shares_out": 208584627,
       "symbol": "SOBO",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 3424005.64,
-      "name": "SOBR Safe, Inc. - Common Stock",
-      "num_employees": 18,
-      "primary_exchange": "XNAS",
-      "shares_out": 2806562,
-      "symbol": "SOBR",
       "ticker_type": "CS"
     },
     {
@@ -52042,6 +51962,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "Silvia, Inc. - Common Stock",
+      "primary_exchange": "XNAS",
+      "symbol": "SVIA",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 2758332142.54,
@@ -52169,6 +52097,14 @@
       "primary_exchange": "XNAS",
       "shares_out": 10798722,
       "symbol": "SWMR",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "delisted_utc": null,
+      "name": "Stewards Inc - Common Stock",
+      "primary_exchange": "XNAS",
+      "symbol": "SWRD",
       "ticker_type": "CS"
     },
     {
@@ -52626,18 +52562,6 @@
       "active": true,
       "country": "United States",
       "delisted_utc": null,
-      "market_cap": 845984812.05,
-      "name": "Theravance Biopharma, Inc. - Ordinary Shares",
-      "num_employees": 90,
-      "primary_exchange": "XNAS",
-      "shares_out": 51553005,
-      "symbol": "TBPH",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
       "market_cap": 4383252147.43,
       "name": "Texas Capital Bancshares, Inc. - Common Stock",
       "num_employees": 1785,
@@ -53083,6 +53007,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "Teva Pharmaceutical Industries Limited Ordinary Shares",
+      "primary_exchange": "XNYS",
+      "symbol": "TEVA",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 6769616459.52,
@@ -53399,6 +53331,14 @@
       "primary_exchange": "XNAS",
       "shares_out": 30667290,
       "symbol": "THRM",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "delisted_utc": null,
+      "name": "Gentherm Inc - Gentherm Inc Common Stock When-Issued",
+      "primary_exchange": "XNAS",
+      "symbol": "THRMV",
       "ticker_type": "CS"
     },
     {
@@ -54071,7 +54011,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 149742315.96,
-      "name": "Toro Corp. - Common stock",
+      "name": "Toro Corp. - Common Shares",
       "primary_exchange": "XNAS",
       "shares_out": 28852084,
       "symbol": "TORO",
@@ -54592,9 +54532,9 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 168071395.38,
-      "name": "Trio-Tech International Common Stock",
+      "name": "Trio-Tech International - Common Stock",
       "num_employees": 618,
-      "primary_exchange": "XASE",
+      "primary_exchange": "XNAS",
       "shares_out": 10112599,
       "symbol": "TRT",
       "ticker_type": "CS"
@@ -57543,18 +57483,6 @@
     },
     {
       "active": true,
-      "country": "Cayman Islands",
-      "delisted_utc": null,
-      "market_cap": 8396201.6,
-      "name": "VerifyMe, Inc. - Common Stock",
-      "num_employees": 30,
-      "primary_exchange": "XNAS",
-      "shares_out": 13119065,
-      "symbol": "VRME",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 3564979357.5,
@@ -57986,6 +57914,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "Vylor Inc. Common Stock",
+      "primary_exchange": "XNYS",
+      "symbol": "VYLR",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 910905426.75,
@@ -58230,6 +58166,14 @@
       "primary_exchange": "XNYS",
       "shares_out": 48704892,
       "symbol": "WCC",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "delisted_utc": null,
+      "name": "West Coast Community Bancorp - Common Stock",
+      "primary_exchange": "XNAS",
+      "symbol": "WCCB",
       "ticker_type": "CS"
     },
     {
@@ -59709,6 +59653,14 @@
     {
       "active": true,
       "delisted_utc": null,
+      "name": "Churchill Capital Corp XIII - Class A Ordinary Shares",
+      "primary_exchange": "XNAS",
+      "symbol": "XIII",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
+      "delisted_utc": null,
       "name": "Exascale Labs Holdings Inc. - Class A Common Stock",
       "primary_exchange": "XNAS",
       "symbol": "XLAB",
@@ -59956,6 +59908,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "Xtend AI Robotics, Inc. Common Stock",
+      "primary_exchange": "XNYS",
+      "symbol": "XTND",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 64689277.152,
@@ -60144,6 +60104,14 @@
     },
     {
       "active": true,
+      "delisted_utc": null,
+      "name": "YYForce Inc. - Class A Ordinary Shares",
+      "primary_exchange": "XNAS",
+      "symbol": "YFOR",
+      "ticker_type": "CS"
+    },
+    {
+      "active": true,
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 18169824.1336,
@@ -60327,18 +60295,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 1053561,
       "symbol": "YYAI",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 1032959.9296,
-      "name": "YY Group Holding Limited - Class A Ordinary Shares",
-      "num_employees": 1146,
-      "primary_exchange": "XNAS",
-      "shares_out": 4371392,
-      "symbol": "YYGH",
       "ticker_type": "CS"
     },
     {
@@ -60622,7 +60578,7 @@
       "country": "United States",
       "delisted_utc": null,
       "market_cap": 5569158.0,
-      "name": "CleanCore Solutions Inc. Class B Common Stock",
+      "name": "Zone Frontier Inc. Class B Common Stock",
       "primary_exchange": "XASE",
       "shares_out": 7955940,
       "symbol": "ZONE",
@@ -60673,18 +60629,6 @@
       "primary_exchange": "XNAS",
       "shares_out": 2430471,
       "symbol": "ZSTK",
-      "ticker_type": "CS"
-    },
-    {
-      "active": true,
-      "country": "United States",
-      "delisted_utc": null,
-      "market_cap": 64418589.445,
-      "name": "Zentek Ltd. - common stock",
-      "num_employees": 18,
-      "primary_exchange": "XNAS",
-      "shares_out": 107543555,
-      "symbol": "ZTEK",
       "ticker_type": "CS"
     },
     {
