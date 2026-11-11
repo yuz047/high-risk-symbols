@@ -1096,5 +1096,14 @@
     "both": 738,
     "combined": 1207,
     "source": "massive"
+  },
+  {
+    "date": "2026-11-11",
+    "scanned": 5157,
+    "rule": 972,
+    "pca": 972,
+    "both": 740,
+    "combined": 1204,
+    "source": "massive"
   }
 ]
