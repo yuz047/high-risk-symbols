@@ -1,6 +1,6 @@
 {
   "count": 5156,
-  "generated_at": "2026-11-26T08:53:44+00:00",
+  "generated_at": "2026-11-27T09:05:03+00:00",
   "refresh_policy": "daily/market",
   "rows": [
     {
@@ -13619,9 +13619,9 @@
       "symbol": "GMED"
     },
     {
-      "avg_volume": 12796129.4590283,
-      "close_price": 0.1397,
-      "price_max_20d": 0.92,
+      "avg_volume": 673480.49784355,
+      "close_price": 2.6543,
+      "price_max_20d": 17.48,
       "stats_days": 20,
       "symbol": "GMEX"
     },
@@ -15285,9 +15285,9 @@
       "symbol": "HUCK"
     },
     {
-      "avg_volume": 41031.77929675,
-      "close_price": 0.4999,
-      "price_max_20d": 0.5999,
+      "avg_volume": 5128.9724121,
+      "close_price": 3.9992,
+      "price_max_20d": 4.7992,
       "stats_days": 20,
       "symbol": "HUDI"
     },
@@ -16055,9 +16055,9 @@
       "symbol": "INDV"
     },
     {
-      "avg_volume": 28385.8846649,
-      "close_price": 0.4899,
-      "price_max_20d": 0.5972,
+      "avg_volume": 5677.176933000001,
+      "close_price": 2.4495,
+      "price_max_20d": 2.986,
       "stats_days": 20,
       "symbol": "INEO"
     },
@@ -16118,9 +16118,9 @@
       "symbol": "INKT"
     },
     {
-      "avg_volume": 74681315.26566525,
-      "close_price": 0.1626,
-      "price_max_20d": 0.97,
+      "avg_volume": 4667582.204104099,
+      "close_price": 2.6016,
+      "price_max_20d": 15.52,
       "stats_days": 20,
       "symbol": "INLF"
     },
@@ -24980,9 +24980,9 @@
       "symbol": "PFS"
     },
     {
-      "avg_volume": 614804.9887093998,
-      "close_price": 0.2841,
-      "price_max_20d": 0.78,
+      "avg_volume": 76850.62358875,
+      "close_price": 2.2728,
+      "price_max_20d": 6.24,
       "stats_days": 20,
       "symbol": "PFSA"
     },
@@ -28949,9 +28949,9 @@
       "symbol": "SGLD"
     },
     {
-      "avg_volume": 1991136.3860994999,
-      "close_price": 0.347,
-      "price_max_20d": 0.7271,
+      "avg_volume": 199113.63860994994,
+      "close_price": 3.47,
+      "price_max_20d": 7.271,
       "stats_days": 20,
       "symbol": "SGLY"
     },
@@ -30139,9 +30139,9 @@
       "symbol": "SPRB"
     },
     {
-      "avg_volume": 5949125.71825975,
-      "close_price": 0.2008,
-      "price_max_20d": 0.8297,
+      "avg_volume": 1189825.14365195,
+      "close_price": 1.004,
+      "price_max_20d": 4.1485,
       "stats_days": 20,
       "symbol": "SPRC"
     },
@@ -35648,9 +35648,9 @@
       "symbol": "XZO"
     },
     {
-      "avg_volume": 13658.579407200003,
-      "close_price": 0.703,
-      "price_max_20d": 0.8507,
+      "avg_volume": 2276.4299012500005,
+      "close_price": 4.218,
+      "price_max_20d": 5.1042,
       "stats_days": 20,
       "symbol": "YAAS"
     },
